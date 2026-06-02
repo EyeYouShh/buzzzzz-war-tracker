@@ -18,8 +18,20 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Ensure git is installed
-        run: command -v git || sudo dnf install -y git
+      - name: Ensure git is in PATH
+        run: |
+          if ! command -v git &>/dev/null; then
+            # Use the git binary bundled inside the Actions runner — no install needed
+            RUNNER_GIT=$(find /home/opc/actions-runner -name "git" -type f 2>/dev/null | head -1)
+            if [ -n "$RUNNER_GIT" ]; then
+              echo "$(dirname "$RUNNER_GIT")" >> "$GITHUB_PATH"
+              echo "Using runner-bundled git: $RUNNER_GIT"
+            else
+              echo "ERROR: git not found anywhere on this runner" && exit 1
+            fi
+          else
+            echo "git already in PATH: $(which git)"
+          fi
 
       - name: Run update script
         env:
