@@ -18,6 +18,9 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      - name: Ensure git is installed
+        run: command -v git || sudo dnf install -y git
+
       - name: Run update script
         env:
           COC_API_KEY: ${{ secrets.COC_API_KEY }}
