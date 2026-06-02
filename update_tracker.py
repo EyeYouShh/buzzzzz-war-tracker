@@ -95,15 +95,16 @@ def determine_result(war_data):
 
 
 def update_build_tracker(war_data):
-    with open(TRACKER_PY, "r") as f:
-        content = f.read()
-
     state = war_data.get("state", "")
-    war_id, new_entry, in_prog = build_war_block(war_data)
 
     if state == "notInWar":
         print("No active war. Nothing to update.")
         return False
+
+    with open(TRACKER_PY, "r") as f:
+        content = f.read()
+
+    war_id, new_entry, in_prog = build_war_block(war_data)
 
     id_pattern = re.compile(rf'"\s*{re.escape(war_id)}\s*"')
     war_exists = bool(id_pattern.search(content))
