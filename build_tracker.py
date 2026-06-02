@@ -12,6 +12,11 @@ ACTIVE = {
     "rinz","das","seth","Mr.Minzy kipz","Halid #1"
 }
 
+# ===== PLAYER TAGS (tag → display name, auto-updated by update_tracker.py) =====
+PLAYER_TAGS = {
+    # "#XXXXXXXX": "DisplayName",
+}
+
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
 ("273131437","5/29/26","Friendj of wer","30v30","""Slayer|1|0|0|
@@ -1241,23 +1246,48 @@ RESULTS = {
     '8LG0VRGUQ': 'W', '8LQUVPLJ9': 'W', '8LQCG02G9': 'W',
 }
 
+def parse_atk_detail(raw_attacks, v2=False):
+    """Parse attack detail string into list. v2: [defPos,rawStars,delta,defTH], v1: [defPos,stars]."""
+    detail = []
+    if not raw_attacks:
+        return detail
+    for pair in raw_attacks.split(','):
+        p = pair.split(':')
+        if v2 and len(p) == 4:
+            detail.append([p[0], int(p[1]), int(p[2]), int(p[3])])
+        elif len(p) >= 2:
+            # v1 or partial — delta/defTH default to 0
+            detail.append([p[0], int(p[1]), 0, 0])
+    return detail
+
 def parse_war(war_id, date, opp, size, raw, in_prog=False, cwl=False):
     players = {}
     for line in raw.strip().split('\n'):
         parts = line.split('|')
-        if len(parts) < 4:
-            continue
-        name = parts[0]
-        pos = int(parts[1])
-        atks = int(parts[2])
-        stars = int(parts[3])
-        atk_detail = []
-        if len(parts) > 4 and parts[4]:
-            for pair in parts[4].split(','):
-                if ':' in pair:
-                    tp, st = pair.split(':')
-                    atk_detail.append([tp, int(st)])
-        players[name] = {'p': pos, 'a': atks, 's': stars, 'atks': atk_detail}
+        if parts[0].startswith('#'):
+            # ── V2 format: #tag|name|pos|TH|atk_count|raw_stars|net_stars|attacks ──
+            if len(parts) < 7:
+                continue
+            tag      = parts[0]
+            name     = parts[1]
+            pos      = int(parts[2])
+            th       = int(parts[3]) if parts[3] else 0
+            atks     = int(parts[4])
+            stars    = int(parts[5])
+            net_stars= int(parts[6]) if parts[6] else stars
+            atk_detail = parse_atk_detail(parts[7] if len(parts) > 7 else '', v2=True)
+            players[tag] = {'p': pos, 'th': th, 'a': atks, 's': stars, 'ns': net_stars,
+                            'atks': atk_detail, 'name': name}
+        else:
+            # ── V1 format: name|pos|atk_count|total_stars|attacks ──
+            if len(parts) < 4:
+                continue
+            name = parts[0]
+            pos  = int(parts[1])
+            atks = int(parts[2])
+            stars= int(parts[3])
+            atk_detail = parse_atk_detail(parts[4] if len(parts) > 4 else '')
+            players[name] = {'p': pos, 'a': atks, 's': stars, 'atks': atk_detail}
     return {
         'id': war_id,
         'date': date,
@@ -1271,15 +1301,25 @@ def parse_war(war_id, date, opp, size, raw, in_prog=False, cwl=False):
 
 wars = [parse_war(*b) for b in WAR_BLOCKS]
 
-# Seed all_players from ACTIVE first so every current member always gets a row
+# Seed all_players:
+# - V1 players (name-keyed) seeded from ACTIVE set
+# - V2 players (tag-keyed, starts with #) seeded from PLAYER_TAGS
 all_players = {}
 for name in ACTIVE:
     all_players[name] = {'active': True}
-# Then add anyone else seen in wars (ex-members, guests, etc.)
+for tag, name in PLAYER_TAGS.items():
+    if tag not in all_players:
+        all_players[tag] = {'active': name in ACTIVE, 'name': name}
+
+# Then add anyone else seen in wars (ex-members, historical players, etc.)
 for w in wars:
-    for name, data in w['players'].items():
-        if name not in all_players:
-            all_players[name] = {'active': name in ACTIVE}
+    for key, data in w['players'].items():
+        if key not in all_players:
+            if key.startswith('#'):
+                display = data.get('name', key)
+                all_players[key] = {'active': display in ACTIVE, 'name': display}
+            else:
+                all_players[key] = {'active': key in ACTIVE}
 
 # Generate JS data (missed count now calculated dynamically in JS for rolling window)
 players_js = json.dumps(all_players, ensure_ascii=False)
@@ -1453,7 +1493,12 @@ function calcMissed(name){
 }
 
 function atkDetail(ppos,atks){
-  return atks.map(([tp,st])=>`#${ppos}→#${tp}: ${st}★`).join('<br>');
+  return atks.map(a=>{
+    const [tp,st,dt,dth]=a;
+    const net=(dt!==undefined&&dt<st)?` <span style="color:#60a5fa">(+${dt}★)</span>`:'';
+    const thBadge=dth?` <span style="font-size:8px;color:#94a3b8">vs TH${dth}</span>`:'';
+    return `#${ppos}→#${tp}: ${st}★${net}${thBadge}`;
+  }).join('<br>');
 }
 
 function maxAtks(w){ return w.cwl ? 1 : 2; }
@@ -1562,12 +1607,13 @@ function buildTable(){
     shown++;
     if(pd.active) activeShown++;
     h+=`<tr>`;
+    const displayName=pd.name||name;  // v2 has .name from tag; v1 uses name key directly
     const badge=pd.active
       ?'<span class="badge b-act">Active</span>'
       :'<span class="badge b-old">Left</span>';
     const {inn,tot}=getWarsInStat(name);
     const wiStr=(pd.active&&tot>0)?`<span class="wars-in">${inn}/${tot} wars</span>`:'';
-    h+=`<td class="name-col"><div class="pname" title="${esc(name)}">${esc(name)}</div>${badge} ${wiStr}</td>`;
+    h+=`<td class="name-col"><div class="pname" title="${esc(displayName)}">${esc(displayName)}</div>${badge} ${wiStr}</td>`;
 
     WARS.forEach((w,wi)=>{
       const wp=w.players[name];
@@ -1586,7 +1632,8 @@ function buildTable(){
       } else {
         const det=atkDetail(wp.p, wp.atks);
         h+=`<td class="war-cell c-ok${fd}${arc}" title="${det.replace(/<br>/g,'\n')}">`;
-        h+=`<div class="atk-main">${wp.a}/${ma} <span class="atk-star">${wp.s}★</span></div>`;
+        const starLabel=(wp.ns!==undefined&&wp.ns!==wp.s)?`${wp.ns}★ <span style="font-size:9px;color:#6a9a7a">(${wp.s} raw)</span>`:`${wp.s}★`;
+        h+=`<div class="atk-main">${wp.a}/${ma} <span class="atk-star">${starLabel}</span></div>`;
         h+=`<div class="atk-det">${det}</div>`;
         h+=`</td>`;
       }
