@@ -17,12 +17,16 @@ jobs:
     steps:
       - name: Ensure git is installed
         run: |
-          if ! command -v git &>/dev/null; then
-            echo "git not found — installing..."
-            sudo dnf install -y git -q
+          if command -v git &>/dev/null; then
+            echo "git already available: $(git --version)"
+          elif command -v microdnf &>/dev/null; then
+            echo "Installing git via microdnf..."
+            sudo microdnf install -y git
             echo "git installed: $(git --version)"
           else
-            echo "git already available: $(git --version)"
+            echo "Installing git via dnf..."
+            sudo dnf install -y git -q
+            echo "git installed: $(git --version)"
           fi
 
       - name: Checkout repo
