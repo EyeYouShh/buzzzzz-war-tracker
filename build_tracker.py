@@ -1,4 +1,5 @@
 import json, re, os
+from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
@@ -1321,369 +1322,564 @@ for w in wars:
             else:
                 all_players[key] = {'active': key in ACTIVE}
 
-# Generate JS data (missed count now calculated dynamically in JS for rolling window)
-players_js = json.dumps(all_players, ensure_ascii=False)
-wars_js = json.dumps(wars, ensure_ascii=False)
+# ── 60-day window ──
+_today = datetime.now()
+_cutoff = _today - timedelta(days=60)
 
-print(f"// Players: {len(all_players)}")
-print(f"// Wars: {len(wars)}")
+def _parse_war_date(date_str):
+    try:
+        p = date_str.split('/')
+        y = int(p[2]); y = y + 2000 if y < 100 else y
+        return datetime(y, int(p[0]), int(p[1]))
+    except Exception:
+        return _today
+
+# ── Canonical member key resolution (tag > name) ──
+_name_to_tag = {name: tag for tag, name in PLAYER_TAGS.items()}
+
+_members = {}
+for _key, _info in all_players.items():
+    if _key.startswith('#'):
+        _name = _info.get('name', _key); _canonical = _key
+    else:
+        _name = _key; _canonical = _name_to_tag.get(_name, _name)
+    if _canonical not in _members:
+        _members[_canonical] = {
+            'name': _name,
+            'status': 'active' if _info.get('active', _name in ACTIVE) else 'left',
+            'th': 0, 'cells': {}
+        }
+
+# ── Build wars_data + cells ──
+_wars_data = []
+for _war in wars:
+    _is_v2 = any(k.startswith('#') for k in _war['players'].keys())
+    _war_dt = _parse_war_date(_war['date'])
+    _in_window = _war_dt >= _cutoff
+    _rc = _war['result']
+    if _war['in_prog']:      _result = 'live'
+    elif _rc == 'W':         _result = 'win'
+    elif _rc == 'L':         _result = 'loss'
+    elif _rc == 'D':         _result = 'draw'
+    else:                    _result = 'draw'
+    _dp = _war['date'].split('/')
+    _date_disp = f"{_dp[0]}/{_dp[1]}" if len(_dp) >= 2 else _war['date']
+    _wars_data.append({
+        'id': _war['id'], 'date': _date_disp, 'name': _war['opp'],
+        'size': _war['size'], 'result': _result, 'cwl': _war['cwl'],
+        'pending': _war['in_prog'], 'v2': _is_v2, 'inWindow': _in_window
+    })
+    _max_atk = 1 if _war['cwl'] else 2
+    for _pkey, _pd in _war['players'].items():
+        if _pkey.startswith('#'):
+            _canonical = _pkey; _pname = _pd.get('name', _pkey)
+        else:
+            _canonical = _name_to_tag.get(_pkey, _pkey); _pname = _pkey
+        if _canonical not in _members:
+            _active = _pname in ACTIVE or _pkey in ACTIVE
+            _members[_canonical] = {'name': _pname, 'status': 'active' if _active else 'left', 'th': 0, 'cells': {}}
+        if _is_v2 and _pd.get('th', 0) > 0 and _members[_canonical]['th'] == 0:
+            _members[_canonical]['th'] = _pd['th']
+        _used = _pd.get('a', 0)
+        _atk_th = _pd.get('th', None) if _is_v2 else None
+        if _war['in_prog'] and _used == 0:
+            _members[_canonical]['cells'][_war['id']] = {'pending': True}; continue
+        _attacks = []
+        for _a in _pd.get('atks', []):
+            try: _to = int(_a[0])
+            except: _to = str(_a[0])
+            _a_def_th = _a[3] if (len(_a) > 3 and _is_v2) else None
+            _th_delta = (_a_def_th - _atk_th) if (_is_v2 and _a_def_th and _atk_th) else 0
+            _atk_obj = {'to': _to, 'raw': _a[1], 'neu': _a[2]}
+            if _is_v2:
+                _atk_obj.update({'defTh': _a_def_th, 'delta': _th_delta, 'atkTh': _atk_th})
+            _attacks.append(_atk_obj)
+        _comp_raw = sum(_a['raw'] for _a in _attacks)
+        _comp_net = sum(_a['neu'] for _a in _attacks) if _is_v2 else _comp_raw
+        _cell = {
+            'inWar': True, 'used': _used, 'max': _max_atk, 'attacks': _attacks,
+            'cwl': _war['cwl'], 'missed': _max_atk - _used, 'v2': _is_v2,
+            'rawStars': _comp_raw, 'netStars': _comp_net,
+            'stars': _comp_net if _is_v2 else _comp_raw
+        }
+        if _atk_th is not None: _cell['atkTh'] = _atk_th
+        _members[_canonical]['cells'][_war['id']] = _cell
+
+# ── Per-member aggregates (60-day window only, excl CWL + pending) ──
+_in_window_set = {_wd['id'] for _wd in _wars_data if _wd['inWindow'] and not _wd['pending'] and not _wd.get('cwl', False)}
+_members_list = []
+for _canonical, _member in _members.items():
+    _pl = _el = _ms = _st = _us = _av = _sd = _ac = _di = _re = _rw = _nt = _v2a = 0
+    for _war in wars:
+        _wid = _war['id']
+        if _war['cwl'] or _war['in_prog']: continue
+        if _wid not in _in_window_set: continue
+        _cell = _member['cells'].get(_wid)
+        if _cell is None or _cell.get('pending'): continue
+        _el += 1; _pl += 1; _ms += _cell.get('missed', 0); _st += _cell.get('stars', 0)
+        _us += _cell.get('used', 0); _av += _cell.get('max', 0)
+        _rw += _cell.get('rawStars', 0); _nt += _cell.get('netStars', 0)
+        for _a in _cell.get('attacks', []):
+            if 'defTh' not in _a or _a['defTh'] is None: continue
+            _d = _a.get('delta', 0); _sd += _d; _ac += 1; _v2a += 1
+            if _d < 0: _di += 1
+            elif _d > 0: _re += 1
+    _members_list.append({
+        'name': _member['name'], 'th': _member['th'], 'status': _member['status'],
+        'cells': _member['cells'], 'played': _pl, 'eligible': _el, 'missed': _ms,
+        'stars': _st, 'used': _us, 'available': _av,
+        'participation': _pl / _el if _el else 0,
+        'hitRate': _us / _av if _av else 0,
+        'sumDelta': _sd, 'atkCount': _ac, 'dips': _di, 'reaches': _re,
+        'wasted': 0, 'v2atks': _v2a, 'rawStars': _rw, 'netStars': _nt,
+        'avgDelta': _sd / _ac if _ac else 0
+    })
+
+_archived_count = sum(1 for _wd in _wars_data if not _wd['inWindow'] and not _wd['pending'])
+_meta = {
+    'clanName': 'Buzzzzz', 'clanTag': '#2GGL80JL0', 'windowDays': 60,
+    'windowLabel': f"{_cutoff.strftime('%-m/%-d')} – {_today.strftime('%-m/%-d/%y')}",
+    'archivedWars': _archived_count,
+    'updated': _today.strftime('%-m/%-d/%y')
+}
+
+print(f"// Players: {len(_members_list)}")
+print(f"// Wars: {len(_wars_data)} ({sum(1 for w in _wars_data if w['inWindow'])} in window)")
 print("DATA OK")
 
-html = '''<!DOCTYPE html>
+_wardata_json = json.dumps({'meta': _meta, 'wars': _wars_data, 'members': _members_list},
+                           ensure_ascii=False, separators=(',', ':'))
+
+
+_HTML = r"""<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Buzzzzz ⚔️ War Tracker</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Buzzzzz War Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
+:root{
+  --bg:#0a0d0a;--surface:#11150f;--surface2:#0d110c;--surface3:#161c14;
+  --ink:#e8eee2;--muted:#8a9484;--faint:#5d655a;
+  --line:#222a20;--line2:#2d362a;
+  --star:#e3a92b;
+  --full-bg:oklch(0.345 0.085 152);--full-tx:oklch(0.88 0.13 150);--full-bd:oklch(0.45 0.09 152);
+  --part-bg:oklch(0.40 0.085 82);--part-tx:oklch(0.90 0.12 88);--part-bd:oklch(0.50 0.09 82);
+  --miss-bg:oklch(0.40 0.145 28);--miss-tx:oklch(0.88 0.12 30);--miss-bd:oklch(0.52 0.16 28);
+  --none-bg:#0e120d;--none-tx:#39402f;
+  --live-bg:oklch(0.40 0.09 244);--live-tx:oklch(0.88 0.1 244);--live-bd:oklch(0.5 0.1 244);
+  --reach-bg:oklch(0.40 0.09 244);--reach-tx:oklch(0.86 0.12 244);
+  --dip-bg:oklch(0.43 0.11 56);--dip-tx:oklch(0.88 0.13 56);
+  --accent:#e3a92b;
+  --hf:'Oswald',sans-serif;--bf:'JetBrains Mono',monospace;--mf:'JetBrains Mono',monospace;
+  --bg-grid:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:#1e2130;color:#dde3f0;font-family:'Segoe UI',Arial,sans-serif;font-size:12px}
-
-/* ── Header ── */
-#header{background:linear-gradient(135deg,#252840 0%,#1e2130 100%);border-bottom:3px solid #f59e0b;padding:14px 20px;display:flex;align-items:center;gap:16px}
-#header h1{color:#f59e0b;font-size:20px;font-weight:800;letter-spacing:0.5px;flex:1}
-#header .subtitle{color:#7a8aa0;font-size:11px;white-space:nowrap}
-
-/* ── Controls bar ── */
-#controls{display:flex;gap:12px;padding:9px 16px;background:#252840;border-bottom:1px solid #323655;align-items:center;flex-wrap:wrap}
-#controls label{color:#8a9ab5;font-size:11px;display:flex;align-items:center;gap:5px;font-weight:500}
-#controls select{background:#1a1d2e;border:1px solid #3a3f5c;color:#dde3f0;padding:4px 10px;border-radius:6px;font-size:11px;cursor:pointer}
-#controls select:focus{outline:none;border-color:#6366f1}
-#window-info{font-size:10px;color:#8a9ab5;background:#1a1d2e;padding:3px 10px;border-radius:12px;border:1px solid #3a3f5c}
-#stats{color:#6a7a90;font-size:10px}
-
-/* ── Table layout ── */
-.wrap{overflow:auto;max-height:calc(100vh - 97px)}
-table{border-collapse:separate;border-spacing:0;white-space:nowrap;background:#252840}
-th,td{border-right:1px solid #323655;border-bottom:1px solid #323655}
-th:first-child,td:first-child{border-left:1px solid #323655}
-thead tr:first-child th{border-top:1px solid #323655}
-
-/* Sticky columns */
-th.name-col,td.name-col{position:sticky;left:0;z-index:2;background:#252840;min-width:165px;max-width:205px;padding:6px 10px;box-shadow:3px 0 6px rgba(0,0,0,0.3)}
-th.name-col{position:sticky!important;left:0!important;top:0!important;z-index:10!important;background:#1e2130!important}
-th.miss-col,td.miss-col{position:sticky;right:0;z-index:2;background:#252840;text-align:center;min-width:62px;padding:4px;box-shadow:-3px 0 6px rgba(0,0,0,0.3)}
-th.miss-col{position:sticky!important;right:0!important;top:0!important;z-index:10!important;background:#1e2130!important}
-
-/* War column headers — sticky vertically */
-thead tr:first-child th{position:sticky;top:0;z-index:4}
-thead tr:last-child th{position:sticky;z-index:4}  /* top set by JS */
-thead tr:first-child th.w-idx{background:#1e2130;color:#6a7a90;font-size:10px;font-weight:600;text-align:center;padding:4px 6px}
-thead tr:first-child th.w-idx.faded{opacity:0.4}
-thead tr:last-child th.war-cell{background:#252840;padding:5px 6px;text-align:center}
-thead tr:last-child th.war-cell.faded{opacity:0.4}
-
-.w-date{color:#6a7a90;font-size:10px;display:block}
-.w-opp{color:#93c5fd;font-size:11px;font-weight:700;display:block;max-width:94px;overflow:hidden;text-overflow:ellipsis}
-.w-size{color:#6a7a90;font-size:9px;display:block;margin-top:1px}
-.cwl-tag{display:inline-block;background:#7c3aed;color:#fff;font-size:8px;font-weight:700;padding:1px 5px;border-radius:4px;margin-top:2px;letter-spacing:0.3px}
-.inprog-tag{display:inline-block;background:#0ea5e9;color:#fff;font-size:8px;font-weight:700;padding:1px 5px;border-radius:4px;margin-top:2px}
-.res-w{display:inline-block;background:#14532d;color:#4ade80;font-size:8px;font-weight:700;padding:1px 5px;border-radius:4px;margin-top:2px}
-.res-l{display:inline-block;background:#450a0a;color:#f87171;font-size:8px;font-weight:700;padding:1px 5px;border-radius:4px;margin-top:2px}
-.res-d{display:inline-block;background:#292524;color:#a8a29e;font-size:8px;font-weight:700;padding:1px 5px;border-radius:4px;margin-top:2px}
-
-/* ── Player name column ── */
-.pname{font-weight:700;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#dde3f0}
-.badge{display:inline-block;font-size:9px;padding:2px 7px;border-radius:10px;margin-top:3px;font-weight:700;letter-spacing:0.2px}
-.b-act{background:#14532d;color:#86efac;border:1px solid #166534}
-.b-old{background:#2d2d3f;color:#6a7a90;border:1px solid #3a3f5c}
-.wars-in{display:inline-block;font-size:10px;color:#94a3b8;margin-left:5px;vertical-align:middle;font-weight:500}
-
-/* ── War cells: just two states ── */
-td.war-cell{text-align:center;min-width:90px;max-width:112px;padding:4px 5px;vertical-align:top;cursor:default}
-td.war-cell.c-miss,td.war-cell.c-na,td.war-cell.c-inprog{vertical-align:middle}
-thead tr:last-child th.war-cell{vertical-align:bottom!important}
-td.war-cell.faded{opacity:0.65}
-/* Archive boundary — left edge of first out-of-window column */
-th.w-idx.archive-start, th.war-cell.archive-start, td.war-cell.archive-start{
-  border-left:3px solid #4a3f2a !important
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--bf);-webkit-font-smoothing:antialiased;
+     display:flex;flex-direction:column;overflow:hidden;
+     background-image:var(--bg-grid);background-size:46px 46px}
+.mono{font-family:var(--mf);font-variant-numeric:tabular-nums}
+/* header */
+header{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;
+       padding:16px 22px;border-bottom:1px solid var(--line);flex-wrap:wrap;
+       background:linear-gradient(180deg,var(--surface3),var(--surface))}
+.brand{display:flex;align-items:center;gap:12px}
+.crest{width:38px;height:38px;display:grid;place-items:center;font-weight:700;font-size:17px;
+       background:transparent;border:1px solid var(--star);color:var(--star);
+       font-family:'Oswald';clip-path:polygon(0 0,100% 0,100% 76%,76% 100%,0 100%)}
+.brand h1{font-family:var(--hf);font-size:19px;font-weight:600;letter-spacing:1px;text-transform:uppercase;line-height:1;white-space:nowrap}
+.brand .sub{font-size:12px;color:var(--muted);margin-top:3px;white-space:nowrap}
+.htools{display:flex;align-items:center;gap:18px}
+.claninfo{text-align:right;font-size:12px;color:var(--muted);line-height:1.5;white-space:nowrap}
+.claninfo b{color:var(--ink);font-weight:600}
+/* strip */
+.strip{flex:0 0 auto;display:flex;gap:0;border-bottom:1px solid var(--line);background:var(--surface2)}
+.kpi{padding:12px 22px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:3px;min-width:130px}
+.kpi .k{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:600;display:flex;gap:6px;align-items:center}
+.kpi .v{font-family:var(--hf);font-size:26px;font-weight:600;line-height:1;letter-spacing:-.5px}
+.kpi .u{font-size:11.5px;color:var(--faint)}
+.kpi.alert .v{color:var(--miss-tx)}.kpi.alert .k{color:var(--miss-tx)}
+.pelt{width:8px;height:8px;border-radius:2px}
+/* controls */
+.controls{flex:0 0 auto;display:flex;align-items:center;gap:16px;padding:11px 22px;border-bottom:1px solid var(--line);
+          background:var(--surface);flex-wrap:wrap}
+.cgroup{display:flex;align-items:center;gap:8px}
+.clab{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--faint);font-weight:600}
+.seg{display:inline-flex;background:var(--surface2);border:1px solid var(--line2);border-radius:8px;padding:2px;gap:2px}
+.seg button{border:0;background:transparent;font-family:var(--bf);font-size:12.5px;font-weight:500;color:var(--muted);
+            padding:6px 11px;border-radius:6px;cursor:pointer;transition:.14s;white-space:nowrap}
+.seg button:hover{color:var(--ink)}
+.seg button[aria-pressed="true"]{background:var(--star);color:#1a1505;font-weight:600}
+.spacer{flex:1 1 auto}
+.legend{display:flex;align-items:center;gap:13px;flex-wrap:wrap}
+.leg{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--muted);white-space:nowrap}
+.swatch{width:15px;height:15px;border-radius:4px;border:1px solid}
+.swatch.full{background:var(--full-bg);border-color:var(--full-bd)}
+.swatch.part{background:var(--part-bg);border-color:var(--part-bd)}
+.swatch.miss{background:var(--miss-bg);border-color:var(--miss-bd)}
+.swatch.live{background:var(--live-bg);border-color:var(--live-bd)}
+.swatch.none{background:var(--none-bg);border-color:var(--line2)}
+/* matrix */
+.matrix{position:relative;flex:1 1 auto;min-height:0}
+.scroll{position:absolute;inset:0;overflow:auto;background:var(--bg);scroll-behavior:smooth}
+.navbtn{position:absolute;top:50%;transform:translateY(-50%);z-index:20;
+        width:42px;height:42px;border-radius:50%;border:1px solid var(--line2);
+        background:var(--surface);color:var(--ink);cursor:pointer;display:grid;place-items:center;
+        box-shadow:0 4px 18px rgba(0,0,0,.5);transition:opacity .18s,background .15s,transform .08s}
+.navbtn:hover{background:var(--surface3);color:var(--star);border-color:var(--star)}
+.navbtn:active{transform:translateY(-50%) scale(.92)}
+.navbtn.left{left:274px}.navbtn.right{right:18px}
+.navbtn[disabled]{opacity:0;pointer-events:none}
+.navbtn svg{width:19px;height:19px}
+table{border-collapse:separate;border-spacing:0}
+thead th{position:sticky;top:0;z-index:5}
+/* war header */
+th.wh{width:80px;min-width:80px;vertical-align:top;padding:8px 6px 9px;text-align:center;
+      background:var(--surface2);border-right:1px solid var(--line);border-bottom:1px solid var(--line2)}
+th.wh .whrow{display:flex;align-items:center;justify-content:center;gap:5px}
+th.wh .wdate{font-family:var(--hf);font-weight:700;font-size:13px;color:var(--star);letter-spacing:-.2px}
+th.wh .cwl{font-size:8px;font-weight:700;letter-spacing:.04em;color:var(--accent);border:1px solid var(--accent);
+            padding:0 3px;border-radius:3px;line-height:1.4}
+th.wh .wd{font-size:10px;color:var(--faint);margin-top:3px;font-family:var(--mf)}
+th.wh .wnm{font-size:10.5px;color:var(--muted);margin-top:4px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+th.wh .wmeta{display:flex;align-items:center;justify-content:center;gap:4px;margin-top:5px}
+th.wh .wsz{font-size:9px;color:var(--faint);font-family:var(--mf)}
+th.wh .wres{font-size:8.5px;font-weight:700;letter-spacing:.03em;padding:1px 4px;border-radius:3px}
+.wres.win{color:var(--full-tx);background:var(--full-bg)}
+.wres.loss{color:var(--miss-tx);background:var(--miss-bg)}
+.wres.draw{color:var(--muted);background:var(--surface3)}
+.wres.live{color:var(--live-tx);background:var(--live-bg)}
+th.wh.iscwl{background:color-mix(in oklab,var(--accent) 7%,var(--surface2))}
+th.wh.archived{opacity:.42}
+/* archived column separator */
+th.wh.arc-start{border-left:2px solid #4a3f2a!important}
+td.cell.arc-start{border-left:2px solid #4a3f2a!important}
+/* sticky corners */
+th.pcorner,th.mcorner{background:var(--surface2);border-bottom:1px solid var(--line2);vertical-align:bottom;
+                      text-align:left;padding:10px 14px;z-index:7}
+th.pcorner{left:0;width:190px;min-width:190px}
+th.mcorner{left:190px;width:72px;min-width:72px;border-right:1px solid var(--line2);text-align:center;padding:10px 6px}
+th.pcorner .t{font-family:var(--hf);font-size:13px;font-weight:700;color:var(--star);text-transform:uppercase;letter-spacing:.04em}
+th.pcorner .s{font-size:10px;color:var(--faint);margin-top:2px}
+th.mcorner .t{font-family:var(--hf);font-size:11px;font-weight:700;color:var(--star);text-transform:uppercase;letter-spacing:.04em}
+th.mcorner .s{font-size:9px;color:var(--faint)}
+td.pcol,td.mcol{position:sticky;z-index:4;background:var(--surface)}
+td.pcol{left:0;width:190px;min-width:190px;padding:8px 14px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+td.mcol{left:190px;width:72px;min-width:72px;text-align:center;border-right:1px solid var(--line2);border-bottom:1px solid var(--line)}
+tr:hover td.pcol,tr:hover td.mcol{background:var(--surface3)}
+.pname{font-family:'Oswald';font-weight:500;font-size:14.5px;letter-spacing:.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pmeta{display:flex;align-items:center;gap:7px;margin-top:3px}
+.badge{font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:1px 5px;border-radius:4px}
+.badge.active{color:var(--full-tx);background:var(--full-bg)}
+.badge.left{color:var(--miss-tx);background:var(--miss-bg)}
+.pw{font-size:11px;color:var(--faint);font-family:var(--mf)}
+.mval{display:inline-grid;place-items:center;min-width:26px;height:26px;padding:0 7px;border-radius:7px;
+      font-family:var(--mf);font-weight:600;font-size:14px}
+.mval.h0{color:var(--faint)}
+.mval.h1{color:var(--part-tx);background:var(--part-bg)}
+.mval.h2{color:var(--miss-tx);background:color-mix(in oklab,var(--miss-bg) 70%,transparent)}
+.mval.h3{color:#fff;background:var(--miss-tx)}
+/* data cells */
+td.cell{width:80px;min-width:80px;height:46px;text-align:center;border-right:1px solid var(--line);
+        border-bottom:1px solid var(--line);padding:3px 4px;vertical-align:middle;transition:height .14s}
+td.cell.full{background:var(--full-bg)}
+td.cell.part{background:var(--part-bg)}
+td.cell.miss{background:var(--miss-bg)}
+td.cell.none{background:var(--none-bg)}
+td.cell.live{background:var(--live-bg)}
+td.cell.archived{opacity:.42}
+td.cell.iscwl{box-shadow:inset 3px 0 0 -1px color-mix(in oklab,var(--accent) 45%,transparent)}
+.cmain{display:flex;align-items:baseline;justify-content:center;gap:5px;line-height:1.1}
+.cmain .ua{font-family:var(--mf);font-size:12px;color:var(--muted);font-weight:500}
+.cmain .st{font-family:var(--mf);font-size:13.5px;font-weight:600;color:var(--star)}
+td.cell.full .ua{color:var(--full-tx)}
+td.cell.part .ua{color:var(--part-tx)}
+.cmain .mx{font-family:var(--hf);font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--miss-tx)}
+td.cell.live .lv{font-size:10px;font-weight:700;letter-spacing:.05em;color:var(--live-tx)}
+td.cell.none .dash{color:var(--none-tx);font-size:14px}
+.cd{display:none;margin-top:3px;font-family:var(--mf);font-size:9.5px;color:var(--muted);line-height:1.4}
+td.cell.miss .cd{color:var(--miss-tx)}
+.cd .dd{font-weight:700}
+.cd .dd.up{color:var(--reach-tx)}.cd .dd.dip{color:var(--dip-tx)}.cd .dd.even{color:var(--faint)}
+.cdelta{display:none;gap:4px;justify-content:center;align-items:center;margin-top:4px;flex-wrap:wrap}
+.dch{font-family:var(--mf);font-size:10px;font-weight:700;padding:1px 5px;border-radius:5px;line-height:1.4;letter-spacing:-.02em}
+.dch.up{color:var(--reach-tx);background:var(--reach-bg)}
+.dch.dip{color:var(--dip-tx);background:var(--dip-bg)}
+.dch.even{color:var(--faint);background:transparent;font-weight:500;opacity:.55;padding:1px 2px}
+.dch.na{color:var(--faint);background:transparent;opacity:.5;font-size:8.5px;font-weight:500;letter-spacing:0}
+.clean{font-size:10px;color:var(--dip-tx);margin-left:2px;cursor:help}
+.cd .raw{color:var(--faint)}.cd .zero{color:var(--dip-tx);font-weight:700}
+th.wh .v2dot{width:5px;height:5px;border-radius:50%;background:var(--reach-tx);display:inline-block}
+th.wh .v1tag{font-size:7.5px;font-weight:700;letter-spacing:.04em;color:var(--faint);opacity:.7}
+table.view-delta td.cell{height:62px}
+table.view-delta .cdelta{display:flex}
+table.view-full td.cell{height:76px}
+table.view-full .cd{display:block}
+.scroll::-webkit-scrollbar{height:11px;width:11px}
+.scroll::-webkit-scrollbar-thumb{background:var(--line2);border-radius:6px;border:3px solid var(--bg)}
+.scroll::-webkit-scrollbar-thumb:hover{background:var(--faint)}
+@media(max-width:720px){.strip{overflow-x:auto}.claninfo{display:none}header{padding:12px 16px}.controls{padding:10px 16px;gap:12px}}
+@media(max-width:560px){
+  th.pcorner,td.pcol{width:118px;min-width:118px}th.pcorner{padding:8px 10px}td.pcol{padding:7px 10px}
+  th.pcorner .s{display:none}th.mcorner,td.mcol{left:118px;width:40px;min-width:40px}th.mcorner .s{display:none}
+  .pname{font-size:13px}.pw .wlbl{display:none}.pmeta{gap:5px}
+  th.wh,td.cell{width:72px;min-width:72px}th.wh{padding:7px 4px 8px}
+  .navbtn{width:34px;height:34px;box-shadow:0 3px 12px rgba(0,0,0,.6)}
+  .navbtn svg{width:16px;height:16px}.navbtn.left{left:166px}.navbtn.right{right:10px}
+  .legend{display:none}
 }
-th.w-idx.archive-start::before{
-  content:'ARCHIVE';display:block;font-size:7px;color:#7a6a4a;font-weight:700;letter-spacing:0.5px;margin-bottom:2px
-}
-
-td.c-ok{background:#14532d;border-color:#166534}        /* attacked (any) – green */
-td.c-miss{background:#450a0a;border-color:#7f1d1d}      /* in war, 0 attacks – red */
-td.c-na{background:#1e2130;border-color:#2d3148}         /* not in war – dim */
-td.c-inprog{background:#1e3a5f;border-color:#1d4ed8}    /* live/prep – blue */
-
-.atk-main{font-size:11px;font-weight:600;color:#bbf7d0}
-.atk-star{font-size:12px;color:#4ade80}
-.atk-det{font-size:9px;color:#6a9a7a;margin-top:2px;line-height:1.5}
-.miss-lbl{color:#f87171;font-size:11px;font-weight:700}
-.na-lbl{color:#3a3f5c;font-size:13px}
-.prep-lbl{color:#60a5fa;font-size:11px;font-weight:600}
-
-/* ── Wars Missed column ── */
-.miss-hdr{color:#8a9ab5;font-size:10px;font-weight:600;line-height:1.3}
-.miss-num{font-size:15px;font-weight:800}
-.m-ok{color:#4ade80}
-.m-1{color:#facc15}
-.m-2{color:#fb923c}
-.m-hi{color:#f87171}
-
-/* ── Misc ── */
-tr.hidden{display:none}
-tbody tr:hover td.c-ok{background:#166534}
-tbody tr:hover td.c-miss{background:#7f1d1d}
-tbody tr:hover td.c-na{background:#252840}
 </style>
 </head>
 <body>
-<div id="header">
-  <h1>⚔️ Buzzzzz War Tracker</h1>
-  <div class="subtitle" id="subtitle">Clan #2GGL80JL0 &nbsp;|&nbsp; Rolling 60-Day Window</div>
+<header>
+  <div class="brand">
+    <div class="crest">B</div>
+    <div>
+      <h1>Buzzzzz War Tracker</h1>
+      <div class="sub mono" id="subline"></div>
+    </div>
+  </div>
+  <div class="htools">
+    <div class="claninfo">
+      <div><b id="memCount">—</b> · <span id="warCount">—</span></div>
+      <div id="windowLine"></div>
+    </div>
+  </div>
+</header>
+<section class="strip" id="strip"></section>
+<div class="controls">
+  <div class="cgroup"><span class="clab">Show</span>
+    <div class="seg" id="filterSeg">
+      <button data-f="active" aria-pressed="true">Active</button>
+      <button data-f="all">Everyone</button>
+      <button data-f="left">Left clan</button>
+    </div>
+  </div>
+  <div class="cgroup"><span class="clab">Sort</span>
+    <div class="seg" id="sortSeg">
+      <button data-s="missed" aria-pressed="true">Most missed</button>
+      <button data-s="participation">Participation</button>
+      <button data-s="wars">Wars</button>
+      <button data-s="dips">Most dips</button>
+      <button data-s="name">A–Z</button>
+    </div>
+  </div>
+  <div class="cgroup"><span class="clab">Cells</span>
+    <div class="seg" id="viewSeg">
+      <button data-v="stars" aria-pressed="true">Stars</button>
+      <button data-v="delta">TH &#916;</button>
+      <button data-v="full">Detail</button>
+    </div>
+  </div>
+  <div class="spacer"></div>
+  <div class="legend">
+    <span class="leg"><span class="swatch full"></span>Both used</span>
+    <span class="leg"><span class="swatch part"></span>1 of 2</span>
+    <span class="leg"><span class="swatch miss"></span>Missed</span>
+    <span class="leg"><span class="swatch none"></span>Not in war</span>
+    <span class="leg" style="margin-left:4px"><span class="dch up" style="margin:0">&#9650;</span>Hit up</span>
+    <span class="leg"><span class="dch dip" style="margin:0">&#9660;</span>Hit down</span>
+    <span class="leg"><span class="clean" style="margin:0">&#8635;</span>Cleanup</span>
+  </div>
 </div>
-<div id="controls">
-  <label>Show:
-    <select id="flt">
-      <option value="act">Active Members</option>
-      <option value="all">Everyone</option>
-      <option value="old">Left Clan</option>
-    </select>
-  </label>
-  <label>Sort:
-    <select id="srt">
-      <option value="miss">Most Missed ↓</option>
-      <option value="name">Name A–Z</option>
-      <option value="wars">Wars Played ↓</option>
-    </select>
-  </label>
-  <span id="window-info"></span>
-  <span id="stats"></span>
-  <span style="margin-left:auto;display:flex;gap:4px;align-items:center">
-    <button id="scl" title="Scroll left" style="background:#1a1d2e;border:1px solid #3a3f5c;color:#8a9ab5;border-radius:6px;padding:3px 10px;cursor:pointer;font-size:14px;line-height:1">‹</button>
-    <button id="scr" title="Scroll right" style="background:#1a1d2e;border:1px solid #3a3f5c;color:#8a9ab5;border-radius:6px;padding:3px 10px;cursor:pointer;font-size:14px;line-height:1">›</button>
-  </span>
+<div class="matrix">
+  <div class="scroll">
+    <table id="grid"><thead id="thead"></thead><tbody id="tbody"></tbody></table>
+  </div>
+  <button class="navbtn left" id="scrollL" aria-label="Newer wars" disabled>
+    <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 3.5L6 9l5.5 5.5"/></svg>
+  </button>
+  <button class="navbtn right" id="scrollR" aria-label="Older wars">
+    <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3.5L12 9l-5.5 5.5"/></svg>
+  </button>
 </div>
-<div class="wrap"><table id="tbl"></table></div>
 <script>
-'''
-
-html += f"const WARS={wars_js};\n"
-html += f"const PLAYERS={players_js};\n"
-
-html += r'''
-// ── HTML escape helper (prevents XSS from API-sourced names) ──
-function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-
-// ── Rolling 60-day window ──
-function parseWarDate(s){
-  const [m,d,y]=s.split('/').map(Number);
-  return new Date(2000+y,m-1,d);
-}
-const today=new Date();
-const cutoff=new Date(today);
-cutoff.setDate(today.getDate()-60);
-
-function inWindow(w){ return parseWarDate(w.date)>=cutoff; }
-
-// Set window info label
-const fmtDate=d=>d.toLocaleDateString('en-US',{month:'short',day:'numeric'});
-document.getElementById('window-info').textContent=
-  `60-day window: ${fmtDate(cutoff)} – ${fmtDate(today)}`;
-
-// ── Helpers ──
-function calcMissed(name){
-  return WARS.filter(w=>
-    !w.in_prog && inWindow(w) &&
-    w.players[name] &&
-    w.players[name].p>0 &&
-    w.players[name].a===0
-  ).length;
-}
-
-function atkDetail(ppos,atks){
-  return atks.map(a=>{
-    const [tp,st,dt,dth]=a;
-    const net=(dt!==undefined&&dt<st)?` <span style="color:#60a5fa">(+${dt}★)</span>`:'';
-    const thBadge=dth?` <span style="font-size:8px;color:#94a3b8">vs TH${dth}</span>`:'';
-    return `#${ppos}→#${tp}: ${st}★${net}${thBadge}`;
-  }).join('<br>');
-}
-
-function maxAtks(w){ return w.cwl ? 1 : 2; }
-
-function resultBadge(w){
-  if(w.in_prog) return '<span class="inprog-tag">LIVE</span>';
-  if(w.result==='W') return '<span class="res-w">WIN</span>';
-  if(w.result==='L') return '<span class="res-l">LOSS</span>';
-  if(w.result==='D') return '<span class="res-d">DRAW</span>';
-  return '';
-}
-
-// Wars In stat logic:
-// - If player ever appeared in ANY war in the full archive (even outside 60-day window)
-//   → they're a veteran; denominator = all in-window non-CWL wars
-// - If first appearance is within the window → they're new;
-//   denominator = in-window wars from their first appearance onwards
-// Participation includes in-progress wars (rostered = participating)
-// Only Missed excludes in-prog (battle not over yet)
-const eligibleWars = WARS.filter(w=>!w.cwl&&inWindow(w));
-const eligibleCount = eligibleWars.length;
-
-function getWarsInStat(name){
-  // Find very first appearance across ALL archived wars (oldest-first scan)
-  const allRegular = WARS.filter(w=>!w.cwl);
-  // allRegular is newest-first, so last element = oldest war
-  const firstEver = allRegular.slice().reverse().find(w=>w.players[name]);
-  if(!firstEver) return {inn:0, tot:0};
-
-  const firstDate = parseWarDate(firstEver.date);
-  let tot;
-  if(firstDate < cutoff){
-    // Veteran — was here before the window opened
-    tot = eligibleCount;
-  } else {
-    // New member — count in-window wars from their first appearance (newest-first array)
-    // Find the last index in eligibleWars (oldest) where they appear
-    let lastIdx = -1;
-    for(let i=eligibleWars.length-1;i>=0;i--){
-      if(eligibleWars[i].players[name]){lastIdx=i;break;}
-    }
-    tot = lastIdx===-1 ? 0 : lastIdx+1;
-  }
-  const inn = eligibleWars.filter(w=>w.players[name]).length;
-  return {inn, tot};
-}
-
-// ── Build table ──
-function buildTable(){
-  const flt=document.getElementById('flt').value;
-  const srt=document.getElementById('srt').value;
-
-  let players=Object.keys(PLAYERS).filter(n=>{
-    if(flt==='act') return PLAYERS[n].active;
-    if(flt==='old') return !PLAYERS[n].active;
-    return true;
-  });
-
-  // Pre-compute missed (rolling 60-day window)
-  const missedMap={};
-  players.forEach(n=>{ missedMap[n]=calcMissed(n); });
-
-  if(srt==='miss') players.sort((a,b)=>{
-    const dm=missedMap[b]-missedMap[a];
-    return dm!==0?dm:a.localeCompare(b);
-  });
-  else if(srt==='name') players.sort((a,b)=>a.localeCompare(b));
-  else if(srt==='wars') players.sort((a,b)=>{
-    const aw=getWarsInStat(a).inn;
-    const bw=getWarsInStat(b).inn;
-    return bw-aw||a.localeCompare(b);
-  });
-
-  const tbl=document.getElementById('tbl');
-  let h='<thead>';
-
-  // Find index of first archive (out-of-window) war
-  const archiveStartIdx = WARS.findIndex(w=>!inWindow(w));
-
-  // Row 1: W1, W2… labels
-  h+='<tr><th class="name-col" rowspan="2" style="vertical-align:bottom;font-size:11px;color:#8a9ab5">Player<br><span style="font-size:9px;color:#7a8aa0;font-weight:400">War Participation Excludes CWL</span></th>';
-  WARS.forEach((w,i)=>{
-    const inW=inWindow(w);
-    const fd=inW?'':' faded';
-    const arc=(!inW&&i===archiveStartIdx)?' archive-start':'';
-    h+=`<th class="w-idx${fd}${arc}">W${i+1}</th>`;
-  });
-  h+='<th class="miss-col" rowspan="2" style="vertical-align:middle"><span class="miss-hdr">Missed<br><span style="font-size:9px;color:#94a3b8">(60 days)</span></span></th></tr>';
-
-  // Row 2: war details
-  h+='<tr>';
-  WARS.forEach((w,i)=>{
-    const inW=inWindow(w);
-    const fd=inW?'':' faded';
-    const arc=(!inW&&i===archiveStartIdx)?' archive-start':'';
-    const cwlBadge=w.cwl?'<span class="cwl-tag">CWL</span>':'';
-    h+=`<th class="war-cell${fd}${arc}"><span class="w-date">${w.date}</span><span class="w-opp" title="${esc(w.opp)}">${esc(w.opp)}</span><span class="w-size">${w.size}</span>${cwlBadge}${resultBadge(w)}</th>`;
-  });
-  h+='</tr></thead>';
-
-  h+='<tbody>';
-  let shown=0, activeShown=0;
-  players.forEach(name=>{
-    const pd=PLAYERS[name];
-    const mc=missedMap[name];
-    shown++;
-    if(pd.active) activeShown++;
-    h+=`<tr>`;
-    const displayName=pd.name||name;  // v2 has .name from tag; v1 uses name key directly
-    const badge=pd.active
-      ?'<span class="badge b-act">Active</span>'
-      :'<span class="badge b-old">Left</span>';
-    const {inn,tot}=getWarsInStat(name);
-    const wiStr=(pd.active&&tot>0)?`<span class="wars-in">${inn}/${tot} wars</span>`:'';
-    h+=`<td class="name-col"><div class="pname" title="${esc(displayName)}">${esc(displayName)}</div>${badge} ${wiStr}</td>`;
-
-    WARS.forEach((w,wi)=>{
-      const wp=w.players[name];
-      const inW=inWindow(w);
-      const fd=inW?'':' faded';
-      const arc=(!inW&&wi===archiveStartIdx)?' archive-start':'';
-      const ma=maxAtks(w);
-      if(!wp){
-        h+=`<td class="war-cell c-na${fd}${arc}"><span class="na-lbl">—</span></td>`;
-      } else if(wp.a===0){
-        if(w.in_prog){
-          h+=`<td class="war-cell c-inprog${fd}${arc}" title="War in progress"><span class="prep-lbl">⏳ Pending</span></td>`;
-        } else {
-          h+=`<td class="war-cell c-miss${fd}${arc}" title="In war, 0 attacks used"><span class="miss-lbl">💀 0 atk</span></td>`;
-        }
-      } else {
-        const det=atkDetail(wp.p, wp.atks);
-        h+=`<td class="war-cell c-ok${fd}${arc}" title="${det.replace(/<br>/g,'\n')}">`;
-        const starLabel=(wp.ns!==undefined&&wp.ns!==wp.s)?`${wp.ns}★ <span style="font-size:9px;color:#6a9a7a">(${wp.s} raw)</span>`:`${wp.s}★`;
-        h+=`<div class="atk-main">${wp.a}/${ma} <span class="atk-star">${starLabel}</span></div>`;
-        h+=`<div class="atk-det">${det}</div>`;
-        h+=`</td>`;
-      }
-    });
-
-    // Missed count
-    const mcls=mc===0?'m-ok':mc===1?'m-1':mc<=3?'m-2':'m-hi';
-    h+=`<td class="miss-col"><span class="miss-num ${mcls}">${mc}</span></td>`;
-    h+='</tr>';
-  });
-  h+='</tbody>';
-  tbl.innerHTML=h;
-
-  // Pin second header row directly below first
-  const row1=document.querySelector('thead tr:first-child');
-  if(row1){
-    const h1=row1.offsetHeight;
-    document.querySelectorAll('thead tr:last-child th').forEach(th=>th.style.top=h1+'px');
-  }
-
-  const wInWindow=WARS.filter(inWindow).length;
-  document.getElementById('stats').textContent=
-    `${shown} members · ${wInWindow} wars in window`;
-}
-
-document.getElementById('flt').addEventListener('change',buildTable);
-document.getElementById('srt').addEventListener('change',buildTable);
-buildTable();
-
-// Scroll controls
+window.WARDATA=__WARDATA_JSON__;
 (function(){
-  const wrap=document.querySelector('.wrap');
-  let timer=null;
-  function scroll(dir){wrap.scrollBy({left:dir*220,behavior:'smooth'});}
-  function startScroll(dir){
-    scroll(dir);
-    timer=setInterval(()=>wrap.scrollBy({left:dir*120,behavior:'auto'}),120);
+  const D=window.WARDATA;
+  D.filterMembers=function(list,key){
+    if(key==='all')return list.slice();
+    if(key==='left')return list.filter(m=>m.status==='left');
+    return list.filter(m=>m.status==='active');
+  };
+  D.sortMembers=function(list,key){
+    const o=list.slice();
+    switch(key){
+      case'name':o.sort((a,b)=>a.name.localeCompare(b.name));break;
+      case'participation':o.sort((a,b)=>b.participation-a.participation||b.played-a.played);break;
+      case'wars':o.sort((a,b)=>b.played-a.played||a.name.localeCompare(b.name));break;
+      case'stars':o.sort((a,b)=>b.stars-a.stars||a.name.localeCompare(b.name));break;
+      case'dips':o.sort((a,b)=>b.dips-a.dips||a.avgDelta-b.avgDelta);break;
+      default:o.sort((a,b)=>b.missed-a.missed||b.available-a.available||a.name.localeCompare(b.name));
+    }
+    return o;
+  };
+  D.summary=function(list){
+    const n=list.length||1;
+    return{
+      count:list.length,
+      totalMissed:list.reduce((s,m)=>s+m.missed,0),
+      avgParticipation:list.reduce((s,m)=>s+m.participation,0)/n,
+      cleanCount:list.filter(m=>m.missed===0).length,
+      warsInWindow:D.wars.filter(w=>w.inWindow&&!w.pending).length,
+      sumDelta:list.reduce((s,m)=>s+m.sumDelta,0),
+      atkCount:list.reduce((s,m)=>s+m.atkCount,0),
+      dips:list.reduce((s,m)=>s+m.dips,0),
+      reaches:list.reduce((s,m)=>s+m.reaches,0),
+      rawStars:list.reduce((s,m)=>s+m.rawStars,0),
+      netStars:list.reduce((s,m)=>s+m.netStars,0),
+      v2Wars:D.wars.filter(w=>w.v2&&w.inWindow&&!w.pending).length,
+      get avgDelta(){return this.atkCount?this.sumDelta/this.atkCount:0;}
+    };
+  };
+})();
+</script>
+<script>
+(function(){
+  const D=window.WARDATA;
+  const state={filter:'active',sort:'missed',view:'stars'};
+  const pct=x=>Math.round(x*100)+'%';
+  const RES={win:'WIN',loss:'LOSS',draw:'DRAW',live:'LIVE'};
+  function heat(n){return n===0?'h0':(n<=2?'h1':(n<=4?'h2':'h3'));}
+  function renderStrip(list){
+    const s=D.summary(list);
+    const items=[
+      {k:'Attacks missed',v:s.totalMissed,u:s.cleanCount+' fully clean',alert:s.totalMissed>0,c:'var(--miss-tx)'},
+      {k:'Avg participation',v:pct(s.avgParticipation),u:'across '+s.count+' members',c:'var(--accent)'},
+      {k:'Net stars',v:s.netStars,u:'of '+s.rawStars+' raw',c:'var(--star)'},
+      {k:'Wars in window',v:s.warsInWindow,u:s.v2Wars+' v2 · '+(s.warsInWindow-s.v2Wars)+' v1',c:'var(--full-tx)'},
+      {k:'Avg attack Δ',v:(s.avgDelta>=0?'+':'−')+Math.abs(s.avgDelta).toFixed(1),u:s.dips+' dips · '+s.reaches+' reaches',c:s.avgDelta<0?'var(--dip-tx)':'var(--reach-tx)'},
+    ];
+    document.getElementById('strip').innerHTML=items.map(it=>
+      '<div class="kpi'+(it.alert?' alert':'')+'"><div class="k"><span class="pelt" style="background:'+it.c+'"></span>'+it.k+'</div>'+
+      '<div class="v mono">'+it.v+'</div><div class="u">'+it.u+'</div></div>'
+    ).join('');
   }
-  function stopScroll(){clearInterval(timer);timer=null;}
-  ['scl','scr'].forEach((id,i)=>{
-    const btn=document.getElementById(id);
-    const dir=i===0?-1:1;
-    btn.addEventListener('mousedown',()=>startScroll(dir));
-    btn.addEventListener('touchstart',()=>startScroll(dir));
-    ['mouseup','mouseleave','touchend'].forEach(e=>btn.addEventListener(e,stopScroll));
+  // Find first archived (out-of-window) war index for visual separator
+  const arcStartIdx=D.wars.findIndex(w=>!w.inWindow&&!w.pending);
+  function renderHead(){
+    let h='<tr><th class="pcorner"><div class="t">Player</div><div class="s">Participation excl. CWL</div></th>'+
+           '<th class="mcorner"><div class="t">Missed</div><div class="s">60 days</div></th>';
+    D.wars.forEach((w,i)=>{
+      const arcCls=(i===arcStartIdx)?' arc-start':'';
+      h+='<th class="wh'+(w.cwl?' iscwl':'')+(w.inWindow?'':' archived')+arcCls+'">' +
+        '<div class="whrow"><span class="wdate">'+w.date+'</span>' +
+        (w.cwl?'<span class="cwl">CWL</span>':'')+
+        (w.v2?'<span class="v2dot" title="v2 — TH levels + net stars"></span>':'')+'</div>'+
+        '<div class="wnm" title="'+w.name+'">'+w.name+'</div>'+
+        '<div class="wmeta"><span class="wsz">'+w.size+'</span><span class="wres '+w.result+'">'+RES[w.result]+'</span></div>'+
+      '</th>';
+    });
+    document.getElementById('thead').innerHTML=h+'</tr>';
+  }
+  function dCls(d){return d>0?'up':(d<0?'dip':'even');}
+  function dTxt(d){return d>0?'+'+d:(d<0?'−'+Math.abs(d):'=0');}
+  function dArrow(d){return d>0?'▲':(d<0?'▼':'=');}
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+  function cellHtml(w,c){
+    const arcCls=(D.wars.indexOf(w)===arcStartIdx)?' arc-start':'';
+    if(c==null)return'<td class="cell none'+arcCls+'"><span class="dash">·</span></td>';
+    if(c.pending)return'<td class="cell live'+arcCls+'"><span class="lv">PENDING</span></td>';
+    const archivedCls=w.inWindow?'':' archived';
+    const cwlCls=w.cwl?' iscwl':'';
+    if(c.used===0){
+      return'<td class="cell miss'+cwlCls+archivedCls+arcCls+'" title="'+esc(w.name)+' — missed '+c.max+' attack'+(c.max>1?'s':'')+'">' +
+        '<div class="cmain"><span class="ua">0/'+c.max+'</span><span class="mx">miss</span></div>'+
+        '<div class="cdelta"></div><div class="cd">no attacks used</div></td>';
+    }
+    const cls=c.used<c.max?'part':'full';
+    const overlap=c.v2&&c.rawStars>c.stars;
+    const starHtml='<span class="st">'+c.stars+'★</span>'+(overlap?'<span class="clean" title="'+c.rawStars+'★ raw → '+c.stars+'★ net">↻</span>':'');
+    const chips=c.v2
+      ?c.attacks.map(a=>'<span class="dch '+dCls(a.delta)+'">'+dArrow(a.delta)+(a.delta?dTxt(a.delta):'')+' </span>').join('')
+      :'<span class="dch na">no TH</span>';
+    const dets=c.attacks.map(a=>{
+      if(c.v2){
+        const newTxt=a.neu===0?'<span class="zero">0 new</span>':(a.neu+'★ new');
+        const rawNote=a.raw>a.neu?' <span class="raw">of '+a.raw+'</span>':'';
+        return'#'+a.to+' vs TH'+a.defTh+' · '+newTxt+rawNote;
+      }
+      return'#'+a.to+' · '+a.raw+'★';
+    }).join('<br>');
+    const title=c.v2
+      ?esc(w.name)+' (v2) — '+c.used+'/'+c.max+' · '+c.stars+'★ net/'+c.rawStars+'★ raw'
+      :esc(w.name)+' (v1) — '+c.used+'/'+c.max+' · '+c.rawStars+'★';
+    return'<td class="cell '+cls+cwlCls+archivedCls+arcCls+(overlap?' hasclean':'')+'" title="'+title+'">' +
+      '<div class="cmain"><span class="ua">'+c.used+'/'+c.max+'</span>'+starHtml+'</div>'+
+      '<div class="cdelta">'+chips+'</div>'+
+      '<div class="cd">'+dets+'</div></td>';
+  }
+  function renderBody(list){
+    document.getElementById('tbody').innerHTML=list.map(m=>{
+      let r='<tr>';
+      r+='<td class="pcol"><div class="pname" title="'+esc(m.name)+'">'+esc(m.name)+'</div>'+
+        '<div class="pmeta"><span class="badge '+m.status+'">'+(m.status==='left'?'Left':'Active')+'</span>'+
+        '<span class="pw">'+m.played+'/'+m.eligible+' <span class="wlbl">wars</span></span></div></td>';
+      r+='<td class="mcol"><span class="mval mono '+heat(m.missed)+'">'+m.missed+'</span></td>';
+      D.wars.forEach(w=>{r+=cellHtml(w,m.cells[w.id]||null);});
+      return r+'</tr>';
+    }).join('');
+  }
+  function render(){
+    let list=D.filterMembers(D.members,state.filter);
+    list=D.sortMembers(list,state.sort);
+    renderStrip(list);
+    renderBody(list);
+    const g=document.getElementById('grid');
+    g.classList.remove('view-stars','view-delta','view-full');
+    g.classList.add('view-'+state.view);
+  }
+  function wireSeg(id,key,attr){
+    const seg=document.getElementById(id);
+    seg.addEventListener('click',e=>{
+      const b=e.target.closest('button');if(!b)return;
+      state[key]=b.dataset[attr];
+      [...seg.children].forEach(c=>c.setAttribute('aria-pressed',c===b));
+      render();
+    });
+  }
+  const meta=D.meta;
+  document.getElementById('subline').textContent=meta.clanTag+' · Rolling '+meta.windowDays+'-day window';
+  document.getElementById('memCount').textContent=D.members.filter(m=>m.status==='active').length+' active';
+  document.getElementById('warCount').textContent=D.wars.filter(w=>w.inWindow&&!w.pending).length+' wars in window';
+  document.getElementById('windowLine').textContent=meta.windowLabel;
+  wireSeg('filterSeg','filter','f');
+  wireSeg('sortSeg','sort','s');
+  wireSeg('viewSeg','view','v');
+  renderHead();
+  render();
+  const scrollEl=document.querySelector('.scroll');
+  const btnL=document.getElementById('scrollL');
+  const btnR=document.getElementById('scrollR');
+  function updateNav(){
+    const maxL=scrollEl.scrollWidth-scrollEl.clientWidth;
+    const noOverflow=maxL<=4;
+    btnL.style.display=noOverflow?'none':'';
+    btnR.style.display=noOverflow?'none':'';
+    btnL.disabled=scrollEl.scrollLeft<=4;
+    btnR.disabled=scrollEl.scrollLeft>=maxL-4;
+  }
+  function pageScroll(dir){scrollEl.scrollBy({left:dir*Math.max(240,scrollEl.clientWidth-290),behavior:'smooth'});}
+  btnL.addEventListener('click',()=>pageScroll(-1));
+  btnR.addEventListener('click',()=>pageScroll(1));
+  scrollEl.addEventListener('scroll',updateNav,{passive:true});
+  window.addEventListener('resize',updateNav);
+  window.addEventListener('keydown',e=>{
+    if(e.target.closest&&e.target.closest('input,[contenteditable]'))return;
+    if(e.key==='ArrowRight')pageScroll(1);
+    else if(e.key==='ArrowLeft')pageScroll(-1);
   });
+  updateNav();
 })();
 </script>
 </body>
-</html>'''
+</html>"""
+
+html = _HTML.replace('__WARDATA_JSON__', _wardata_json)
 
 out = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'buzzzzz-war-tracker.html')
 with open(out, 'w', encoding='utf-8') as f:
