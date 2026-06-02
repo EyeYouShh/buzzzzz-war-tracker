@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.DS_Store
+TRACKER_CONTEXT.md
+
+# Credentials & secrets — never commit these
+.env
+.env.*
+*.key
+*.pem
+*.p12
+CLAUDE.md
