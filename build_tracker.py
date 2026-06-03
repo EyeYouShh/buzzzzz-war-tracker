@@ -1710,6 +1710,7 @@ td.pcol{left:0;width:190px;min-width:190px;padding:8px 14px;border-right:1px sol
 td.mcol{left:190px;width:72px;min-width:72px;text-align:center;border-right:1px solid var(--line2);border-bottom:1px solid var(--line)}
 tr:hover td.pcol,tr:hover td.mcol{background:var(--surface3)}
 .pname{font-family:'Oswald';font-weight:500;font-size:14.5px;letter-spacing:.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pname .emj{font-size:.72em;opacity:.8}
 .pmeta{display:flex;align-items:center;gap:7px;margin-top:3px}
 .badge{font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:1px 5px;border-radius:4px}
 .badge.active{color:var(--full-tx);background:var(--full-bg)}
@@ -1852,24 +1853,24 @@ window.WARDATA=__WARDATA_JSON__;
       case'th':o.sort((a,b)=>{
         if(a.th>0&&b.th>0)return b.th-a.th||(a.thRank||999)-(b.thRank||999);
         if(a.th>0)return -1;if(b.th>0)return 1;
-        return(a.thRank||999)-(b.thRank||999)||a.name.localeCompare(b.name);
+        return(a.thRank||999)-(b.thRank||999)||sortName(a.name).localeCompare(sortName(b.name));
       });break;
-      case'participation':o.sort((a,b)=>b.played-a.played||a.name.localeCompare(b.name));break;
-      case'missed':o.sort((a,b)=>b.missed-a.missed||b.available-a.available||a.name.localeCompare(b.name));break;
-      case'delta':o.sort((a,b)=>b.avgDelta-a.avgDelta||a.name.localeCompare(b.name));break;
-      case'name':o.sort((a,b)=>a.name.localeCompare(b.name));break;
+      case'participation':o.sort((a,b)=>b.played-a.played||sortName(a.name).localeCompare(sortName(b.name)));break;
+      case'missed':o.sort((a,b)=>b.missed-a.missed||b.available-a.available||sortName(a.name).localeCompare(sortName(b.name)));break;
+      case'delta':o.sort((a,b)=>b.avgDelta-a.avgDelta||sortName(a.name).localeCompare(sortName(b.name)));break;
+      case'name':o.sort((a,b)=>sortName(a.name).localeCompare(sortName(b.name)));break;
       case'warfocus':o.sort((a,b)=>{
         const ca=a.cells[warId]||null, cb=b.cells[warId]||null;
         const wa=ca&&!ca.pending?(ca.used>0?2:1):0;
         const wb=cb&&!cb.pending?(cb.used>0?2:1):0;
         if(wa!==wb)return wb-wa;
         if(wa===2&&wb===2)return(cb.stars||0)-(ca.stars||0);
-        return a.name.localeCompare(b.name);
+        return sortName(a.name).localeCompare(sortName(b.name));
       });break;
       default:o.sort((a,b)=>{
         if(a.th>0&&b.th>0)return b.th-a.th||(a.thRank||999)-(b.thRank||999);
         if(a.th>0)return -1;if(b.th>0)return 1;
-        return(a.thRank||999)-(b.thRank||999)||a.name.localeCompare(b.name);
+        return(a.thRank||999)-(b.thRank||999)||sortName(a.name).localeCompare(sortName(b.name));
       });
     }
     return o;
@@ -1933,6 +1934,8 @@ window.WARDATA=__WARDATA_JSON__;
   function dTxt(d){return d>0?'+'+d:(d<0?'−'+Math.abs(d):'=0');}
   function dArrow(d){return d>0?'▲':(d<0?'▼':'=');}
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+  function emojiWrap(s){return esc(s).replace(/\p{Extended_Pictographic}[️⃣]*/gu,m=>'<span class="emj">'+m+'</span>');}
+  function sortName(n){return n.replace(/^[\p{Extended_Pictographic}️⃣\s]+/u,'');}
   function cellHtml(w,c){
     const arcCls=(D.wars.indexOf(w)===arcStartIdx)?' arc-start':'';
     if(c==null)return'<td class="cell none'+arcCls+'"><span class="dash">·</span></td>';
@@ -1969,7 +1972,7 @@ window.WARDATA=__WARDATA_JSON__;
   function renderBody(list){
     document.getElementById('tbody').innerHTML=list.map(m=>{
       let r='<tr>';
-      r+='<td class="pcol"><div class="pname" title="'+esc(m.name)+'">'+esc(m.name)+'</div>'+
+      r+='<td class="pcol"><div class="pname" title="'+esc(m.name)+'">'+emojiWrap(m.name)+'</div>'+
         '<div class="pmeta"><span class="badge '+m.status+'">'+(m.status==='left'?'Left':'Active')+'</span>'+
         (m.status==='active'&&m.th?'<span class="thbadge">TH'+m.th+'</span>':'')+
         (m.status==='active'?'<span class="pw">'+m.played+'/'+m.eligible+' <span class="wlbl">wars</span></span>':'')+
