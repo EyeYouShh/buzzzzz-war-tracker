@@ -1547,9 +1547,9 @@ for _canonical, _member in _members.items():
         _wid = _war['id']
         if _war['cwl'] or _war['in_prog']: continue
         if _wid not in _in_window_set: continue
+        _el += 1  # all window wars count toward eligible (not just wars member appeared in)
         _cell = _member['cells'].get(_wid)
         if _cell is None or _cell.get('pending'): continue
-        _el += 1
         if _cell.get('used', 0) > 0: _pl += 1
         _ms += (1 if _cell.get('used', 0) == 0 else 0); _st += _cell.get('stars', 0)
         _us += _cell.get('used', 0); _av += _cell.get('max', 0)
@@ -1860,10 +1860,10 @@ window.WARDATA=__WARDATA_JSON__;
       case'name':o.sort((a,b)=>sortName(a.name).localeCompare(sortName(b.name)));break;
       case'warfocus':o.sort((a,b)=>{
         const ca=a.cells[warId]||null, cb=b.cells[warId]||null;
-        const wa=ca&&!ca.pending?(ca.used>0?2:1):0;
-        const wb=cb&&!cb.pending?(cb.used>0?2:1):0;
-        if(wa!==wb)return wb-wa;
-        if(wa===2&&wb===2)return(cb.stars||0)-(ca.stars||0);
+        const rank=c=>{if(!c)return 0;if(c.pending)return 1;if(c.used===0)return 2;return 3;};
+        const ra=rank(ca),rb=rank(cb);
+        if(ra!==rb)return rb-ra;
+        if(ra===3)return(cb.stars||0)-(ca.stars||0);
         return sortName(a.name).localeCompare(sortName(b.name));
       });break;
       default:o.sort((a,b)=>{
@@ -1906,7 +1906,7 @@ function sortName(n){return stripEmoji(n);}
   function renderStrip(list){
     const s=D.summary(list);
     const items=[
-      {k:'Wars fully missed',v:s.totalMissed,u:s.cleanCount+' fully clean',alert:s.totalMissed>0,c:'var(--miss-tx)'},
+      {k:'Wars fully missed',v:s.totalMissed,u:(s.count-s.cleanCount)+' member'+(s.count-s.cleanCount!==1?'s':'')+' affected',alert:s.totalMissed>0,c:'var(--miss-tx)'},
       {k:'Avg attack Δ',v:(s.avgDelta>=0?'+':'−')+Math.abs(s.avgDelta).toFixed(1),u:s.dips+' dips · '+s.reaches+' reaches',c:s.avgDelta<0?'var(--dip-tx)':'var(--reach-tx)'},
     ];
     document.getElementById('strip').innerHTML=items.map(it=>
@@ -1993,12 +1993,13 @@ function sortName(n){return stripEmoji(n);}
     const sub=document.querySelector('th.pcorner .s');
     if(sub)sub.textContent=state.warFocus?'Click war again to clear':'Participation excl. CWL';
   }
-  function wireSeg(id,key,attr){
+  function wireSeg(id,key,attr,onchange){
     const seg=document.getElementById(id);
     seg.addEventListener('click',e=>{
       const b=e.target.closest('button');if(!b)return;
       state[key]=b.dataset[attr];
       [...seg.children].forEach(c=>c.setAttribute('aria-pressed',c===b));
+      if(onchange)onchange();
       render();
     });
   }
@@ -2008,7 +2009,7 @@ function sortName(n){return stripEmoji(n);}
   document.getElementById('warCount').textContent=D.wars.filter(w=>w.inWindow&&!w.pending).length+' wars in window';
   document.getElementById('windowLine').textContent=meta.windowLabel;
   wireSeg('filterSeg','filter','f');
-  wireSeg('sortSeg','sort','s');
+  wireSeg('sortSeg','sort','s',()=>{state.warFocus=null;});
   wireSeg('viewSeg','view','v');
   renderHead();
   document.getElementById('thead').addEventListener('click',e=>{
