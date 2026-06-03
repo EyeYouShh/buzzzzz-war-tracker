@@ -1975,7 +1975,7 @@ function sortName(n){return stripEmoji(n);}
     const s=D.summary(list);
     const items=[
       {k:'Wars fully missed',v:s.totalMissed,u:(s.count-s.cleanCount)+' member'+(s.count-s.cleanCount!==1?'s':'')+' affected',alert:s.totalMissed>0,c:'var(--miss-tx)'},
-      {k:'Avg attack Δ',v:(s.avgDelta>=0?'+':'−')+Math.abs(s.avgDelta).toFixed(1),u:s.dips+' dips · '+s.reaches+' reaches',c:s.avgDelta<0?'var(--dip-tx)':'var(--reach-tx)'},
+      {k:'Avg attack Δ',v:(s.avgDelta>=0?'+':'−')+Math.abs(s.avgDelta).toFixed(1),u:s.dips+' dips · '+s.reaches+' reaches · excl. CWL',c:s.avgDelta<0?'var(--dip-tx)':'var(--reach-tx)'},
     ];
     document.getElementById('strip').innerHTML=items.map(it=>
       '<div class="kpi'+(it.alert?' alert':'')+'"><div class="k"><span class="pelt" style="background:'+it.c+'"></span>'+it.k+'</div>'+
