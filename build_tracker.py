@@ -1560,7 +1560,7 @@ for _canonical, _member in _members.items():
             if _d < 0: _di += 1
             elif _d > 0: _re += 1
     _pname = _member['name']
-    _th_val = PLAYER_TH.get(_pname, _member['th'])  # ClashSpot TH overrides API data
+    _th_val = _member['th'] or PLAYER_TH.get(_pname, 0)  # API data first; PLAYER_TH as fallback only when API returns 0
     _cs_rank = _CS_RANK.get(_pname, 999)
     _members_list.append({
         'name': _pname, 'th': _th_val, 'thRank': _cs_rank, 'status': _member['status'],
@@ -1934,8 +1934,8 @@ window.WARDATA=__WARDATA_JSON__;
   function dTxt(d){return d>0?'+'+d:(d<0?'−'+Math.abs(d):'=0');}
   function dArrow(d){return d>0?'▲':(d<0?'▼':'=');}
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-  function emojiWrap(s){return esc(s).replace(/\p{Extended_Pictographic}[️⃣]*/gu,m=>'<span class="emj">'+m+'</span>');}
-  function sortName(n){return n.replace(/^[\p{Extended_Pictographic}️⃣\s]+/u,'');}
+  function emojiWrap(s){return esc(s).replace(/\p{Extended_Pictographic}[\uFE0F\u20E3]*/gu,m=>'<span class="emj">'+m+'</span>');}
+  function sortName(n){return n.replace(/^[^\p{L}\p{N}]+/u,'');}
   function cellHtml(w,c){
     const arcCls=(D.wars.indexOf(w)===arcStartIdx)?' arc-start':'';
     if(c==null)return'<td class="cell none'+arcCls+'"><span class="dash">·</span></td>';
