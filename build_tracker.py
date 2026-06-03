@@ -1547,9 +1547,18 @@ for _canonical, _member in _members.items():
     _ww = [(_w, _member['cells'].get(_w['id']))
            for _w in wars
            if not _w['cwl'] and not _w['in_prog'] and _w['id'] in _in_window_set]
-    # Find oldest war the member appeared in (highest index = oldest in newest-first list)
-    _first_idx = next((i for i in range(len(_ww)-1, -1, -1)
-                       if _ww[i][1] is not None and not _ww[i][1].get('pending')), None)
+    # If member appears in any archived (out-of-window) war they predate the window
+    # → all window wars are eligible. Otherwise find first appearance in window.
+    _predates_window = any(
+        _member['cells'].get(_w['id']) is not None
+        for _w in wars
+        if not _w['cwl'] and not _w['in_prog'] and _w['id'] not in _in_window_set
+    )
+    if _predates_window:
+        _first_idx = len(_ww) - 1  # use all window wars
+    else:
+        _first_idx = next((i for i in range(len(_ww)-1, -1, -1)
+                           if _ww[i][1] is not None and not _ww[i][1].get('pending')), None)
     if _first_idx is not None:
         for _war, _cell in _ww[:_first_idx + 1]:
             _el += 1  # all wars since member's first appearance
