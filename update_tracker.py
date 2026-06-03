@@ -14,7 +14,7 @@ OUR_TAG  = "#2GGL80JL0"
 BASE_URL = "https://api.clashofclans.com/v1"
 SCRIPT_DIR  = os.path.dirname(os.path.abspath(__file__))
 TRACKER_PY  = os.path.join(SCRIPT_DIR, "build_tracker.py")
-TRACKER_HTML = os.path.join(SCRIPT_DIR, "buzzzzz-war-tracker.html")
+TRACKER_HTML = os.path.join(SCRIPT_DIR, "index.html")
 
 
 def api_get(endpoint):

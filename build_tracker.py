@@ -1875,7 +1875,7 @@ window.WARDATA=__WARDATA_JSON__;
 
 html = _HTML.replace('__WARDATA_JSON__', _wardata_json)
 
-out = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'buzzzzz-war-tracker.html')
+out = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'index.html')
 with open(out, 'w', encoding='utf-8') as f:
     f.write(html)
 print(f"Written: {out}")
