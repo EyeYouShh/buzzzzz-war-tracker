@@ -1895,6 +1895,8 @@ window.WARDATA=__WARDATA_JSON__;
 })();
 </script>
 <script>
+function stripEmoji(s){return s.replace(/[^\x20-\x7E\xC0-ɏ]+/g,'').trim();}
+function sortName(n){return stripEmoji(n);}
 (function(){
   const D=window.WARDATA;
   const state={filter:'active',sort:'th',view:'stars',warFocus:null};
@@ -1933,8 +1935,6 @@ window.WARDATA=__WARDATA_JSON__;
   function dTxt(d){return d>0?'+'+d:(d<0?'−'+Math.abs(d):'=0');}
   function dArrow(d){return d>0?'▲':(d<0?'▼':'=');}
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-  function stripEmoji(s){return s.replace(/[^\x20-\x7E\xC0-\u024F]+/g,'').trim();}
-  function sortName(n){return stripEmoji(n);}
   function cellHtml(w,c){
     const arcCls=(D.wars.indexOf(w)===arcStartIdx)?' arc-start':'';
     if(c==null)return'<td class="cell none'+arcCls+'"><span class="dash">·</span></td>';
