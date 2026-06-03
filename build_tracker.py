@@ -10,7 +10,7 @@ ACTIVE = {
     "DE1","Kizaru","MiniPekka","UNSTOPPABLE ADI","Ste","Pam from HR","Sumairu","Marrow",
     "⚡️LSWreckless⚡️","uhlisuh","SurgeGold","MR. ASURAN YT","SWAGMUFFIN90",
     "Pharah","Brandon","Loading…","Stevie Wonder","jj","DandyPickle","F16","Tretor",
-    "rinz","das","seth","Mr.Minzy kipz","Halid #1"
+    "rinz","das","seth","Halid #1"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
