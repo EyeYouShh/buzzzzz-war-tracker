@@ -13,6 +13,38 @@ ACTIVE = {
     "rinz","das","seth","Mr.Minzy kipz","Halid #1"
 }
 
+# ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
+# Order = ClashSpot trophy/league rank within each TH tier — used as default sort
+PLAYER_TH = {
+    "Slayer": 18,
+    "gen": 17, "Gr8Conqueror": 17,
+    "stage6yo": 16, "wato": 16, "drybonez": 16,
+    "Americanpatriot": 15, "Big Steppa": 15, "SwiftyKinja": 15, "stage5yo": 15, "DE1": 15,
+    "crimpo": 14, "Cole": 14, "studkiller": 14, "rour": 14, "MiniPekka": 14,
+    "Kizaru": 14, "Jac": 14, "Halid #1": 14, "SurgeGold": 14, "Loading…": 14,
+    "Sumairu": 14, "Pam from HR": 14, "louis": 14, "imnotstraight10": 14,
+    "the beast": 14, "seth": 14,
+    "arius67'": 13, "Marrow": 13, "⚡️LSWreckless⚡️": 13, "Ste": 13, "uhlisuh": 13,
+    "SWAGMUFFIN90": 13, "Brandon": 13, "Pharah": 13, "UNSTOPPABLE ADI": 13,
+    "MR. ASURAN YT": 13, "jj": 13, "DandyPickle": 13, "F16": 13,
+    "Stevie Wonder": 12, "das": 12, "rinz": 12,
+    "Tretor": 11,
+}
+# In-game order (tiebreaker within same TH — matches the order user sees in-game)
+_CS_ORDER = [
+    "Slayer",
+    "gen","Gr8Conqueror",
+    "stage6yo","wato","drybonez",
+    "Americanpatriot","Big Steppa","SwiftyKinja","stage5yo","DE1",
+    "crimpo","Cole","studkiller","rour","MiniPekka","Kizaru","Jac","Halid #1",
+    "SurgeGold","Loading…","Sumairu","Pam from HR","louis","imnotstraight10","the beast","seth",
+    "arius67'","Marrow","⚡️LSWreckless⚡️","Ste","uhlisuh","SWAGMUFFIN90","Brandon","Pharah",
+    "UNSTOPPABLE ADI","MR. ASURAN YT","jj","DandyPickle","F16",
+    "Stevie Wonder","das","rinz",
+    "Tretor",
+]
+_CS_RANK = {name: i+1 for i, name in enumerate(_CS_ORDER)}
+
 # ===== PLAYER TAGS (tag → display name, auto-updated by update_tracker.py) =====
 PLAYER_TAGS = {
     # AUTO-UPDATED by update_tracker.py
@@ -1525,8 +1557,11 @@ for _canonical, _member in _members.items():
             _d = _a.get('delta', 0); _sd += _d; _ac += 1; _v2a += 1
             if _d < 0: _di += 1
             elif _d > 0: _re += 1
+    _pname = _member['name']
+    _th_val = PLAYER_TH.get(_pname, _member['th'])  # ClashSpot TH overrides API data
+    _cs_rank = _CS_RANK.get(_pname, 999)
     _members_list.append({
-        'name': _member['name'], 'th': _member['th'], 'status': _member['status'],
+        'name': _pname, 'th': _th_val, 'thRank': _cs_rank, 'status': _member['status'],
         'cells': _member['cells'], 'played': _pl, 'eligible': _el, 'missed': _ms,
         'stars': _st, 'used': _us, 'available': _av,
         'participation': _pl / _el if _el else 0,
@@ -1677,6 +1712,8 @@ tr:hover td.pcol,tr:hover td.mcol{background:var(--surface3)}
 .badge{font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:1px 5px;border-radius:4px}
 .badge.active{color:var(--full-tx);background:var(--full-bg)}
 .badge.left{color:var(--miss-tx);background:var(--miss-bg)}
+.thbadge{font-size:10px;font-weight:700;letter-spacing:.03em;padding:1px 5px;border-radius:4px;
+         color:oklch(0.88 0.12 244);background:oklch(0.32 0.07 244);border:1px solid oklch(0.46 0.10 244)}
 .pw{font-size:11px;color:var(--faint);font-family:var(--mf)}
 .mval{display:inline-grid;place-items:center;min-width:26px;height:26px;padding:0 7px;border-radius:7px;
       font-family:var(--mf);font-weight:600;font-size:14px}
@@ -1811,11 +1848,11 @@ window.WARDATA=__WARDATA_JSON__;
     const o=list.slice();
     switch(key){
       case'th':o.sort((a,b)=>{
-        if(a.th>0&&b.th>0)return b.th-a.th||a.name.localeCompare(b.name);
+        if(a.th>0&&b.th>0)return b.th-a.th||(a.thRank||999)-(b.thRank||999);
         if(a.th>0)return -1;if(b.th>0)return 1;
-        return a.name.localeCompare(b.name);
+        return(a.thRank||999)-(b.thRank||999)||a.name.localeCompare(b.name);
       });break;
-      case'participation':o.sort((a,b)=>b.participation-a.participation||b.played-a.played||a.name.localeCompare(b.name));break;
+      case'participation':o.sort((a,b)=>b.played-a.played||a.name.localeCompare(b.name));break;
       case'missed':o.sort((a,b)=>b.missed-a.missed||b.available-a.available||a.name.localeCompare(b.name));break;
       case'delta':o.sort((a,b)=>b.avgDelta-a.avgDelta||a.name.localeCompare(b.name));break;
       case'name':o.sort((a,b)=>a.name.localeCompare(b.name));break;
@@ -1828,9 +1865,9 @@ window.WARDATA=__WARDATA_JSON__;
         return a.name.localeCompare(b.name);
       });break;
       default:o.sort((a,b)=>{
-        if(a.th>0&&b.th>0)return b.th-a.th||a.name.localeCompare(b.name);
+        if(a.th>0&&b.th>0)return b.th-a.th||(a.thRank||999)-(b.thRank||999);
         if(a.th>0)return -1;if(b.th>0)return 1;
-        return a.name.localeCompare(b.name);
+        return(a.thRank||999)-(b.thRank||999)||a.name.localeCompare(b.name);
       });
     }
     return o;
@@ -1932,6 +1969,7 @@ window.WARDATA=__WARDATA_JSON__;
       let r='<tr>';
       r+='<td class="pcol"><div class="pname" title="'+esc(m.name)+'">'+esc(m.name)+'</div>'+
         '<div class="pmeta"><span class="badge '+m.status+'">'+(m.status==='left'?'Left':'Active')+'</span>'+
+        (m.status==='active'&&m.th?'<span class="thbadge">TH'+m.th+'</span>':'')+
         (m.status==='active'?'<span class="pw">'+m.played+'/'+m.eligible+' <span class="wlbl">wars</span></span>':'')+
         '</div></td>';
       r+='<td class="mcol"><span class="mval mono '+heat(m.missed)+'">'+m.missed+'</span></td>';
