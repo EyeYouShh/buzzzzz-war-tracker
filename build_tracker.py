@@ -152,7 +152,7 @@ WAR_BLOCKS = [
 #8L9J0R2QJ|SWAGMUFFIN90|33|13|1|3|3|32:3:3:16
 #YVCJC0VCQ|Marrow|34|13|1|1|1|35:1:1:13
 #QLLPQV8VJ|uhlisuh|35|13|1|3|3|36:3:3:11
-""", True, True),
+""", False, True),
 
 ("273131437","5/29/26","Friendj of wer","30v30","""Slayer|1|2|6|1:3,2:3
 Gr8Conqueror|2|2|5|1:3,4:2
@@ -1375,6 +1375,8 @@ RESULTS = {
     '268235660': 'W',  # The Nephalem
     '267804602': 'W',  # MABAR VIP
     '267573823': 'W',  # Infiniti Power
+    # CWL current season
+    '217372345': 'W',  # Bama Boyz (Round 1, 6/2/26)
     # CWL — Buzzzzz 1st in both seasons
     '8Q0J0022Q': 'W', '8Q0G02CGY': 'W', '8Q0L0VR82': 'W', '8Q0P0CYLR': 'W',
     '8Q0882R82': 'W', '8Q0020RCC': 'W', '8LVUPY0R9': 'W',
