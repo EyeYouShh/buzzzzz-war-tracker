@@ -15,20 +15,6 @@ jobs:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
-      - name: Ensure git is installed
-        run: |
-          if command -v git &>/dev/null; then
-            echo "git already available: $(git --version)"
-          elif command -v microdnf &>/dev/null; then
-            echo "Installing git via microdnf..."
-            sudo microdnf install -y git
-            echo "git installed: $(git --version)"
-          else
-            echo "Installing git via dnf..."
-            sudo dnf install -y git -q
-            echo "git installed: $(git --version)"
-          fi
-
       - name: Checkout repo
         uses: actions/checkout@v4
 
@@ -37,10 +23,59 @@ jobs:
           COC_API_KEY: ${{ secrets.COC_API_KEY }}
         run: python3 update_tracker.py
 
-      - name: Commit and push if changed
+      - name: Commit and push via GitHub API
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add build_tracker.py buzzzzz-war-tracker.html
-          git diff --staged --quiet || git commit -m "Auto-update war tracker $(date -u '+%Y-%m-%d %H:%M UTC')"
-          git push
+          python3 - <<'PYEOF'
+          import os, json, base64, hashlib
+          from datetime import datetime, timezone
+          from urllib.request import urlopen, Request
+
+          TOKEN = os.environ['GITHUB_TOKEN']
+          REPO  = 'EyeYouShh/buzzzzz-war-tracker'
+          BRANCH = 'main'
+          BASE  = f'https://api.github.com/repos/{REPO}'
+          H = {
+            'Authorization': f'token {TOKEN}',
+            'Accept': 'application/vnd.github.v3+json',
+            'Content-Type': 'application/json'
+          }
+
+          now   = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
+          files = ['buzzzzz-war-tracker.html', 'build_tracker.py']
+          committed = []
+
+          for fname in files:
+            if not os.path.exists(fname):
+              print(f'{fname}: not found, skipping')
+              continue
+            content = open(fname, 'rb').read()
+
+            # Compute git blob SHA to detect changes
+            git_sha = hashlib.sha1(
+              f'blob {len(content)}\0'.encode() + content
+            ).hexdigest()
+
+            # Get remote blob SHA
+            req    = Request(f'{BASE}/contents/{fname}?ref={BRANCH}', headers=H)
+            remote = json.loads(urlopen(req).read())
+
+            if remote['sha'] == git_sha:
+              print(f'{fname}: unchanged, skipping')
+              continue
+
+            # Push updated file
+            body = json.dumps({
+              'message': f'Auto-update war tracker {now}',
+              'content': base64.b64encode(content).decode(),
+              'sha':     remote['sha'],
+              'branch':  BRANCH
+            }).encode()
+            req = Request(f'{BASE}/contents/{fname}', data=body, method='PUT', headers=H)
+            r   = json.loads(urlopen(req).read())
+            print(f'Committed {fname}: {r["commit"]["sha"][:7]}')
+            committed.append(fname)
+
+          print('Done — ' + (f'pushed {committed}' if committed else 'no changes'))
+          PYEOF
