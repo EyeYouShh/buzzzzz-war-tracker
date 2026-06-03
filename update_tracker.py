@@ -1,18 +1,19 @@
 #!/usr/bin/env python3
 """
 Buzzzzz War Tracker — Automation Script
-Fetches current war from CoC API and updates build_tracker.py, then regenerates HTML.
+Fetches current war + CWL wars from CoC API and updates build_tracker.py, then regenerates HTML.
 """
 
 import os, sys, re, json, subprocess
 from datetime import datetime, timezone
 import urllib.request
 
-API_KEY = os.environ.get("COC_API_KEY", "")
-CLAN_TAG = "%232GGL80JL0"
+API_KEY  = os.environ.get("COC_API_KEY", "")
+CLAN_TAG = "%232GGL80JL0"   # URL-encoded #2GGL80JL0
+OUR_TAG  = "#2GGL80JL0"
 BASE_URL = "https://api.clashofclans.com/v1"
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-TRACKER_PY = os.path.join(SCRIPT_DIR, "build_tracker.py")
+SCRIPT_DIR  = os.path.dirname(os.path.abspath(__file__))
+TRACKER_PY  = os.path.join(SCRIPT_DIR, "build_tracker.py")
 TRACKER_HTML = os.path.join(SCRIPT_DIR, "buzzzzz-war-tracker.html")
 
 
@@ -23,11 +24,17 @@ def api_get(endpoint):
         return json.loads(resp.read())
 
 
-def war_id_from_start(start_time_str):
-    """Convert API startTime '20260529T120000.000Z' to a numeric ID string."""
-    # Strip non-digits to get YYYYMMDDHHmmss → use last 9 digits like ClashSpot IDs
+def war_id_from_start(start_time_str, extra=""):
+    """Convert API startTime '20260529T120000.000Z' to a numeric ID string.
+    Optional 'extra' suffix differentiates wars that start at the same second (e.g. CWL).
+    """
     digits = re.sub(r"\D", "", start_time_str)[:14]
-    return str(int(digits) % 10_000_000_000)
+    base = int(digits) % 10_000_000_000
+    if extra:
+        # fold a small hash of the extra string into the ID
+        h = abs(hash(extra)) % 100
+        base = (base * 100 + h) % 10_000_000_000
+    return str(base)
 
 
 def format_war_date(start_time_str):
@@ -36,27 +43,26 @@ def format_war_date(start_time_str):
     return dt.strftime("%-m/%-d/%y")
 
 
-def build_war_block(war_data):
+def build_war_block(war_data, war_id_extra=""):
     """Convert API war data to v2 WAR_BLOCK format lines.
     V2 row: #tag|name|pos|TH|atk_count|raw_stars|net_stars|defPos:rawStars:delta:defTH,...
     """
     our_clan = war_data["clan"]
     opponent = war_data["opponent"]
 
-    # Lookup tables for opponent members (keyed by tag)
     def_pos = {m["tag"]: m["mapPosition"]          for m in opponent.get("members", [])}
     def_th  = {m["tag"]: m.get("townHallLevel", 0) for m in opponent.get("members", [])}
 
     size     = war_data.get("teamSize", "?")
-    war_id   = war_id_from_start(war_data["startTime"])
+    war_id   = war_id_from_start(war_data["startTime"], war_id_extra)
     date     = format_war_date(war_data["startTime"])
     opp_name = opponent["name"].replace('"', '\\"').replace('\n', ' ').replace('\r', '')
     war_size = f"{size}v{size}"
     state    = war_data.get("state", "")
     in_prog  = state in ("preparation", "inWar")
 
-    # ── Pass 1: collect all attacks per defender base for delta computation ──
-    attacks_on_base = {}   # defenderTag → [{order, stars, attackerTag}]
+    # Pass 1: collect all attacks per defender base for delta computation
+    attacks_on_base = {}
     for m in our_clan.get("members", []):
         for a in m.get("attacks", []):
             dt = a["defenderTag"]
@@ -66,8 +72,8 @@ def build_war_block(war_data):
                 "attackerTag": a["attackerTag"],
             })
 
-    # ── Compute per-attack delta (new stars contributed to war total) ──
-    delta_map = {}   # (defenderTag, order) → delta
+    # Compute per-attack delta
+    delta_map = {}
     for def_tag, atk_list in attacks_on_base.items():
         running_max = 0
         for atk in sorted(atk_list, key=lambda x: x["order"]):
@@ -75,7 +81,7 @@ def build_war_block(war_data):
             delta_map[(def_tag, atk["order"])] = delta
             running_max = max(running_max, atk["stars"])
 
-    # ── Pass 2: build per-member v2 rows ──
+    # Pass 2: build per-member v2 rows
     rows = []
     for m in sorted(our_clan.get("members", []), key=lambda x: x["mapPosition"]):
         tag  = m["tag"]
@@ -105,7 +111,7 @@ def build_war_block(war_data):
 
 
 def update_player_tags(war_data, content):
-    """Keep PLAYER_TAGS dict in build_tracker.py current with our clan members' tag→name mapping."""
+    """Keep PLAYER_TAGS dict in build_tracker.py current."""
     members = war_data.get("clan", {}).get("members", [])
     if not members:
         return content, False
@@ -115,12 +121,10 @@ def update_player_tags(war_data, content):
         print("WARNING: PLAYER_TAGS block not found in build_tracker.py")
         return content, False
 
-    # Parse existing entries
     existing = {}
     for m in re.finditer(r'"(#[^"]+)"\s*:\s*"([^"]*)"', tags_match.group(1)):
         existing[m.group(1)] = m.group(2)
 
-    # Update from current war roster
     changed = False
     for m in members:
         tag  = m["tag"]
@@ -140,40 +144,33 @@ def update_player_tags(war_data, content):
 
 
 def determine_result(war_data):
-    """Return 'W', 'L', or 'D' based on final war state."""
     our = war_data["clan"]
     opp = war_data["opponent"]
     our_stars = our.get("stars", 0)
     opp_stars = opp.get("stars", 0)
-    our_dest = our.get("destructionPercentage", 0)
-    opp_dest = opp.get("destructionPercentage", 0)
-    if our_stars > opp_stars:
-        return "W"
-    elif our_stars < opp_stars:
-        return "L"
-    elif our_dest > opp_dest:
-        return "W"
-    elif our_dest < opp_dest:
-        return "L"
+    our_dest  = our.get("destructionPercentage", 0)
+    opp_dest  = opp.get("destructionPercentage", 0)
+    if our_stars > opp_stars:   return "W"
+    elif our_stars < opp_stars: return "L"
+    elif our_dest  > opp_dest:  return "W"
+    elif our_dest  < opp_dest:  return "L"
     return "D"
 
 
-def update_build_tracker(war_data):
+def update_build_tracker(war_data, war_id_extra=""):
     state = war_data.get("state", "")
 
     if state == "notInWar":
-        print("No active war. Nothing to update.")
         return False
 
     with open(TRACKER_PY, "r") as f:
         content = f.read()
 
-    war_id, new_entry, in_prog = build_war_block(war_data)
+    war_id, new_entry, in_prog = build_war_block(war_data, war_id_extra)
 
     id_pattern = re.compile(rf'"\s*{re.escape(war_id)}\s*"')
-    war_exists = bool(id_pattern.search(content))
+    war_exists  = bool(id_pattern.search(content))
 
-    # Find WAR_BLOCKS insertion point (after the opening bracket)
     blocks_start = re.search(r'WAR_BLOCKS\s*=\s*\[', content)
     if not blocks_start:
         print("ERROR: Could not find WAR_BLOCKS in build_tracker.py")
@@ -183,32 +180,26 @@ def update_build_tracker(war_data):
 
     if not war_exists:
         print(f"New war detected (ID {war_id}). Adding to tracker.")
-        # Insert at top of WAR_BLOCKS
         content = content[:insert_pos] + "\n" + new_entry + ",\n" + content[insert_pos:]
     else:
         print(f"War {war_id} exists. Updating entry.")
-        # Replace the old entry (handles both in-progress and completed)
-        # Match from the war_id to the closing ), possibly with True/False flags
         old_entry_pat = re.compile(
             r'\("?\s*' + re.escape(war_id) + r'\s*"?,.*?"""\)',
             re.DOTALL
         )
         content = old_entry_pat.sub(new_entry, content)
 
-    # If war ended, add/update RESULTS
     if state == "warEnded":
         result = determine_result(war_data)
         result_pat = re.compile(r'RESULTS\s*=\s*\{')
         results_start = result_pat.search(content)
         if results_start:
-            # Check if war_id already in RESULTS
             if f'"{war_id}"' not in content:
                 insert_at = results_start.end()
                 content = content[:insert_at] + f'\n    "{war_id}": "{result}",' + content[insert_at:]
                 print(f"War {war_id} ended. Result: {result}")
 
-    # Always keep PLAYER_TAGS current with latest tag→name mapping
-    content, tags_changed = update_player_tags(war_data, content)
+    content, _ = update_player_tags(war_data, content)
 
     with open(TRACKER_PY, "w") as f:
         f.write(content)
@@ -216,24 +207,76 @@ def update_build_tracker(war_data):
     return True
 
 
+def fetch_cwl_wars():
+    """Fetch all CWL wars for the current league season where our clan participated."""
+    try:
+        group = api_get(f"/clans/{CLAN_TAG}/currentwar/leaguegroup")
+    except Exception as e:
+        print(f"CWL: no active league group ({e})")
+        return []
+
+    state = group.get("state", "")
+    print(f"CWL group state: {state}")
+    if state == "notInWar":
+        return []
+
+    wars = []
+    for round_num, round_data in enumerate(group.get("rounds", []), 1):
+        for war_tag in round_data.get("warTags", []):
+            if war_tag == "#0":
+                continue  # round not yet scheduled
+            encoded = war_tag.replace("#", "%23")
+            try:
+                war = api_get(f"/clanwarleagues/wars/{encoded}")
+            except Exception as e:
+                print(f"CWL round {round_num} war {war_tag}: fetch error ({e})")
+                continue
+
+            clan_tag  = war.get("clan",     {}).get("tag", "")
+            opp_tag   = war.get("opponent", {}).get("tag", "")
+
+            if clan_tag != OUR_TAG and opp_tag != OUR_TAG:
+                continue  # we're not in this war
+
+            if opp_tag == OUR_TAG:
+                # Flip so our clan is always in "clan" field
+                war["clan"], war["opponent"] = war["opponent"], war["clan"]
+
+            wars.append((round_num, war))
+            print(f"CWL round {round_num}: found our war vs {war['opponent']['name']} (state={war.get('state','')})")
+
+    return wars
+
+
 def main():
     if not API_KEY:
         print("ERROR: COC_API_KEY not set")
         sys.exit(1)
 
+    any_changed = False
+
+    # ── 1. Regular war ────────────────────────────────────────────────────────
     print("Fetching current war...")
     try:
         war_data = api_get(f"/clans/{CLAN_TAG}/currentwar")
+        state    = war_data.get("state", "unknown")
+        print(f"Regular war state: {state}")
+        changed = update_build_tracker(war_data)
+        any_changed = any_changed or changed
     except Exception as e:
-        print(f"API error: {e}")
-        sys.exit(1)
+        print(f"Regular war API error: {e}")
 
-    state = war_data.get("state", "unknown")
-    print(f"War state: {state}")
+    # ── 2. CWL wars ───────────────────────────────────────────────────────────
+    print("Fetching CWL wars...")
+    cwl_wars = fetch_cwl_wars()
+    for round_num, war in cwl_wars:
+        # Use opponent tag as extra to keep IDs unique if rounds share a start time
+        extra = war.get("opponent", {}).get("tag", f"r{round_num}")
+        changed = update_build_tracker(war, war_id_extra=extra)
+        any_changed = any_changed or changed
 
-    changed = update_build_tracker(war_data)
-
-    if changed:
+    # ── 3. Regenerate HTML if anything changed ────────────────────────────────
+    if any_changed:
         print("Regenerating HTML...")
         result = subprocess.run(
             ["python3", TRACKER_PY],
@@ -242,7 +285,7 @@ def main():
         if result.returncode == 0:
             print("HTML regenerated successfully.")
         else:
-            print(f"ERROR regenerating HTML: {result.stderr}")
+            print(f"ERROR regenerating HTML:\n{result.stderr}")
             sys.exit(1)
     else:
         print("No changes made.")
