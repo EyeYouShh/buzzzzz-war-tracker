@@ -1778,8 +1778,8 @@ tr:hover td.pcol,tr:hover td.mcol{background:var(--surface3)}
 .badge{font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:1px 5px;border-radius:4px}
 .badge.active{color:var(--full-tx);background:var(--full-bg)}
 .badge.left{color:var(--miss-tx);background:var(--miss-bg)}
-.thbadge{font-size:10px;font-weight:700;letter-spacing:.03em;padding:1px 5px;border-radius:4px;
-         color:oklch(0.88 0.12 244);background:oklch(0.32 0.07 244);border:1px solid oklch(0.46 0.10 244)}
+.thbadge{font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:1px 5px;border-radius:4px;
+         color:oklch(0.88 0.12 244);background:oklch(0.32 0.07 244)}
 .pw{font-size:11px;color:var(--faint);font-family:var(--mf)}
 .mval{display:inline-grid;place-items:center;min-width:26px;height:26px;padding:0 7px;border-radius:7px;
       font-family:var(--mf);font-weight:600;font-size:14px}
