@@ -31,8 +31,9 @@ def war_id_from_start(start_time_str, extra=""):
     digits = re.sub(r"\D", "", start_time_str)[:14]
     base = int(digits) % 10_000_000_000
     if extra:
-        # fold a small hash of the extra string into the ID
-        h = abs(hash(extra)) % 100
+        # fold a stable (deterministic) hash of the extra string into the ID
+        # NOTE: Python's built-in hash() is randomized per-process — use sum of ordinals instead
+        h = sum(ord(c) for c in extra) % 100
         base = (base * 100 + h) % 10_000_000_000
     return str(base)
 

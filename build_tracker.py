@@ -149,71 +149,7 @@ WAR_BLOCKS = [
 #QLLPQV8VJ|uhlisuh|35|13|1|3|3|36:3:3:11
 """, True, True),
 
-("317373096","6/3/26","The Microwave","30v30","""
-#90QCVGU8U|Slayer|1|0|0|0|0|
-#QL8CV0P0|gen|2|0|0|0|0|
-#QCUCLPPJV|Gr8Conqueror|3|0|0|0|0|
-#GQJUGLQRQ|stage6yo|4|0|0|0|0|
-#L8UC9G0U8|wato|5|0|0|0|0|
-#LC020U2Q|drybonez|6|0|0|0|0|
-#209J8J0RL|Big Steppa|7|0|0|0|0|
-#Y0UUGPRRU|Americanpatriot|8|0|0|0|0|
-#QP0CU0UC8|stage5yo|9|0|0|0|0|
-#G0VGRUCC|SwiftyKinja|10|0|0|0|0|
-#8J2V8998|DE1|11|0|0|0|0|
-#2J9GYQRYC|Jac|12|0|0|0|0|
-#8YJCVQL9L|rour|15|0|0|0|0|
-#GV80Y9L0Y|studkiller|17|0|0|0|0|
-#Q9UJG0RJP|Sumairu|18|0|0|0|0|
-#RQCJR8JV|SurgeGold|19|0|0|0|0|
-#GRRYCUJP8|crimpo|20|0|0|0|0|
-#R00L0CY9C|MiniPekka|21|0|0|0|0|
-#GRGGPPQ8J|Pam from HR|22|0|0|0|0|
-#GJLRURGC2|Cole|23|0|0|0|0|
-#PGLV2YQC|Kizaru|24|0|0|0|0|
-#LGJ9RC9Y9|Halid #1|25|0|0|0|0|
-#QLPQC0GQ0|Loading…|26|0|0|0|0|
-#GJ20RJ8RP|arius67'|28|0|0|0|0|
-#PRCQVCCV2|Brandon|29|0|0|0|0|
-#QGRPYC928|⚡️LSWreckless⚡️|31|0|0|0|0|
-#8L9J0R2QJ|SWAGMUFFIN90|32|0|0|0|0|
-#QLYP90RPV|Ste|33|0|0|0|0|
-#YVCJC0VCQ|Marrow|34|0|0|0|0|
-#QLLPQV8VJ|uhlisuh|35|0|0|0|0|
-""", True, True),
 
-("217372320","6/2/26","Bama Boyz","30v30","""
-#90QCVGU8U|Slayer|1|0|1|2|2|1:2:2:0
-#QL8CV0P0|gen|2|0|1|3|3|2:3:3:0
-#QCUCLPPJV|Gr8Conqueror|3|0|1|2|2|3:2:2:0
-#GQJUGLQRQ|stage6yo|4|0|1|3|3|4:3:3:0
-#L8UC9G0U8|wato|5|0|0|0|0|
-#LC020U2Q|drybonez|6|0|1|1|1|6:1:1:0
-#209J8J0RL|Big Steppa|7|0|1|1|1|7:1:1:0
-#Y0UUGPRRU|Americanpatriot|8|0|1|2|2|8:2:2:0
-#QP0CU0UC8|stage5yo|9|0|1|3|3|9:3:3:0
-#G0VGRUCC|SwiftyKinja|10|0|1|2|2|11:2:2:0
-#8J2V8998|DE1|11|0|1|1|1|12:1:1:0
-#2J9GYQRYC|Jac|12|0|0|0|0|
-#8YJCVQL9L|rour|15|0|1|2|2|14:2:2:0
-#Q9UJG0RJP|Sumairu|17|0|1|1|1|15:1:1:0
-#RQCJR8JV|SurgeGold|18|0|0|0|0|
-#GV80Y9L0Y|studkiller|19|0|1|2|2|18:2:2:0
-#GRRYCUJP8|crimpo|20|0|0|0|0|
-#R00L0CY9C|MiniPekka|21|0|1|2|2|20:2:2:0
-#GJLRURGC2|Cole|22|0|1|2|2|21:2:2:0
-#GRGGPPQ8J|Pam from HR|23|0|1|1|1|22:1:1:0
-#PGLV2YQC|Kizaru|24|0|0|0|0|
-#LGJ9RC9Y9|Halid #1|25|0|1|3|3|25:3:3:0
-#QLPQC0GQ0|Loading…|26|0|0|0|0|
-#PRCQVCCV2|Brandon|28|0|1|2|2|27:2:2:0
-#GJ20RJ8RP|arius67'|29|0|1|3|3|28:3:3:0
-#QGRPYC928|⚡️LSWreckless⚡️|31|0|1|2|2|30:2:2:0
-#QLYP90RPV|Ste|32|0|1|3|3|31:3:3:0
-#8L9J0R2QJ|SWAGMUFFIN90|33|0|0|0|0|
-#YVCJC0VCQ|Marrow|34|0|1|1|1|35:1:1:0
-#QLLPQV8VJ|uhlisuh|35|0|1|3|3|36:3:3:0
-""", True, True),
 
 ("273131437","5/29/26","Friendj of wer","30v30","""Slayer|1|2|6|1:3,2:3
 Gr8Conqueror|2|2|5|1:3,4:2
