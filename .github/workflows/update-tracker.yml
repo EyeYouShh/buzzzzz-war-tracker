@@ -9,6 +9,7 @@ on:
 jobs:
   update:
     runs-on: [self-hosted, coc-runner]
+    timeout-minutes: 270   # up to 4.5 h — allows smart sleep-until-war-ends logic
     permissions:
       contents: write
     env:

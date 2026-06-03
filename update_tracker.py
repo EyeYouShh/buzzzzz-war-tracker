@@ -4,8 +4,8 @@ Buzzzzz War Tracker — Automation Script
 Fetches current war + CWL wars from CoC API and updates build_tracker.py, then regenerates HTML.
 """
 
-import os, sys, re, json, subprocess
-from datetime import datetime, timezone
+import os, sys, re, json, subprocess, time
+from datetime import datetime, timezone, timedelta
 import urllib.request
 
 API_KEY  = os.environ.get("COC_API_KEY", "")
@@ -188,8 +188,9 @@ def update_build_tracker(war_data, war_id_extra="", is_cwl=False):
         content = content[:insert_pos] + "\n" + new_entry + ",\n" + content[insert_pos:]
     else:
         print(f"War {war_id} exists. Updating entry.")
+        # Match entries ending with """) OR """, True) OR """, False, True) OR """, True, True)
         old_entry_pat = re.compile(
-            r'\("?\s*' + re.escape(war_id) + r'\s*"?,.*?"""\)',
+            r'\("?\s*' + re.escape(war_id) + r'\s*"?,.*?"""(?:\s*,\s*(?:True|False)\s*(?:,\s*(?:True|False)\s*)?)?\)',
             re.DOTALL
         )
         content = old_entry_pat.sub(new_entry, content)
@@ -253,6 +254,59 @@ def fetch_cwl_wars():
     return wars
 
 
+def update_war_end_iso(iso_str):
+    """Write war endTime ISO string (or '') to WAR_END_ISO in build_tracker.py.
+    JS uses this to show smart-capture time as 'Next update' instead of next cron slot.
+    """
+    with open(TRACKER_PY, "r") as f:
+        content = f.read()
+    content = re.sub(
+        r'^WAR_END_ISO\s*=\s*"[^"]*"',
+        f'WAR_END_ISO = "{iso_str}"',
+        content, flags=re.MULTILINE
+    )
+    with open(TRACKER_PY, "w") as f:
+        f.write(content)
+
+
+def wait_for_war_end(war_data):
+    """
+    If a war is active (inWar) and its endTime is within the next 4 hours,
+    sleep until end + 3-min buffer and return True so caller can re-fetch final data.
+    Wars ending > 4 h away fall through to the next regular 4-h cron cycle.
+    """
+    if war_data.get("state") != "inWar":
+        return False
+
+    end_time_str = war_data.get("endTime", "")
+    if not end_time_str:
+        print("inWar but API returned no endTime — skipping smart wait")
+        return False
+
+    end_dt  = datetime.strptime(end_time_str[:15], "%Y%m%dT%H%M%S").replace(tzinfo=timezone.utc)
+    now_utc = datetime.now(timezone.utc)
+    secs_remaining = (end_dt - now_utc).total_seconds()
+
+    BUFFER   = 180          # 3 min after war ends before re-fetching
+    MAX_WAIT = 4 * 3600     # only wait if war ends within 4 h
+
+    if secs_remaining < 0:
+        print(f"War already ended {-secs_remaining / 60:.0f} min ago — no wait needed")
+        return False
+
+    if secs_remaining > MAX_WAIT:
+        print(f"War ends in {secs_remaining / 3600:.1f} h — next cron cycle will capture final data")
+        return False
+
+    wait_secs = secs_remaining + BUFFER
+    end_str   = end_dt.strftime("%Y-%m-%d %H:%M UTC")
+    print(f"War ends at {end_str} ({secs_remaining / 60:.0f} min away). "
+          f"Sleeping {wait_secs / 60:.0f} min for precise end-of-war capture…")
+    time.sleep(wait_secs)
+    print("War end window reached. Fetching final data…")
+    return True
+
+
 def main():
     if not API_KEY:
         print("ERROR: COC_API_KEY not set")
@@ -268,6 +322,27 @@ def main():
         print(f"Regular war state: {state}")
         changed = update_build_tracker(war_data)
         any_changed = any_changed or changed
+
+        # Update WAR_END_ISO so the tracker can show accurate "Next update" time.
+        # inWar → store endTime ISO; anything else → clear it.
+        if state == "inWar":
+            end_str = war_data.get("endTime", "")
+            if end_str:
+                end_dt = datetime.strptime(end_str[:15], "%Y%m%dT%H%M%S").replace(tzinfo=timezone.utc)
+                update_war_end_iso(end_dt.strftime("%Y-%m-%dT%H:%M:%SZ"))
+                any_changed = True   # need to regen HTML with updated end time
+        else:
+            update_war_end_iso("")   # clear when no active war
+
+        # Smart end-of-war capture: if inWar and ending within 4 h,
+        # sleep until the war ends then re-fetch final results.
+        if wait_for_war_end(war_data):
+            war_data_final = api_get(f"/clans/{CLAN_TAG}/currentwar")
+            print(f"Post-end war state: {war_data_final.get('state', 'unknown')}")
+            changed = update_build_tracker(war_data_final)
+            any_changed = any_changed or changed
+            update_war_end_iso("")   # war ended — clear the end time
+
     except Exception as e:
         print(f"Regular war API error: {e}")
 
