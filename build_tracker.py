@@ -2075,26 +2075,22 @@ function sortName(n){return stripEmoji(n);}
   document.getElementById('subline').textContent=meta.clanTag+' · Rolling '+meta.windowDays+'-day window';
   (function showSchedule(){
     const UTC_HOURS=[0,4,8,12,16,20];
-    const fmt=h=>{const d=new Date();d.setUTCHours(h,0,0,0);return d.toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});};
-    const times=UTC_HOURS.map(fmt).join(', ');
-    const tz=Intl.DateTimeFormat().resolvedOptions().timeZone.replace(/_/g,' ');
+    const RUNNER_LAG=7*60*1000; // ~7 min: cron trigger → API fetch → commit → Netlify deploy
     const now=new Date();
     const nowUTC=now.getUTCHours()*60+now.getUTCMinutes();
     const nextH=UTC_HOURS.find(h=>h*60>nowUTC)??UTC_HOURS[0];
     let cronNext=new Date(Date.UTC(now.getUTCFullYear(),now.getUTCMonth(),now.getUTCDate(),nextH,0,0));
     if(cronNext<=now)cronNext.setUTCDate(cronNext.getUTCDate()+1);
+    // If war is ending before next cron, use that time instead
     const warEndISO=meta.warEndISO||'';
-    let nextLabel;
+    let est=new Date(cronNext.getTime()+RUNNER_LAG);
     if(warEndISO){
       const warEnd=new Date(warEndISO);
-      const smartCapture=new Date(warEnd.getTime()+3*60*1000);
-      if(smartCapture>now&&smartCapture<cronNext){
-        nextLabel='next ~'+smartCapture.toLocaleTimeString([],{hour:'numeric',minute:'2-digit'})+' (war end)';
-      }
+      const smartEst=new Date(warEnd.getTime()+3*60*1000+RUNNER_LAG);
+      if(smartEst>now&&smartEst<est)est=smartEst;
     }
-    if(!nextLabel)nextLabel='next ~'+cronNext.toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});
     const el=document.getElementById('schedLine');
-    if(el)el.textContent='Updates at '+times+' ('+tz+') · '+nextLabel;
+    if(el)el.textContent='Est. next update: '+est.toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});
   })();
   document.getElementById('memCount').textContent=D.members.filter(m=>m.status==='active').length+' active';
   document.getElementById('warCount').textContent=D.wars.filter(w=>w.inWindow&&!w.pending).length+' wars in window';
