@@ -1400,7 +1400,8 @@ for _war in wars:
             'inWar': True, 'used': _used, 'max': _max_atk, 'attacks': _attacks,
             'cwl': _war['cwl'], 'missed': _max_atk - _used, 'v2': _is_v2,
             'rawStars': _comp_raw, 'netStars': _comp_net,
-            'stars': _comp_net if _is_v2 else _comp_raw
+            'stars': _comp_net if _is_v2 else _comp_raw,
+            'pos': _pd.get('p', '?')
         }
         if _atk_th is not None: _cell['atkTh'] = _atk_th
         _members[_canonical]['cells'][_war['id']] = _cell
@@ -1600,6 +1601,7 @@ td.cell.part .ua{color:var(--part-tx)}
 td.cell.live .lv{font-size:10px;font-weight:700;letter-spacing:.05em;color:var(--live-tx)}
 td.cell.none .dash{color:var(--none-tx);font-size:14px}
 .cd{display:none;margin-top:3px;font-family:var(--mf);font-size:9.5px;color:var(--muted);line-height:1.4}
+.ato{color:var(--faint);font-size:8px}
 td.cell.miss .cd{color:var(--miss-tx)}
 .cd .dd{font-weight:700}
 .cd .dd.up{color:var(--reach-tx)}.cd .dd.dip{color:var(--dip-tx)}.cd .dd.even{color:var(--faint)}
@@ -1796,9 +1798,9 @@ window.WARDATA=__WARDATA_JSON__;
       if(c.v2){
         const newTxt=a.neu===0?'<span class="zero">0 new</span>':(a.neu+'★ new');
         const rawNote=a.raw>a.neu?' <span class="raw">of '+a.raw+'</span>':'';
-        return'#'+a.to+' vs TH'+a.defTh+' · '+newTxt+rawNote;
+        return'#'+c.pos+' <span class="ato">›</span> #'+a.to+' vs TH'+a.defTh+' · '+newTxt+rawNote;
       }
-      return'#'+a.to+' · '+a.raw+'★';
+      return'#'+c.pos+' <span class="ato">›</span> #'+a.to+' · '+a.raw+'★';
     }).join('<br>');
     const title=c.v2
       ?esc(w.name)+' (v2) — '+c.used+'/'+c.max+' · '+c.stars+'★ net/'+c.rawStars+'★ raw'
