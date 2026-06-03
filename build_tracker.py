@@ -1416,7 +1416,9 @@ for _canonical, _member in _members.items():
         if _wid not in _in_window_set: continue
         _cell = _member['cells'].get(_wid)
         if _cell is None or _cell.get('pending'): continue
-        _el += 1; _pl += 1; _ms += (1 if _cell.get('used', 0) == 0 else 0); _st += _cell.get('stars', 0)
+        _el += 1
+        if _cell.get('used', 0) > 0: _pl += 1
+        _ms += (1 if _cell.get('used', 0) == 0 else 0); _st += _cell.get('stars', 0)
         _us += _cell.get('used', 0); _av += _cell.get('max', 0)
         _rw += _cell.get('rawStars', 0); _nt += _cell.get('netStars', 0)
         for _a in _cell.get('attacks', []):
