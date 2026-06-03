@@ -81,14 +81,9 @@ PLAYER_TAGS = {
     "#YVCJC0VCQ": "Marrow",
 }
 
-# War end time (ISO 8601 UTC) — set by update_tracker.py when a war is active.
-# JS uses this to display the smart-capture end time as "Next update" instead of next cron slot.
-# Cleared by update_tracker.py when war ends or no war is active.
-WAR_END_ISO = ""
-
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
-("317373071","6/3/26","The Microwave","30v30","""
+("417523054","6/4/26","SS RAIDERS","30v30","""
 #90QCVGU8U|Slayer|1|18|0|0|0|
 #QL8CV0P0|gen|2|17|0|0|0|
 #QCUCLPPJV|Gr8Conqueror|3|17|0|0|0|
@@ -96,18 +91,51 @@ WAR_BLOCKS = [
 #L8UC9G0U8|wato|5|16|0|0|0|
 #LC020U2Q|drybonez|6|16|0|0|0|
 #209J8J0RL|Big Steppa|7|15|0|0|0|
-#Y0UUGPRRU|Americanpatriot|8|15|0|0|0|
-#QP0CU0UC8|stage5yo|9|15|0|0|0|
+#QP0CU0UC8|stage5yo|8|15|0|0|0|
+#Y0UUGPRRU|Americanpatriot|9|15|0|0|0|
 #G0VGRUCC|SwiftyKinja|10|15|0|0|0|
 #8J2V8998|DE1|11|15|0|0|0|
 #2J9GYQRYC|Jac|12|14|0|0|0|
 #8YJCVQL9L|rour|15|14|0|0|0|
 #GV80Y9L0Y|studkiller|17|14|0|0|0|
-#Q9UJG0RJP|Sumairu|18|14|0|0|0|
-#RQCJR8JV|SurgeGold|19|14|0|0|0|
+#RQCJR8JV|SurgeGold|18|14|0|0|0|
+#Q9UJG0RJP|Sumairu|19|14|0|0|0|
 #GRRYCUJP8|crimpo|20|14|0|0|0|
 #R00L0CY9C|MiniPekka|21|14|0|0|0|
-#GRGGPPQ8J|Pam from HR|22|14|0|0|0|
+#LGJ9RC9Y9|Halid #1|22|14|0|0|0|
+#GJLRURGC2|Cole|23|14|0|0|0|
+#GRGGPPQ8J|Pam from HR|24|14|0|0|0|
+#PGLV2YQC|Kizaru|25|14|0|0|0|
+#QLPQC0GQ0|Loading…|26|14|0|0|0|
+#GJ20RJ8RP|arius67'|28|13|0|0|0|
+#PRCQVCCV2|Brandon|29|13|0|0|0|
+#QGRPYC928|⚡️LSWreckless⚡️|30|13|0|0|0|
+#QLYP90RPV|Ste|31|13|0|0|0|
+#8L9J0R2QJ|SWAGMUFFIN90|33|13|0|0|0|
+#YVCJC0VCQ|Marrow|34|13|0|0|0|
+#QLLPQV8VJ|uhlisuh|35|13|0|0|0|
+""", True, True),
+
+("317373071","6/3/26","The Microwave","30v30","""
+#90QCVGU8U|Slayer|1|18|0|0|0|
+#QL8CV0P0|gen|2|17|1|3|3|2:3:3:16
+#QCUCLPPJV|Gr8Conqueror|3|17|1|3|3|3:3:3:16
+#GQJUGLQRQ|stage6yo|4|16|0|0|0|
+#L8UC9G0U8|wato|5|16|1|2|2|5:2:2:16
+#LC020U2Q|drybonez|6|16|0|0|0|
+#209J8J0RL|Big Steppa|7|15|0|0|0|
+#Y0UUGPRRU|Americanpatriot|8|15|0|0|0|
+#QP0CU0UC8|stage5yo|9|15|0|0|0|
+#G0VGRUCC|SwiftyKinja|10|15|1|2|2|12:2:2:16
+#8J2V8998|DE1|11|15|1|2|2|13:2:2:16
+#2J9GYQRYC|Jac|12|14|0|0|0|
+#8YJCVQL9L|rour|15|14|0|0|0|
+#GV80Y9L0Y|studkiller|17|14|1|2|2|16:2:2:15
+#Q9UJG0RJP|Sumairu|18|14|1|2|2|20:2:2:15
+#RQCJR8JV|SurgeGold|19|14|0|0|0|
+#GRRYCUJP8|crimpo|20|14|0|0|0|
+#R00L0CY9C|MiniPekka|21|14|1|3|3|23:3:3:15
+#GRGGPPQ8J|Pam from HR|22|14|1|1|1|24:1:1:15
 #GJLRURGC2|Cole|23|14|0|0|0|
 #PGLV2YQC|Kizaru|24|14|0|0|0|
 #LGJ9RC9Y9|Halid #1|25|14|0|0|0|
@@ -118,103 +146,8 @@ WAR_BLOCKS = [
 #8L9J0R2QJ|SWAGMUFFIN90|32|13|0|0|0|
 #QLYP90RPV|Ste|33|13|0|0|0|
 #YVCJC0VCQ|Marrow|34|13|0|0|0|
-#QLLPQV8VJ|uhlisuh|35|13|0|0|0|
+#QLLPQV8VJ|uhlisuh|35|13|1|2|2|43:2:2:13
 """, True, True),
-
-("217372345","6/2/26","Bama Boyz","30v30","""
-#90QCVGU8U|Slayer|1|18|1|2|2|1:2:2:18
-#QL8CV0P0|gen|2|17|1|3|3|2:3:3:18
-#QCUCLPPJV|Gr8Conqueror|3|17|1|2|2|3:2:2:18
-#GQJUGLQRQ|stage6yo|4|16|1|3|3|4:3:3:18
-#L8UC9G0U8|wato|5|16|0|0|0|
-#LC020U2Q|drybonez|6|16|1|1|1|6:1:1:17
-#209J8J0RL|Big Steppa|7|15|1|1|1|7:1:1:17
-#Y0UUGPRRU|Americanpatriot|8|15|1|2|2|8:2:2:17
-#QP0CU0UC8|stage5yo|9|15|1|3|3|9:3:3:17
-#G0VGRUCC|SwiftyKinja|10|15|1|2|2|11:2:2:16
-#8J2V8998|DE1|11|15|1|1|1|12:1:1:16
-#2J9GYQRYC|Jac|12|14|1|1|1|13:1:1:16
-#8YJCVQL9L|rour|15|14|1|2|2|14:2:2:16
-#Q9UJG0RJP|Sumairu|17|14|1|1|1|15:1:1:16
-#RQCJR8JV|SurgeGold|18|14|1|2|2|16:2:2:16
-#GV80Y9L0Y|studkiller|19|14|1|2|2|18:2:2:16
-#GRRYCUJP8|crimpo|20|14|1|2|2|19:2:2:16
-#R00L0CY9C|MiniPekka|21|14|1|2|2|20:2:2:17
-#GJLRURGC2|Cole|22|14|1|2|2|21:2:2:16
-#GRGGPPQ8J|Pam from HR|23|14|1|1|1|22:1:1:15
-#PGLV2YQC|Kizaru|24|14|1|3|3|24:3:3:16
-#LGJ9RC9Y9|Halid #1|25|14|1|3|3|25:3:3:16
-#QLPQC0GQ0|Loading…|26|14|1|3|3|26:3:3:17
-#PRCQVCCV2|Brandon|28|13|1|2|2|27:2:2:16
-#GJ20RJ8RP|arius67'|29|13|1|3|3|28:3:3:16
-#QGRPYC928|⚡️LSWreckless⚡️|31|13|1|2|2|30:2:2:16
-#QLYP90RPV|Ste|32|13|1|3|3|31:3:3:14
-#8L9J0R2QJ|SWAGMUFFIN90|33|13|1|3|3|32:3:3:16
-#YVCJC0VCQ|Marrow|34|13|1|1|1|35:1:1:13
-#QLLPQV8VJ|uhlisuh|35|13|1|3|3|36:3:3:11
-""", False, True),
-
-("273131437","5/29/26","Friendj of wer","30v30","""Slayer|1|2|6|1:3,2:3
-Gr8Conqueror|2|2|5|1:3,4:2
-stage6yo|3|2|6|3:3,2:3
-wato|4|1|3|19:3
-Big Steppa|5|2|6|5:3,4:3
-Americanpatriot|6|0|0|
-stage5yo|7|2|6|7:3,6:3
-DE1|8|2|4|10:3,2:1
-SwiftyKinja|9|2|6|9:3,8:3
-Jac|10|2|6|9:3,20:3
-crimpo|11|2|6|11:3,5:3
-studkiller|12|2|6|12:3,16:3
-MiniPekka|13|2|5|13:3,11:2
-Cole|14|2|6|18:3,17:3
-Kizaru|15|2|6|20:3,15:3
-Pam from HR|16|1|2|16:2
-Halid #1|17|1|3|17:3
-Loading…|18|2|3|19:2,9:2
-arius67'|19|2|6|14:3,19:3
-MR. ASURAN YT|20|2|2|1:1,2:1
-Ste|21|2|6|23:3,22:3
-SWAGMUFFIN90|22|0|0|
-uhlisuh|23|2|6|26:3,27:3
-Marrow|24|2|6|21:3,26:3
-jj|25|2|6|25:3,24:3
-UNSTOPPABLE ADI|26|2|6|25:3,27:3
-Stevie Wonder|27|2|2|5:1,9:2
-das|28|2|6|28:3,27:3
-rinz|29|2|6|29:3,30:3
-Tretor|30|0|0|"""),
-
-("272906647","5/27/26","⚡INDIAN KINGDOM","30v30","""Slayer|1|2|6|3:3,4:3
-Gr8Conqueror|2|2|6|2:3,1:3
-stage6yo|3|2|6|1:3,2:3
-wato|4|1|3|22:3
-Big Steppa|5|2|6|6:3,5:3
-Americanpatriot|6|2|6|12:3,14:3
-stage5yo|7|2|6|9:3,20:3
-DE1|8|2|6|7:3,8:3
-SwiftyKinja|9|2|5|9:2,10:3
-Jac|10|2|4|15:2,14:2
-crimpo|11|2|6|11:3,15:3
-MiniPekka|12|2|4|12:2,14:2
-studkiller|13|2|6|13:3,18:3
-Cole|14|2|3|22:1,14:2
-Mr.Minzy kipz|15|0|0|
-Kizaru|16|2|6|16:3,21:3
-Pam from HR|17|1|3|19:3
-Halid #1|18|2|5|17:3,22:2
-atlas|19|0|0|
-Loading…|20|0|0|
-Ste|21|2|5|25:3,22:2
-SWAGMUFFIN90|22|2|2|1:1,2:1
-uhlisuh|23|1|3|23:3
-Marrow|24|2|5|24:3,22:2
-jj|25|2|5|20:2,30:3
-UNSTOPPABLE ADI|26|1|2|22:2
-F16|27|1|3|26:3
-Stevie Wonder|28|2|5|28:2,27:3
-das|29|2|6|29:3,28:3
-rinz|30|0|0|"""),
 
 ("272696863","5/25/26","SARYAGAW","35v35","""•KAILAN•|1|2|6|1:3,2:3
 Onestatefan|2|0|0|
@@ -1375,8 +1308,6 @@ RESULTS = {
     '268235660': 'W',  # The Nephalem
     '267804602': 'W',  # MABAR VIP
     '267573823': 'W',  # Infiniti Power
-    # CWL current season
-    '217372345': 'W',  # Bama Boyz (Round 1, 6/2/26)
     # CWL — Buzzzzz 1st in both seasons
     '8Q0J0022Q': 'W', '8Q0G02CGY': 'W', '8Q0L0VR82': 'W', '8Q0P0CYLR': 'W',
     '8Q0882R82': 'W', '8Q0020RCC': 'W', '8LVUPY0R9': 'W',
@@ -1596,8 +1527,7 @@ _meta = {
     'clanName': 'Buzzzzz', 'clanTag': '#2GGL80JL0', 'windowDays': 60,
     'windowLabel': f"{_cutoff.strftime('%-m/%-d')} – {_today.strftime('%-m/%-d/%y')}",
     'archivedWars': _archived_count,
-    'updated': _today.strftime('%-m/%-d/%y'),
-    'warEndISO': WAR_END_ISO,   # "" when no active war; ISO UTC string when inWar
+    'updated': _today.strftime('%-m/%-d/%y')
 }
 
 print(f"// Players: {len(_members_list)}")
@@ -1781,12 +1711,7 @@ table.view-full .cd{display:block}
 .scroll::-webkit-scrollbar{height:11px;width:11px}
 .scroll::-webkit-scrollbar-thumb{background:var(--line2);border-radius:6px;border:3px solid var(--bg)}
 .scroll::-webkit-scrollbar-thumb:hover{background:var(--faint)}
-@media(max-width:720px){
-  .strip{overflow-x:auto}.claninfo{display:none}header{padding:12px 16px}
-  .controls{padding:10px 16px;gap:10px}
-  .controls .cgroup{min-width:0;overflow:hidden}
-  #sortSeg{overflow-x:auto;-webkit-overflow-scrolling:touch}
-}
+@media(max-width:720px){.strip{overflow-x:auto}.claninfo{display:none}header{padding:12px 16px}.controls{padding:10px 16px;gap:12px}}
 @media(max-width:560px){
   th.pcorner,td.pcol{width:118px;min-width:118px}th.pcorner{padding:8px 10px}td.pcol{padding:7px 10px}
   th.pcorner .s{display:none}th.mcorner,td.mcol{left:118px;width:40px;min-width:40px}th.mcorner .s{display:none}
@@ -1809,7 +1734,6 @@ table.view-full .cd{display:block}
     <div class="claninfo">
       <div><b id="memCount">—</b> · <span id="warCount">—</span></div>
       <div id="windowLine"></div>
-      <div id="schedLine" style="font-size:11px;color:var(--faint);margin-top:1px"></div>
     </div>
   </div>
 </header>
@@ -2033,32 +1957,6 @@ function sortName(n){return stripEmoji(n);}
   document.getElementById('memCount').textContent=D.members.filter(m=>m.status==='active').length+' active';
   document.getElementById('warCount').textContent=D.wars.filter(w=>w.inWindow&&!w.pending).length+' wars in window';
   document.getElementById('windowLine').textContent=meta.windowLabel;
-  (function showSchedule(){
-    // Runner fires at 00:00, 04:00, 08:00, 12:00, 16:00, 20:00 UTC
-    const UTC_HOURS=[0,4,8,12,16,20];
-    const fmt=h=>{const d=new Date();d.setUTCHours(h,0,0,0);return d.toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});};
-    const times=UTC_HOURS.map(fmt).join(', ');
-    const tz=Intl.DateTimeFormat().resolvedOptions().timeZone.replace(/_/g,' ');
-    const now=new Date();
-    // Next cron slot
-    const nowUTC=now.getUTCHours()*60+now.getUTCMinutes();
-    const nextH=UTC_HOURS.find(h=>h*60>nowUTC)??UTC_HOURS[0];
-    let cronNext=new Date(Date.UTC(now.getUTCFullYear(),now.getUTCMonth(),now.getUTCDate(),nextH,0,0));
-    if(cronNext<=now)cronNext.setUTCDate(cronNext.getUTCDate()+1);
-    // Smart-capture: if war is active with known endTime, pick whichever comes first
-    const warEndISO=meta.warEndISO||'';
-    let nextLabel;
-    if(warEndISO){
-      const warEnd=new Date(warEndISO);
-      const smartCapture=new Date(warEnd.getTime()+3*60*1000); // end + 3 min buffer
-      if(smartCapture>now&&smartCapture<cronNext){
-        nextLabel='next ~'+smartCapture.toLocaleTimeString([],{hour:'numeric',minute:'2-digit'})+' (war end)';
-      }
-    }
-    if(!nextLabel)nextLabel='next ~'+cronNext.toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});
-    const el=document.getElementById('schedLine');
-    if(el)el.textContent='Updates at '+times+' ('+tz+') · '+nextLabel;
-  })();
   wireSeg('filterSeg','filter','f');
   wireSeg('sortSeg','sort','s',()=>{state.warFocus=null;});
   wireSeg('viewSeg','view','v');
