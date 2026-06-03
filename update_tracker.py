@@ -162,6 +162,48 @@ def determine_result(war_data):
     return "D"
 
 
+def _replace_war_entry(content, war_id, new_entry):
+    """Safely replace a single WAR_BLOCK entry by war_id without crossing entry boundaries.
+
+    The regex approach (.*? with DOTALL) can over-match and consume adjacent entries.
+    This function instead walks the string character by character:
+      1. Finds the entry opening: '("war_id",'
+      2. Locates the first triple-quote  (opening of data block)
+      3. Locates the second triple-quote (closing of data block)
+      4. Finds the ')' that closes the tuple (may follow ', True, True' etc.)
+      5. Replaces only that span — guaranteed not to cross entry boundaries.
+    """
+    search_str = f'("{war_id}",'
+    idx = content.find(search_str)
+    if idx == -1:
+        print(f"WARNING: _replace_war_entry could not find entry for {war_id}")
+        return content
+
+    # Walk back to find the opening '(' of the tuple
+    entry_start = idx - 1
+    if entry_start < 0 or content[entry_start] != '(':
+        print(f"WARNING: _replace_war_entry found ID but no preceding '(' for {war_id}")
+        return content
+
+    # Find the first """ — opening of the data block
+    open_tq = content.find('"""', entry_start)
+    if open_tq == -1:
+        return content
+
+    # Find the second """ — closing of the data block
+    close_tq = content.find('"""', open_tq + 3)
+    if close_tq == -1:
+        return content
+
+    # Find the ')' that ends the tuple after the closing """
+    close_paren = content.find(')', close_tq + 3)
+    if close_paren == -1:
+        return content
+
+    entry_end = close_paren + 1  # exclusive
+    return content[:entry_start] + new_entry + content[entry_end:]
+
+
 def update_build_tracker(war_data, war_id_extra="", is_cwl=False):
     state = war_data.get("state", "")
 
@@ -188,12 +230,9 @@ def update_build_tracker(war_data, war_id_extra="", is_cwl=False):
         content = content[:insert_pos] + "\n" + new_entry + ",\n" + content[insert_pos:]
     else:
         print(f"War {war_id} exists. Updating entry.")
-        # Match entries ending with """) OR """, True) OR """, False, True) OR """, True, True)
-        old_entry_pat = re.compile(
-            r'\("?\s*' + re.escape(war_id) + r'\s*"?,.*?"""(?:\s*,\s*(?:True|False)\s*(?:,\s*(?:True|False)\s*)?)?\)',
-            re.DOTALL
-        )
-        content = old_entry_pat.sub(new_entry, content)
+        # Use safe string-based replacement — the regex approach with .*? + DOTALL
+        # can match across multiple entries when run over the full file.
+        content = _replace_war_entry(content, war_id, new_entry)
 
     if state == "warEnded":
         result = determine_result(war_data)
