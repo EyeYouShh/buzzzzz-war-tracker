@@ -1698,7 +1698,7 @@ header{flex:0 0 auto;display:flex;align-items:center;justify-content:space-betwe
 .claninfo b{color:var(--ink);font-weight:600}
 /* strip */
 .strip{flex:0 0 auto;display:flex;gap:0;border-bottom:1px solid var(--line);background:var(--surface2)}
-.kpi{padding:12px 22px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:3px;min-width:130px}
+.kpi{padding:12px 22px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:3px;flex:1 1 0;min-width:0}
 .kpi .k{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:600;display:flex;gap:6px;align-items:center}
 .kpi .v{font-family:var(--hf);font-size:26px;font-weight:600;line-height:1;letter-spacing:-.5px}
 .kpi .u{font-size:11.5px;color:var(--faint)}
