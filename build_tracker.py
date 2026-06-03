@@ -1745,9 +1745,6 @@ window.WARDATA=__WARDATA_JSON__;
     const s=D.summary(list);
     const items=[
       {k:'Wars fully missed',v:s.totalMissed,u:s.cleanCount+' fully clean',alert:s.totalMissed>0,c:'var(--miss-tx)'},
-      {k:'Avg participation',v:pct(s.avgParticipation),u:'across '+s.count+' members',c:'var(--accent)'},
-      {k:'Net stars',v:s.netStars,u:'of '+s.rawStars+' raw',c:'var(--star)'},
-      {k:'Wars in window',v:s.warsInWindow,u:s.v2Wars+' v2 · '+(s.warsInWindow-s.v2Wars)+' v1',c:'var(--full-tx)'},
       {k:'Avg attack Δ',v:(s.avgDelta>=0?'+':'−')+Math.abs(s.avgDelta).toFixed(1),u:s.dips+' dips · '+s.reaches+' reaches',c:s.avgDelta<0?'var(--dip-tx)':'var(--reach-tx)'},
     ];
     document.getElementById('strip').innerHTML=items.map(it=>
@@ -1814,7 +1811,8 @@ window.WARDATA=__WARDATA_JSON__;
       let r='<tr>';
       r+='<td class="pcol"><div class="pname" title="'+esc(m.name)+'">'+esc(m.name)+'</div>'+
         '<div class="pmeta"><span class="badge '+m.status+'">'+(m.status==='left'?'Left':'Active')+'</span>'+
-        '<span class="pw">'+m.played+'/'+m.eligible+' <span class="wlbl">wars</span></span></div></td>';
+        (m.status==='active'?'<span class="pw">'+m.played+'/'+m.eligible+' <span class="wlbl">wars</span></span>':'')+
+        '</div></td>';
       r+='<td class="mcol"><span class="mval mono '+heat(m.missed)+'">'+m.missed+'</span></td>';
       D.wars.forEach(w=>{r+=cellHtml(w,m.cells[w.id]||null);});
       return r+'</tr>';
