@@ -1579,9 +1579,9 @@ tr:hover td.pcol,tr:hover td.mcol{background:var(--surface3)}
 .mval{display:inline-grid;place-items:center;min-width:26px;height:26px;padding:0 7px;border-radius:7px;
       font-family:var(--mf);font-weight:600;font-size:14px}
 .mval.h0{color:var(--faint)}
-.mval.h1{color:var(--part-tx);background:var(--part-bg)}
-.mval.h2{color:var(--miss-tx);background:color-mix(in oklab,var(--miss-bg) 70%,transparent)}
-.mval.h3{color:#fff;background:var(--miss-tx)}
+.mval.h1{color:oklch(0.92 0.16 88);background:oklch(0.36 0.09 85)}
+.mval.h2{color:oklch(0.90 0.18 48);background:oklch(0.38 0.13 44)}
+.mval.h3{color:oklch(0.94 0.16 22);background:var(--miss-bg);border:1.5px solid var(--miss-bd)}
 /* data cells */
 td.cell{width:80px;min-width:80px;height:46px;text-align:center;border-right:1px solid var(--line);
         border-bottom:1px solid var(--line);padding:3px 4px;vertical-align:middle;transition:height .14s}
