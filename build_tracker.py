@@ -1592,7 +1592,6 @@ td.cell.miss{background:var(--miss-bg)}
 td.cell.none{background:var(--none-bg)}
 td.cell.live{background:var(--live-bg)}
 td.cell.archived{opacity:.42}
-td.cell.iscwl{box-shadow:inset 3px 0 0 -1px color-mix(in oklab,var(--accent) 45%,transparent)}
 .cmain{display:flex;align-items:baseline;justify-content:center;gap:5px;line-height:1.1}
 .cmain .ua{font-family:var(--mf);font-size:12px;color:var(--muted);font-weight:500}
 .cmain .st{font-family:var(--mf);font-size:13.5px;font-weight:600;color:var(--star)}
