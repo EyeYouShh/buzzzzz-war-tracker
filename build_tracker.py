@@ -1635,7 +1635,7 @@ header{flex:0 0 auto;display:flex;align-items:center;justify-content:space-betwe
 table{border-collapse:separate;border-spacing:0}
 thead th{position:sticky;top:0;z-index:5}
 /* war header */
-th.wh{width:var(--warcol-w,80px);min-width:var(--warcol-w,80px);vertical-align:top;padding:8px 6px 9px;text-align:center;
+th.wh{width:var(--warcol-w,80px);min-width:var(--warcol-w,80px);vertical-align:top;padding:8px 6px 9px;text-align:center;cursor:pointer;user-select:none;
       background:var(--surface2);border-right:1px solid var(--line);border-bottom:1px solid var(--line2)}
 th.wh .whrow{display:flex;align-items:center;justify-content:center;gap:5px}
 th.wh .wdate{font-family:var(--hf);font-weight:700;font-size:13px;color:var(--star);letter-spacing:-.2px}
@@ -1650,6 +1650,9 @@ th.wh .wres{font-size:8.5px;font-weight:700;letter-spacing:.03em;padding:1px 4px
 .wres.loss{color:var(--miss-tx);background:var(--miss-bg)}
 .wres.draw{color:var(--muted);background:var(--surface3)}
 .wres.live{color:var(--live-tx);background:var(--live-bg)}
+th.wh:hover{background:color-mix(in oklab,var(--star) 8%,var(--surface2))}
+th.wh.focused{background:color-mix(in oklab,var(--star) 18%,var(--surface2));box-shadow:inset 0 -2px 0 var(--star)}
+th.wh.focused .wdate{color:var(--ink)}
 th.wh.iscwl{background:color-mix(in oklab,var(--accent) 7%,var(--surface2))}
 th.wh.archived{opacity:.42}
 /* archived column separator */
@@ -1803,7 +1806,7 @@ window.WARDATA=__WARDATA_JSON__;
     if(key==='left')return list.filter(m=>m.status==='left');
     return list.filter(m=>m.status==='active');
   };
-  D.sortMembers=function(list,key){
+  D.sortMembers=function(list,key,warId){
     const o=list.slice();
     switch(key){
       case'name':o.sort((a,b)=>a.name.localeCompare(b.name));break;
@@ -1811,6 +1814,14 @@ window.WARDATA=__WARDATA_JSON__;
       case'wars':o.sort((a,b)=>b.played-a.played||a.name.localeCompare(b.name));break;
       case'stars':o.sort((a,b)=>b.stars-a.stars||a.name.localeCompare(b.name));break;
       case'dips':o.sort((a,b)=>b.dips-a.dips||a.avgDelta-b.avgDelta);break;
+      case'warfocus':o.sort((a,b)=>{
+        const ca=a.cells[warId]||null, cb=b.cells[warId]||null;
+        const wa=ca&&!ca.pending?(ca.used>0?2:1):0;
+        const wb=cb&&!cb.pending?(cb.used>0?2:1):0;
+        if(wa!==wb)return wb-wa;
+        if(wa===2&&wb===2)return(cb.stars||0)-(ca.stars||0);
+        return a.name.localeCompare(b.name);
+      });break;
       default:o.sort((a,b)=>b.missed-a.missed||b.available-a.available||a.name.localeCompare(b.name));
     }
     return o;
@@ -1838,7 +1849,7 @@ window.WARDATA=__WARDATA_JSON__;
 <script>
 (function(){
   const D=window.WARDATA;
-  const state={filter:'active',sort:'missed',view:'stars'};
+  const state={filter:'active',sort:'missed',view:'stars',warFocus:null};
   const pct=x=>Math.round(x*100)+'%';
   const RES={win:'WIN',loss:'LOSS',draw:'DRAW',live:'LIVE'};
   function heat(n){return n===0?'h0':(n<=2?'h1':(n<=4?'h2':'h3'));}
@@ -1860,7 +1871,7 @@ window.WARDATA=__WARDATA_JSON__;
            '<th class="mcorner"><div class="t">Missed</div><div class="s">60 days</div></th>';
     D.wars.forEach((w,i)=>{
       const arcCls=(i===arcStartIdx)?' arc-start':'';
-      h+='<th class="wh'+(w.cwl?' iscwl':'')+(w.inWindow?'':' archived')+arcCls+'">' +
+      h+='<th class="wh'+(w.cwl?' iscwl':'')+(w.inWindow?'':' archived')+arcCls+'" data-wid="'+w.id+'">' +
         '<div class="whrow"><span class="wdate">'+w.date+'</span>' +
         (w.cwl?'<span class="cwl">CWL</span>':'')+
         (w.v2?'<span class="v2dot" title="v2 — TH levels + net stars"></span>':'')+'</div>'+
@@ -1921,12 +1932,15 @@ window.WARDATA=__WARDATA_JSON__;
   }
   function render(){
     let list=D.filterMembers(D.members,state.filter);
-    list=D.sortMembers(list,state.sort);
+    list=state.warFocus?D.sortMembers(list,'warfocus',state.warFocus):D.sortMembers(list,state.sort);
     renderStrip(list);
     renderBody(list);
     const g=document.getElementById('grid');
     g.classList.remove('view-stars','view-delta','view-full');
     g.classList.add('view-'+state.view);
+    document.querySelectorAll('th.wh').forEach(th=>th.classList.toggle('focused',th.dataset.wid===state.warFocus));
+    const sub=document.querySelector('th.pcorner .s');
+    if(sub)sub.textContent=state.warFocus?'Click war again to clear':'Participation excl. CWL';
   }
   function wireSeg(id,key,attr){
     const seg=document.getElementById(id);
@@ -1946,6 +1960,12 @@ window.WARDATA=__WARDATA_JSON__;
   wireSeg('sortSeg','sort','s');
   wireSeg('viewSeg','view','v');
   renderHead();
+  document.getElementById('thead').addEventListener('click',e=>{
+    const th=e.target.closest('th.wh');if(!th)return;
+    const wid=th.dataset.wid;
+    state.warFocus=(state.warFocus===wid)?null:wid;
+    render();
+  });
   (function normalizeColWidths(){
     const ths=[...document.querySelectorAll('th.wh')];
     if(!ths.length)return;

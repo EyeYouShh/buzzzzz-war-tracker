@@ -50,8 +50,8 @@ def build_war_block(war_data, war_id_extra="", is_cwl=False):
     our_clan = war_data["clan"]
     opponent = war_data["opponent"]
 
-    def_pos = {m["tag"]: m["mapPosition"]          for m in opponent.get("members", [])}
-    def_th  = {m["tag"]: m.get("townHallLevel", 0) for m in opponent.get("members", [])}
+    def_pos = {m["tag"]: m["mapPosition"] for m in opponent.get("members", [])}
+    def_th  = {m["tag"]: m.get("townHallLevel") or m.get("townhallLevel", 0) for m in opponent.get("members", [])}
 
     size     = war_data.get("teamSize", "?")
     war_id   = war_id_from_start(war_data["startTime"], war_id_extra)
@@ -87,7 +87,7 @@ def build_war_block(war_data, war_id_extra="", is_cwl=False):
         tag  = m["tag"]
         name = m["name"].replace('"""', '"').replace('\n', ' ').replace('\r', '').replace('|', '-')
         pos  = m["mapPosition"]
-        th   = m.get("townHallLevel", 0)
+        th   = m.get("townHallLevel") or m.get("townhallLevel", 0)
         attacks   = m.get("attacks", [])
         atk_count = len(attacks)
         raw_stars = sum(a["stars"] for a in attacks)
