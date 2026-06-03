@@ -1526,15 +1526,12 @@ header{flex:0 0 auto;display:flex;align-items:center;justify-content:space-betwe
 /* matrix */
 .matrix{position:relative;flex:1 1 auto;min-height:0}
 .scroll{position:absolute;inset:0;overflow:auto;background:var(--bg);scroll-behavior:smooth}
-.navbtn{position:absolute;top:50%;transform:translateY(-50%);z-index:20;
-        width:42px;height:42px;border-radius:50%;border:1px solid var(--line2);
-        background:var(--surface);color:var(--ink);cursor:pointer;display:grid;place-items:center;
-        box-shadow:0 4px 18px rgba(0,0,0,.5);transition:opacity .18s,background .15s,transform .08s}
-.navbtn:hover{background:var(--surface3);color:var(--star);border-color:var(--star)}
-.navbtn:active{transform:translateY(-50%) scale(.92)}
-.navbtn.left{left:274px}.navbtn.right{right:18px}
-.navbtn[disabled]{opacity:0;pointer-events:none}
-.navbtn svg{width:19px;height:19px}
+.scrbtn{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;
+        background:var(--surface2);border:1px solid var(--line2);border-radius:6px;
+        color:var(--muted);cursor:pointer;transition:background .12s,color .12s,border-color .12s}
+.scrbtn:hover:not([disabled]){background:var(--surface3);color:var(--star);border-color:var(--star)}
+.scrbtn[disabled]{opacity:.3;pointer-events:none}
+.scrbtn svg{width:13px;height:13px}
 table{border-collapse:separate;border-spacing:0}
 thead th{position:sticky;top:0;z-index:5}
 /* war header */
@@ -1627,8 +1624,6 @@ table.view-full .cd{display:block}
   th.pcorner .s{display:none}th.mcorner,td.mcol{left:118px;width:40px;min-width:40px}th.mcorner .s{display:none}
   .pname{font-size:13px}.pw .wlbl{display:none}.pmeta{gap:5px}
   th.wh,td.cell{width:72px;min-width:72px}th.wh{padding:7px 4px 8px}
-  .navbtn{width:34px;height:34px;box-shadow:0 3px 12px rgba(0,0,0,.6)}
-  .navbtn svg{width:16px;height:16px}.navbtn.left{left:166px}.navbtn.right{right:10px}
   .legend{display:none}
 }
 </style>
@@ -1684,17 +1679,19 @@ table.view-full .cd{display:block}
     <span class="leg"><span class="dch dip" style="margin:0">&#9660;</span>Hit down</span>
     <span class="leg"><span class="clean" style="margin:0">&#8635;</span>Cleanup</span>
   </div>
+  <div class="cgroup" style="gap:5px">
+    <button class="scrbtn" id="scrollL" aria-label="Newer wars" disabled>
+      <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 3.5L6 9l5.5 5.5"/></svg>
+    </button>
+    <button class="scrbtn" id="scrollR" aria-label="Older wars">
+      <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3.5L12 9l-5.5 5.5"/></svg>
+    </button>
+  </div>
 </div>
 <div class="matrix">
   <div class="scroll">
     <table id="grid"><thead id="thead"></thead><tbody id="tbody"></tbody></table>
   </div>
-  <button class="navbtn left" id="scrollL" aria-label="Newer wars" disabled>
-    <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 3.5L6 9l5.5 5.5"/></svg>
-  </button>
-  <button class="navbtn right" id="scrollR" aria-label="Older wars">
-    <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3.5L12 9l-5.5 5.5"/></svg>
-  </button>
 </div>
 <script>
 window.WARDATA=__WARDATA_JSON__;
