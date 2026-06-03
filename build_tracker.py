@@ -82,7 +82,7 @@ WAR_BLOCKS = [
 #QLYP90RPV|Ste|33|0|0|0|0|
 #YVCJC0VCQ|Marrow|34|0|0|0|0|
 #QLLPQV8VJ|uhlisuh|35|0|0|0|0|
-""", True),
+""", True, True),
 
 ("217372320","6/2/26","Bama Boyz","30v30","""
 #90QCVGU8U|Slayer|1|0|1|2|2|1:2:2:0
@@ -115,7 +115,7 @@ WAR_BLOCKS = [
 #8L9J0R2QJ|SWAGMUFFIN90|33|0|0|0|0|
 #YVCJC0VCQ|Marrow|34|0|1|1|1|35:1:1:0
 #QLLPQV8VJ|uhlisuh|35|0|1|3|3|36:3:3:0
-""", True),
+""", True, True),
 
 ("273131437","5/29/26","Friendj of wer","30v30","""Slayer|1|0|0|
 Gr8Conqueror|2|0|0|

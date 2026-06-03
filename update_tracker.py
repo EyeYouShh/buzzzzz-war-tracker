@@ -43,7 +43,7 @@ def format_war_date(start_time_str):
     return dt.strftime("%-m/%-d/%y")
 
 
-def build_war_block(war_data, war_id_extra=""):
+def build_war_block(war_data, war_id_extra="", is_cwl=False):
     """Convert API war data to v2 WAR_BLOCK format lines.
     V2 row: #tag|name|pos|TH|atk_count|raw_stars|net_stars|defPos:rawStars:delta:defTH,...
     """
@@ -102,8 +102,12 @@ def build_war_block(war_data, war_id_extra=""):
 
     block_lines = "\n".join(rows)
 
-    if in_prog:
+    if in_prog and is_cwl:
+        entry = f'("{war_id}","{date}","{opp_name}","{war_size}","""\n{block_lines}\n""", True, True)'
+    elif in_prog:
         entry = f'("{war_id}","{date}","{opp_name}","{war_size}","""\n{block_lines}\n""", True)'
+    elif is_cwl:
+        entry = f'("{war_id}","{date}","{opp_name}","{war_size}","""\n{block_lines}\n""", False, True)'
     else:
         entry = f'("{war_id}","{date}","{opp_name}","{war_size}","""\n{block_lines}\n""")'
 
@@ -157,7 +161,7 @@ def determine_result(war_data):
     return "D"
 
 
-def update_build_tracker(war_data, war_id_extra=""):
+def update_build_tracker(war_data, war_id_extra="", is_cwl=False):
     state = war_data.get("state", "")
 
     if state == "notInWar":
@@ -166,7 +170,7 @@ def update_build_tracker(war_data, war_id_extra=""):
     with open(TRACKER_PY, "r") as f:
         content = f.read()
 
-    war_id, new_entry, in_prog = build_war_block(war_data, war_id_extra)
+    war_id, new_entry, in_prog = build_war_block(war_data, war_id_extra, is_cwl=is_cwl)
 
     id_pattern = re.compile(rf'"\s*{re.escape(war_id)}\s*"')
     war_exists  = bool(id_pattern.search(content))
@@ -272,7 +276,7 @@ def main():
     for round_num, war in cwl_wars:
         # Use opponent tag as extra to keep IDs unique if rounds share a start time
         extra = war.get("opponent", {}).get("tag", f"r{round_num}")
-        changed = update_build_tracker(war, war_id_extra=extra)
+        changed = update_build_tracker(war, war_id_extra=extra, is_cwl=True)
         any_changed = any_changed or changed
 
     # ── 3. Regenerate HTML if anything changed ────────────────────────────────
