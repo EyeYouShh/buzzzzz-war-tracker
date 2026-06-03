@@ -1543,22 +1543,26 @@ _in_window_set = {_wd['id'] for _wd in _wars_data if _wd['inWindow'] and not _wd
 _members_list = []
 for _canonical, _member in _members.items():
     _pl = _el = _ms = _st = _us = _av = _sd = _ac = _di = _re = _rw = _nt = _v2a = 0
-    for _war in wars:
-        _wid = _war['id']
-        if _war['cwl'] or _war['in_prog']: continue
-        if _wid not in _in_window_set: continue
-        _el += 1  # all window wars count toward eligible (not just wars member appeared in)
-        _cell = _member['cells'].get(_wid)
-        if _cell is None or _cell.get('pending'): continue
-        if _cell.get('used', 0) > 0: _pl += 1
-        _ms += (1 if _cell.get('used', 0) == 0 else 0); _st += _cell.get('stars', 0)
-        _us += _cell.get('used', 0); _av += _cell.get('max', 0)
-        _rw += _cell.get('rawStars', 0); _nt += _cell.get('netStars', 0)
-        for _a in _cell.get('attacks', []):
-            if 'defTh' not in _a or _a['defTh'] is None: continue
-            _d = _a.get('delta', 0); _sd += _d; _ac += 1; _v2a += 1
-            if _d < 0: _di += 1
-            elif _d > 0: _re += 1
+    # Collect window wars in newest-first order (WAR_BLOCKS order)
+    _ww = [(_w, _member['cells'].get(_w['id']))
+           for _w in wars
+           if not _w['cwl'] and not _w['in_prog'] and _w['id'] in _in_window_set]
+    # Find oldest war the member appeared in (highest index = oldest in newest-first list)
+    _first_idx = next((i for i in range(len(_ww)-1, -1, -1)
+                       if _ww[i][1] is not None and not _ww[i][1].get('pending')), None)
+    if _first_idx is not None:
+        for _war, _cell in _ww[:_first_idx + 1]:
+            _el += 1  # all wars since member's first appearance
+            if _cell is None or _cell.get('pending'): continue
+            if _cell.get('used', 0) > 0: _pl += 1
+            _ms += (1 if _cell.get('used', 0) == 0 else 0); _st += _cell.get('stars', 0)
+            _us += _cell.get('used', 0); _av += _cell.get('max', 0)
+            _rw += _cell.get('rawStars', 0); _nt += _cell.get('netStars', 0)
+            for _a in (_cell.get('attacks', []) if _cell else []):
+                if 'defTh' not in _a or _a['defTh'] is None: continue
+                _d = _a.get('delta', 0); _sd += _d; _ac += 1; _v2a += 1
+                if _d < 0: _di += 1
+                elif _d > 0: _re += 1
     _pname = _member['name']
     _th_val = _member['th'] or PLAYER_TH.get(_pname, 0)  # API data first; PLAYER_TH as fallback only when API returns 0
     _cs_rank = _CS_RANK.get(_pname, 999)
