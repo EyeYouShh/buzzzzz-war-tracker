@@ -1760,10 +1760,10 @@ table.view-full .cd{display:block}
   </div>
   <div class="cgroup"><span class="clab">Sort</span>
     <div class="seg" id="sortSeg">
-      <button data-s="missed" aria-pressed="true">Most missed</button>
+      <button data-s="th" aria-pressed="true">TH Level</button>
       <button data-s="participation">Participation</button>
-      <button data-s="wars">Wars</button>
-      <button data-s="dips">Most dips</button>
+      <button data-s="missed">Most Missed</button>
+      <button data-s="delta">TH &#916;</button>
       <button data-s="name">A–Z</button>
     </div>
   </div>
@@ -1810,11 +1810,15 @@ window.WARDATA=__WARDATA_JSON__;
   D.sortMembers=function(list,key,warId){
     const o=list.slice();
     switch(key){
+      case'th':o.sort((a,b)=>{
+        if(a.th>0&&b.th>0)return b.th-a.th||a.name.localeCompare(b.name);
+        if(a.th>0)return -1;if(b.th>0)return 1;
+        return a.name.localeCompare(b.name);
+      });break;
+      case'participation':o.sort((a,b)=>b.participation-a.participation||b.played-a.played||a.name.localeCompare(b.name));break;
+      case'missed':o.sort((a,b)=>b.missed-a.missed||b.available-a.available||a.name.localeCompare(b.name));break;
+      case'delta':o.sort((a,b)=>b.avgDelta-a.avgDelta||a.name.localeCompare(b.name));break;
       case'name':o.sort((a,b)=>a.name.localeCompare(b.name));break;
-      case'participation':o.sort((a,b)=>b.participation-a.participation||b.played-a.played);break;
-      case'wars':o.sort((a,b)=>b.played-a.played||a.name.localeCompare(b.name));break;
-      case'stars':o.sort((a,b)=>b.stars-a.stars||a.name.localeCompare(b.name));break;
-      case'dips':o.sort((a,b)=>b.dips-a.dips||a.avgDelta-b.avgDelta);break;
       case'warfocus':o.sort((a,b)=>{
         const ca=a.cells[warId]||null, cb=b.cells[warId]||null;
         const wa=ca&&!ca.pending?(ca.used>0?2:1):0;
@@ -1823,7 +1827,11 @@ window.WARDATA=__WARDATA_JSON__;
         if(wa===2&&wb===2)return(cb.stars||0)-(ca.stars||0);
         return a.name.localeCompare(b.name);
       });break;
-      default:o.sort((a,b)=>b.missed-a.missed||b.available-a.available||a.name.localeCompare(b.name));
+      default:o.sort((a,b)=>{
+        if(a.th>0&&b.th>0)return b.th-a.th||a.name.localeCompare(b.name);
+        if(a.th>0)return -1;if(b.th>0)return 1;
+        return a.name.localeCompare(b.name);
+      });
     }
     return o;
   };
@@ -1850,7 +1858,7 @@ window.WARDATA=__WARDATA_JSON__;
 <script>
 (function(){
   const D=window.WARDATA;
-  const state={filter:'active',sort:'missed',view:'stars',warFocus:null};
+  const state={filter:'active',sort:'th',view:'stars',warFocus:null};
   const pct=x=>Math.round(x*100)+'%';
   const RES={win:'WIN',loss:'LOSS',draw:'DRAW',live:'LIVE'};
   function heat(n){return n===0?'h0':(n<=2?'h1':(n<=4?'h2':'h3'));}
