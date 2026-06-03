@@ -1697,8 +1697,8 @@ header{flex:0 0 auto;display:flex;align-items:center;justify-content:space-betwe
 .claninfo{text-align:right;font-size:12px;color:var(--muted);line-height:1.5;white-space:nowrap}
 .claninfo b{color:var(--ink);font-weight:600}
 /* strip */
-.strip{flex:0 0 auto;display:flex;gap:0;border-bottom:1px solid var(--line);background:var(--surface2)}
-.kpi{padding:12px 22px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:3px;flex:1 1 0;min-width:0}
+.strip{flex:0 0 auto;display:inline-flex;gap:0;border-bottom:1px solid var(--line);background:var(--surface2)}
+.kpi{padding:12px 22px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:3px;min-width:130px}
 .kpi .k{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:600;display:flex;gap:6px;align-items:center}
 .kpi .v{font-family:var(--hf);font-size:26px;font-weight:600;line-height:1;letter-spacing:-.5px}
 .kpi .u{font-size:11.5px;color:var(--faint)}
@@ -1972,6 +1972,13 @@ function sortName(n){return stripEmoji(n);}
   const RES={win:'WIN',loss:'LOSS',draw:'DRAW',live:'LIVE'};
   function heat(n){return n===0?'h0':(n<=2?'h1':(n<=4?'h2':'h3'));}
   function renderStrip(list){
+    // equalise KPI box widths after render so both are the same size
+    requestAnimationFrame(()=>{
+      const ks=[...document.querySelectorAll('.kpi')];
+      ks.forEach(k=>k.style.width='');
+      const mx=Math.max(...ks.map(k=>k.offsetWidth));
+      ks.forEach(k=>k.style.width=mx+'px');
+    });
     const s=D.summary(list);
     const items=[
       {k:'Wars fully missed',v:s.totalMissed,u:(s.count-s.cleanCount)+' member'+(s.count-s.cleanCount!==1?'s':'')+' affected',alert:s.totalMissed>0,c:'var(--miss-tx)'},
