@@ -117,36 +117,36 @@ WAR_BLOCKS = [
 #QLLPQV8VJ|uhlisuh|35|0|1|3|3|36:3:3:0
 """, True, True),
 
-("273131437","5/29/26","Friendj of wer","30v30","""Slayer|1|0|0|
-Gr8Conqueror|2|0|0|
-stage6yo|3|0|0|
-wato|4|0|0|
-Big Steppa|5|0|0|
+("273131437","5/29/26","Friendj of wer","30v30","""Slayer|1|2|6|1:3,2:3
+Gr8Conqueror|2|2|5|1:3,4:2
+stage6yo|3|2|6|3:3,2:3
+wato|4|1|3|19:3
+Big Steppa|5|2|6|5:3,4:3
 Americanpatriot|6|0|0|
-stage5yo|7|0|0|
-DE1|8|0|0|
-SwiftyKinja|9|0|0|
-Jac|10|0|0|
-crimpo|11|0|0|
-studkiller|12|0|0|
-MiniPekka|13|0|0|
-Cole|14|0|0|
-Kizaru|15|0|0|
-Pam from HR|16|0|0|
-Halid #1|17|0|0|
-Loading…|18|0|0|
-arius67'|19|0|0|
-MR. ASURAN YT|20|0|0|
-Ste|21|0|0|
+stage5yo|7|2|6|7:3,6:3
+DE1|8|2|4|10:3,2:1
+SwiftyKinja|9|2|6|9:3,8:3
+Jac|10|2|6|9:3,20:3
+crimpo|11|2|6|11:3,5:3
+studkiller|12|2|6|12:3,16:3
+MiniPekka|13|2|5|13:3,11:2
+Cole|14|2|6|18:3,17:3
+Kizaru|15|2|6|20:3,15:3
+Pam from HR|16|1|2|16:2
+Halid #1|17|1|3|17:3
+Loading…|18|2|3|19:2,9:2
+arius67'|19|2|6|14:3,19:3
+MR. ASURAN YT|20|2|2|1:1,2:1
+Ste|21|2|6|23:3,22:3
 SWAGMUFFIN90|22|0|0|
-uhlisuh|23|0|0|
-Marrow|24|0|0|
-jj|25|0|0|
-UNSTOPPABLE ADI|26|0|0|
-Stevie Wonder|27|0|0|
-das|28|0|0|
-rinz|29|0|0|
-Tretor|30|0|0|""", True),
+uhlisuh|23|2|6|26:3,27:3
+Marrow|24|2|6|21:3,26:3
+jj|25|2|6|25:3,24:3
+UNSTOPPABLE ADI|26|2|6|25:3,27:3
+Stevie Wonder|27|2|2|5:1,9:2
+das|28|2|6|28:3,27:3
+rinz|29|2|6|29:3,30:3
+Tretor|30|0|0|"""),
 
 ("272906647","5/27/26","⚡INDIAN KINGDOM","30v30","""Slayer|1|2|6|3:3,4:3
 Gr8Conqueror|2|2|6|2:3,1:3
@@ -1316,6 +1316,7 @@ rinz|40|1|3|40:3"""),
 
 # ── Win/Loss/Draw results keyed by war ID ──
 RESULTS = {
+    '273131437': 'W',  # Friendj of wer
     '272906647': 'D',  # ⚡INDIAN KINGDOM
     '272696863': 'W',  # SARYAGAW
     '272454773': 'L',  # UNITY ID
