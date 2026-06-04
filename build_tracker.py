@@ -4805,8 +4805,12 @@ for _csk in sorted(_cwl_by_season.keys(), reverse=True):
     _cspl = {}        # canonical key -> stats
     _non_prep_nr = 0  # count of rounds that are not in prep
 
+    # Split rounds into non-prep (have/had attacks) and prep (not started yet)
+    _non_prep_rounds_list = [r for r in _crounds if not _cwl_is_prep(r)]
+    _non_prep_nr = len(_non_prep_rounds_list)
+
+    # Pass 1: register every player seen in ANY round (for full roster)
     for _crw in _crounds:
-        _is_prep_round = _cwl_is_prep(_crw)
         for _cpkey, _cpd in _crw['players'].items():
             _cpname = _cpd.get('name', _cpkey) if _cpkey.startswith('#') else _cpkey
             _ccanon = _cpkey if _cpkey.startswith('#') else _name_to_tag.get(_cpkey, _cpkey)
@@ -4817,14 +4821,24 @@ for _csk in sorted(_cwl_by_season.keys(), reverse=True):
                     'name': _cpname, 'th': _cth,
                     'active': _cm.get('status', 'left') == 'active',
                     's3':0,'s2':0,'s1':0,'s0':0,'ri':0,'rp':0,'ms':0,'st':0,
-                    'in_cwl': True
+                    'in_cwl': True,
+                    'rd': [None] * _non_prep_nr  # per-round slot: None = not in that round
                 }
-            if _is_prep_round:
-                continue  # prep round: player is rostered but don't count stats yet
+
+    # Pass 2: fill stats + per-round detail for non-prep rounds only
+    for _ri, _crw in enumerate(_non_prep_rounds_list):
+        for _cpkey, _cpd in _crw['players'].items():
+            _ccanon = _cpkey if _cpkey.startswith('#') else _name_to_tag.get(_cpkey, _cpkey)
+            if _ccanon not in _cspl:
+                continue
             _cp = _cspl[_ccanon]
-            _cp['ri'] += 1
             _cused = _cpd.get('a', 0)
             _cstars = _cpd.get('s', 0)
+
+            # Store per-round detail: a=attacks_used, st=stars, live=is_round_live
+            _cp['rd'][_ri] = {'a': _cused, 'st': _cstars, 'live': _crw['in_prog']}
+
+            _cp['ri'] += 1
             if _cused > 0:
                 _cp['rp'] += 1
                 _cp['st'] += _cstars
@@ -4842,10 +4856,7 @@ for _csk in sorted(_cwl_by_season.keys(), reverse=True):
                     elif _cstars == 1: _cp['s1'] += 1
                     else:              _cp['s0'] += 1
             elif not _crw['in_prog']:
-                # Only a miss if the round is COMPLETED — live rounds haven't ended yet
-                _cp['ms'] += 1
-        if not _is_prep_round:
-            _non_prep_nr += 1
+                _cp['ms'] += 1  # missed: completed round, 0 attacks
 
     # Add all currently ACTIVE members not in any CWL round this season
     for _ckey, _cm3 in _members.items():
@@ -4860,13 +4871,14 @@ for _csk in sorted(_cwl_by_season.keys(), reverse=True):
         _cspl[_ckey] = {
             'name': _cm3name, 'th': _cth3, 'active': True,
             's3':0,'s2':0,'s1':0,'s0':0,'ri':0,'rp':0,'ms':0,'st':0,
-            'in_cwl': False
+            'in_cwl': False,
+            'rd': [None] * _non_prep_nr
         }
 
     # Build sorted player list
     _cplayer_list = []
     for _ccanon, _cp in _cspl.items():
-        _cms = _cp.get('ms', 0)  # only completed-round misses, not live-round absences
+        _cms = _cp.get('ms', 0)
         _cav = round(_cp['st'] / _cp['rp'], 2) if _cp['rp'] > 0 else 0
         _cin_cwl = _cp.get('in_cwl', True)
         if not _cin_cwl:        _crwv = 'notcwl'
@@ -4877,7 +4889,8 @@ for _csk in sorted(_cwl_by_season.keys(), reverse=True):
             'name': _cp['name'], 'th': _cp['th'], 'active': _cp['active'],
             'ri': _cp['ri'], 'rp': _cp['rp'], 'ms': _cms, 'st': _cp['st'],
             's3': _cp['s3'], 's2': _cp['s2'], 's1': _cp['s1'], 's0': _cp['s0'],
-            'av': _cav, 'rw': _crwv, 'in_cwl': _cin_cwl
+            'av': _cav, 'rw': _crwv, 'in_cwl': _cin_cwl,
+            'rd': _cp.get('rd', [None] * _non_prep_nr)
         })
     _cplayer_list.sort(key=lambda p: (0 if p['in_cwl'] else 1, -p['st'], -p['rp'], p['name'].lower()))
 
@@ -5011,16 +5024,8 @@ select.season-sel:focus{border-color:var(--star)}
 
 /* Table */
 .tbl-wrap{overflow-x:auto}
-table{border-collapse:collapse;table-layout:fixed;width:100%}
-colgroup col.c-num{width:34px}
-colgroup col.c-player{width:210px}
-colgroup col.c-rounds{width:74px}
-colgroup col.c-stars{width:72px}
-colgroup col.c-bkd{width:116px}
-colgroup col.c-missed{width:70px}
-colgroup col.c-avg{width:72px}
-colgroup col.c-rew{width:110px}
-thead th{background:var(--surface2);padding:9px 10px;text-align:left;font-size:10.5px;text-transform:uppercase;
+table{border-collapse:collapse;width:100%}
+thead th{background:var(--surface2);padding:8px 10px;text-align:left;font-size:10.5px;text-transform:uppercase;
          letter-spacing:.05em;color:var(--muted);border-bottom:2px solid var(--line);border-right:1px solid var(--line2);
          white-space:nowrap;cursor:pointer;user-select:none;font-family:var(--bf);font-weight:600;position:sticky;top:0;z-index:2}
 thead th:last-child{border-right:none}
@@ -5030,14 +5035,39 @@ thead th.nosort{cursor:default}
 thead th.nosort:hover{color:var(--muted)}
 .sort-arrow{font-size:9px;opacity:.8;margin-left:3px}
 tbody tr{transition:background .1s}
-tbody tr:hover{background:var(--surface3)}
+tbody tr:hover td{filter:brightness(1.12)}
 tbody tr.row-full{background:oklch(0.10 0.022 152)}
-tbody tr.row-full:hover{background:oklch(0.14 0.032 152)}
-/* row-notcwl: no dimming — member is on the CWL roster, just not placed in a round yet */
 td{padding:8px 10px;vertical-align:middle;border-right:1px solid var(--line2);border-bottom:1px solid var(--line)}
 td:last-child{border-right:none}
-.td-num{color:var(--faint);font-size:11px;text-align:center}
+.td-num{color:var(--faint);font-size:11px;text-align:center;width:30px;min-width:30px}
 .td-c{text-align:center}
+
+/* Round header */
+th.rc-head{text-align:center;width:64px;min-width:64px;max-width:64px;padding:6px 4px;overflow:hidden}
+.rh-num{font-family:var(--hf);font-size:12px;font-weight:700;color:var(--star)}
+.rh-date{font-size:9px;color:var(--faint);margin-top:1px}
+.rh-res{display:inline-block;font-family:var(--hf);font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;margin-top:2px;letter-spacing:.04em}
+.rh-res.win{color:var(--full-tx);background:var(--full-bg)}
+.rh-res.loss{color:var(--miss-tx);background:var(--miss-bg)}
+.rh-res.draw{color:var(--muted);background:var(--surface3)}
+.rh-res.live{color:var(--live-tx);background:var(--live-bg)}
+
+/* Round cells */
+td.rc{width:64px;min-width:64px;max-width:64px;height:44px;text-align:center;padding:2px;vertical-align:middle}
+td.rc-none{background:var(--none-bg)}
+td.rc-pend{background:oklch(0.22 0.06 244)}
+td.rc-miss{background:var(--miss-bg)}
+td.rc-3{background:var(--full-bg)}
+td.rc-2{background:oklch(0.34 0.09 88)}
+td.rc-1{background:oklch(0.36 0.1 50)}
+td.rc-0{background:oklch(0.30 0.09 28)}
+.rc-val{font-family:var(--hf);font-size:16px;font-weight:700;line-height:1}
+.rc-3 .rc-val{color:var(--full-tx)}
+.rc-2 .rc-val{color:var(--part-tx)}
+.rc-1 .rc-val{color:oklch(0.88 0.14 50)}
+.rc-0 .rc-val{color:var(--miss-tx)}
+.rc-pend .rc-val{color:var(--live-tx);font-size:11px;letter-spacing:.05em}
+.rc-miss .rc-val{color:var(--miss-tx);font-size:13px}
 
 /* Player cell */
 .pname{font-family:'Oswald';font-weight:500;font-size:14.5px;letter-spacing:.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -5090,21 +5120,7 @@ td:last-child{border-right:none}
   <div class="kpi-strip" id="kpis"></div>
   <div class="tbl-wrap">
   <table>
-    <colgroup>
-      <col class="c-num"><col class="c-player"><col class="c-rounds">
-      <col class="c-stars"><col class="c-bkd"><col class="c-missed">
-      <col class="c-avg"><col class="c-rew">
-    </colgroup>
-    <thead><tr>
-      <th class="nosort td-num">#</th>
-      <th class="nosort">Player</th>
-      <th data-sort="rp" class="td-c">Rounds</th>
-      <th data-sort="st" class="td-c sorted">Stars</th>
-      <th class="nosort td-c">3&#9733;&middot;2&#9733;&middot;1&#9733;&middot;0&#9733;</th>
-      <th data-sort="ms" class="td-c">Missed</th>
-      <th data-sort="av" class="td-c">Avg &#9733;</th>
-      <th data-sort="rw" class="td-c">8&#9733; Reward</th>
-    </tr></thead>
+    <thead id="cwl-thead"></thead>
     <tbody id="tbody"></tbody>
   </table>
   </div>
@@ -5131,8 +5147,8 @@ D.seasons.forEach(s=>{
 function switchSeason(sid){curSid=sid;render();}
 window.switchSeason=switchSeason;
 
-// Column header click sorting (only mechanism — no seg buttons)
-document.querySelector('thead').addEventListener('click',e=>{
+// Column header click sorting
+document.getElementById('cwl-thead').addEventListener('click',e=>{
   const th=e.target.closest('th[data-sort]');
   if(!th)return;
   curSort=th.dataset.sort;
@@ -5192,24 +5208,58 @@ function avCls(av){return av>=2.9?'av-hi':av>=2.5?'av-mid':av>=1.5?'av-lo':'av-b
 function msCls(ms){return ms===0?'ms0':ms===1?'ms1':ms===2?'ms2':'ms3';}
 const REW_LABEL={full:'&#10003; Full',short:'&#9651; Short',none:'&#x2715; None',notcwl:'&mdash;'};
 
+function rcCell(rd){
+  // rd = null (not in round) | {a,st,live}
+  if(!rd) return '<td class="rc rc-none"></td>';
+  if(rd.a>0){
+    const cls='rc-'+Math.min(rd.st,3);
+    return '<td class="rc '+cls+'"><div class="rc-val">'+rd.st+'&#9733;</div></td>';
+  }
+  if(rd.live) return '<td class="rc rc-pend"><div class="rc-val">PEND</div></td>';
+  return '<td class="rc rc-miss"><div class="rc-val">&#x2715;</div></td>';
+}
+
 function renderTable(season){
   const players=sortPlayers(season.players);
-  const nr=season.nr;
-  // Update sorted column indicator
-  document.querySelectorAll('thead th').forEach(th=>{
-    const isSorted=th.dataset.sort===curSort;
-    th.classList.toggle('sorted',isSorted);
-    // Update text: strip old arrow, add new one
-    th.innerHTML=th.innerHTML.replace(/ &#9660;| &#9650;/g,'');
-    if(isSorted) th.innerHTML+=' &#9660;';
+  const activeRounds=season.rounds.filter(r=>r.result!=='prep');
+
+  // Build thead dynamically
+  const RMAP2={win:'W',loss:'L',draw:'D',live:'LIVE'};
+  const rCols=activeRounds.map((r,i)=>
+    '<th class="nosort rc-head">'+
+      '<div class="rh-num">R'+(i+1)+'</div>'+
+      '<div class="rh-date">'+r.date+'</div>'+
+      '<div><span class="rh-res '+r.result+'">'+(RMAP2[r.result]||'?')+'</span></div>'+
+    '</th>'
+  ).join('');
+  const statCols=
+    '<th class="nosort td-num">#</th>'+
+    '<th class="nosort" style="min-width:185px">Player</th>'+
+    rCols+
+    '<th data-sort="st" class="td-c">Stars</th>'+
+    '<th class="nosort td-c" style="min-width:110px">3&#9733;&middot;2&#9733;&middot;1&#9733;&middot;0&#9733;</th>'+
+    '<th data-sort="ms" class="td-c">Missed</th>'+
+    '<th data-sort="av" class="td-c">Avg &#9733;</th>'+
+    '<th data-sort="rw" class="td-c">8&#9733; Reward</th>';
+  document.getElementById('cwl-thead').innerHTML='<tr>'+statCols+'</tr>';
+  // Apply sort indicator once, cleanly — no accumulation possible
+  document.querySelectorAll('#cwl-thead th[data-sort]').forEach(function(th){
+    if(th.dataset.sort===curSort){
+      th.classList.add('sorted');
+      var sp=document.createElement('span');
+      sp.className='sort-arrow'; sp.textContent='▼';
+      th.appendChild(sp);
+    }
   });
+
   document.getElementById('tbody').innerHTML=players.map((p,i)=>{
     const notCwl=!p.in_cwl;
     const bk=notCwl?'<span class="bkd">&mdash;</span>':
               '<span class="b3">'+p.s3+'</span><span class="bkd">&middot;</span>'+
               '<span class="b2">'+p.s2+'</span><span class="bkd">&middot;</span>'+
               '<span class="b1">'+p.s1+'</span><span class="bkd">&middot;'+p.s0+'</span>';
-    const row_cls=(p.rw==='full'?'row-full ':'')+( notCwl?'row-notcwl':'');
+    const rdCells=activeRounds.map((_,ri)=>rcCell((p.rd||[])[ri])).join('');
+    const row_cls=p.rw==='full'?'row-full':'';
     return '<tr class="'+row_cls+'">'+
       '<td class="td-num">'+(i+1)+'</td>'+
       '<td>'+
@@ -5219,7 +5269,7 @@ function renderTable(season){
           (p.th?'<span class="thbadge">TH'+p.th+'</span>':'')+
         '</div>'+
       '</td>'+
-      '<td class="td-c">'+(notCwl?'&mdash;':p.ri)+'</td>'+
+      rdCells+
       '<td class="td-c">'+(notCwl?'<span class="bkd">&mdash;</span>':'<span class="stval '+stCls(p.st)+'">'+p.st+'</span>')+'</td>'+
       '<td class="td-c">'+bk+'</td>'+
       '<td class="td-c">'+(notCwl?'<span class="bkd">&mdash;</span>':'<span class="'+msCls(p.ms)+'">'+p.ms+'</span>')+'</td>'+
