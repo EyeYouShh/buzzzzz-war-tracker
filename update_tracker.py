@@ -148,6 +148,78 @@ def update_player_tags(war_data, content):
     return content, True
 
 
+def update_roster(content):
+    """Sync ACTIVE set and PLAYER_TH with current API clan members.
+
+    Detects members who joined or left since last run and updates:
+      - ACTIVE set  (add new joiners, remove leavers)
+      - PLAYER_TH   (update current TH levels for all members)
+    PLAYER_TAGS is handled separately by update_player_tags() during war processing.
+    """
+    try:
+        data = api_get(f"/clans/{CLAN_TAG}/members")
+        members = data.get("items", [])
+    except Exception as e:
+        print(f"Roster update: API error ({e})")
+        return content, False
+
+    if not members:
+        print("Roster update: empty member list, skipping")
+        return content, False
+
+    api_names  = {m["name"] for m in members}
+    api_th_map = {m["name"]: m.get("townHallLevel", 0) for m in members}
+
+    # ── Parse current ACTIVE set ──────────────────────────────────────────────
+    active_match = re.search(r'ACTIVE\s*=\s*\{([^}]*)\}', content, re.DOTALL)
+    if not active_match:
+        print("WARNING: Could not find ACTIVE set in build_tracker.py")
+        return content, False
+
+    current_names = set(re.findall(r'"([^"]+)"', active_match.group(1)))
+    new_joiners   = sorted(api_names - current_names)
+    departed      = sorted(current_names - api_names)
+
+    roster_changed = bool(new_joiners or departed)
+    if new_joiners:
+        print(f"New members joined: {', '.join(new_joiners)}")
+    if departed:
+        print(f"Members left clan:  {', '.join(departed)}")
+
+    if roster_changed:
+        updated_names = (current_names - set(departed)) | set(new_joiners)
+        today = datetime.now().strftime("%-m/%-d/%y")
+        # Rebuild ACTIVE set (alphabetically sorted; user can re-order manually)
+        names_str = ','.join(f'"{n}"' for n in sorted(updated_names))
+        new_inner  = f'\n    # Auto-updated {today} — {len(updated_names)} members\n    {names_str}\n'
+        content = content[:active_match.start(1)] + new_inner + content[active_match.end(1):]
+
+    # ── Update PLAYER_TH levels ───────────────────────────────────────────────
+    th_match = re.search(r'(PLAYER_TH\s*=\s*\{)([^}]*?)(\})', content, re.DOTALL)
+    th_changed = False
+    if th_match:
+        th_text = th_match.group(2)
+        for name, new_th in api_th_map.items():
+            if new_th <= 0:
+                continue
+            m = re.search(r'"' + re.escape(name) + r'"\s*:\s*(\d+)', th_text)
+            if m:
+                old_th = int(m.group(1))
+                if old_th != new_th:
+                    th_text   = th_text[:m.start(1)] + str(new_th) + th_text[m.end(1):]
+                    th_changed = True
+                    print(f"TH upgraded: {name}  TH{old_th} → TH{new_th}")
+            else:
+                # New member not yet in PLAYER_TH — append
+                th_text   = th_text.rstrip() + f'\n    "{name}": {new_th},\n'
+                th_changed = True
+                print(f"TH added: {name} TH{new_th}")
+        if th_changed:
+            content = content[:th_match.start(2)] + th_text + content[th_match.end(2):]
+
+    return content, roster_changed or th_changed
+
+
 def determine_result(war_data):
     our = war_data["clan"]
     opp = war_data["opponent"]
@@ -352,6 +424,22 @@ def main():
         sys.exit(1)
 
     any_changed = False
+
+    # ── 0. Sync clan roster (members joined / left, TH upgrades) ─────────────
+    print("Syncing clan roster...")
+    try:
+        with open(TRACKER_PY, "r") as f:
+            _rc = f.read()
+        _rc, _roster_changed = update_roster(_rc)
+        if _roster_changed:
+            with open(TRACKER_PY, "w") as f:
+                f.write(_rc)
+            any_changed = True
+            print("Roster updated.")
+        else:
+            print("Roster unchanged.")
+    except Exception as e:
+        print(f"Roster sync error: {e}")
 
     # ── 1. Regular war ────────────────────────────────────────────────────────
     print("Fetching current war...")

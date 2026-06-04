@@ -3856,14 +3856,14 @@ RESULTS = {
     '260081904': 'D',  # apem berduri (1/14/26) — draw 103v103
     '259762375': 'W',  # KUCING_COMEL (1/12/26)
     '259198024': 'W',  # DRAGON 9070 (1/1/26)
-    '258921956': 'L',  # TRIDEN (2/29/25) — loss 102v104
-    '258419057': 'W',  # 紫禁之巅 (2/26/25)
-    '258140750': 'W',  # DHARM HINDU (2/24/25)
-    '257749150': 'W',  # شکست ناپذیر 2 (2/20/25)
-    '257369163': 'W',  # Nine Eleven (2/18/25)
-    '256975844': 'W',  # TECHNO (2/15/25)
-    '256573235': 'W',  # ♡﷽♡ (2/13/25)
-    '256047147': 'W',  # SEIGE BREAKERS (2/2/25)
+    '258921956': 'L',  # TRIDEN (12/29/25) — loss 102v104
+    '258419057': 'W',  # 紫禁之巅 (12/26/25)
+    '258140750': 'W',  # DHARM HINDU (12/24/25)
+    '257749150': 'W',  # شکست ناپذیر 2 (12/20/25)
+    '257369163': 'W',  # Nine Eleven (12/18/25)
+    '256975844': 'W',  # TECHNO (12/15/25)
+    '256573235': 'W',  # ♡﷽♡ (12/13/25)
+    '256047147': 'W',  # SEIGE BREAKERS (12/2/25)
 }
 
 def parse_atk_detail(raw_attacks, v2=False):
@@ -3922,14 +3922,18 @@ def parse_war(war_id, date, opp, size, raw, in_prog=False, cwl=False):
 wars = [parse_war(*b) for b in WAR_BLOCKS]
 
 # Seed all_players:
-# - V1 players (name-keyed) seeded from ACTIVE set
-# - V2 players (tag-keyed, starts with #) seeded from PLAYER_TAGS
+# - Tag-keyed entries for players in PLAYER_TAGS (canonical for known members)
+# - Name-keyed entries ONLY for ACTIVE members who have no tag yet
+# This prevents duplicates when the same player appears both as a name (ACTIVE)
+# and a tag (PLAYER_TAGS / v2 wars).
 all_players = {}
+_tagged_names = {n for n in PLAYER_TAGS.values() if n != 'DisplayName'}
 for name in ACTIVE:
-    all_players[name] = {'active': True}
+    if name not in _tagged_names:
+        all_players[name] = {'active': True}
 for tag, name in PLAYER_TAGS.items():
-    if tag not in all_players:
-        all_players[tag] = {'active': name in ACTIVE, 'name': name}
+    if name == 'DisplayName': continue
+    all_players[tag] = {'active': name in ACTIVE, 'name': name}
 
 # Then add anyone else seen in wars (ex-members, historical players, etc.)
 for w in wars:
@@ -3969,6 +3973,10 @@ for _key, _info in all_players.items():
             'th': 0, 'cells': {}
         }
 
+# Tags discovered from v2 war data for members not in PLAYER_TAGS
+# (used in post-processing merge to unify name-keyed + tag-keyed entries)
+_discovered_tags = {}
+
 # ── Build wars_data + cells ──
 _wars_data = []
 for _war in wars:
@@ -3997,6 +4005,9 @@ for _war in wars:
         if _canonical not in _members:
             _active = _pname in ACTIVE or _pkey in ACTIVE
             _members[_canonical] = {'name': _pname, 'status': 'active' if _active else 'left', 'th': 0, 'cells': {}}
+        # Record newly-discovered name→tag mapping for post-processing merge
+        if _pkey.startswith('#') and _pname not in _name_to_tag and _pname not in _discovered_tags:
+            _discovered_tags[_pname] = _pkey
         if _is_v2 and _pd.get('th', 0) > 0 and _members[_canonical]['th'] == 0:
             _members[_canonical]['th'] = _pd['th']
         _used = _pd.get('a', 0)
@@ -4025,12 +4036,30 @@ for _war in wars:
         if _atk_th is not None: _cell['atkTh'] = _atk_th
         _members[_canonical]['cells'][_war['id']] = _cell
 
+# ── Merge name-keyed entries into tag-keyed entries for late-discovered members ──
+# Some players were seeded by name (no tag in PLAYER_TAGS) but later appeared in v2
+# wars under their tag — resulting in two separate entries. Merge them here:
+# v1 war cells live in the name-keyed entry; v2 cells in the tag-keyed entry.
+for _pname, _tag in _discovered_tags.items():
+    _has_name = _pname in _members
+    _has_tag  = _tag in _members
+    if _has_name and _has_tag:
+        _tm, _nm = _members[_tag], _members[_pname]
+        for _wid, _cell in _nm['cells'].items():
+            _tm['cells'].setdefault(_wid, _cell)  # don't overwrite v2 data
+        if _nm.get('th', 0) > 0 and _tm.get('th', 0) == 0:
+            _tm['th'] = _nm['th']
+        del _members[_pname]
+    elif _has_name:
+        _members[_tag] = _members.pop(_pname)
+        _members[_tag]['name'] = _pname
+
 # ── Per-member aggregates (60-day window only, excl CWL + pending) ──
 _in_window_set    = {_wd['id'] for _wd in _wars_data if _wd['inWindow'] and not _wd['pending'] and not _wd.get('cwl', False)}
 _cwl_finished_set = {_wd['id'] for _wd in _wars_data if _wd['inWindow'] and not _wd['pending'] and _wd.get('cwl', False)}
 _members_list = []
 for _canonical, _member in _members.items():
-    _pl = _el = _ms = _st = _us = _av = _sd = _ac = _di = _re = _rw = _nt = _v2a = 0
+    _pl = _el = _ms = _st = _us = _av = _sd = _ac = _di = _sa = _re = _rw = _nt = _v2a = 0
     # Collect window wars in newest-first order (WAR_BLOCKS order)
     _ww = [(_w, _member['cells'].get(_w['id']))
            for _w in wars
@@ -4060,6 +4089,7 @@ for _canonical, _member in _members.items():
                 _d = _a.get('delta', 0); _sd += _d; _ac += 1; _v2a += 1
                 if _d < 0: _di += 1
                 elif _d > 0: _re += 1
+                else: _sa += 1
     # CWL misses: excluded from participation/eligible but still count toward missed total
     for _war in wars:
         if not _war['cwl'] or _war['in_prog'] or _war['id'] not in _cwl_finished_set:
@@ -4078,7 +4108,7 @@ for _canonical, _member in _members.items():
         'stars': _st, 'used': _us, 'available': _av,
         'participation': _pl / _el if _el else 0,
         'hitRate': _us / _av if _av else 0,
-        'sumDelta': _sd, 'atkCount': _ac, 'dips': _di, 'reaches': _re,
+        'sumDelta': _sd, 'atkCount': _ac, 'dips': _di, 'same': _sa, 'reaches': _re,
         'wasted': 0, 'v2atks': _v2a, 'rawStars': _rw, 'netStars': _nt,
         'avgDelta': _sd / _ac if _ac else 0
     })
@@ -4203,7 +4233,8 @@ th.wh:hover{background:color-mix(in oklab,var(--star) 8%,var(--surface2))}
 th.wh.focused{background:color-mix(in oklab,var(--star) 18%,var(--surface2));box-shadow:inset 0 -2px 0 var(--star)}
 th.wh.focused .wdate{color:var(--ink)}
 th.wh.iscwl{background:color-mix(in oklab,var(--accent) 7%,var(--surface2))}
-th.wh.archived{opacity:.42}
+th.wh.archived{background:var(--surface2)!important}
+th.wh.archived .wdate,th.wh.archived .cwl,th.wh.archived .wnm,th.wh.archived .wmeta,th.wh.archived .wd{opacity:.42}
 /* archived column separator */
 th.wh.arc-start{border-left:2px solid #4a3f2a!important}
 td.cell.arc-start{border-left:2px solid #4a3f2a!important}
@@ -4402,6 +4433,7 @@ window.WARDATA=__WARDATA_JSON__;
       sumDelta:list.reduce((s,m)=>s+m.sumDelta,0),
       atkCount:list.reduce((s,m)=>s+m.atkCount,0),
       dips:list.reduce((s,m)=>s+m.dips,0),
+      same:list.reduce((s,m)=>s+m.same,0),
       reaches:list.reduce((s,m)=>s+m.reaches,0),
       rawStars:list.reduce((s,m)=>s+m.rawStars,0),
       netStars:list.reduce((s,m)=>s+m.netStars,0),
@@ -4429,9 +4461,13 @@ function sortName(n){return stripEmoji(n);}
       ks.forEach(k=>k.style.width=mx+'px');
     });
     const s=D.summary(list);
+    const _tot=s.atkCount||1;
+    const _pct=x=>Math.round(x/_tot*100)+'%';
     const items=[
       {k:'Wars fully missed',v:s.totalMissed,u:(s.count-s.cleanCount)+' member'+(s.count-s.cleanCount!==1?'s':'')+' affected',alert:s.totalMissed>0,c:'var(--miss-tx)'},
-      {k:'Avg attack Δ',v:(s.avgDelta>=0?'+':'−')+Math.abs(s.avgDelta).toFixed(1),u:s.dips+' dips · '+s.reaches+' reaches · excl. CWL',c:s.avgDelta<0?'var(--dip-tx)':'var(--reach-tx)'},
+      {k:'Attacked Higher TH',v:_pct(s.reaches),u:s.reaches+' attacks · excl. CWL',c:'var(--reach-tx)'},
+      {k:'Attacked Same TH',v:_pct(s.same),u:s.same+' attacks · excl. CWL',c:'var(--faint)'},
+      {k:'Attacked Lower TH',v:_pct(s.dips),u:s.dips+' attacks · excl. CWL',c:'var(--dip-tx)'},
     ];
     document.getElementById('strip').innerHTML=items.map(it=>
       '<div class="kpi'+(it.alert?' alert':'')+'"><div class="k"><span class="pelt" style="background:'+it.c+'"></span>'+it.k+'</div>'+
@@ -4447,8 +4483,7 @@ function sortName(n){return stripEmoji(n);}
       const arcCls=(i===arcStartIdx)?' arc-start':'';
       h+='<th class="wh'+(w.cwl?' iscwl':'')+(w.inWindow?'':' archived')+arcCls+'" data-wid="'+w.id+'">' +
         '<div class="whrow"><span class="wdate">'+w.date+'</span>' +
-        (w.cwl?'<span class="cwl">CWL</span>':'')+
-        (w.v2?'<span class="v2dot" title="v2 — TH levels + net stars"></span>':'')+'</div>'+
+        (w.cwl?'<span class="cwl">CWL</span>':'')+'</div>'+
         '<div class="wnm" title="'+w.name+'">'+w.name+'</div>'+
         '<div class="wmeta"><span class="wsz">'+w.size+'</span><span class="wres '+w.result+'">'+RES[w.result]+'</span></div>'+
       '</th>';
@@ -4497,7 +4532,7 @@ function sortName(n){return stripEmoji(n);}
       let r='<tr>';
       r+='<td class="pcol"><div class="pname" title="'+esc(m.name)+'">'+esc(stripEmoji(m.name))+'</div>'+
         '<div class="pmeta"><span class="badge '+m.status+'">'+(m.status==='left'?'Left':'Active')+'</span>'+
-        (m.status==='active'&&m.th?'<span class="thbadge">TH'+m.th+'</span>':'')+
+        (m.th?'<span class="thbadge">TH'+m.th+'</span>':'')+
         (m.status==='active'?'<span class="pw">'+m.played+'/'+m.eligible+' <span class="wlbl">wars</span></span>':'')+
         '</div></td>';
       r+='<td class="mcol"><span class="mval mono '+heat(m.missed)+'">'+m.missed+'</span></td>';
