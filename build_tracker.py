@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 6/4/26 — 44 members
-    "Americanpatriot","Big Steppa","Brandon","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Kizaru","Loading…","MR. ASURAN YT","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slayer","Ste","Stevie Wonder","Sumairu","SurgeGold","SwiftyKinja","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","das","drybonez","gen","imnotstraight10","jj","louis","rinz","rour","seth","stage5yo","stage6yo","studkiller","the beast","uhlisuh","wato","⚡️LSWreckless⚡️"
+    # Auto-updated 6/4/26 — 41 members
+    "Americanpatriot","Big Steppa","Brandon","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Kizaru","Loading…","MR. ASURAN YT","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slayer","Ste","Stevie Wonder","Sumairu","SurgeGold","SwiftyKinja","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","das","drybonez","gen","imnotstraight10","jj","louis","rinz","stage5yo","stage6yo","studkiller","uhlisuh","wato","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -126,9 +126,9 @@ WAR_BLOCKS = [
 
 ("417523054","6/4/26","SS RAIDERS","30v30","""
 #90QCVGU8U|Slayer|1|18|0|0|0|
-#QL8CV0P0|gen|2|17|0|0|0|
-#QCUCLPPJV|Gr8Conqueror|3|17|0|0|0|
-#GQJUGLQRQ|stage6yo|4|16|0|0|0|
+#QL8CV0P0|gen|2|17|1|3|3|2:3:3:16
+#QCUCLPPJV|Gr8Conqueror|3|17|1|3|3|3:3:3:15
+#GQJUGLQRQ|stage6yo|4|16|1|3|3|4:3:3:15
 #LC020U2Q|drybonez|6|16|0|0|0|
 #209J8J0RL|Big Steppa|7|15|0|0|0|
 #Y0UUGPRRU|Americanpatriot|9|15|0|0|0|
@@ -141,11 +141,11 @@ WAR_BLOCKS = [
 #GRRYCUJP8|crimpo|20|14|0|0|0|
 #R00L0CY9C|MiniPekka|21|14|1|3|3|16:3:3:13
 #LGJ9RC9Y9|Halid #1|22|14|1|3|3|17:3:3:13
-#GJLRURGC2|Cole|23|14|0|0|0|
+#GJLRURGC2|Cole|23|14|1|3|3|18:3:3:12
 #GRGGPPQ8J|Pam from HR|24|14|0|0|0|
 #PGLV2YQC|Kizaru|25|14|1|3|3|20:3:3:12
 #PRCQVCCV2|Brandon|29|13|0|0|0|
-#QGRPYC928|⚡️LSWreckless⚡️|30|13|0|0|0|
+#QGRPYC928|⚡️LSWreckless⚡️|30|13|1|3|3|22:3:3:13
 #QYQU2JYYC|MR. ASURAN YT|32|13|0|0|0|
 #YVCJC0VCQ|Marrow|34|13|0|0|0|
 #R0GCPRLPL|jj|36|13|0|0|0|
