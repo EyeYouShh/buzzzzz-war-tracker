@@ -245,17 +245,14 @@ def _replace_war_entry(content, war_id, new_entry):
       4. Finds the ')' that closes the tuple (may follow ', True, True' etc.)
       5. Replaces only that span — guaranteed not to cross entry boundaries.
     """
+    # search_str includes the opening '(' so idx already points to it
     search_str = f'("{war_id}",'
     idx = content.find(search_str)
     if idx == -1:
         print(f"WARNING: _replace_war_entry could not find entry for {war_id}")
         return content
 
-    # Walk back to find the opening '(' of the tuple
-    entry_start = idx - 1
-    if entry_start < 0 or content[entry_start] != '(':
-        print(f"WARNING: _replace_war_entry found ID but no preceding '(' for {war_id}")
-        return content
+    entry_start = idx  # idx IS the '(' — no need to step back
 
     # Find the first """ — opening of the data block
     open_tq = content.find('"""', entry_start)
