@@ -4168,6 +4168,10 @@ header{flex:0 0 auto;display:flex;align-items:center;justify-content:space-betwe
        font-family:'Oswald';clip-path:polygon(0 0,100% 0,100% 76%,76% 100%,0 100%)}
 .brand h1{font-family:var(--hf);font-size:19px;font-weight:600;letter-spacing:1px;text-transform:uppercase;line-height:1;white-space:nowrap}
 .brand .sub{font-size:12px;color:var(--muted);margin-top:3px;white-space:nowrap}
+.cwl-nav{font-family:var(--hf);font-size:12px;font-weight:600;color:var(--accent);border:1px solid color-mix(in oklab,var(--accent) 45%,transparent);
+          padding:4px 11px;border-radius:6px;text-decoration:none;letter-spacing:.06em;
+          opacity:.8;transition:opacity .15s,border-color .15s;white-space:nowrap;align-self:center}
+.cwl-nav:hover{opacity:1;border-color:var(--accent)}
 .htools{display:flex;align-items:center;gap:18px}
 .claninfo{text-align:right;font-size:12px;color:var(--muted);line-height:1.5;white-space:nowrap}
 .claninfo b{color:var(--ink);font-weight:600}
@@ -4393,6 +4397,7 @@ table.view-full .cd{display:block}
     <span class="leg"><span class="dch dip" style="margin:0">&#9660;</span>Hit down</span>
     <span class="leg"><span class="clean" style="margin:0">&#8635;</span>Cleanup</span>
   </div>
+  <a href="cwl.html" class="cwl-nav">CWL &#8599;</a>
   <div class="cgroup" style="gap:5px">
     <button class="scrbtn" id="scrollL" aria-label="Newer wars" disabled>
       <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 3.5L6 9l5.5 5.5"/></svg>
@@ -4769,4 +4774,478 @@ out = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'index.html')
 with open(out, 'w', encoding='utf-8') as f:
     f.write(html)
 print(f"Written: {out}")
+
+# ── CWL Page Generation ───────────────────────────────────────────────────────
+_MONTHS_CWL = ['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+
+def _cwl_sid(y, m):   return f"s{y}{m:02d}"
+def _cwl_slbl(y, m):  return f"{_MONTHS_CWL[m]} {y}"
+
+def _cwl_is_prep(war):
+    """A CWL round in prep: in_prog=True but zero attacks from anyone."""
+    return war['in_prog'] and sum(pd.get('a', 0) for pd in war['players'].values()) == 0
+
+# Group CWL wars by season (month/year)
+_cwl_by_season = {}
+for _cw in wars:
+    if not _cw['cwl']:
+        continue
+    _cdt = _parse_war_date(_cw['date'])
+    _csk = (_cdt.year, _cdt.month)
+    if _csk not in _cwl_by_season:
+        _cwl_by_season[_csk] = []
+    _cwl_by_season[_csk].append(_cw)
+
+_cwl_seasons_out = []
+for _csk in sorted(_cwl_by_season.keys(), reverse=True):
+    (cy, cm) = _csk
+    _crounds = sorted(_cwl_by_season[_csk], key=lambda w: _parse_war_date(w['date']))
+
+    # Per-player stats — only non-prep rounds count
+    _cspl = {}        # canonical key -> stats
+    _non_prep_nr = 0  # count of rounds that are not in prep
+
+    for _crw in _crounds:
+        _is_prep_round = _cwl_is_prep(_crw)
+        for _cpkey, _cpd in _crw['players'].items():
+            _cpname = _cpd.get('name', _cpkey) if _cpkey.startswith('#') else _cpkey
+            _ccanon = _cpkey if _cpkey.startswith('#') else _name_to_tag.get(_cpkey, _cpkey)
+            if _ccanon not in _cspl:
+                _cm = _members.get(_ccanon, {})
+                _cth = _cpd.get('th', 0) or _cm.get('th', 0)
+                _cspl[_ccanon] = {
+                    'name': _cpname, 'th': _cth,
+                    'active': _cm.get('status', 'left') == 'active',
+                    's3':0,'s2':0,'s1':0,'s0':0,'ri':0,'rp':0,'ms':0,'st':0,
+                    'in_cwl': True
+                }
+            if _is_prep_round:
+                continue  # prep round: player is rostered but don't count stats yet
+            _cp = _cspl[_ccanon]
+            _cp['ri'] += 1
+            _cused = _cpd.get('a', 0)
+            _cstars = _cpd.get('s', 0)
+            if _cused > 0:
+                _cp['rp'] += 1
+                _cp['st'] += _cstars
+                _catks = _cpd.get('atks', [])
+                if _catks:
+                    for _cak in _catks:
+                        _cas = _cak[1]
+                        if _cas == 3:   _cp['s3'] += 1
+                        elif _cas == 2: _cp['s2'] += 1
+                        elif _cas == 1: _cp['s1'] += 1
+                        else:           _cp['s0'] += 1
+                else:
+                    if _cstars == 3:   _cp['s3'] += 1
+                    elif _cstars == 2: _cp['s2'] += 1
+                    elif _cstars == 1: _cp['s1'] += 1
+                    else:              _cp['s0'] += 1
+            elif not _crw['in_prog']:
+                # Only a miss if the round is COMPLETED — live rounds haven't ended yet
+                _cp['ms'] += 1
+        if not _is_prep_round:
+            _non_prep_nr += 1
+
+    # Add all currently ACTIVE members not in any CWL round this season
+    for _ckey, _cm3 in _members.items():
+        if _cm3.get('status') != 'active':
+            continue
+        if _ckey in _cspl:
+            continue
+        _cm3name = _cm3.get('name', _ckey)
+        if any(_p.get('name') == _cm3name for _p in _cspl.values()):
+            continue
+        _cth3 = _cm3.get('th', 0) or PLAYER_TH.get(_cm3name, 0)
+        _cspl[_ckey] = {
+            'name': _cm3name, 'th': _cth3, 'active': True,
+            's3':0,'s2':0,'s1':0,'s0':0,'ri':0,'rp':0,'ms':0,'st':0,
+            'in_cwl': False
+        }
+
+    # Build sorted player list
+    _cplayer_list = []
+    for _ccanon, _cp in _cspl.items():
+        _cms = _cp.get('ms', 0)  # only completed-round misses, not live-round absences
+        _cav = round(_cp['st'] / _cp['rp'], 2) if _cp['rp'] > 0 else 0
+        _cin_cwl = _cp.get('in_cwl', True)
+        if not _cin_cwl:        _crwv = 'notcwl'
+        elif _cp['st'] >= 8:    _crwv = 'full'
+        elif _cp['st'] > 0:     _crwv = 'short'
+        else:                   _crwv = 'none'
+        _cplayer_list.append({
+            'name': _cp['name'], 'th': _cp['th'], 'active': _cp['active'],
+            'ri': _cp['ri'], 'rp': _cp['rp'], 'ms': _cms, 'st': _cp['st'],
+            's3': _cp['s3'], 's2': _cp['s2'], 's1': _cp['s1'], 's0': _cp['s0'],
+            'av': _cav, 'rw': _crwv, 'in_cwl': _cin_cwl
+        })
+    _cplayer_list.sort(key=lambda p: (0 if p['in_cwl'] else 1, -p['st'], -p['rp'], p['name'].lower()))
+
+    # Round strip data (distinguish PREP from LIVE)
+    _cround_strips = []
+    for _crw in _crounds:
+        _is_prep_round = _cwl_is_prep(_crw)
+        if _is_prep_round:
+            _crres = 'prep'
+        else:
+            _crc = RESULTS.get(_crw['id'], '')
+            if _crw['in_prog']:    _crres = 'live'
+            elif _crc == 'W':      _crres = 'win'
+            elif _crc == 'L':      _crres = 'loss'
+            elif _crc == 'D':      _crres = 'draw'
+            else:                  _crres = 'draw'
+        _crstar = sum(_cpd.get('s', 0) for _cpd in _crw['players'].values())
+        _cdp = _crw['date'].split('/')
+        _cdd = f"{_cdp[0]}/{_cdp[1]}" if len(_cdp) >= 2 else _crw['date']
+        _cround_strips.append({'opp': _crw['opp'], 'result': _crres, 'stars': _crstar, 'date': _cdd})
+
+    # Season KPIs — exclude "not in CWL" players and prep rounds
+    _cwl_in = [p for p in _cplayer_list if p['in_cwl']]
+    _ctot = sum(p['st'] for p in _cwl_in)
+    _cfull = sum(1 for p in _cwl_in if p['rw'] == 'full')
+    _ctot_atks = sum(p['s3']+p['s2']+p['s1']+p['s0'] for p in _cwl_in)
+    _ctot_3star = sum(p['s3'] for p in _cwl_in)
+    _c3pct = round(_ctot_3star / _ctot_atks * 100) if _ctot_atks else 0
+    _ctot_rp = sum(p['rp'] for p in _cwl_in)
+    _cavg = round(_ctot / _ctot_rp, 2) if _ctot_rp else 0
+    _cn_cwl = len(_cwl_in)
+    _cwins   = sum(1 for r in _cround_strips if r['result'] == 'win')
+    _closses = sum(1 for r in _cround_strips if r['result'] == 'loss')
+    _cdraws  = sum(1 for r in _cround_strips if r['result'] == 'draw')
+    _crec = f"W{_cwins} · L{_closses}" + (f" · D{_cdraws}" if _cdraws else "")
+
+    _cwl_seasons_out.append({
+        'id': _cwl_sid(cy, cm),
+        'label': _cwl_slbl(cy, cm),
+        'nr': _non_prep_nr,
+        'np': _cn_cwl,
+        'rounds': _cround_strips,
+        'players': _cplayer_list,
+        'kpis': {
+            'tot': _ctot, 'full': _cfull, 'np': _cn_cwl,
+            '3pct': _c3pct, 'avg': _cavg, 'record': _crec
+        }
+    })
+
+import json as _json
+_cwl_data_json = _json.dumps({'seasons': _cwl_seasons_out}, ensure_ascii=False, separators=(',',':'))
+
+_CWL_HTML = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buzzzzz &#8212; CWL Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#0a0d0a;--surface:#11150f;--surface2:#0d110c;--surface3:#161c14;
+  --ink:#e8eee2;--muted:#8a9484;--faint:#5d655a;
+  --line:#222a20;--line2:#2d362a;
+  --star:#e3a92b;--accent:#e3a92b;
+  --full-bg:oklch(0.345 0.085 152);--full-tx:oklch(0.88 0.13 150);--full-bd:oklch(0.45 0.09 152);
+  --part-bg:oklch(0.40 0.085 82);--part-tx:oklch(0.90 0.12 88);--part-bd:oklch(0.50 0.09 82);
+  --miss-bg:oklch(0.40 0.145 28);--miss-tx:oklch(0.88 0.12 30);--miss-bd:oklch(0.52 0.16 28);
+  --none-bg:#0e120d;--none-tx:#39402f;
+  --live-bg:oklch(0.40 0.09 244);--live-tx:oklch(0.88 0.1 244);--live-bd:oklch(0.5 0.1 244);
+  --hf:'Oswald',sans-serif;--bf:'JetBrains Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{background:var(--bg);color:var(--ink);font-family:var(--bf);-webkit-font-smoothing:antialiased;
+     display:flex;flex-direction:column}
+a{text-decoration:none}
+
+/* Header — full width, same as main tracker */
+header{flex:0 0 auto;display:flex;align-items:center;gap:14px;padding:13px 20px;border-bottom:1px solid var(--line);
+       background:linear-gradient(180deg,var(--surface3),var(--surface));flex-wrap:wrap}
+.back-link{font-family:var(--hf);font-size:12.5px;font-weight:600;color:var(--muted);border:1px solid var(--line2);
+           padding:5px 11px;border-radius:6px;letter-spacing:.05em;transition:color .15s,border-color .15s;white-space:nowrap}
+.back-link:hover{color:var(--ink);border-color:var(--muted)}
+.hbrand{flex:1;display:flex;align-items:center;gap:10px}
+.crest{width:34px;height:34px;border-radius:5px;display:grid;place-items:center;font-family:var(--hf);
+       font-size:18px;font-weight:700;background:transparent;border:1px solid var(--star);color:var(--star);
+       clip-path:polygon(0 0,100% 0,100% 76%,76% 100%,0 100%)}
+h1{font-family:var(--hf);font-size:19px;font-weight:600;letter-spacing:1px;text-transform:uppercase;line-height:1}
+.hsub{font-size:12px;color:var(--muted);margin-top:3px}
+select.season-sel{background:var(--surface2);border:1px solid var(--line2);color:var(--ink);
+                  font-family:var(--hf);font-size:13px;font-weight:600;
+                  padding:6px 36px 6px 13px;border-radius:7px;cursor:pointer;letter-spacing:.04em;
+                  outline:none;appearance:none;-webkit-appearance:none;
+                  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23e3a92b'/%3E%3C/svg%3E");
+                  background-repeat:no-repeat;background-position:right 12px center}
+select.season-sel:focus{border-color:var(--star)}
+
+/* Scrollable body content — capped width so it's readable on big monitors */
+.page-body{flex:1;overflow:auto;min-height:0;display:flex;flex-direction:column;align-items:flex-start}
+.content{width:100%;max-width:1100px}
+
+/* Round strip */
+.rounds-wrap{padding:12px 20px;border-bottom:1px solid var(--line);background:var(--surface2);overflow-x:auto}
+.rounds{display:flex;gap:8px;min-width:max-content}
+.rchip{background:var(--surface);border:1px solid var(--line2);border-radius:9px;padding:9px 10px;
+       width:138px;min-width:138px;max-width:138px;text-align:center;overflow:hidden}
+.rchip.win{border-color:var(--full-bd);background:oklch(0.11 0.025 152)}
+.rchip.loss{border-color:var(--miss-bd);background:oklch(0.13 0.04 28)}
+.rchip.live{border-color:var(--live-bd);background:oklch(0.13 0.03 244)}
+.rchip.prep{border-color:var(--line2);background:var(--surface2);opacity:.6}
+.rnum{font-family:var(--hf);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:4px}
+.rres{display:inline-block;font-family:var(--hf);font-size:13px;font-weight:700;padding:1px 8px;
+      border-radius:4px;letter-spacing:.05em;margin-bottom:5px}
+.rres.win{color:var(--full-tx);background:var(--full-bg)}
+.rres.loss{color:var(--miss-tx);background:var(--miss-bg)}
+.rres.draw{color:var(--muted);background:var(--surface3)}
+.rres.live{color:var(--live-tx);background:var(--live-bg)}
+.rres.prep{color:var(--faint);background:var(--surface3);font-size:11px}
+.ropp{font-size:10.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:115px;margin:0 auto}
+.rstars{font-size:11.5px;color:var(--star);margin-top:4px;font-family:var(--hf);font-weight:600}
+
+/* KPI strip */
+.kpi-strip{display:flex;border-bottom:1px solid var(--line);overflow-x:auto;background:var(--surface)}
+.kpi{padding:11px 22px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:3px;min-width:130px}
+.kpi .k{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.kpi .v{font-family:var(--hf);font-size:26px;font-weight:600;line-height:1;letter-spacing:-.5px}
+.kpi .u{font-size:11px;color:var(--faint)}
+
+/* Table */
+.tbl-wrap{overflow-x:auto}
+table{border-collapse:collapse;table-layout:fixed;width:100%}
+colgroup col.c-num{width:34px}
+colgroup col.c-player{width:210px}
+colgroup col.c-rounds{width:74px}
+colgroup col.c-stars{width:72px}
+colgroup col.c-bkd{width:116px}
+colgroup col.c-missed{width:70px}
+colgroup col.c-avg{width:72px}
+colgroup col.c-rew{width:110px}
+thead th{background:var(--surface2);padding:9px 10px;text-align:left;font-size:10.5px;text-transform:uppercase;
+         letter-spacing:.05em;color:var(--muted);border-bottom:2px solid var(--line);border-right:1px solid var(--line2);
+         white-space:nowrap;cursor:pointer;user-select:none;font-family:var(--bf);font-weight:600;position:sticky;top:0;z-index:2}
+thead th:last-child{border-right:none}
+thead th:hover{color:var(--star)}
+thead th.sorted{color:var(--star)}
+thead th.nosort{cursor:default}
+thead th.nosort:hover{color:var(--muted)}
+.sort-arrow{font-size:9px;opacity:.8;margin-left:3px}
+tbody tr{transition:background .1s}
+tbody tr:hover{background:var(--surface3)}
+tbody tr.row-full{background:oklch(0.10 0.022 152)}
+tbody tr.row-full:hover{background:oklch(0.14 0.032 152)}
+/* row-notcwl: no dimming — member is on the CWL roster, just not placed in a round yet */
+td{padding:8px 10px;vertical-align:middle;border-right:1px solid var(--line2);border-bottom:1px solid var(--line)}
+td:last-child{border-right:none}
+.td-num{color:var(--faint);font-size:11px;text-align:center}
+.td-c{text-align:center}
+
+/* Player cell */
+.pname{font-family:'Oswald';font-weight:500;font-size:14.5px;letter-spacing:.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pmeta{display:flex;align-items:center;gap:4px;margin-top:2px;flex-wrap:wrap}
+.badge{font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:1px 5px;border-radius:4px}
+.badge.active{color:var(--full-tx);background:var(--full-bg)}
+.badge.left{color:var(--miss-tx);background:var(--miss-bg)}
+.thbadge{font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:1px 5px;border-radius:4px;
+         color:oklch(0.88 0.12 244);background:oklch(0.32 0.07 244)}
+
+/* Stars */
+.stval{font-family:var(--hf);font-size:20px;font-weight:700;line-height:1;letter-spacing:-.3px}
+.st-hi{color:var(--full-tx)}.st-mid{color:var(--star)}.st-lo{color:var(--part-tx)}.st-none{color:var(--faint)}
+
+/* Breakdown */
+.bkd{font-size:11px;color:var(--faint);font-variant-numeric:tabular-nums}
+.b3{color:var(--full-tx)}.b2{color:var(--star)}.b1{color:var(--part-tx)}
+
+/* Missed */
+.ms0{color:var(--faint)}.ms1{color:oklch(0.92 0.16 88)}.ms2{color:oklch(0.90 0.18 48)}.ms3{color:var(--miss-tx)}
+
+/* Avg */
+.av-hi{color:var(--full-tx)}.av-mid{color:var(--star)}.av-lo{color:var(--part-tx)}.av-bad{color:var(--miss-tx)}
+
+/* Reward chips */
+.rew{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11px;font-weight:700;white-space:nowrap;border:1px solid}
+.rew.full{color:var(--full-tx);background:var(--full-bg);border-color:var(--full-bd)}
+.rew.short{color:var(--part-tx);background:var(--part-bg);border-color:var(--part-bd)}
+.rew.none{color:var(--miss-tx);background:var(--miss-bg);border-color:var(--miss-bd)}
+.rew.notcwl{color:var(--faint);background:var(--surface3);border-color:var(--line2)}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="back-link">&#8592; War Tracker</a>
+  <div class="hbrand">
+    <div class="crest">B</div>
+    <div>
+      <h1>CWL Tracker</h1>
+      <div class="hsub">Buzzzzz &middot; #2GGL80JL0</div>
+    </div>
+  </div>
+  <select class="season-sel" id="seasonSel" onchange="switchSeason(this.value)"></select>
+</header>
+
+<div class="page-body">
+<div class="content">
+  <div class="rounds-wrap"><div class="rounds" id="rounds"></div></div>
+  <div class="kpi-strip" id="kpis"></div>
+  <div class="tbl-wrap">
+  <table>
+    <colgroup>
+      <col class="c-num"><col class="c-player"><col class="c-rounds">
+      <col class="c-stars"><col class="c-bkd"><col class="c-missed">
+      <col class="c-avg"><col class="c-rew">
+    </colgroup>
+    <thead><tr>
+      <th class="nosort td-num">#</th>
+      <th class="nosort">Player</th>
+      <th data-sort="rp" class="td-c">Rounds</th>
+      <th data-sort="st" class="td-c sorted">Stars</th>
+      <th class="nosort td-c">3&#9733;&middot;2&#9733;&middot;1&#9733;&middot;0&#9733;</th>
+      <th data-sort="ms" class="td-c">Missed</th>
+      <th data-sort="av" class="td-c">Avg &#9733;</th>
+      <th data-sort="rw" class="td-c">8&#9733; Reward</th>
+    </tr></thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  </div>
+</div>
+</div>
+
+<script>
+(function(){
+const D=__CWL_DATA_JSON__;
+let curSid=D.seasons[0].id, curSort='st';
+
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function stripEmoji(s){return s.replace(/[^\\x20-\\x7E\\xC0-\\u024F]+/g,'').trim();}
+
+// Populate dropdown
+const sel=document.getElementById('seasonSel');
+D.seasons.forEach(s=>{
+  const o=document.createElement('option');
+  o.value=s.id; o.textContent=s.label;
+  if(s.id===curSid)o.selected=true;
+  sel.appendChild(o);
+});
+
+function switchSeason(sid){curSid=sid;render();}
+window.switchSeason=switchSeason;
+
+// Column header click sorting (only mechanism — no seg buttons)
+document.querySelector('thead').addEventListener('click',e=>{
+  const th=e.target.closest('th[data-sort]');
+  if(!th)return;
+  curSort=th.dataset.sort;
+  renderTable(getSeason());
+});
+
+function getSeason(){return D.seasons.find(s=>s.id===curSid);}
+
+const RMAP={win:'W',loss:'L',draw:'D',live:'LIVE',prep:'PREP'};
+function renderRounds(season){
+  const RLAB=['R1','R2','R3','R4','R5','R6','R7'];
+  document.getElementById('rounds').innerHTML=season.rounds.map((r,i)=>{
+    const isPrep=r.result==='prep';
+    return '<div class="rchip '+r.result+'">'+
+      '<div class="rnum">'+(RLAB[i]||('R'+(i+1)))+' &middot; '+r.date+'</div>'+
+      '<div><span class="rres '+r.result+'">'+(RMAP[r.result]||'?')+'</span></div>'+
+      '<div class="ropp" title="'+esc(r.opp)+'">'+esc(r.opp)+'</div>'+
+      (isPrep?'<div class="rstars" style="opacity:.4">—</div>':
+               '<div class="rstars">&#9733; '+r.stars+'</div>')+
+      '</div>';
+  }).join('');
+}
+
+function renderKpis(season){
+  const k=season.kpis;
+  const nr=season.rounds.filter(r=>r.result!=='prep').length;
+  const items=[
+    {k:'Record',          v:k.record,             u:nr+' rounds played',   c:'var(--full-tx)'},
+    {k:'Total &#9733;',   v:k.tot,                u:'clan stars',           c:'var(--star)'},
+    {k:'Full Reward',     v:k.full,               u:'&#8805;8&#9733; earned',c:'var(--full-tx)'},
+    {k:'3&#9733; Rate',   v:k['3pct']+'%',        u:'of all attacks',       c:'var(--full-tx)'},
+    {k:'Avg &#9733;/War', v:k.avg.toFixed(2),     u:'per round played',     c:'var(--star)'},
+  ];
+  document.getElementById('kpis').innerHTML=items.map(it=>
+    '<div class="kpi"><div class="k">'+it.k+'</div>'+
+    '<div class="v" style="color:'+it.c+'">'+it.v+'</div>'+
+    '<div class="u">'+it.u+'</div></div>'
+  ).join('');
+}
+
+const RW_ORDER={full:0,short:1,none:2,notcwl:3};
+function sortPlayers(players){
+  // "not in CWL" always floats to the bottom
+  const inCwl=players.filter(p=>p.in_cwl);
+  const notCwl=players.filter(p=>!p.in_cwl).sort((a,b)=>a.name.localeCompare(b.name));
+  if(curSort==='st')      inCwl.sort((a,b)=>b.st-a.st||b.rp-a.rp||a.name.localeCompare(b.name));
+  else if(curSort==='rp') inCwl.sort((a,b)=>b.ri-a.ri||b.rp-a.rp||b.st-a.st||a.name.localeCompare(b.name));
+  else if(curSort==='av') inCwl.sort((a,b)=>b.av-a.av||b.st-a.st||a.name.localeCompare(b.name));
+  else if(curSort==='ms') inCwl.sort((a,b)=>b.ms-a.ms||a.name.localeCompare(b.name));
+  else if(curSort==='rw') inCwl.sort((a,b)=>RW_ORDER[a.rw]-RW_ORDER[b.rw]||b.st-a.st||a.name.localeCompare(b.name));
+  else                    inCwl.sort((a,b)=>a.name.localeCompare(b.name));
+  return [...inCwl,...notCwl];
+}
+
+function stCls(st){return st>=8?'st-hi':st>=5?'st-mid':st>=1?'st-lo':'st-none';}
+function avCls(av){return av>=2.9?'av-hi':av>=2.5?'av-mid':av>=1.5?'av-lo':'av-bad';}
+function msCls(ms){return ms===0?'ms0':ms===1?'ms1':ms===2?'ms2':'ms3';}
+const REW_LABEL={full:'&#10003; Full',short:'&#9651; Short',none:'&#x2715; None',notcwl:'&mdash;'};
+
+function renderTable(season){
+  const players=sortPlayers(season.players);
+  const nr=season.nr;
+  // Update sorted column indicator
+  document.querySelectorAll('thead th').forEach(th=>{
+    const isSorted=th.dataset.sort===curSort;
+    th.classList.toggle('sorted',isSorted);
+    // Update text: strip old arrow, add new one
+    th.innerHTML=th.innerHTML.replace(/ &#9660;| &#9650;/g,'');
+    if(isSorted) th.innerHTML+=' &#9660;';
+  });
+  document.getElementById('tbody').innerHTML=players.map((p,i)=>{
+    const notCwl=!p.in_cwl;
+    const bk=notCwl?'<span class="bkd">&mdash;</span>':
+              '<span class="b3">'+p.s3+'</span><span class="bkd">&middot;</span>'+
+              '<span class="b2">'+p.s2+'</span><span class="bkd">&middot;</span>'+
+              '<span class="b1">'+p.s1+'</span><span class="bkd">&middot;'+p.s0+'</span>';
+    const row_cls=(p.rw==='full'?'row-full ':'')+( notCwl?'row-notcwl':'');
+    return '<tr class="'+row_cls+'">'+
+      '<td class="td-num">'+(i+1)+'</td>'+
+      '<td>'+
+        '<div class="pname" title="'+esc(p.name)+'">'+esc(stripEmoji(p.name))+'</div>'+
+        '<div class="pmeta">'+
+          '<span class="badge '+(p.active?'active':'left')+'">'+(p.active?'Active':'Left')+'</span>'+
+          (p.th?'<span class="thbadge">TH'+p.th+'</span>':'')+
+        '</div>'+
+      '</td>'+
+      '<td class="td-c">'+(notCwl?'&mdash;':p.ri)+'</td>'+
+      '<td class="td-c">'+(notCwl?'<span class="bkd">&mdash;</span>':'<span class="stval '+stCls(p.st)+'">'+p.st+'</span>')+'</td>'+
+      '<td class="td-c">'+bk+'</td>'+
+      '<td class="td-c">'+(notCwl?'<span class="bkd">&mdash;</span>':'<span class="'+msCls(p.ms)+'">'+p.ms+'</span>')+'</td>'+
+      '<td class="td-c">'+(notCwl?'<span class="bkd">&mdash;</span>':'<span class="'+avCls(p.av)+'">'+(p.rp>0?p.av.toFixed(2):'&mdash;')+'</span>')+'</td>'+
+      '<td class="td-c"><span class="rew '+p.rw+'">'+(REW_LABEL[p.rw]||'&mdash;')+'</span></td>'+
+    '</tr>';
+  }).join('');
+}
+
+function render(){
+  const season=getSeason();
+  if(!season)return;
+  renderRounds(season);
+  renderKpis(season);
+  renderTable(season);
+}
+
+render();
+})();
+</script>
+</body>
+</html>"""
+
+_cwl_html_out = _CWL_HTML.replace('__CWL_DATA_JSON__', _cwl_data_json)
+_cwl_out = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'cwl.html')
+with open(_cwl_out, 'w', encoding='utf-8') as f:
+    f.write(_cwl_html_out)
+print(f"Written: {_cwl_out}")
 print(f"Size: {os.path.getsize(out):,} bytes")
