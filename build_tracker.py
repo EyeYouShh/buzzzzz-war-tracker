@@ -3828,35 +3828,35 @@ RESULTS = {
     # CWL Dec 2025 — Buzzzzz
     '8QCCR22LC': 'W', '8QCRGJC22': 'W', '8QCQ0VUQ2': 'W', '8QCPQ2JVY': 'W', '8QC2VJ8CR': 'W', '8QJVLPVV2': 'W', '8QJJURPPC': 'W',
 
-    # Regular wars (historical, pre-automation) — verify W/L/D
+    # Regular wars (historical, pre-automation) — results pulled from ClashSpot
     '267347499': 'W',  # Aliens Worriors (3/28/26)
     '267055821': 'W',  # gubug indah 03 (3/25/26)
     '266778477': 'W',  # SCHIZO (3/23/26)
     '266578833': 'W',  # Tashkent (3/21/26)
     '266327958': 'W',  # pinoy as one (3/19/26)
-    '266040827': 'W',  # patel 786 (3/17/26)
-    '265742304': 'W',  # FURIA NORTEÑA (3/14/26)
+    '266040827': 'D',  # patel 786 (3/17/26) — draw 120v120
+    '265742304': 'L',  # FURIA NORTEÑA (3/14/26) — loss 134v135
     '265485251': 'W',  # BD KiNG (3/12/26)
     '265174591': 'W',  # kings of coc (3/2/26)
-    '264897062': 'W',  # anonimous Tow (2/27/26)
+    '264897062': 'L',  # anonimous Tow (2/27/26) — loss 116v119
     '264566387': 'W',  # Thousand Dreams (2/25/26)
     '264276684': 'W',  # MYSTIC WORLD⭐ (2/23/26)
     '263971734': 'W',  # team clan (2/20/26)
     '263690262': 'W',  # Dinner Time (2/18/26)
-    '263311736': 'W',  # Maratha (2/15/26)
+    '263311736': 'L',  # Maratha (2/15/26) — loss 116v119
     '263021942': 'W',  # busted rubbers (2/13/26)
     '262763236': 'W',  # R D X. _ .BoYs (2/11/26)
-    '262189798': 'W',  # DWARD ATTACK (1/31/26)
+    '262189798': 'L',  # DWARD ATTACK (1/31/26) — loss 102v105
     '261847187': 'W',  # Новичок (1/28/26)
     '261596216': 'W',  # FLoReS FamiLY (1/26/26)
     '261257081': 'W',  # ARGONAUTAS (1/23/26)
     '260987034': 'W',  # Sequoia (1/21/26)
     '260625502': 'W',  # bomers sekuat (1/18/26)
     '260355242': 'W',  # REVOOADA_011 (1/16/26)
-    '260081904': 'W',  # apem berduri (1/14/26)
+    '260081904': 'D',  # apem berduri (1/14/26) — draw 103v103
     '259762375': 'W',  # KUCING_COMEL (1/12/26)
     '259198024': 'W',  # DRAGON 9070 (1/1/26)
-    '258921956': 'W',  # TRIDEN (2/29/25)
+    '258921956': 'L',  # TRIDEN (2/29/25) — loss 102v104
     '258419057': 'W',  # 紫禁之巅 (2/26/25)
     '258140750': 'W',  # DHARM HINDU (2/24/25)
     '257749150': 'W',  # شکست ناپذیر 2 (2/20/25)
