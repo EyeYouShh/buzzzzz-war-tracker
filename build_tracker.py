@@ -3992,7 +3992,7 @@ for _war in wars:
     _dp = _war['date'].split('/')
     _date_disp = f"{_dp[0]}/{_dp[1]}" if len(_dp) >= 2 else _war['date']
     _wars_data.append({
-        'id': _war['id'], 'date': _date_disp, 'name': _war['opp'],
+        'id': _war['id'], 'date': _date_disp, 'fullDate': _war['date'], 'name': _war['opp'],
         'size': _war['size'], 'result': _result, 'cwl': _war['cwl'],
         'pending': _war['in_prog'], 'v2': _is_v2, 'inWindow': _in_window
     })
@@ -4455,7 +4455,7 @@ window.WARDATA=__WARDATA_JSON__;
     const now=new Date();
     D.wars.forEach(w=>{
       if(w.pending){w.inWindow=true;return;}
-      const wd=D._parseDate(w.date);
+      const wd=D._parseDate(w.fullDate||w.date);
       if(mode==='all')w.inWindow=true;
       else if(mode==='custom'&&cs&&ce)w.inWindow=wd>=cs&&wd<=ce;
       else w.inWindow=wd>=new Date(now-Number(mode)*864e5);
