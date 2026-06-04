@@ -4549,25 +4549,33 @@ function sortName(n){return stripEmoji(n);}
   function updateWindowLabels(mode,cs,ce){
     const inW=D.wars.filter(w=>w.inWindow&&!w.pending);
     document.getElementById('warCount').textContent=inW.length+' wars in window';
-    let winLabel,missedLabel;
+    let winLabel;
     const fmt=d=>(d.getMonth()+1)+'/'+d.getDate();
-    if(mode==='all'){winLabel='All time';missedLabel='all time';}
+    if(mode==='all'){winLabel='All time';}
     else if(mode==='custom'&&cs&&ce){
       winLabel=fmt(cs)+' – '+fmt(ce)+'/'+String(ce.getFullYear()).slice(-2);
-      missedLabel='custom range';
     }else{
       const now=new Date(),cut=new Date(now-Number(mode)*864e5);
       winLabel=fmt(cut)+' – '+fmt(now)+'/'+String(now.getFullYear()).slice(-2);
-      missedLabel=mode+'d';
     }
     document.getElementById('windowLine').textContent=winLabel;
-    const ms=document.querySelector('th.mcorner .s');if(ms)ms.textContent=missedLabel;
     arcStartIdx=D.wars.findIndex(w=>!w.inWindow&&!w.pending);
+  }
+  function _applyRange(mode,cs,ce){
+    // Show loading state immediately, defer heavy work so browser can paint it
+    document.getElementById('tbody').innerHTML=
+      '<tr><td colspan="999" style="padding:28px;text-align:center;color:var(--faint);font-family:var(--mf);font-size:13px">Updating…</td></tr>';
+    setTimeout(()=>{
+      D.setRange(mode,cs,ce);
+      updateWindowLabels(mode,cs,ce);
+      renderHead();
+      render();
+    },0);
   }
   function renderHead(){
     let h='<tr><th class="pcorner"><div class="t">Player</div><div class="s">Participation excl. CWL</div></th>'+
-           '<th class="mcorner"><div class="t">Missed</div><div class="s">60 days</div></th>'+
-           '<th class="dcorner"><div class="t">TH &#916;</div><div class="s">excl. CWL + cleanup</div></th>';
+           '<th class="mcorner"><div class="t">Missed</div><div class="s">in window</div></th>'+
+           '<th class="dcorner"><div class="t">TH &#916;</div><div class="s">excl. CWL</div></th>';
     D.wars.forEach((w,i)=>{
       const arcCls=(i===arcStartIdx)?' arc-start':'';
       h+='<th class="wh'+(w.cwl?' iscwl':'')+(w.inWindow?'':' archived')+arcCls+'" data-wid="'+w.id+'">' +
@@ -4706,23 +4714,18 @@ function sortName(n){return stripEmoji(n);}
       if(w==='custom'){crange.classList.add('visible');return;}
       crange.classList.remove('visible');
       state.windowMode=w;
-      D.setRange(w==='all'?'all':Number(w));
-      updateWindowLabels(w);
-      renderHead();render();
+      _applyRange(w==='all'?'all':Number(w));
     });
     const applyBtn=document.getElementById('applyRange');
     if(applyBtn)applyBtn.addEventListener('click',()=>{
       const sv=document.getElementById('rangeStart').value;
       const ev=document.getElementById('rangeEnd').value;
       if(!sv||!ev)return;
-      // date input gives YYYY-MM-DD; parse carefully to avoid timezone shift
-      const [sy,sm,sd]=sv.split('-').map(Number);
-      const [ey,em,ed]=ev.split('-').map(Number);
+      const[sy,sm,sd]=sv.split('-').map(Number);
+      const[ey,em,ed]=ev.split('-').map(Number);
       const cs=new Date(sy,sm-1,sd),ce=new Date(ey,em-1,ed,23,59,59);
       state.windowMode='custom';
-      D.setRange('custom',cs,ce);
-      updateWindowLabels('custom',cs,ce);
-      renderHead();render();
+      _applyRange('custom',cs,ce);
     });
   })();
   renderHead();
