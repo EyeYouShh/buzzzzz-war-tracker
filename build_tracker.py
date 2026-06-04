@@ -4086,7 +4086,7 @@ for _canonical, _member in _members.items():
             _rw += _cell.get('rawStars', 0); _nt += _cell.get('netStars', 0)
             for _a in (_cell.get('attacks', []) if _cell else []):
                 if 'defTh' not in _a or _a['defTh'] is None: continue
-                if _a.get('neu', 0) == 0: continue  # cleanup attack — skip delta stats
+                if _a.get('raw', 0) > 0 and _a.get('neu', 0) == 0: continue  # loot attack (got stars, contributed 0 new) — skip delta stats
                 _d = _a.get('delta', 0); _sd += _d; _ac += 1; _v2a += 1
                 if _d < 0: _di += 1
                 elif _d > 0: _re += 1
@@ -4245,11 +4245,18 @@ th.pcorner,th.mcorner,th.dcorner{background:var(--surface2);border-bottom:1px so
 th.pcorner{left:0;width:190px;min-width:190px}
 th.mcorner{left:190px;width:72px;min-width:72px;border-right:1px solid var(--line2);text-align:center;padding:10px 6px}
 th.dcorner{left:262px;width:88px;min-width:88px;border-right:1px solid var(--line);text-align:center;padding:10px 6px}
-th.pcorner .t{font-family:var(--hf);font-size:13px;font-weight:700;color:var(--star);text-transform:uppercase;letter-spacing:.04em}
-th.pcorner .s{font-size:10px;color:var(--faint);margin-top:2px}
-th.mcorner .t,th.dcorner .t{font-family:var(--hf);font-size:11px;font-weight:700;color:var(--star);text-transform:uppercase;letter-spacing:.04em}
-th.mcorner .s,th.dcorner .s{font-size:9px;color:var(--faint)}
-td.pcol,td.mcol,td.dcol{position:sticky;z-index:4;background:var(--surface)}
+th.pcorner .t,th.mcorner .t,th.dcorner .t{font-family:var(--hf);font-size:12px;font-weight:700;color:var(--star);text-transform:uppercase;letter-spacing:.04em}
+th.pcorner .s,th.mcorner .s,th.dcorner .s{font-size:9px;color:var(--faint);margin-top:2px}
+/* date range picker */
+.drange{display:none;align-items:center;gap:7px;flex-wrap:wrap}
+.drange.visible{display:flex}
+.dinput{background:var(--surface2);border:1px solid var(--line2);border-radius:6px;color:var(--ink);
+  font-family:var(--bf);font-size:11.5px;padding:5px 8px;cursor:pointer;color-scheme:dark;outline:none}
+.dinput:focus{border-color:var(--star)}
+.dsep{font-size:11px;color:var(--faint)}
+.dapply{background:var(--star);color:#1a1505;border:0;font-family:var(--bf);font-weight:700;
+  font-size:11.5px;padding:6px 12px;border-radius:6px;cursor:pointer;white-space:nowrap}
+td.pcol,td.mcol,td.dcol{position:sticky;z-index:4;background:var(--surface);vertical-align:middle}
 td.pcol{left:0;width:190px;min-width:190px;padding:8px 14px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
 td.mcol{left:190px;width:72px;min-width:72px;text-align:center;border-right:1px solid var(--line2);border-bottom:1px solid var(--line)}
 td.dcol{left:262px;width:88px;min-width:88px;text-align:center;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:4px 5px}
@@ -4365,6 +4372,22 @@ table.view-full .cd{display:block}
       <button data-v="full">Detail</button>
     </div>
   </div>
+  <div class="cgroup"><span class="clab">Window</span>
+    <div class="seg" id="windowSeg">
+      <button data-w="7">7d</button>
+      <button data-w="30">30d</button>
+      <button data-w="60" aria-pressed="true">60d</button>
+      <button data-w="90">90d</button>
+      <button data-w="all">All</button>
+      <button data-w="custom">Custom…</button>
+    </div>
+  </div>
+  <div class="cgroup drange" id="customRange">
+    <input type="date" id="rangeStart" class="dinput"/>
+    <span class="dsep">—</span>
+    <input type="date" id="rangeEnd" class="dinput"/>
+    <button class="dapply" id="applyRange">Apply</button>
+  </div>
   <div class="spacer"></div>
   <div class="legend">
     <span class="leg"><span class="swatch full"></span>Both used</span>
@@ -4426,6 +4449,49 @@ window.WARDATA=__WARDATA_JSON__;
     }
     return o;
   };
+  D._parseDate=function(s){const[m,d,y]=s.split('/').map(Number);return new Date(2000+y,m-1,d);};
+  D.setRange=function(mode,cs,ce){
+    // mode: number of days (60), 'all', or 'custom' (requires cs/ce Date objects)
+    const now=new Date();
+    D.wars.forEach(w=>{
+      if(w.pending){w.inWindow=true;return;}
+      const wd=D._parseDate(w.date);
+      if(mode==='all')w.inWindow=true;
+      else if(mode==='custom'&&cs&&ce)w.inWindow=wd>=cs&&wd<=ce;
+      else w.inWindow=wd>=new Date(now-Number(mode)*864e5);
+    });
+    // Recompute all member stats for the new range
+    const inIds=new Set(D.wars.filter(w=>w.inWindow).map(w=>w.id));
+    const allReg=D.wars.filter(w=>!w.cwl&&!w.pending);
+    const inReg=allReg.filter(w=>inIds.has(w.id));
+    const preReg=allReg.filter(w=>!inIds.has(w.id));
+    const inCwl=D.wars.filter(w=>w.cwl&&!w.pending&&inIds.has(w.id));
+    D.members.forEach(m=>{
+      let pl=0,el=0,ms=0,st=0,us=0,av=0,sd=0,ac=0,di=0,sa=0,re=0,rw=0,nt=0;
+      const predates=preReg.some(w=>m.cells[w.id]!=null);
+      const ww=inReg.map(w=>({w,cell:m.cells[w.id]||null}));
+      let fi=predates?ww.length-1:null;
+      if(!predates)for(let i=ww.length-1;i>=0;i--){if(ww[i].cell&&!ww[i].cell.pending){fi=i;break;}}
+      if(fi!==null)for(let i=0;i<=fi;i++){
+        const{cell}=ww[i];el++;
+        if(!cell||cell.pending)continue;
+        if(cell.used>0)pl++;else ms++;
+        st+=cell.stars||0;us+=cell.used||0;av+=cell.max||0;
+        rw+=cell.rawStars||0;nt+=cell.netStars||0;
+        (cell.attacks||[]).forEach(a=>{
+          if(!a.defTh)return;
+          if((a.raw||0)>0&&(a.neu||0)===0)return; // loot attack
+          const d=a.delta||0;sd+=d;ac++;
+          if(d<0)di++;else if(d>0)re++;else sa++;
+        });
+      }
+      inCwl.forEach(w=>{const c=m.cells[w.id];if(c&&!c.pending&&c.used===0)ms++;});
+      m.played=pl;m.eligible=el;m.missed=ms;m.stars=st;
+      m.used=us;m.available=av;m.rawStars=rw;m.netStars=nt;
+      m.participation=el?pl/el:0;m.hitRate=av?us/av:0;
+      m.sumDelta=sd;m.atkCount=ac;m.dips=di;m.same=sa;m.reaches=re;m.avgDelta=ac?sd/ac:0;
+    });
+  };
   D.summary=function(list){
     const n=list.length||1;
     return{
@@ -4452,7 +4518,7 @@ function stripEmoji(s){return s.replace(/[^\x20-\x7E\xC0-ɏ]+/g,'').trim();}
 function sortName(n){return stripEmoji(n);}
 (function(){
   const D=window.WARDATA;
-  const state={filter:'active',sort:'th',view:'stars',warFocus:null};
+  const state={filter:'active',sort:'th',view:'stars',warFocus:null,windowMode:'60'};
   const pct=x=>Math.round(x*100)+'%';
   const RES={win:'WIN',loss:'LOSS',draw:'DRAW',live:'LIVE'};
   function heat(n){return n===0?'h0':(n<=2?'h1':(n<=4?'h2':'h3'));}
@@ -4478,8 +4544,26 @@ function sortName(n){return stripEmoji(n);}
       '<div class="v mono">'+it.v+'</div><div class="u">'+it.u+'</div></div>'
     ).join('');
   }
-  // Find first archived (out-of-window) war index for visual separator
-  const arcStartIdx=D.wars.findIndex(w=>!w.inWindow&&!w.pending);
+  // Mutable: updates whenever window range changes
+  let arcStartIdx=D.wars.findIndex(w=>!w.inWindow&&!w.pending);
+  function updateWindowLabels(mode,cs,ce){
+    const inW=D.wars.filter(w=>w.inWindow&&!w.pending);
+    document.getElementById('warCount').textContent=inW.length+' wars in window';
+    let winLabel,missedLabel;
+    const fmt=d=>(d.getMonth()+1)+'/'+d.getDate();
+    if(mode==='all'){winLabel='All time';missedLabel='all time';}
+    else if(mode==='custom'&&cs&&ce){
+      winLabel=fmt(cs)+' – '+fmt(ce)+'/'+String(ce.getFullYear()).slice(-2);
+      missedLabel='custom range';
+    }else{
+      const now=new Date(),cut=new Date(now-Number(mode)*864e5);
+      winLabel=fmt(cut)+' – '+fmt(now)+'/'+String(now.getFullYear()).slice(-2);
+      missedLabel=mode+'d';
+    }
+    document.getElementById('windowLine').textContent=winLabel;
+    const ms=document.querySelector('th.mcorner .s');if(ms)ms.textContent=missedLabel;
+    arcStartIdx=D.wars.findIndex(w=>!w.inWindow&&!w.pending);
+  }
   function renderHead(){
     let h='<tr><th class="pcorner"><div class="t">Player</div><div class="s">Participation excl. CWL</div></th>'+
            '<th class="mcorner"><div class="t">Missed</div><div class="s">60 days</div></th>'+
@@ -4513,9 +4597,11 @@ function sortName(n){return stripEmoji(n);}
     const cls=c.used<c.max?'part':'full';
     const overlap=c.v2&&c.rawStars>c.stars;
     const starHtml='<span class="st">'+c.stars+'★</span>'+(overlap?'<span class="clean" title="'+c.rawStars+'★ raw → '+c.stars+'★ net">↻</span>':'');
-    const _sig=c.v2?c.attacks.filter(a=>a.neu!==0):[];
+    const _sig=c.v2?c.attacks.filter(a=>!((a.raw||0)>0&&(a.neu||0)===0)):[];
+    const _hasLoot=c.v2&&_sig.length<c.attacks.length;
+    const _chips=_sig.map(a=>'<span class="dch '+dCls(a.delta)+'">'+dArrow(a.delta)+(a.delta?dTxt(a.delta):'')+' </span>').join('');
     const chips=c.v2
-      ?(_sig.map(a=>'<span class="dch '+dCls(a.delta)+'">'+dArrow(a.delta)+(a.delta?dTxt(a.delta):'')+' </span>').join('')||'')
+      ?(_chips||(_hasLoot?'<span class="dch even" title="All attacks were loot hits on maxed bases" style="font-size:8.5px;opacity:.8">loot</span>':''))
       :'<span class="dch na">no TH</span>';
     const dets=c.attacks.map(a=>{
       if(c.v2){
@@ -4582,7 +4668,7 @@ function sortName(n){return stripEmoji(n);}
     });
   }
   const meta=D.meta;
-  document.getElementById('subline').textContent=meta.clanTag+' · Rolling '+meta.windowDays+'-day window';
+  document.getElementById('subline').textContent=meta.clanTag+' · '+meta.windowDays+'-day rolling window';
   (function showSchedule(){
     const UTC_HOURS=[0,4,8,12,16,20];
     const RUNNER_LAG=7*60*1000; // ~7 min: cron trigger → API fetch → commit → Netlify deploy
@@ -4608,6 +4694,37 @@ function sortName(n){return stripEmoji(n);}
   wireSeg('filterSeg','filter','f');
   wireSeg('sortSeg','sort','s',()=>{state.warFocus=null;});
   wireSeg('viewSeg','view','v');
+  // Window range controls
+  (function(){
+    const wseg=document.getElementById('windowSeg');
+    const crange=document.getElementById('customRange');
+    if(!wseg)return;
+    wseg.addEventListener('click',e=>{
+      const b=e.target.closest('button');if(!b)return;
+      const w=b.dataset.w;
+      [...wseg.children].forEach(c=>c.setAttribute('aria-pressed',c===b));
+      if(w==='custom'){crange.classList.add('visible');return;}
+      crange.classList.remove('visible');
+      state.windowMode=w;
+      D.setRange(w==='all'?'all':Number(w));
+      updateWindowLabels(w);
+      renderHead();render();
+    });
+    const applyBtn=document.getElementById('applyRange');
+    if(applyBtn)applyBtn.addEventListener('click',()=>{
+      const sv=document.getElementById('rangeStart').value;
+      const ev=document.getElementById('rangeEnd').value;
+      if(!sv||!ev)return;
+      // date input gives YYYY-MM-DD; parse carefully to avoid timezone shift
+      const [sy,sm,sd]=sv.split('-').map(Number);
+      const [ey,em,ed]=ev.split('-').map(Number);
+      const cs=new Date(sy,sm-1,sd),ce=new Date(ey,em-1,ed,23,59,59);
+      state.windowMode='custom';
+      D.setRange('custom',cs,ce);
+      updateWindowLabels('custom',cs,ce);
+      renderHead();render();
+    });
+  })();
   renderHead();
   document.getElementById('thead').addEventListener('click',e=>{
     const th=e.target.closest('th.wh');if(!th)return;
