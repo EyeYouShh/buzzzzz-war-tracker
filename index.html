@@ -40,6 +40,9 @@ header{flex:0 0 auto;display:flex;align-items:center;justify-content:space-betwe
        font-family:'Oswald';clip-path:polygon(0 0,100% 0,100% 76%,76% 100%,0 100%)}
 .brand h1{font-family:var(--hf);font-size:19px;font-weight:600;letter-spacing:1px;text-transform:uppercase;line-height:1;white-space:nowrap}
 .brand .sub{font-size:12px;color:var(--muted);margin-top:3px;white-space:nowrap}
+.cwl-nav{font-family:var(--hf);font-size:12.5px;font-weight:600;color:var(--accent);border:1px solid var(--accent);
+          padding:4px 11px;border-radius:6px;text-decoration:none;letter-spacing:.06em;opacity:.65;transition:opacity .15s;white-space:nowrap}
+.cwl-nav:hover{opacity:1}
 .htools{display:flex;align-items:center;gap:18px}
 .claninfo{text-align:right;font-size:12px;color:var(--muted);line-height:1.5;white-space:nowrap}
 .claninfo b{color:var(--ink);font-weight:600}
@@ -207,6 +210,7 @@ table.view-full .cd{display:block}
     </div>
   </div>
   <div class="htools">
+    <a href="cwl.html" class="cwl-nav">CWL ↗</a>
     <div class="claninfo">
       <div><b id="memCount">—</b> · <span id="warCount">—</span></div>
       <div id="windowLine"></div>

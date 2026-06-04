@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buzzzzz — CWL Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#0a0d0a;--surface:#11150f;--surface2:#0d110c;--surface3:#161c14;
+  --ink:#e8eee2;--muted:#8a9484;--faint:#5d655a;
+  --line:#222a20;--line2:#2d362a;
+  --star:#e3a92b;--accent:#e3a92b;
+  --full-bg:oklch(0.345 0.085 152);--full-tx:oklch(0.88 0.13 150);--full-bd:oklch(0.45 0.09 152);
+  --part-bg:oklch(0.40 0.085 82);--part-tx:oklch(0.90 0.12 88);--part-bd:oklch(0.50 0.09 82);
+  --miss-bg:oklch(0.40 0.145 28);--miss-tx:oklch(0.88 0.12 30);--miss-bd:oklch(0.52 0.16 28);
+  --none-bg:#0e120d;--none-tx:#39402f;
+  --live-bg:oklch(0.40 0.09 244);--live-tx:oklch(0.88 0.1 244);--live-bd:oklch(0.5 0.1 244);
+  --hf:'Oswald',sans-serif;--bf:'JetBrains Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{background:var(--bg);color:var(--ink);font-family:var(--bf);-webkit-font-smoothing:antialiased;
+     display:flex;flex-direction:column;
+     background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+     background-size:46px 46px}
+a{text-decoration:none}
+
+/* Header */
+header{flex:0 0 auto;display:flex;align-items:center;gap:14px;padding:13px 20px;border-bottom:1px solid var(--line);
+       background:linear-gradient(180deg,var(--surface3),var(--surface));flex-wrap:wrap}
+.back-link{font-family:var(--hf);font-size:12.5px;font-weight:600;color:var(--muted);border:1px solid var(--line2);
+           padding:5px 11px;border-radius:6px;letter-spacing:.05em;transition:color .15s,border-color .15s;white-space:nowrap}
+.back-link:hover{color:var(--ink);border-color:var(--muted)}
+.hbrand{flex:1;display:flex;align-items:center;gap:10px}
+.crest{width:34px;height:34px;border-radius:5px;display:grid;place-items:center;font-family:var(--hf);
+       font-size:18px;font-weight:700;background:transparent;border:1px solid var(--star);color:var(--star);
+       clip-path:polygon(0 0,100% 0,100% 76%,76% 100%,0 100%)}
+h1{font-family:var(--hf);font-size:19px;font-weight:600;letter-spacing:1px;text-transform:uppercase;line-height:1}
+.hsub{font-size:12px;color:var(--muted);margin-top:3px}
+select.season-sel{background:var(--surface2);border:1px solid var(--line2);color:var(--ink);
+                  font-family:var(--hf);font-size:13px;font-weight:600;padding:6px 12px;
+                  border-radius:7px;cursor:pointer;letter-spacing:.04em;outline:none}
+select.season-sel:focus{border-color:var(--star)}
+
+/* Round strip */
+.rounds-wrap{flex:0 0 auto;padding:12px 20px;border-bottom:1px solid var(--line);background:var(--surface2);overflow-x:auto}
+.rounds{display:flex;gap:8px;min-width:max-content}
+.rchip{background:var(--surface);border:1px solid var(--line2);border-radius:9px;padding:9px 14px;
+       min-width:116px;text-align:center}
+.rchip.win{border-color:var(--full-bd);background:oklch(0.11 0.025 152)}
+.rchip.loss{border-color:var(--miss-bd);background:oklch(0.13 0.04 28)}
+.rchip.live{border-color:var(--live-bd);background:oklch(0.13 0.03 244)}
+.rnum{font-family:var(--hf);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:4px}
+.rres{display:inline-block;font-family:var(--hf);font-size:13px;font-weight:700;padding:1px 8px;
+      border-radius:4px;letter-spacing:.05em;margin-bottom:5px}
+.rres.win{color:var(--full-tx);background:var(--full-bg)}
+.rres.loss{color:var(--miss-tx);background:var(--miss-bg)}
+.rres.draw{color:var(--muted);background:var(--surface3)}
+.rres.live{color:var(--live-tx);background:var(--live-bg)}
+.ropp{font-size:10.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:115px;margin:0 auto}
+.rstars{font-size:11.5px;color:var(--star);margin-top:4px;font-family:var(--hf);font-weight:600}
+
+/* KPI strip */
+.kpi-strip{flex:0 0 auto;display:flex;border-bottom:1px solid var(--line);overflow-x:auto;background:var(--surface)}
+.kpi{padding:11px 22px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:3px;min-width:130px}
+.kpi .k{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.kpi .v{font-family:var(--hf);font-size:26px;font-weight:600;line-height:1;letter-spacing:-.5px}
+.kpi .u{font-size:11px;color:var(--faint)}
+
+/* Controls */
+.controls{flex:0 0 auto;display:flex;align-items:center;gap:14px;padding:10px 20px;border-bottom:1px solid var(--line);
+          background:var(--surface);flex-wrap:wrap}
+.clab{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--faint);font-weight:600}
+.seg{display:inline-flex;background:var(--surface2);border:1px solid var(--line2);border-radius:8px;padding:2px;gap:2px}
+.seg button{border:0;background:transparent;font-family:var(--bf);font-size:12px;font-weight:500;color:var(--muted);
+            padding:4px 10px;border-radius:6px;cursor:pointer;white-space:nowrap;transition:all .12s}
+.seg button:hover{color:var(--ink)}
+.seg button.active{background:var(--star);color:#1a1505;font-weight:600}
+
+/* Table scroll container */
+.tbl-outer{flex:1;overflow:auto;min-height:0}
+table{width:100%;border-collapse:collapse}
+thead th{background:var(--surface2);padding:9px 11px;text-align:left;font-size:10.5px;text-transform:uppercase;
+         letter-spacing:.05em;color:var(--muted);border-bottom:2px solid var(--line2);white-space:nowrap;
+         cursor:pointer;user-select:none;font-family:var(--bf);font-weight:600;position:sticky;top:0;z-index:2}
+thead th:hover{color:var(--star)}
+thead th.sorted{color:var(--star)}
+thead th.nosort{cursor:default}
+thead th.nosort:hover{color:var(--muted)}
+.sort-arrow{font-size:9px;opacity:.7;margin-left:3px}
+tbody tr{border-bottom:1px solid var(--line);transition:background .1s}
+tbody tr:hover{background:var(--surface3)}
+tbody tr.row-full{background:oklch(0.10 0.022 152)}
+tbody tr.row-full:hover{background:oklch(0.14 0.032 152)}
+td{padding:8px 11px;vertical-align:middle}
+.td-num{color:var(--faint);font-size:11px;text-align:center;width:28px}
+.td-player{min-width:180px}
+.td-c{text-align:center}
+
+/* Player cell */
+.pname{font-family:'Oswald';font-weight:500;font-size:14.5px;letter-spacing:.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pmeta{display:flex;align-items:center;gap:4px;margin-top:2px}
+.badge{font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:1px 5px;border-radius:4px}
+.badge.active{color:var(--full-tx);background:var(--full-bg)}
+.badge.left{color:var(--miss-tx);background:var(--miss-bg)}
+.thbadge{font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:1px 5px;border-radius:4px;
+         color:oklch(0.88 0.12 244);background:oklch(0.32 0.07 244)}
+
+/* Stars */
+.stval{font-family:var(--hf);font-size:20px;font-weight:700;line-height:1;letter-spacing:-.3px}
+.st-hi{color:var(--full-tx)}.st-mid{color:var(--star)}.st-lo{color:var(--part-tx)}.st-none{color:var(--faint)}
+
+/* Breakdown */
+.bkd{font-size:11px;color:var(--faint);font-variant-numeric:tabular-nums}
+.b3{color:var(--full-tx)}.b2{color:var(--star)}.b1{color:var(--part-tx)}
+
+/* Missed */
+.ms0{color:var(--faint)}.ms1{color:oklch(0.92 0.16 88)}.ms2{color:oklch(0.90 0.18 48)}.ms3{color:var(--miss-tx)}
+
+/* Avg */
+.av-hi{color:var(--full-tx)}.av-mid{color:var(--star)}.av-lo{color:var(--part-tx)}.av-bad{color:var(--miss-tx)}
+
+/* Reward */
+.rew{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11px;font-weight:700;white-space:nowrap;border:1px solid}
+.rew.full{color:var(--full-tx);background:var(--full-bg);border-color:var(--full-bd)}
+.rew.short{color:var(--part-tx);background:var(--part-bg);border-color:var(--part-bd)}
+.rew.none{color:var(--miss-tx);background:var(--miss-bg);border-color:var(--miss-bd)}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="back-link">&#8592; War Tracker</a>
+  <div class="hbrand">
+    <div class="crest">B</div>
+    <div>
+      <h1>CWL Tracker</h1>
+      <div class="hsub">Buzzzzz &middot; #2GGL80JL0</div>
+    </div>
+  </div>
+  <select class="season-sel" id="seasonSel" onchange="switchSeason(this.value)"></select>
+</header>
+
+<div class="rounds-wrap"><div class="rounds" id="rounds"></div></div>
+<div class="kpi-strip" id="kpis"></div>
+
+<div class="controls">
+  <span class="clab">Sort</span>
+  <div class="seg" id="sortSeg">
+    <button data-sort="st" class="active">Stars</button>
+    <button data-sort="rp">Rounds</button>
+    <button data-sort="av">Avg &#9733;</button>
+    <button data-sort="ms">Missed</button>
+    <button data-sort="rw">Reward</button>
+    <button data-sort="name">A&#8211;Z</button>
+  </div>
+</div>
+
+<div class="tbl-outer">
+<table>
+  <thead><tr>
+    <th class="nosort td-num">#</th>
+    <th class="nosort td-player">Player</th>
+    <th data-sort="rp">Rounds</th>
+    <th data-sort="st">Stars</th>
+    <th class="nosort">3&#9733;&middot;2&#9733;&middot;1&#9733;&middot;0&#9733;</th>
+    <th data-sort="ms">Missed</th>
+    <th data-sort="av">Avg &#9733;</th>
+    <th data-sort="rw">8&#9733; Reward</th>
+  </tr></thead>
+  <tbody id="tbody"></tbody>
+</table>
+</div>
+
+<script>
+(function(){
+const D={"seasons":[{"id":"s202606","label":"Jun 2026","nr":3,"np":30,"rounds":[{"opp":"Bama Boyz","result":"win","stars":61,"date":"6/2"},{"opp":"The Microwave","result":"live","stars":22,"date":"6/3"},{"opp":"SS RAIDERS","result":"live","stars":0,"date":"6/4"}],"players":[{"name":"gen","th":17,"active":true,"ri":3,"rp":2,"ms":1,"st":6,"s3":2,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"short"},{"name":"Gr8Conqueror","th":17,"active":true,"ri":3,"rp":2,"ms":1,"st":5,"s3":1,"s2":1,"s1":0,"s0":0,"av":2.5,"rw":"short"},{"name":"MiniPekka","th":14,"active":true,"ri":3,"rp":2,"ms":1,"st":5,"s3":1,"s2":1,"s1":0,"s0":0,"av":2.5,"rw":"short"},{"name":"uhlisuh","th":13,"active":true,"ri":3,"rp":2,"ms":1,"st":5,"s3":1,"s2":1,"s1":0,"s0":0,"av":2.5,"rw":"short"},{"name":"studkiller","th":14,"active":true,"ri":3,"rp":2,"ms":1,"st":4,"s3":0,"s2":2,"s1":0,"s0":0,"av":2.0,"rw":"short"},{"name":"SwiftyKinja","th":15,"active":true,"ri":3,"rp":2,"ms":1,"st":4,"s3":0,"s2":2,"s1":0,"s0":0,"av":2.0,"rw":"short"},{"name":"DE1","th":15,"active":true,"ri":3,"rp":2,"ms":1,"st":3,"s3":0,"s2":1,"s1":1,"s0":0,"av":1.5,"rw":"short"},{"name":"Sumairu","th":14,"active":true,"ri":3,"rp":2,"ms":1,"st":3,"s3":0,"s2":1,"s1":1,"s0":0,"av":1.5,"rw":"short"},{"name":"arius67'","th":13,"active":true,"ri":3,"rp":1,"ms":2,"st":3,"s3":1,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"short"},{"name":"Halid #1","th":14,"active":true,"ri":3,"rp":1,"ms":2,"st":3,"s3":1,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"short"},{"name":"Kizaru","th":14,"active":true,"ri":3,"rp":1,"ms":2,"st":3,"s3":1,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"short"},{"name":"Loading…","th":14,"active":true,"ri":3,"rp":1,"ms":2,"st":3,"s3":1,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"short"},{"name":"stage5yo","th":15,"active":true,"ri":3,"rp":1,"ms":2,"st":3,"s3":1,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"short"},{"name":"stage6yo","th":16,"active":true,"ri":3,"rp":1,"ms":2,"st":3,"s3":1,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"short"},{"name":"Ste","th":13,"active":true,"ri":3,"rp":1,"ms":2,"st":3,"s3":1,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"short"},{"name":"SWAGMUFFIN90","th":13,"active":true,"ri":3,"rp":1,"ms":2,"st":3,"s3":1,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"short"},{"name":"Pam from HR","th":14,"active":true,"ri":3,"rp":2,"ms":1,"st":2,"s3":0,"s2":0,"s1":2,"s0":0,"av":1.0,"rw":"short"},{"name":"Americanpatriot","th":15,"active":true,"ri":3,"rp":1,"ms":2,"st":2,"s3":0,"s2":1,"s1":0,"s0":0,"av":2.0,"rw":"short"},{"name":"Brandon","th":13,"active":true,"ri":3,"rp":1,"ms":2,"st":2,"s3":0,"s2":1,"s1":0,"s0":0,"av":2.0,"rw":"short"},{"name":"Cole","th":14,"active":true,"ri":3,"rp":1,"ms":2,"st":2,"s3":0,"s2":1,"s1":0,"s0":0,"av":2.0,"rw":"short"},{"name":"crimpo","th":14,"active":true,"ri":3,"rp":1,"ms":2,"st":2,"s3":0,"s2":1,"s1":0,"s0":0,"av":2.0,"rw":"short"},{"name":"rour","th":14,"active":true,"ri":3,"rp":1,"ms":2,"st":2,"s3":0,"s2":1,"s1":0,"s0":0,"av":2.0,"rw":"short"},{"name":"Slayer","th":18,"active":true,"ri":3,"rp":1,"ms":2,"st":2,"s3":0,"s2":1,"s1":0,"s0":0,"av":2.0,"rw":"short"},{"name":"SurgeGold","th":14,"active":true,"ri":3,"rp":1,"ms":2,"st":2,"s3":0,"s2":1,"s1":0,"s0":0,"av":2.0,"rw":"short"},{"name":"wato","th":16,"active":true,"ri":3,"rp":1,"ms":2,"st":2,"s3":0,"s2":1,"s1":0,"s0":0,"av":2.0,"rw":"short"},{"name":"⚡️LSWreckless⚡️","th":13,"active":true,"ri":3,"rp":1,"ms":2,"st":2,"s3":0,"s2":1,"s1":0,"s0":0,"av":2.0,"rw":"short"},{"name":"Big Steppa","th":15,"active":true,"ri":3,"rp":1,"ms":2,"st":1,"s3":0,"s2":0,"s1":1,"s0":0,"av":1.0,"rw":"short"},{"name":"drybonez","th":16,"active":true,"ri":3,"rp":1,"ms":2,"st":1,"s3":0,"s2":0,"s1":1,"s0":0,"av":1.0,"rw":"short"},{"name":"Jac","th":14,"active":true,"ri":3,"rp":1,"ms":2,"st":1,"s3":0,"s2":0,"s1":1,"s0":0,"av":1.0,"rw":"short"},{"name":"Marrow","th":13,"active":true,"ri":3,"rp":1,"ms":2,"st":1,"s3":0,"s2":0,"s1":1,"s0":0,"av":1.0,"rw":"short"}],"kpis":{"tot":83,"full":0,"np":30,"3pct":33,"avg":2.13,"record":"W1 · L0 · 2 live"}},{"id":"s202605","label":"May 2026","nr":7,"np":35,"rounds":[{"opp":"ViTALiTY","result":"win","stars":88,"date":"5/4"},{"opp":"charaktala boys","result":"win","stars":78,"date":"5/5"},{"opp":"ClaSHonDeo","result":"win","stars":79,"date":"5/6"},{"opp":"UZB","result":"win","stars":84,"date":"5/7"},{"opp":"SK¥ W@rriORS","result":"win","stars":86,"date":"5/8"},{"opp":"((( VSV WAR )))","result":"win","stars":78,"date":"5/9"},{"opp":"FarmLife26","result":"win","stars":79,"date":"5/10"}],"players":[{"name":"Big Steppa","th":15,"active":true,"ri":7,"rp":7,"ms":0,"st":21,"s3":7,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"Cole","th":13,"active":true,"ri":7,"rp":7,"ms":0,"st":21,"s3":7,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"crimpo","th":13,"active":true,"ri":7,"rp":7,"ms":0,"st":21,"s3":7,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"Marrow","th":13,"active":true,"ri":7,"rp":7,"ms":0,"st":21,"s3":7,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"MR. ASURAN YT","th":13,"active":true,"ri":7,"rp":7,"ms":0,"st":21,"s3":7,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"Pam from HR","th":13,"active":true,"ri":7,"rp":7,"ms":0,"st":21,"s3":7,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"stage6yo","th":16,"active":true,"ri":7,"rp":7,"ms":0,"st":21,"s3":7,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"uhlisuh","th":13,"active":true,"ri":7,"rp":7,"ms":0,"st":21,"s3":7,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"UNSTOPPABLE ADI","th":12,"active":true,"ri":7,"rp":7,"ms":0,"st":21,"s3":7,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"arius67'","th":13,"active":true,"ri":7,"rp":7,"ms":0,"st":20,"s3":6,"s2":1,"s1":0,"s0":0,"av":2.86,"rw":"full"},{"name":"Aye","th":13,"active":false,"ri":7,"rp":7,"ms":0,"st":20,"s3":6,"s2":1,"s1":0,"s0":0,"av":2.86,"rw":"full"},{"name":"F16","th":12,"active":true,"ri":7,"rp":7,"ms":0,"st":20,"s3":6,"s2":1,"s1":0,"s0":0,"av":2.86,"rw":"full"},{"name":"Kizaru","th":13,"active":true,"ri":7,"rp":7,"ms":0,"st":20,"s3":6,"s2":1,"s1":0,"s0":0,"av":2.86,"rw":"full"},{"name":"MiniPekka","th":13,"active":true,"ri":7,"rp":7,"ms":0,"st":20,"s3":6,"s2":1,"s1":0,"s0":0,"av":2.86,"rw":"full"},{"name":"⚡️LSWreckless⚡️","th":13,"active":true,"ri":7,"rp":7,"ms":0,"st":20,"s3":6,"s2":1,"s1":0,"s0":0,"av":2.86,"rw":"full"},{"name":"Americanpatriot","th":15,"active":true,"ri":7,"rp":7,"ms":0,"st":19,"s3":6,"s2":0,"s1":1,"s0":0,"av":2.71,"rw":"full"},{"name":"MALAYA","th":13,"active":false,"ri":7,"rp":7,"ms":0,"st":19,"s3":5,"s2":2,"s1":0,"s0":0,"av":2.71,"rw":"full"},{"name":"studkiller","th":13,"active":true,"ri":7,"rp":7,"ms":0,"st":19,"s3":6,"s2":0,"s1":1,"s0":0,"av":2.71,"rw":"full"},{"name":"DandyPickle","th":13,"active":true,"ri":7,"rp":7,"ms":0,"st":18,"s3":5,"s2":1,"s1":1,"s0":0,"av":2.57,"rw":"full"},{"name":"DE1","th":13,"active":true,"ri":7,"rp":7,"ms":0,"st":18,"s3":4,"s2":3,"s1":0,"s0":0,"av":2.57,"rw":"full"},{"name":"Loading…","th":13,"active":true,"ri":7,"rp":7,"ms":0,"st":18,"s3":4,"s2":3,"s1":0,"s0":0,"av":2.57,"rw":"full"},{"name":"Pharah","th":13,"active":true,"ri":6,"rp":6,"ms":0,"st":18,"s3":6,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"Stevie Wonder","th":12,"active":true,"ri":7,"rp":6,"ms":1,"st":18,"s3":6,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"madmax","th":14,"active":false,"ri":7,"rp":7,"ms":0,"st":17,"s3":5,"s2":0,"s1":2,"s0":0,"av":2.43,"rw":"full"},{"name":"Brandon","th":13,"active":true,"ri":6,"rp":6,"ms":0,"st":17,"s3":5,"s2":1,"s1":0,"s0":0,"av":2.83,"rw":"full"},{"name":"drybonez","th":16,"active":true,"ri":7,"rp":7,"ms":0,"st":16,"s3":3,"s2":3,"s1":1,"s0":0,"av":2.29,"rw":"full"},{"name":"das","th":12,"active":true,"ri":6,"rp":6,"ms":0,"st":16,"s3":5,"s2":0,"s1":1,"s0":0,"av":2.67,"rw":"full"},{"name":"high","th":11,"active":false,"ri":4,"rp":4,"ms":0,"st":11,"s3":3,"s2":1,"s1":0,"s0":0,"av":2.75,"rw":"full"},{"name":"rinz","th":11,"active":true,"ri":5,"rp":4,"ms":1,"st":10,"s3":3,"s2":0,"s1":1,"s0":0,"av":2.5,"rw":"full"},{"name":"SWAGMUFFIN90","th":13,"active":true,"ri":4,"rp":3,"ms":1,"st":9,"s3":3,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"stage5yo","th":13,"active":true,"ri":4,"rp":4,"ms":0,"st":8,"s3":1,"s2":2,"s1":1,"s0":0,"av":2.0,"rw":"full"},{"name":"jk","th":14,"active":false,"ri":2,"rp":2,"ms":0,"st":6,"s3":2,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"short"},{"name":"Hey","th":12,"active":false,"ri":2,"rp":1,"ms":1,"st":3,"s3":1,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"short"},{"name":"Lowkey09","th":13,"active":false,"ri":2,"rp":1,"ms":1,"st":3,"s3":1,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"short"},{"name":"MACK","th":12,"active":false,"ri":1,"rp":0,"ms":1,"st":0,"s3":0,"s2":0,"s1":0,"s0":0,"av":0,"rw":"none"}],"kpis":{"tot":572,"full":31,"np":35,"3pct":85,"avg":2.8,"record":"W7 · L0"}},{"id":"s202604","label":"Apr 2026","nr":7,"np":45,"rounds":[{"opp":"indian army new","result":"win","stars":65,"date":"4/3"},{"opp":"ملوك كلاش","result":"win","stars":83,"date":"4/4"},{"opp":"Excessive Force","result":"win","stars":77,"date":"4/5"},{"opp":"Mndo Kediri","result":"win","stars":83,"date":"4/6"},{"opp":"123","result":"win","stars":74,"date":"4/7"},{"opp":"الرعب","result":"win","stars":84,"date":"4/8"},{"opp":"Exspan","result":"win","stars":89,"date":"4/9"}],"players":[{"name":"arius67'","th":13,"active":true,"ri":7,"rp":7,"ms":0,"st":21,"s3":7,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"DE1","th":13,"active":true,"ri":7,"rp":7,"ms":0,"st":20,"s3":6,"s2":1,"s1":0,"s0":0,"av":2.86,"rw":"full"},{"name":"Dragon","th":14,"active":false,"ri":7,"rp":7,"ms":0,"st":20,"s3":6,"s2":1,"s1":0,"s0":0,"av":2.86,"rw":"full"},{"name":"stage6yo","th":15,"active":true,"ri":7,"rp":7,"ms":0,"st":20,"s3":6,"s2":1,"s1":0,"s0":0,"av":2.86,"rw":"full"},{"name":"Americanpatriot","th":15,"active":true,"ri":7,"rp":7,"ms":0,"st":19,"s3":6,"s2":0,"s1":1,"s0":0,"av":2.71,"rw":"full"},{"name":"Kizaru","th":13,"active":true,"ri":7,"rp":7,"ms":0,"st":19,"s3":5,"s2":2,"s1":0,"s0":0,"av":2.71,"rw":"full"},{"name":"Pam from HR","th":13,"active":true,"ri":7,"rp":7,"ms":0,"st":19,"s3":5,"s2":2,"s1":0,"s0":0,"av":2.71,"rw":"full"},{"name":"uhlisuh","th":12,"active":true,"ri":7,"rp":7,"ms":0,"st":19,"s3":5,"s2":2,"s1":0,"s0":0,"av":2.71,"rw":"full"},{"name":"Aye","th":13,"active":false,"ri":7,"rp":7,"ms":0,"st":18,"s3":4,"s2":3,"s1":0,"s0":0,"av":2.57,"rw":"full"},{"name":"Pharah","th":12,"active":true,"ri":6,"rp":6,"ms":0,"st":18,"s3":6,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"Stevie Wonder","th":12,"active":true,"ri":6,"rp":6,"ms":0,"st":18,"s3":6,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"DandyPickle","th":12,"active":true,"ri":6,"rp":6,"ms":0,"st":17,"s3":5,"s2":1,"s1":0,"s0":0,"av":2.83,"rw":"full"},{"name":"drybonez","th":15,"active":true,"ri":7,"rp":7,"ms":0,"st":16,"s3":3,"s2":3,"s1":1,"s0":0,"av":2.29,"rw":"full"},{"name":"Brandon","th":12,"active":true,"ri":6,"rp":6,"ms":0,"st":16,"s3":5,"s2":0,"s1":1,"s0":0,"av":2.67,"rw":"full"},{"name":"Jack","th":12,"active":false,"ri":6,"rp":6,"ms":0,"st":16,"s3":4,"s2":2,"s1":0,"s0":0,"av":2.67,"rw":"full"},{"name":"Marrow","th":12,"active":true,"ri":6,"rp":6,"ms":0,"st":16,"s3":4,"s2":2,"s1":0,"s0":0,"av":2.67,"rw":"full"},{"name":"pickledpigeon23","th":12,"active":false,"ri":6,"rp":6,"ms":0,"st":16,"s3":5,"s2":0,"s1":1,"s0":0,"av":2.67,"rw":"full"},{"name":"krump","th":12,"active":false,"ri":5,"rp":5,"ms":0,"st":15,"s3":5,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"Party","th":12,"active":false,"ri":5,"rp":5,"ms":0,"st":15,"s3":5,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"⚡️LSWreckless⚡️","th":12,"active":true,"ri":5,"rp":5,"ms":0,"st":15,"s3":5,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"UNSTOPPABLE ADI","th":12,"active":true,"ri":7,"rp":7,"ms":0,"st":14,"s3":4,"s2":0,"s1":2,"s0":1,"av":2.0,"rw":"full"},{"name":"MiniPekka","th":12,"active":true,"ri":5,"rp":5,"ms":0,"st":14,"s3":4,"s2":1,"s1":0,"s0":0,"av":2.8,"rw":"full"},{"name":"studkiller","th":12,"active":true,"ri":5,"rp":5,"ms":0,"st":14,"s3":4,"s2":1,"s1":0,"s0":0,"av":2.8,"rw":"full"},{"name":"Loading…","th":13,"active":true,"ri":5,"rp":5,"ms":0,"st":13,"s3":3,"s2":2,"s1":0,"s0":0,"av":2.6,"rw":"full"},{"name":"Cole","th":13,"active":true,"ri":6,"rp":6,"ms":0,"st":12,"s3":2,"s2":2,"s1":2,"s0":0,"av":2.0,"rw":"full"},{"name":"rinz","th":11,"active":true,"ri":5,"rp":5,"ms":0,"st":12,"s3":4,"s2":0,"s1":0,"s0":1,"av":2.4,"rw":"full"},{"name":"high","th":10,"active":false,"ri":4,"rp":4,"ms":0,"st":12,"s3":4,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"isaiah","th":12,"active":false,"ri":5,"rp":4,"ms":1,"st":12,"s3":4,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"MACK","th":12,"active":false,"ri":4,"rp":4,"ms":0,"st":12,"s3":4,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"SWAGMUFFIN90","th":13,"active":true,"ri":5,"rp":4,"ms":1,"st":12,"s3":4,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"BlurTrigr","th":13,"active":false,"ri":4,"rp":4,"ms":0,"st":11,"s3":3,"s2":1,"s1":0,"s0":0,"av":2.75,"rw":"full"},{"name":"MR. ASURAN YT","th":13,"active":true,"ri":4,"rp":4,"ms":0,"st":11,"s3":3,"s2":1,"s1":0,"s0":0,"av":2.75,"rw":"full"},{"name":"stage5yo","th":13,"active":true,"ri":4,"rp":4,"ms":0,"st":11,"s3":3,"s2":1,"s1":0,"s0":0,"av":2.75,"rw":"full"},{"name":"das","th":11,"active":true,"ri":2,"rp":2,"ms":0,"st":6,"s3":2,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"short"},{"name":"Hey","th":12,"active":false,"ri":2,"rp":2,"ms":0,"st":6,"s3":2,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"short"},{"name":"icyace","th":10,"active":false,"ri":2,"rp":2,"ms":0,"st":6,"s3":2,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"short"},{"name":"Tretor","th":11,"active":true,"ri":2,"rp":2,"ms":0,"st":6,"s3":2,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"short"},{"name":"Sen","th":12,"active":false,"ri":2,"rp":2,"ms":0,"st":5,"s3":1,"s2":1,"s1":0,"s0":0,"av":2.5,"rw":"short"},{"name":"Blue NINJA","th":13,"active":false,"ri":3,"rp":2,"ms":1,"st":4,"s3":1,"s2":0,"s1":1,"s0":0,"av":2.0,"rw":"short"},{"name":"cypher","th":12,"active":false,"ri":1,"rp":1,"ms":0,"st":3,"s3":1,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"short"},{"name":"s.inman","th":11,"active":false,"ri":1,"rp":1,"ms":0,"st":3,"s3":1,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"short"},{"name":"tyraniann","th":11,"active":false,"ri":2,"rp":1,"ms":1,"st":3,"s3":1,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"short"},{"name":"$$BLAZE KING$$","th":12,"active":false,"ri":1,"rp":0,"ms":1,"st":0,"s3":0,"s2":0,"s1":0,"s0":0,"av":0,"rw":"none"},{"name":"CLASHER ADITYA","th":12,"active":false,"ri":1,"rp":0,"ms":1,"st":0,"s3":0,"s2":0,"s1":0,"s0":0,"av":0,"rw":"none"},{"name":"dexd","th":12,"active":false,"ri":1,"rp":0,"ms":1,"st":0,"s3":0,"s2":0,"s1":0,"s0":0,"av":0,"rw":"none"}],"kpis":{"tot":555,"full":33,"np":45,"3pct":80,"avg":2.73,"record":"W7 · L0"}},{"id":"s202603","label":"Mar 2026","nr":7,"np":37,"rounds":[{"opp":"Team Twilight","result":"win","stars":84,"date":"3/4"},{"opp":"RealmofAdalan","result":"win","stars":30,"date":"3/5"},{"opp":"TAMBAY 0.4","result":"win","stars":78,"date":"3/6"},{"opp":"Mahan","result":"win","stars":70,"date":"3/7"},{"opp":"akatski DZ","result":"win","stars":65,"date":"3/8"},{"opp":"Legionnaire","result":"win","stars":72,"date":"3/9"},{"opp":"KYCLAN","result":"win","stars":83,"date":"3/10"}],"players":[{"name":"DandyPickle","th":12,"active":true,"ri":7,"rp":7,"ms":0,"st":20,"s3":6,"s2":1,"s1":0,"s0":0,"av":2.86,"rw":"full"},{"name":"SHAYAN","th":11,"active":false,"ri":7,"rp":7,"ms":0,"st":20,"s3":6,"s2":1,"s1":0,"s0":0,"av":2.86,"rw":"full"},{"name":"das","th":11,"active":true,"ri":7,"rp":7,"ms":0,"st":19,"s3":6,"s2":0,"s1":1,"s0":0,"av":2.71,"rw":"full"},{"name":"Gary","th":11,"active":false,"ri":7,"rp":7,"ms":0,"st":19,"s3":6,"s2":0,"s1":1,"s0":0,"av":2.71,"rw":"full"},{"name":"MR. ASURAN YT","th":12,"active":true,"ri":7,"rp":7,"ms":0,"st":19,"s3":6,"s2":0,"s1":1,"s0":0,"av":2.71,"rw":"full"},{"name":"studkiller","th":12,"active":true,"ri":7,"rp":7,"ms":0,"st":19,"s3":6,"s2":0,"s1":1,"s0":0,"av":2.71,"rw":"full"},{"name":"arius67'","th":12,"active":true,"ri":7,"rp":7,"ms":0,"st":18,"s3":5,"s2":1,"s1":1,"s0":0,"av":2.57,"rw":"full"},{"name":"dexd","th":12,"active":false,"ri":7,"rp":7,"ms":0,"st":18,"s3":5,"s2":1,"s1":1,"s0":0,"av":2.57,"rw":"full"},{"name":"spectazen","th":12,"active":false,"ri":7,"rp":7,"ms":0,"st":18,"s3":6,"s2":0,"s1":0,"s0":1,"av":2.57,"rw":"full"},{"name":"stage6yo","th":15,"active":true,"ri":7,"rp":7,"ms":0,"st":18,"s3":5,"s2":1,"s1":1,"s0":0,"av":2.57,"rw":"full"},{"name":"UNSTOPPABLE ADI","th":12,"active":true,"ri":7,"rp":7,"ms":0,"st":18,"s3":6,"s2":0,"s1":0,"s0":1,"av":2.57,"rw":"full"},{"name":"Marrow","th":12,"active":true,"ri":7,"rp":7,"ms":0,"st":17,"s3":4,"s2":2,"s1":1,"s0":0,"av":2.43,"rw":"full"},{"name":"Pharah","th":12,"active":true,"ri":7,"rp":7,"ms":0,"st":17,"s3":5,"s2":1,"s1":0,"s0":1,"av":2.43,"rw":"full"},{"name":"Cole","th":13,"active":true,"ri":7,"rp":7,"ms":0,"st":16,"s3":4,"s2":1,"s1":2,"s0":0,"av":2.29,"rw":"full"},{"name":"DE1","th":13,"active":true,"ri":7,"rp":7,"ms":0,"st":16,"s3":2,"s2":5,"s1":0,"s0":0,"av":2.29,"rw":"full"},{"name":"Pam from HR","th":13,"active":true,"ri":7,"rp":7,"ms":0,"st":16,"s3":3,"s2":3,"s1":1,"s0":0,"av":2.29,"rw":"full"},{"name":"SWAGMUFFIN90","th":12,"active":true,"ri":7,"rp":7,"ms":0,"st":16,"s3":3,"s2":3,"s1":1,"s0":0,"av":2.29,"rw":"full"},{"name":"Vortex","th":12,"active":false,"ri":7,"rp":7,"ms":0,"st":16,"s3":4,"s2":1,"s1":2,"s0":0,"av":2.29,"rw":"full"},{"name":"drybonez","th":14,"active":true,"ri":7,"rp":7,"ms":0,"st":15,"s3":2,"s2":4,"s1":1,"s0":0,"av":2.14,"rw":"full"},{"name":"stage5yo","th":12,"active":true,"ri":7,"rp":7,"ms":0,"st":15,"s3":4,"s2":1,"s1":1,"s0":1,"av":2.14,"rw":"full"},{"name":"Stevie Wonder","th":11,"active":true,"ri":7,"rp":6,"ms":1,"st":15,"s3":5,"s2":0,"s1":0,"s0":1,"av":2.5,"rw":"full"},{"name":"YALL HEIFERS","th":13,"active":false,"ri":7,"rp":6,"ms":1,"st":15,"s3":3,"s2":3,"s1":0,"s0":0,"av":2.5,"rw":"full"},{"name":"naman the pro","th":13,"active":false,"ri":7,"rp":7,"ms":0,"st":14,"s3":3,"s2":1,"s1":3,"s0":0,"av":2.0,"rw":"full"},{"name":"Kizaru","th":12,"active":true,"ri":7,"rp":7,"ms":0,"st":13,"s3":2,"s2":3,"s1":1,"s0":1,"av":1.86,"rw":"full"},{"name":"Tretor","th":10,"active":true,"ri":4,"rp":4,"ms":0,"st":12,"s3":4,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"EVAL01","th":12,"active":false,"ri":5,"rp":5,"ms":0,"st":11,"s3":3,"s2":1,"s1":0,"s0":1,"av":2.2,"rw":"full"},{"name":"Americanpatriot","th":15,"active":true,"ri":7,"rp":4,"ms":3,"st":11,"s3":3,"s2":1,"s1":0,"s0":0,"av":2.75,"rw":"full"},{"name":"pablo","th":12,"active":false,"ri":6,"rp":3,"ms":3,"st":8,"s3":2,"s2":1,"s1":0,"s0":0,"av":2.67,"rw":"full"},{"name":"rinz","th":10,"active":true,"ri":3,"rp":3,"ms":0,"st":7,"s3":2,"s2":0,"s1":1,"s0":0,"av":2.33,"rw":"short"},{"name":"Tenakazi00","th":12,"active":false,"ri":6,"rp":3,"ms":3,"st":7,"s3":2,"s2":0,"s1":1,"s0":0,"av":2.33,"rw":"short"},{"name":"TheSlayer","th":11,"active":false,"ri":3,"rp":2,"ms":1,"st":6,"s3":2,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"short"},{"name":"pickledpigeon23","th":12,"active":false,"ri":2,"rp":2,"ms":0,"st":4,"s3":1,"s2":0,"s1":1,"s0":0,"av":2.0,"rw":"short"},{"name":"icyace","th":10,"active":false,"ri":1,"rp":1,"ms":0,"st":3,"s3":1,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"short"},{"name":"Lupe","th":11,"active":false,"ri":1,"rp":1,"ms":0,"st":3,"s3":1,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"short"},{"name":"U.O.E.N.O_702","th":12,"active":false,"ri":2,"rp":1,"ms":1,"st":3,"s3":1,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"short"},{"name":"Captain4550LE","th":11,"active":false,"ri":1,"rp":0,"ms":1,"st":0,"s3":0,"s2":0,"s1":0,"s0":0,"av":0,"rw":"none"},{"name":"skull kid","th":11,"active":false,"ri":1,"rp":0,"ms":1,"st":0,"s3":0,"s2":0,"s1":0,"s0":0,"av":0,"rw":"none"}],"kpis":{"tot":482,"full":28,"np":37,"3pct":66,"avg":2.47,"record":"W7 · L0"}},{"id":"s202602","label":"Feb 2026","nr":7,"np":30,"rounds":[{"opp":"harten","result":"win","stars":71,"date":"2/3"},{"opp":"Blaze Hawks","result":"win","stars":71,"date":"2/4"},{"opp":"Req&leave","result":"win","stars":81,"date":"2/5"},{"opp":"FIRE_FOX","result":"win","stars":62,"date":"2/6"},{"opp":"ONE FAMILY","result":"win","stars":77,"date":"2/7"},{"opp":"REB☯RN EMPIRES","result":"win","stars":57,"date":"2/8"},{"opp":"The RED✨","result":"win","stars":53,"date":"2/9"}],"players":[{"name":"das","th":10,"active":true,"ri":7,"rp":7,"ms":0,"st":21,"s3":7,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"DE1","th":12,"active":true,"ri":7,"rp":7,"ms":0,"st":21,"s3":7,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"spectazen","th":11,"active":false,"ri":7,"rp":7,"ms":0,"st":21,"s3":7,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"TyrantLeo","th":10,"active":false,"ri":7,"rp":7,"ms":0,"st":21,"s3":7,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"Americanpatriot","th":15,"active":true,"ri":7,"rp":7,"ms":0,"st":20,"s3":6,"s2":1,"s1":0,"s0":0,"av":2.86,"rw":"full"},{"name":"Cole","th":12,"active":true,"ri":7,"rp":7,"ms":0,"st":20,"s3":6,"s2":1,"s1":0,"s0":0,"av":2.86,"rw":"full"},{"name":"Dashinaw","th":10,"active":false,"ri":7,"rp":7,"ms":0,"st":20,"s3":6,"s2":1,"s1":0,"s0":0,"av":2.86,"rw":"full"},{"name":"EVAL01","th":11,"active":false,"ri":7,"rp":7,"ms":0,"st":20,"s3":6,"s2":1,"s1":0,"s0":0,"av":2.86,"rw":"full"},{"name":"Rampage","th":10,"active":false,"ri":7,"rp":7,"ms":0,"st":20,"s3":6,"s2":1,"s1":0,"s0":0,"av":2.86,"rw":"full"},{"name":"Stevie Wonder","th":11,"active":true,"ri":7,"rp":7,"ms":0,"st":20,"s3":6,"s2":1,"s1":0,"s0":0,"av":2.86,"rw":"full"},{"name":"Kizaru","th":12,"active":true,"ri":7,"rp":7,"ms":0,"st":19,"s3":5,"s2":2,"s1":0,"s0":0,"av":2.71,"rw":"full"},{"name":"Lorenzone31","th":10,"active":false,"ri":7,"rp":7,"ms":0,"st":19,"s3":6,"s2":0,"s1":1,"s0":0,"av":2.71,"rw":"full"},{"name":"Pharah","th":11,"active":true,"ri":7,"rp":7,"ms":0,"st":19,"s3":6,"s2":0,"s1":1,"s0":0,"av":2.71,"rw":"full"},{"name":"stage5yo","th":12,"active":true,"ri":7,"rp":7,"ms":0,"st":18,"s3":5,"s2":1,"s1":1,"s0":0,"av":2.57,"rw":"full"},{"name":"stage6yo","th":15,"active":true,"ri":7,"rp":7,"ms":0,"st":18,"s3":5,"s2":1,"s1":1,"s0":0,"av":2.57,"rw":"full"},{"name":"Vortex","th":10,"active":false,"ri":7,"rp":7,"ms":0,"st":18,"s3":5,"s2":1,"s1":1,"s0":0,"av":2.57,"rw":"full"},{"name":"SWAGMUFFIN90","th":12,"active":true,"ri":7,"rp":6,"ms":1,"st":18,"s3":6,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"Lupe","th":10,"active":false,"ri":7,"rp":7,"ms":0,"st":17,"s3":5,"s2":0,"s1":2,"s0":0,"av":2.43,"rw":"full"},{"name":"SHAYAN","th":11,"active":false,"ri":7,"rp":6,"ms":1,"st":17,"s3":5,"s2":1,"s1":0,"s0":0,"av":2.83,"rw":"full"},{"name":"rinz","th":10,"active":true,"ri":7,"rp":6,"ms":1,"st":16,"s3":5,"s2":0,"s1":1,"s0":0,"av":2.67,"rw":"full"},{"name":"blackgamerxx5","th":9,"active":false,"ri":7,"rp":7,"ms":0,"st":15,"s3":4,"s2":1,"s1":1,"s0":1,"av":2.14,"rw":"full"},{"name":"Tretor","th":10,"active":true,"ri":7,"rp":5,"ms":2,"st":14,"s3":4,"s2":1,"s1":0,"s0":0,"av":2.8,"rw":"full"},{"name":"icyace","th":9,"active":false,"ri":7,"rp":5,"ms":2,"st":13,"s3":4,"s2":0,"s1":1,"s0":0,"av":2.6,"rw":"full"},{"name":"Anth0219","th":10,"active":false,"ri":7,"rp":4,"ms":3,"st":12,"s3":4,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"KENNN","th":10,"active":false,"ri":7,"rp":5,"ms":2,"st":11,"s3":3,"s2":0,"s1":2,"s0":0,"av":2.2,"rw":"full"},{"name":"Pekka.Fan","th":11,"active":false,"ri":7,"rp":4,"ms":3,"st":8,"s3":2,"s2":0,"s1":2,"s0":0,"av":2.0,"rw":"full"},{"name":"werhvj","th":11,"active":false,"ri":7,"rp":4,"ms":3,"st":8,"s3":2,"s2":0,"s1":2,"s0":0,"av":2.0,"rw":"full"},{"name":"Broken","th":10,"active":false,"ri":7,"rp":3,"ms":4,"st":8,"s3":2,"s2":1,"s1":0,"s0":0,"av":2.67,"rw":"full"},{"name":"DARTH BARBARIAN","th":12,"active":false,"ri":7,"rp":0,"ms":7,"st":0,"s3":0,"s2":0,"s1":0,"s0":0,"av":0,"rw":"none"},{"name":"THE DAREGUN","th":11,"active":false,"ri":7,"rp":0,"ms":7,"st":0,"s3":0,"s2":0,"s1":0,"s0":0,"av":0,"rw":"none"}],"kpis":{"tot":472,"full":28,"np":30,"3pct":82,"avg":2.71,"record":"W7 · L0"}},{"id":"s202601","label":"Jan 2026","nr":7,"np":30,"rounds":[{"opp":"ME YOU BADRi313","result":"win","stars":72,"date":"1/3"},{"opp":"salchipapa","result":"win","stars":82,"date":"1/4"},{"opp":"فرزند کوروش","result":"win","stars":85,"date":"1/5"},{"opp":"VOLDERM","result":"win","stars":66,"date":"1/6"},{"opp":"Linne","result":"win","stars":79,"date":"1/7"},{"opp":"Stars Win","result":"win","stars":44,"date":"1/8"},{"opp":"سجاد حركة","result":"win","stars":76,"date":"1/9"}],"players":[{"name":"Buzz","th":13,"active":false,"ri":7,"rp":7,"ms":0,"st":21,"s3":7,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"das","th":9,"active":true,"ri":7,"rp":7,"ms":0,"st":21,"s3":7,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"DE1","th":11,"active":true,"ri":7,"rp":7,"ms":0,"st":21,"s3":7,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"rinz","th":9,"active":true,"ri":7,"rp":7,"ms":0,"st":21,"s3":7,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"spectazen","th":10,"active":false,"ri":7,"rp":7,"ms":0,"st":21,"s3":7,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"BuzzBuzz","th":11,"active":false,"ri":7,"rp":7,"ms":0,"st":20,"s3":6,"s2":1,"s1":0,"s0":0,"av":2.86,"rw":"full"},{"name":"Dashinaw","th":10,"active":false,"ri":7,"rp":7,"ms":0,"st":20,"s3":6,"s2":1,"s1":0,"s0":0,"av":2.86,"rw":"full"},{"name":"icyace","th":9,"active":false,"ri":7,"rp":7,"ms":0,"st":20,"s3":6,"s2":1,"s1":0,"s0":0,"av":2.86,"rw":"full"},{"name":"blackgamerxx5","th":8,"active":false,"ri":7,"rp":7,"ms":0,"st":19,"s3":6,"s2":0,"s1":1,"s0":0,"av":2.71,"rw":"full"},{"name":"Pharah","th":10,"active":true,"ri":7,"rp":7,"ms":0,"st":19,"s3":6,"s2":0,"s1":1,"s0":0,"av":2.71,"rw":"full"},{"name":"stage6yo","th":14,"active":true,"ri":7,"rp":7,"ms":0,"st":19,"s3":6,"s2":0,"s1":1,"s0":0,"av":2.71,"rw":"full"},{"name":"Vortex","th":9,"active":false,"ri":7,"rp":7,"ms":0,"st":19,"s3":6,"s2":0,"s1":1,"s0":0,"av":2.71,"rw":"full"},{"name":"BuzzBuzzBuzz","th":10,"active":false,"ri":7,"rp":7,"ms":0,"st":18,"s3":5,"s2":1,"s1":1,"s0":0,"av":2.57,"rw":"full"},{"name":"Francis","th":14,"active":false,"ri":7,"rp":7,"ms":0,"st":18,"s3":5,"s2":1,"s1":1,"s0":0,"av":2.57,"rw":"full"},{"name":"Lorenzone31","th":9,"active":false,"ri":7,"rp":7,"ms":0,"st":18,"s3":5,"s2":1,"s1":1,"s0":0,"av":2.57,"rw":"full"},{"name":"SHAYAN","th":11,"active":false,"ri":7,"rp":7,"ms":0,"st":18,"s3":5,"s2":1,"s1":1,"s0":0,"av":2.57,"rw":"full"},{"name":"BuzzerA","th":9,"active":false,"ri":7,"rp":6,"ms":1,"st":18,"s3":6,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"BuzzerB","th":9,"active":false,"ri":7,"rp":6,"ms":1,"st":18,"s3":6,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"ragnorok2","th":8,"active":false,"ri":7,"rp":6,"ms":1,"st":18,"s3":6,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"SWAGMUFFIN90","th":11,"active":true,"ri":7,"rp":6,"ms":1,"st":18,"s3":6,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"high","th":8,"active":false,"ri":7,"rp":7,"ms":0,"st":17,"s3":4,"s2":2,"s1":1,"s0":0,"av":2.43,"rw":"full"},{"name":"DARTH BARBARIAN","th":11,"active":false,"ri":7,"rp":6,"ms":1,"st":17,"s3":5,"s2":1,"s1":0,"s0":0,"av":2.83,"rw":"full"},{"name":"Anth0219","th":10,"active":false,"ri":7,"rp":7,"ms":0,"st":15,"s3":4,"s2":0,"s1":3,"s0":0,"av":2.14,"rw":"full"},{"name":"KENNN","th":9,"active":false,"ri":7,"rp":7,"ms":0,"st":15,"s3":5,"s2":0,"s1":0,"s0":2,"av":2.14,"rw":"full"},{"name":"Kite~","th":9,"active":false,"ri":7,"rp":6,"ms":1,"st":15,"s3":4,"s2":1,"s1":1,"s0":0,"av":2.5,"rw":"full"},{"name":"ragnorok","th":8,"active":false,"ri":7,"rp":5,"ms":2,"st":14,"s3":4,"s2":1,"s1":0,"s0":0,"av":2.8,"rw":"full"},{"name":"hog rider 23","th":6,"active":false,"ri":7,"rp":7,"ms":0,"st":12,"s3":3,"s2":1,"s1":1,"s0":2,"av":1.71,"rw":"full"},{"name":"bread","th":9,"active":false,"ri":7,"rp":7,"ms":0,"st":10,"s3":1,"s2":3,"s1":1,"s0":2,"av":1.43,"rw":"full"},{"name":"SHAYAN FAROOQ","th":6,"active":false,"ri":7,"rp":2,"ms":5,"st":4,"s3":1,"s2":0,"s1":1,"s0":0,"av":2.0,"rw":"short"},{"name":"nate","th":8,"active":false,"ri":7,"rp":0,"ms":7,"st":0,"s3":0,"s2":0,"s1":0,"s0":0,"av":0,"rw":"none"}],"kpis":{"tot":504,"full":28,"np":30,"3pct":80,"avg":2.65,"record":"W7 · L0"}},{"id":"s202512","label":"Dec 2025","nr":7,"np":30,"rounds":[{"opp":"Solo Leveling","result":"win","stars":45,"date":"12/4"},{"opp":"IRAN","result":"win","stars":46,"date":"12/5"},{"opp":"๛♛ kíngš ♛³¹³๛","result":"win","stars":33,"date":"12/6"},{"opp":"THE WARRIOSRS","result":"win","stars":54,"date":"12/7"},{"opp":"Rataje","result":"win","stars":46,"date":"12/8"},{"opp":"Duisburg 47","result":"win","stars":61,"date":"12/9"},{"opp":"Winners","result":"win","stars":12,"date":"12/10"}],"players":[{"name":"Buzz","th":13,"active":false,"ri":7,"rp":7,"ms":0,"st":21,"s3":7,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"full"},{"name":"BuzzBuzzBuzz","th":9,"active":false,"ri":7,"rp":7,"ms":0,"st":19,"s3":5,"s2":2,"s1":0,"s0":0,"av":2.71,"rw":"full"},{"name":"spectazen","th":9,"active":false,"ri":7,"rp":7,"ms":0,"st":19,"s3":5,"s2":2,"s1":0,"s0":0,"av":2.71,"rw":"full"},{"name":"stage6yo","th":13,"active":true,"ri":7,"rp":7,"ms":0,"st":19,"s3":6,"s2":0,"s1":1,"s0":0,"av":2.71,"rw":"full"},{"name":"BuzzBuzz","th":10,"active":false,"ri":7,"rp":7,"ms":0,"st":18,"s3":5,"s2":1,"s1":1,"s0":0,"av":2.57,"rw":"full"},{"name":"BuzzerB","th":8,"active":false,"ri":7,"rp":7,"ms":0,"st":17,"s3":5,"s2":1,"s1":0,"s0":1,"av":2.43,"rw":"full"},{"name":"BuzzerA","th":8,"active":false,"ri":7,"rp":7,"ms":0,"st":16,"s3":5,"s2":0,"s1":1,"s0":1,"av":2.29,"rw":"full"},{"name":"Anth0219","th":10,"active":false,"ri":7,"rp":6,"ms":1,"st":16,"s3":4,"s2":2,"s1":0,"s0":0,"av":2.67,"rw":"full"},{"name":"das","th":7,"active":true,"ri":7,"rp":7,"ms":0,"st":15,"s3":5,"s2":0,"s1":0,"s0":2,"av":2.14,"rw":"full"},{"name":"jimmyNoCricket","th":8,"active":false,"ri":7,"rp":7,"ms":0,"st":15,"s3":4,"s2":1,"s1":1,"s0":1,"av":2.14,"rw":"full"},{"name":"rinz","th":8,"active":true,"ri":7,"rp":7,"ms":0,"st":15,"s3":4,"s2":1,"s1":1,"s0":1,"av":2.14,"rw":"full"},{"name":"Kite~","th":9,"active":false,"ri":7,"rp":7,"ms":0,"st":14,"s3":3,"s2":2,"s1":1,"s0":1,"av":2.0,"rw":"full"},{"name":"Dashinaw","th":9,"active":false,"ri":7,"rp":5,"ms":2,"st":14,"s3":4,"s2":1,"s1":0,"s0":0,"av":2.8,"rw":"full"},{"name":"IdkAidan","th":7,"active":false,"ri":7,"rp":7,"ms":0,"st":12,"s3":3,"s2":1,"s1":1,"s0":2,"av":1.71,"rw":"full"},{"name":"Lorenzone31","th":7,"active":false,"ri":7,"rp":7,"ms":0,"st":12,"s3":3,"s2":0,"s1":3,"s0":1,"av":1.71,"rw":"full"},{"name":"nate","th":8,"active":false,"ri":7,"rp":7,"ms":0,"st":11,"s3":2,"s2":2,"s1":1,"s0":2,"av":1.57,"rw":"full"},{"name":"Broke Oak","th":8,"active":false,"ri":7,"rp":5,"ms":2,"st":10,"s3":2,"s2":2,"s1":0,"s0":1,"av":2.0,"rw":"full"},{"name":"TyrantLeo","th":8,"active":false,"ri":7,"rp":4,"ms":3,"st":9,"s3":3,"s2":0,"s1":0,"s0":1,"av":2.25,"rw":"full"},{"name":"Zak","th":9,"active":false,"ri":7,"rp":3,"ms":4,"st":8,"s3":2,"s2":1,"s1":0,"s0":0,"av":2.67,"rw":"full"},{"name":"Grouter","th":8,"active":false,"ri":7,"rp":4,"ms":3,"st":6,"s3":2,"s2":0,"s1":0,"s0":2,"av":1.5,"rw":"short"},{"name":"Ell","th":8,"active":false,"ri":7,"rp":2,"ms":5,"st":4,"s3":1,"s2":0,"s1":1,"s0":0,"av":2.0,"rw":"short"},{"name":"Ragnor","th":8,"active":false,"ri":7,"rp":1,"ms":6,"st":3,"s3":1,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"short"},{"name":"ragnorok2","th":7,"active":false,"ri":7,"rp":1,"ms":6,"st":3,"s3":1,"s2":0,"s1":0,"s0":0,"av":3.0,"rw":"short"},{"name":"ak","th":8,"active":false,"ri":7,"rp":4,"ms":3,"st":1,"s3":0,"s2":0,"s1":1,"s0":3,"av":0.25,"rw":"short"},{"name":"boys","th":8,"active":false,"ri":7,"rp":0,"ms":7,"st":0,"s3":0,"s2":0,"s1":0,"s0":0,"av":0,"rw":"none"},{"name":"idk","th":9,"active":false,"ri":7,"rp":0,"ms":7,"st":0,"s3":0,"s2":0,"s1":0,"s0":0,"av":0,"rw":"none"},{"name":"olo clash16","th":9,"active":false,"ri":7,"rp":0,"ms":7,"st":0,"s3":0,"s2":0,"s1":0,"s0":0,"av":0,"rw":"none"},{"name":"P Frank","th":9,"active":false,"ri":7,"rp":0,"ms":7,"st":0,"s3":0,"s2":0,"s1":0,"s0":0,"av":0,"rw":"none"},{"name":"rory","th":8,"active":false,"ri":7,"rp":0,"ms":7,"st":0,"s3":0,"s2":0,"s1":0,"s0":0,"av":0,"rw":"none"},{"name":"sirawesomeman","th":7,"active":false,"ri":7,"rp":0,"ms":7,"st":0,"s3":0,"s2":0,"s1":0,"s0":0,"av":0,"rw":"none"}],"kpis":{"tot":297,"full":19,"np":30,"3pct":62,"avg":2.23,"record":"W7 · L0"}}]};
+let curSid=D.seasons[0].id, curSort='st';
+
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function stripEmoji(s){return s.replace(/[^\x20-\x7E\xC0-\u024F]+/g,'').trim();}
+
+// Populate dropdown
+const sel=document.getElementById('seasonSel');
+D.seasons.forEach(s=>{
+  const o=document.createElement('option');
+  o.value=s.id; o.textContent=s.label;
+  if(s.id===curSid)o.selected=true;
+  sel.appendChild(o);
+});
+
+function switchSeason(sid){curSid=sid;render();}
+window.switchSeason=switchSeason;
+
+// Seg button sorting
+document.getElementById('sortSeg').addEventListener('click',e=>{
+  const btn=e.target.closest('button');
+  if(!btn)return;
+  const s=btn.dataset.sort;
+  if(!s)return;
+  curSort=s;
+  document.querySelectorAll('#sortSeg button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderTable(getSeason());
+});
+// Thead column clicks
+document.querySelector('thead').addEventListener('click',e=>{
+  const th=e.target.closest('th[data-sort]');
+  if(!th)return;
+  const s=th.dataset.sort;
+  curSort=s;
+  document.querySelectorAll('#sortSeg button').forEach(b=>b.classList.toggle('active',b.dataset.sort===s));
+  renderTable(getSeason());
+});
+
+function getSeason(){return D.seasons.find(s=>s.id===curSid);}
+
+const RMAP={win:'W',loss:'L',draw:'D',live:'LIVE'};
+function renderRounds(season){
+  const RLAB=['R1','R2','R3','R4','R5','R6','R7'];
+  document.getElementById('rounds').innerHTML=season.rounds.map((r,i)=>
+    '<div class="rchip '+r.result+'">'+
+    '<div class="rnum">'+( RLAB[i]||('R'+(i+1)))+' &middot; '+r.date+'</div>'+
+    '<div><span class="rres '+r.result+'">'+(RMAP[r.result]||'?')+'</span></div>'+
+    '<div class="ropp" title="'+esc(r.opp)+'">'+esc(r.opp)+'</div>'+
+    '<div class="rstars">&#9733; '+r.stars+'</div>'+
+    '</div>'
+  ).join('');
+}
+
+function renderKpis(season){
+  const k=season.kpis;
+  const items=[
+    {k:'Record',     v:k.record,            u:season.rounds.length+' rounds',        c:'var(--full-tx)'},
+    {k:'Total &#9733;',v:k.tot,             u:'across '+season.np+' players',        c:'var(--star)'},
+    {k:'Full Reward', v:k.full,             u:'of '+season.np+' players &middot; &#8805;8&#9733;', c:'var(--full-tx)'},
+    {k:'3&#9733; Rate',v:k['3pct']+'%',     u:'of all attacks',                     c:'var(--full-tx)'},
+    {k:'Avg &#9733;/War', v:k.avg.toFixed(2),u:'per round played',                  c:'var(--star)'},
+  ];
+  document.getElementById('kpis').innerHTML=items.map(it=>
+    '<div class="kpi"><div class="k">'+it.k+'</div>'+
+    '<div class="v" style="color:'+it.c+'">'+it.v+'</div>'+
+    '<div class="u">'+it.u+'</div></div>'
+  ).join('');
+}
+
+const RW_ORDER={full:0,short:1,none:2};
+function sortPlayers(players){
+  const p=[...players];
+  if(curSort==='st')      p.sort((a,b)=>b.st-a.st||b.rp-a.rp||a.name.localeCompare(b.name));
+  else if(curSort==='rp') p.sort((a,b)=>b.ri-a.ri||b.rp-a.rp||b.st-a.st||a.name.localeCompare(b.name));
+  else if(curSort==='av') p.sort((a,b)=>b.av-a.av||b.st-a.st||a.name.localeCompare(b.name));
+  else if(curSort==='ms') p.sort((a,b)=>b.ms-a.ms||a.name.localeCompare(b.name));
+  else if(curSort==='rw') p.sort((a,b)=>RW_ORDER[a.rw]-RW_ORDER[b.rw]||b.st-a.st||a.name.localeCompare(b.name));
+  else                    p.sort((a,b)=>a.name.localeCompare(b.name));
+  return p;
+}
+
+function stCls(st){return st>=8?'st-hi':st>=5?'st-mid':st>=1?'st-lo':'st-none';}
+function avCls(av){return av>=2.9?'av-hi':av>=2.5?'av-mid':av>=1.5?'av-lo':'av-bad';}
+function msCls(ms){return ms===0?'ms0':ms===1?'ms1':ms===2?'ms2':'ms3';}
+const REW_LABEL={full:'&#10003; Full',short:'&#9651; Short',none:'&#x2715; None'};
+
+function renderTable(season){
+  const players=sortPlayers(season.players);
+  const nr=season.nr;
+  // Update sorted header highlight
+  document.querySelectorAll('thead th[data-sort]').forEach(th=>{
+    th.classList.toggle('sorted',th.dataset.sort===curSort);
+    const arr=th.querySelector('.sort-arrow');
+    if(arr)arr.remove();
+    if(th.dataset.sort===curSort){
+      const sp=document.createElement('span');
+      sp.className='sort-arrow'; sp.textContent='&#9660;';
+      th.appendChild(sp);
+    }
+  });
+  document.getElementById('tbody').innerHTML=players.map((p,i)=>{
+    const bk='<span class="b3">'+p.s3+'</span><span class="bkd">&middot;</span>'+
+              '<span class="b2">'+p.s2+'</span><span class="bkd">&middot;</span>'+
+              '<span class="b1">'+p.s1+'</span><span class="bkd">&middot;'+p.s0+'</span>';
+    const row_cls=p.rw==='full'?'row-full':'';
+    return '<tr class="'+row_cls+'">'+
+      '<td class="td-num">'+(i+1)+'</td>'+
+      '<td class="td-player">'+
+        '<div class="pname" title="'+esc(p.name)+'">'+esc(stripEmoji(p.name))+'</div>'+
+        '<div class="pmeta">'+
+          '<span class="badge '+(p.active?'active':'left')+'">'+(p.active?'Active':'Left')+'</span>'+
+          (p.th?'<span class="thbadge">TH'+p.th+'</span>':'')+
+        '</div>'+
+      '</td>'+
+      '<td class="td-c">'+p.ri+'/'+nr+'</td>'+
+      '<td class="td-c"><span class="stval '+stCls(p.st)+'">'+p.st+'</span></td>'+
+      '<td class="td-c">'+bk+'</td>'+
+      '<td class="td-c"><span class="'+msCls(p.ms)+'">'+p.ms+'</span></td>'+
+      '<td class="td-c"><span class="'+avCls(p.av)+'">'+(p.rp>0?p.av.toFixed(2):'&mdash;')+'</span></td>'+
+      '<td class="td-c"><span class="rew '+p.rw+'">'+REW_LABEL[p.rw]+'</span></td>'+
+    '</tr>';
+  }).join('');
+}
+
+function render(){
+  const season=getSeason();
+  if(!season)return;
+  renderRounds(season);
+  renderKpis(season);
+  renderTable(season);
+}
+
+render();
+})();
+</script>
+</body>
+</html>
