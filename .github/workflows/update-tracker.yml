@@ -44,7 +44,7 @@ jobs:
           }
 
           now   = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
-          files = ['index.html', 'build_tracker.py']
+          files = ['index.html', 'cwl.html', 'build_tracker.py']
           committed = []
 
           for fname in files:
