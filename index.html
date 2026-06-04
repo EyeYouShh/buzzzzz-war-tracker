@@ -275,7 +275,7 @@ window.WARDATA={"meta":{"clanName":"Buzzzzz","clanTag":"#2GGL80JL0","windowDays"
       });break;
       case'participation':o.sort((a,b)=>b.played-a.played||sortName(a.name).localeCompare(sortName(b.name)));break;
       case'missed':o.sort((a,b)=>b.missed-a.missed||b.available-a.available||sortName(a.name).localeCompare(sortName(b.name)));break;
-      case'delta':o.sort((a,b)=>b.avgDelta-a.avgDelta||sortName(a.name).localeCompare(sortName(b.name)));break;
+      case'delta':o.sort((a,b)=>(b.reaches-b.dips)-(a.reaches-a.dips)||(b.reaches+b.same+b.dips)-(a.reaches+a.same+a.dips)||sortName(a.name).localeCompare(sortName(b.name)));break;
       case'name':o.sort((a,b)=>sortName(a.name).localeCompare(sortName(b.name)));break;
       case'warfocus':o.sort((a,b)=>{
         const ca=a.cells[warId]||null, cb=b.cells[warId]||null;
