@@ -4086,6 +4086,7 @@ for _canonical, _member in _members.items():
             _rw += _cell.get('rawStars', 0); _nt += _cell.get('netStars', 0)
             for _a in (_cell.get('attacks', []) if _cell else []):
                 if 'defTh' not in _a or _a['defTh'] is None: continue
+                if _a.get('neu', 0) == 0: continue  # cleanup attack — skip delta stats
                 _d = _a.get('delta', 0); _sd += _d; _ac += 1; _v2a += 1
                 if _d < 0: _di += 1
                 elif _d > 0: _re += 1
@@ -4239,18 +4240,20 @@ th.wh.archived .wdate,th.wh.archived .cwl,th.wh.archived .wnm,th.wh.archived .wm
 th.wh.arc-start{border-left:2px solid #4a3f2a!important}
 td.cell.arc-start{border-left:2px solid #4a3f2a!important}
 /* sticky corners */
-th.pcorner,th.mcorner{background:var(--surface2);border-bottom:1px solid var(--line2);vertical-align:bottom;
+th.pcorner,th.mcorner,th.dcorner{background:var(--surface2);border-bottom:1px solid var(--line2);vertical-align:bottom;
                       text-align:left;padding:10px 14px;z-index:7}
 th.pcorner{left:0;width:190px;min-width:190px}
 th.mcorner{left:190px;width:72px;min-width:72px;border-right:1px solid var(--line2);text-align:center;padding:10px 6px}
+th.dcorner{left:262px;width:88px;min-width:88px;border-right:1px solid var(--line);text-align:center;padding:10px 6px}
 th.pcorner .t{font-family:var(--hf);font-size:13px;font-weight:700;color:var(--star);text-transform:uppercase;letter-spacing:.04em}
 th.pcorner .s{font-size:10px;color:var(--faint);margin-top:2px}
-th.mcorner .t{font-family:var(--hf);font-size:11px;font-weight:700;color:var(--star);text-transform:uppercase;letter-spacing:.04em}
-th.mcorner .s{font-size:9px;color:var(--faint)}
-td.pcol,td.mcol{position:sticky;z-index:4;background:var(--surface)}
+th.mcorner .t,th.dcorner .t{font-family:var(--hf);font-size:11px;font-weight:700;color:var(--star);text-transform:uppercase;letter-spacing:.04em}
+th.mcorner .s,th.dcorner .s{font-size:9px;color:var(--faint)}
+td.pcol,td.mcol,td.dcol{position:sticky;z-index:4;background:var(--surface)}
 td.pcol{left:0;width:190px;min-width:190px;padding:8px 14px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
 td.mcol{left:190px;width:72px;min-width:72px;text-align:center;border-right:1px solid var(--line2);border-bottom:1px solid var(--line)}
-tr:hover td.pcol,tr:hover td.mcol{background:var(--surface3)}
+td.dcol{left:262px;width:88px;min-width:88px;text-align:center;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:4px 5px}
+tr:hover td.pcol,tr:hover td.mcol,tr:hover td.dcol{background:var(--surface3)}
 .pname{font-family:'Oswald';font-weight:500;font-size:14.5px;letter-spacing:.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .pmeta{display:flex;align-items:center;gap:7px;margin-top:3px}
 .badge{font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:1px 5px;border-radius:4px}
@@ -4291,7 +4294,7 @@ td.cell.miss .cd{color:var(--miss-tx)}
 .dch{font-family:var(--mf);font-size:10px;font-weight:700;padding:1px 5px;border-radius:5px;line-height:1.4;letter-spacing:-.02em}
 .dch.up{color:var(--reach-tx);background:var(--reach-bg)}
 .dch.dip{color:var(--dip-tx);background:var(--dip-bg)}
-.dch.even{color:var(--muted);background:var(--surface3);font-weight:600;border:1px solid var(--line2)}
+.dch.even{color:var(--muted);background:var(--surface3)}
 .dch.na{color:var(--faint);background:transparent;opacity:.5;font-size:8.5px;font-weight:500;letter-spacing:0}
 .clean{font-size:10px;color:var(--dip-tx);margin-left:2px;cursor:help}
 .cd .raw{color:var(--faint)}.cd .zero{color:var(--dip-tx);font-weight:700}
@@ -4313,6 +4316,7 @@ table.view-full .cd{display:block}
 @media(max-width:560px){
   th.pcorner,td.pcol{width:118px;min-width:118px}th.pcorner{padding:8px 10px}td.pcol{padding:7px 10px}
   th.pcorner .s{display:none}th.mcorner,td.mcol{left:118px;width:40px;min-width:40px}th.mcorner .s{display:none}
+  th.dcorner,td.dcol{display:none}
   .pname{font-size:13px}.pw .wlbl{display:none}.pmeta{gap:5px}
   th.wh,td.cell{width:72px;min-width:72px}th.wh{padding:7px 4px 8px}
   .legend{display:none}
@@ -4478,7 +4482,8 @@ function sortName(n){return stripEmoji(n);}
   const arcStartIdx=D.wars.findIndex(w=>!w.inWindow&&!w.pending);
   function renderHead(){
     let h='<tr><th class="pcorner"><div class="t">Player</div><div class="s">Participation excl. CWL</div></th>'+
-           '<th class="mcorner"><div class="t">Missed</div><div class="s">60 days</div></th>';
+           '<th class="mcorner"><div class="t">Missed</div><div class="s">60 days</div></th>'+
+           '<th class="dcorner"><div class="t">TH &#916;</div><div class="s">excl. CWL + cleanup</div></th>';
     D.wars.forEach((w,i)=>{
       const arcCls=(i===arcStartIdx)?' arc-start':'';
       h+='<th class="wh'+(w.cwl?' iscwl':'')+(w.inWindow?'':' archived')+arcCls+'" data-wid="'+w.id+'">' +
@@ -4508,8 +4513,9 @@ function sortName(n){return stripEmoji(n);}
     const cls=c.used<c.max?'part':'full';
     const overlap=c.v2&&c.rawStars>c.stars;
     const starHtml='<span class="st">'+c.stars+'★</span>'+(overlap?'<span class="clean" title="'+c.rawStars+'★ raw → '+c.stars+'★ net">↻</span>':'');
+    const _sig=c.v2?c.attacks.filter(a=>a.neu!==0):[];
     const chips=c.v2
-      ?c.attacks.map(a=>'<span class="dch '+dCls(a.delta)+'">'+dArrow(a.delta)+(a.delta?dTxt(a.delta):'')+' </span>').join('')
+      ?(_sig.map(a=>'<span class="dch '+dCls(a.delta)+'">'+dArrow(a.delta)+(a.delta?dTxt(a.delta):'')+' </span>').join('')||'')
       :'<span class="dch na">no TH</span>';
     const dets=c.attacks.map(a=>{
       if(c.v2){
@@ -4527,6 +4533,18 @@ function sortName(n){return stripEmoji(n);}
       '<div class="cdelta">'+chips+'</div>'+
       '<div class="cd">'+dets+'</div></td>';
   }
+  function deltaColHtml(m){
+    const tot=m.reaches+m.same+m.dips;
+    if(!tot)return'<span style="color:var(--faint);font-size:13px">—</span>';
+    const net=m.reaches-m.dips;
+    const netTxt=net>0?'+'+net:(net<0?'−'+Math.abs(net):'0');
+    const netClr=net>0?'var(--reach-tx)':(net<0?'var(--dip-tx)':'var(--faint)');
+    return'<div style="font-family:var(--mf);font-size:9.5px;line-height:1.7;white-space:nowrap">'+
+      '<span style="color:var(--reach-tx)">▲'+m.reaches+'</span> '+
+      '<span style="color:var(--muted)">&#61;'+m.same+'</span> '+
+      '<span style="color:var(--dip-tx)">▼'+m.dips+'</span></div>'+
+      '<div style="font-family:var(--hf);font-size:14px;font-weight:700;line-height:1;color:'+netClr+'">'+netTxt+'</div>';
+  }
   function renderBody(list){
     document.getElementById('tbody').innerHTML=list.map(m=>{
       let r='<tr>';
@@ -4536,6 +4554,7 @@ function sortName(n){return stripEmoji(n);}
         (m.status==='active'?'<span class="pw">'+m.played+'/'+m.eligible+' <span class="wlbl">wars</span></span>':'')+
         '</div></td>';
       r+='<td class="mcol"><span class="mval mono '+heat(m.missed)+'">'+m.missed+'</span></td>';
+      r+='<td class="dcol">'+deltaColHtml(m)+'</td>';
       D.wars.forEach(w=>{r+=cellHtml(w,m.cells[w.id]||null);});
       return r+'</tr>';
     }).join('');
