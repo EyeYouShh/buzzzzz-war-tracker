@@ -5183,7 +5183,7 @@ function renderTable(season){
     if(arr)arr.remove();
     if(th.dataset.sort===curSort){
       const sp=document.createElement('span');
-      sp.className='sort-arrow'; sp.textContent='&#9660;';
+      sp.className='sort-arrow'; sp.textContent='▼';
       th.appendChild(sp);
     }
   });
