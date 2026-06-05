@@ -4748,8 +4748,15 @@ function sortName(n){return stripEmoji(n);}
       crange.classList.remove('visible');
       state.windowMode=w;
       D.setRange(w==='all'?'all':Number(w));
+      // Update arcStartIdx before renderHead so arc-start border lands on the right column
+      arcStartIdx=D.wars.findIndex(war=>!war.inWindow&&!war.pending);
+      renderHead();
+      // Update labels after renderHead so th.mcorner .s exists and stays updated
       updateWindowLabels(w);
-      renderHead();render();
+      render();
+      // Reset scroll to left edge so war columns are visible, then refresh nav buttons
+      scrollEl.scrollLeft=0;
+      updateNav();
     });
     const applyBtn=document.getElementById('applyRange');
     if(applyBtn)applyBtn.addEventListener('click',()=>{
@@ -4762,8 +4769,12 @@ function sortName(n){return stripEmoji(n);}
       const cs=new Date(sy,sm-1,sd),ce=new Date(ey,em-1,ed,23,59,59);
       state.windowMode='custom';
       D.setRange('custom',cs,ce);
+      arcStartIdx=D.wars.findIndex(war=>!war.inWindow&&!war.pending);
+      renderHead();
       updateWindowLabels('custom',cs,ce);
-      renderHead();render();
+      render();
+      scrollEl.scrollLeft=0;
+      updateNav();
     });
   })();
   renderHead();
