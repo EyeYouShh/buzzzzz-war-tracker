@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 6/4/26 — 41 members
-    "Americanpatriot","Big Steppa","Brandon","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Kizaru","Loading…","MR. ASURAN YT","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slayer","Ste","Stevie Wonder","Sumairu","SurgeGold","SwiftyKinja","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","das","drybonez","gen","imnotstraight10","jj","louis","rinz","stage5yo","stage6yo","studkiller","uhlisuh","wato","⚡️LSWreckless⚡️"
+    # Auto-updated 6/5/26 — 39 members
+    "Americanpatriot","Big Steppa","Brandon","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Kizaru","Loading…","MR. ASURAN YT","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slayer","Ste","Stevie Wonder","Sumairu","SurgeGold","SwiftyKinja","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","das","drybonez","gen","jj","rinz","stage5yo","stage6yo","studkiller","uhlisuh","wato","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -96,9 +96,11 @@ WAR_BLOCKS = [
 #QL8CV0P0|gen|2|17|0|0|0|
 #QCUCLPPJV|Gr8Conqueror|3|17|0|0|0|
 #GQJUGLQRQ|stage6yo|4|16|0|0|0|
+#L8UC9G0U8|wato|5|16|0|0|0|
 #LC020U2Q|drybonez|6|16|0|0|0|
 #209J8J0RL|Big Steppa|7|15|0|0|0|
 #Y0UUGPRRU|Americanpatriot|8|15|0|0|0|
+#QP0CU0UC8|stage5yo|9|15|0|0|0|
 #G0VGRUCC|SwiftyKinja|10|15|0|0|0|
 #8J2V8998|DE1|11|15|0|0|0|
 #2J9GYQRYC|Jac|12|14|0|0|0|
@@ -111,17 +113,15 @@ WAR_BLOCKS = [
 #GJLRURGC2|Cole|23|14|0|0|0|
 #GRGGPPQ8J|Pam from HR|24|14|0|0|0|
 #PGLV2YQC|Kizaru|25|14|0|0|0|
+#QLPQC0GQ0|Loading…|26|14|0|0|0|
+#GJ20RJ8RP|arius67'|28|13|0|0|0|
 #PRCQVCCV2|Brandon|29|13|0|0|0|
+#8L9J0R2QJ|SWAGMUFFIN90|30|13|0|0|0|
+#QLYP90RPV|Ste|31|13|0|0|0|
 #QGRPYC928|⚡️LSWreckless⚡️|32|13|0|0|0|
 #QYQU2JYYC|MR. ASURAN YT|33|13|0|0|0|
 #YVCJC0VCQ|Marrow|34|13|0|0|0|
-#R0GCPRLPL|jj|36|13|0|0|0|
-#QUJLUR02G|UNSTOPPABLE ADI|37|13|0|0|0|
-#R0RV2P0U0|Pharah|38|13|0|0|0|
-#R02R82YG9|DandyPickle|39|13|0|0|0|
-#PQ98J82PR|F16|40|13|0|0|0|
-#R22Q89CCU|Stevie Wonder|41|12|0|0|0|
-#QUQ0RUG29|rinz|43|12|0|0|0|
+#QLLPQV8VJ|uhlisuh|35|13|0|0|0|
 """, True, True),
 
 ("417523054","6/4/26","SS RAIDERS","30v30","""
@@ -134,7 +134,7 @@ WAR_BLOCKS = [
 #Y0UUGPRRU|Americanpatriot|9|15|1|3|3|8:3:3:14
 #G0VGRUCC|SwiftyKinja|10|15|1|3|3|9:3:3:14
 #8J2V8998|DE1|11|15|1|3|3|10:3:3:14
-#2J9GYQRYC|Jac|12|14|0|0|0|
+#2J9GYQRYC|Jac|12|14|1|3|3|11:3:3:14
 #GV80Y9L0Y|studkiller|17|14|1|3|3|12:3:3:14
 #RQCJR8JV|SurgeGold|18|14|0|0|0|
 #Q9UJG0RJP|Sumairu|19|14|1|3|3|14:3:3:13
@@ -153,7 +153,7 @@ WAR_BLOCKS = [
 #R0RV2P0U0|Pharah|38|13|1|3|3|30:3:3:9
 #R02R82YG9|DandyPickle|39|13|1|3|3|31:3:3:9
 #PQ98J82PR|F16|40|13|1|3|3|33:3:3:9
-#R22Q89CCU|Stevie Wonder|41|12|0|0|0|
+#R22Q89CCU|Stevie Wonder|41|12|1|3|3|34:3:3:9
 #QUQ0RUG29|rinz|43|12|1|3|3|37:3:3:9
 """, True, True),
 
