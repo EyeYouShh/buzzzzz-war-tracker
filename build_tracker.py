@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 6/5/26 — 39 members
-    "Americanpatriot","Big Steppa","Brandon","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Kizaru","Loading…","MR. ASURAN YT","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slayer","Ste","Stevie Wonder","Sumairu","SurgeGold","SwiftyKinja","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","das","drybonez","gen","jj","rinz","stage5yo","stage6yo","studkiller","uhlisuh","wato","⚡️LSWreckless⚡️"
+    # Auto-updated 6/5/26 — 40 members
+    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Kizaru","Loading…","MR. ASURAN YT","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slayer","Ste","Stevie Wonder","Sumairu","SurgeGold","SwiftyKinja","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","das","drybonez","gen","jj","rinz","stage5yo","stage6yo","studkiller","uhlisuh","wato","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -24,6 +24,7 @@ PLAYER_TH = {
     "Stevie Wonder": 12, "das": 12, "rinz": 12,
     "Tretor": 11,
     "•KAILAN•": 18,
+    "@INSTAGRAM": 15,
 }
 # In-game order (tiebreaker within same TH — matches the order user sees in-game)
 _CS_ORDER = [
@@ -125,7 +126,7 @@ WAR_BLOCKS = [
 """, True, True),
 
 ("417523054","6/4/26","SS RAIDERS","30v30","""
-#90QCVGU8U|Slayer|1|18|0|0|0|
+#90QCVGU8U|Slayer|1|18|1|2|2|1:2:2:17
 #QL8CV0P0|gen|2|17|1|3|3|2:3:3:16
 #QCUCLPPJV|Gr8Conqueror|3|17|1|3|3|3:3:3:15
 #GQJUGLQRQ|stage6yo|4|16|1|3|3|4:3:3:15
@@ -136,7 +137,7 @@ WAR_BLOCKS = [
 #8J2V8998|DE1|11|15|1|3|3|10:3:3:14
 #2J9GYQRYC|Jac|12|14|1|3|3|11:3:3:14
 #GV80Y9L0Y|studkiller|17|14|1|3|3|12:3:3:14
-#RQCJR8JV|SurgeGold|18|14|0|0|0|
+#RQCJR8JV|SurgeGold|18|14|1|3|3|13:3:3:13
 #Q9UJG0RJP|Sumairu|19|14|1|3|3|14:3:3:13
 #GRRYCUJP8|crimpo|20|14|1|3|3|15:3:3:15
 #R00L0CY9C|MiniPekka|21|14|1|3|3|16:3:3:13
