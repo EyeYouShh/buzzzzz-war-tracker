@@ -3848,6 +3848,7 @@ RESULTS = {
     '267573823': 'W',  # Infiniti Power
     # CWL current season
     '217372345': 'W',  # Bama Boyz (Round 1, 6/2/26)
+    '317373071': 'L',  # The Microwave (Round 2, 6/3/26)
     # CWL — Buzzzzz 1st in both seasons
     '8Q0J0022Q': 'W', '8Q0G02CGY': 'W', '8Q0L0VR82': 'W', '8Q0P0CYLR': 'W',
     '8Q0882R82': 'W', '8Q0020RCC': 'W', '8LVUPY0R9': 'W',
