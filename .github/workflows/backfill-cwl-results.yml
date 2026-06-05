@@ -1,0 +1,67 @@
+name: Backfill CWL Results
+
+on:
+  workflow_dispatch:  # Manual trigger only
+
+jobs:
+  backfill:
+    runs-on: [self-hosted, coc-runner]
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Run backfill script
+        env:
+          COC_API_KEY: ${{ secrets.COC_API_KEY }}
+        run: python3 scripts/backfill_cwl_results.py
+
+      - name: Commit and push via GitHub API
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PYEOF'
+          import os, json, base64, hashlib
+          from datetime import datetime, timezone
+          from urllib.request import urlopen, Request
+
+          TOKEN  = os.environ['GITHUB_TOKEN']
+          REPO   = 'EyeYouShh/buzzzzz-war-tracker'
+          BRANCH = 'main'
+          BASE   = f'https://api.github.com/repos/{REPO}'
+          H = {
+            'Authorization': f'token {TOKEN}',
+            'Accept': 'application/vnd.github.v3+json',
+            'Content-Type': 'application/json'
+          }
+
+          now   = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
+          files = ['index.html', 'cwl.html', 'build_tracker.py']
+          committed = []
+
+          for fname in files:
+            if not os.path.exists(fname): continue
+            content = open(fname, 'rb').read()
+            git_sha = hashlib.sha1(f'blob {len(content)}\0'.encode() + content).hexdigest()
+            req    = Request(f'{BASE}/contents/{fname}?ref={BRANCH}', headers=H)
+            remote = json.loads(urlopen(req).read())
+            if remote['sha'] == git_sha:
+              print(f'{fname}: unchanged'); continue
+            body = json.dumps({
+              'message': f'Backfill CWL results {now}',
+              'content': base64.b64encode(content).decode(),
+              'sha':     remote['sha'],
+              'branch':  BRANCH
+            }).encode()
+            req = Request(f'{BASE}/contents/{fname}', data=body, method='PUT', headers=H)
+            r   = json.loads(urlopen(req).read())
+            print(f'Committed {fname}: {r["commit"]["sha"][:7]}')
+            committed.append(fname)
+
+          print('Done — ' + (f'pushed {committed}' if committed else 'no changes'))
+          PYEOF
