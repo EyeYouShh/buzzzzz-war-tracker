@@ -308,10 +308,15 @@ def update_build_tracker(war_data, war_id_extra="", is_cwl=False):
         result_pat = re.compile(r'RESULTS\s*=\s*\{')
         results_start = result_pat.search(content)
         if results_start:
-            if f'"{war_id}"' not in content:
+            # Check only within the RESULTS section (not the whole file —
+            # the war_id also appears in WAR_BLOCKS and would always match).
+            results_section = content[results_start.end():results_start.end() + 8000]
+            if war_id not in results_section:
                 insert_at = results_start.end()
                 content = content[:insert_at] + f'\n    "{war_id}": "{result}",' + content[insert_at:]
                 print(f"War {war_id} ended. Result: {result}")
+            else:
+                print(f"War {war_id} result already in RESULTS, skipping.")
 
     content, _ = update_player_tags(war_data, content)
 
