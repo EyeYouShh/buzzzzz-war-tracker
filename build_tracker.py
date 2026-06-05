@@ -4028,7 +4028,7 @@ for _war in wars:
     _dp = _war['date'].split('/')
     _date_disp = f"{_dp[0]}/{_dp[1]}" if len(_dp) >= 2 else _war['date']
     _wars_data.append({
-        'id': _war['id'], 'date': _date_disp, 'name': _war['opp'],
+        'id': _war['id'], 'date': _war['date'], 'disp': _date_disp, 'name': _war['opp'],
         'size': _war['size'], 'result': _result, 'cwl': _war['cwl'],
         'pending': _war['in_prog'], 'v2': _is_v2, 'inWindow': _in_window
     })
@@ -4612,7 +4612,7 @@ function sortName(n){return stripEmoji(n);}
     D.wars.forEach((w,i)=>{
       const arcCls=(i===arcStartIdx)?' arc-start':'';
       h+='<th class="wh'+(w.cwl?' iscwl':'')+(w.inWindow?'':' archived')+arcCls+'" data-wid="'+w.id+'">' +
-        '<div class="whrow"><span class="wdate">'+w.date+'</span>' +
+        '<div class="whrow"><span class="wdate">'+(w.disp||w.date)+'</span>' +
         (w.cwl?'<span class="cwl">CWL</span>':'')+'</div>'+
         '<div class="wnm" title="'+w.name+'">'+w.name+'</div>'+
         '<div class="wmeta"><span class="wsz">'+w.size+'</span><span class="wres '+w.result+'">'+RES[w.result]+'</span></div>'+
