@@ -68,6 +68,38 @@ header{flex:0 0 auto;display:flex;align-items:center;justify-content:space-betwe
 .spacer{flex:1 1 auto}
 .legend{display:flex;align-items:center;gap:13px;flex-wrap:wrap}
 .leg{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--muted);white-space:nowrap}
+/* ── Mobile control bar ────────────────────────────────── */
+.mob-bar{display:none;flex:0 0 auto;align-items:center;gap:5px;padding:8px 12px;
+         border-bottom:1px solid var(--line);background:var(--surface);flex-wrap:wrap}
+.mctl{display:inline-flex;align-items:center;gap:3px;background:var(--surface2);
+      border:1px solid var(--line2);border-radius:7px;padding:0 9px;height:32px;
+      cursor:pointer;color:var(--ink);font-family:var(--bf);font-size:12px;
+      font-weight:500;white-space:nowrap;text-decoration:none;transition:.12s;line-height:1}
+.mctl:hover,.mctl:focus{border-color:var(--star);color:var(--star);outline:none}
+.mctl-val{font-weight:600}
+.mctl-chev{width:10px;height:10px;flex-shrink:0;color:var(--muted)}
+.mctl-sep{flex:1 1 auto}
+.mob-drop{display:none;position:fixed;background:var(--surface2);border:1px solid var(--line2);
+          border-radius:10px;padding:5px;z-index:400;flex-direction:column;min-width:150px;
+          box-shadow:0 6px 24px rgba(0,0,0,.5)}
+.mob-drop.open{display:flex}
+.mob-drop button{border:0;background:transparent;font-family:var(--bf);font-size:13px;
+                 font-weight:500;color:var(--muted);padding:9px 14px;border-radius:7px;
+                 cursor:pointer;text-align:left;white-space:nowrap;transition:.1s}
+.mob-drop button:hover{color:var(--ink);background:var(--surface3)}
+.mob-drop button.md-on{background:var(--star);color:#1a1505;font-weight:700}
+/* participation under missed (mobile) */
+.mpart{font-family:var(--mf);font-size:8px;color:var(--faint);margin-top:2px;display:none;line-height:1.2}
+/* mobile legend bottom sheet */
+.leg-sheet{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--surface2);
+           border-top:2px solid var(--line2);padding:14px 16px 20px;z-index:300;
+           box-shadow:0 -4px 20px rgba(0,0,0,.5)}
+.leg-sheet.open{display:block}
+.leg-sheet .leg-title{font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+                       color:var(--faint);margin-bottom:10px}
+.leg-sheet .leg-items{display:flex;flex-wrap:wrap;gap:10px 18px}
+.leg-sheet .leg-close{position:absolute;top:12px;right:14px;background:transparent;border:0;
+                       color:var(--muted);font-size:18px;cursor:pointer;padding:4px;line-height:1}
 .swatch{width:15px;height:15px;border-radius:4px;border:1px solid}
 .swatch.full{background:var(--full-bg);border-color:var(--full-bd)}
 .swatch.part{background:var(--part-bg);border-color:var(--part-bd)}
@@ -172,7 +204,7 @@ td.cell.miss .cd{color:var(--miss-tx)}
 .cd .dd{font-weight:700}
 .cd .dd.up{color:var(--reach-tx)}.cd .dd.dip{color:var(--dip-tx)}.cd .dd.even{color:var(--faint)}
 .cdelta{display:none;gap:4px;justify-content:center;align-items:center;margin-top:4px;flex-wrap:wrap}
-.dch{font-family:var(--mf);font-size:10px;font-weight:700;padding:1px 5px;border-radius:5px;line-height:1.4;letter-spacing:-.02em}
+.dch{font-family:var(--mf);font-size:10px;font-weight:700;padding:1px 5px;border-radius:5px;line-height:1.4;letter-spacing:-.02em;vertical-align:middle}
 .dch.up{color:var(--reach-tx);background:var(--reach-bg)}
 .dch.dip{color:var(--dip-tx);background:var(--dip-bg)}
 .dch.even{color:var(--muted);background:var(--surface3)}
@@ -181,6 +213,10 @@ td.cell.miss .cd{color:var(--miss-tx)}
 .cd .raw{color:var(--faint)}.cd .zero{color:var(--dip-tx);font-weight:700}
 th.wh .v2dot{width:5px;height:5px;border-radius:50%;background:var(--reach-tx);display:inline-block}
 th.wh .v1tag{font-size:7.5px;font-weight:700;letter-spacing:.04em;color:var(--faint);opacity:.7}
+.pdelta{display:none;align-items:center;gap:4px;margin-top:3px;font-family:var(--mf);font-size:9px;line-height:1;white-space:nowrap}
+.pdelta span{display:inline-flex;align-items:center;line-height:1}
+.pdlbl{font-size:8px;font-weight:700;letter-spacing:.05em;color:var(--faint);text-transform:uppercase;margin-right:1px}
+.pnet{font-family:var(--hf);font-weight:700;font-size:11px;margin-left:3px}
 table.view-delta td.cell{height:62px}
 table.view-delta .cdelta{display:flex}
 table.view-full td.cell{height:76px}
@@ -189,18 +225,29 @@ table.view-full .cd{display:block}
 .scroll::-webkit-scrollbar-thumb{background:var(--line2);border-radius:6px;border:3px solid var(--bg)}
 .scroll::-webkit-scrollbar-thumb:hover{background:var(--faint)}
 @media(max-width:720px){
-  .strip{overflow-x:auto}.claninfo{display:none}header{padding:12px 16px}
-  .controls{padding:10px 16px;gap:10px}
-  .controls .cgroup{min-width:0;overflow:hidden}
-  #sortSeg{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .strip{overflow-x:auto}
+  header{padding:10px 14px;flex-direction:column;align-items:flex-start;gap:3px}
+  .htools{width:100%}
+  .claninfo{display:flex!important;flex-direction:row;flex-wrap:wrap;align-items:baseline;
+            gap:1px 6px;text-align:left;font-size:10.5px;line-height:1.6}
+  .claninfo>div+div::before{content:'·';margin-right:6px;color:var(--faint)}
+  #schedLine{margin-top:0!important;font-size:10.5px}
+  .controls{display:none}
+  .mob-bar{display:flex}
+  .kpi{padding:7px 14px;min-width:88px}
+  .kpi .v{font-size:19px}
+  .kpi .k{font-size:9px}
+  .kpi .u{font-size:9.5px}
 }
 @media(max-width:560px){
-  th.pcorner,td.pcol{width:118px;min-width:118px}th.pcorner{padding:8px 10px}td.pcol{padding:7px 10px}
-  th.pcorner .s{display:none}th.mcorner,td.mcol{left:118px;width:40px;min-width:40px}th.mcorner .s{display:none}
+  th.pcorner,td.pcol{width:108px;min-width:108px}th.pcorner{padding:8px 8px}td.pcol{padding:7px 8px}
+  th.pcorner .s{display:none}
+  th.mcorner,td.mcol{left:108px;width:46px;min-width:46px}th.mcorner .s{display:none}
   th.dcorner,td.dcol{display:none}
-  .pname{font-size:13px}.pw .wlbl{display:none}.pmeta{gap:5px}
-  th.wh,td.cell{width:72px;min-width:72px}th.wh{padding:7px 4px 8px}
-  .legend{display:none}
+  .pdelta{display:flex}
+  .pw{display:none}.mpart{display:block}
+  .pname{font-size:13px}.pmeta{gap:5px}
+  th.wh,td.cell{width:68px;min-width:68px}th.wh{padding:7px 4px 8px}
 }
 </style>
 </head>
@@ -280,6 +327,31 @@ table.view-full .cd{display:block}
     <button class="scrbtn" id="scrollR" aria-label="Older wars">
       <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3.5L12 9l-5.5 5.5"/></svg>
     </button>
+  </div>
+</div>
+<!-- Mobile control bar (hidden on desktop) -->
+<div class="mob-bar" id="mobBar">
+  <button class="mctl" id="mShow"><span class="mctl-val">Active</span><svg class="mctl-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4l4 4 4-4"/></svg></button>
+  <button class="mctl" id="mSort"><span class="mctl-val">TH Level</span><svg class="mctl-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4l4 4 4-4"/></svg></button>
+  <button class="mctl" id="mView"><span class="mctl-val">Stars</span><svg class="mctl-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4l4 4 4-4"/></svg></button>
+  <button class="mctl" id="mWin"><span class="mctl-val">60d</span><svg class="mctl-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4l4 4 4-4"/></svg></button>
+  <button class="mctl" id="mLeg">&#9432;</button>
+  <a href="cwl.html" class="mctl">CWL &#8599;</a>
+</div>
+<!-- Shared mobile dropdown -->
+<div class="mob-drop" id="mobDrop"></div>
+<!-- Mobile: legend bottom sheet (fixed-position, outside controls) -->
+<div class="leg-sheet" id="legSheet">
+  <button class="leg-close" id="legClose">&#x2715;</button>
+  <div class="leg-title">Legend</div>
+  <div class="leg-items">
+    <span class="leg"><span class="swatch full"></span>Both attacks used</span>
+    <span class="leg"><span class="swatch part"></span>1 of 2 used</span>
+    <span class="leg"><span class="swatch miss"></span>Missed both</span>
+    <span class="leg"><span class="swatch none"></span>Not in war</span>
+    <span class="leg"><span class="dch up" style="margin:0">&#9650;</span>Hit up TH</span>
+    <span class="leg"><span class="dch dip" style="margin:0">&#9660;</span>Hit down TH</span>
+    <span class="leg"><span class="clean" style="margin:0;font-size:13px">&#8635;</span>Cleanup atk</span>
   </div>
 </div>
 <div class="matrix">
@@ -409,10 +481,10 @@ function sortName(n){return stripEmoji(n);}
     const _tot=s.atkCount||1;
     const _pct=x=>Math.round(x/_tot*100)+'%';
     const items=[
-      {k:'Wars fully missed',v:s.totalMissed,u:(s.count-s.cleanCount)+' member'+(s.count-s.cleanCount!==1?'s':'')+' affected',alert:s.totalMissed>0,c:'var(--miss-tx)'},
-      {k:'Attacked Higher TH',v:_pct(s.reaches),u:s.reaches+' attacks · excl. CWL',c:'var(--reach-tx)'},
-      {k:'Attacked Same TH',v:_pct(s.same),u:s.same+' attacks · excl. CWL',c:'var(--faint)'},
-      {k:'Attacked Lower TH',v:_pct(s.dips),u:s.dips+' attacks · excl. CWL',c:'var(--dip-tx)'},
+      {k:'Wars missed',v:s.totalMissed,u:(s.count-s.cleanCount)+' member'+(s.count-s.cleanCount!==1?'s':'')+' affected',alert:s.totalMissed>0,c:'var(--miss-tx)'},
+      {k:'Atk Higher TH',v:_pct(s.reaches),u:s.reaches+' attacks · excl. CWL',c:'var(--reach-tx)'},
+      {k:'Atk Same TH',v:_pct(s.same),u:s.same+' attacks · excl. CWL',c:'var(--faint)'},
+      {k:'Atk Lower TH',v:_pct(s.dips),u:s.dips+' attacks · excl. CWL',c:'var(--dip-tx)'},
     ];
     document.getElementById('strip').innerHTML=items.map(it=>
       '<div class="kpi'+(it.alert?' alert':'')+'"><div class="k"><span class="pelt" style="background:'+it.c+'"></span>'+it.k+'</div>'+
@@ -500,11 +572,25 @@ function sortName(n){return stripEmoji(n);}
     const net=m.reaches-m.dips;
     const netTxt=net>0?'+'+net:(net<0?'−'+Math.abs(net):'0');
     const netClr=net>0?'var(--reach-tx)':(net<0?'var(--dip-tx)':'var(--faint)');
-    return'<div style="font-family:var(--mf);font-size:9.5px;line-height:1.7;white-space:nowrap">'+
-      '<span style="color:var(--reach-tx)">▲'+m.reaches+'</span> '+
-      '<span style="color:var(--muted)">&#61;'+m.same+'</span> '+
-      '<span style="color:var(--dip-tx)">▼'+m.dips+'</span></div>'+
+    return'<div style="font-family:var(--mf);font-size:9.5px;line-height:1;white-space:nowrap;display:flex;align-items:center;justify-content:center;gap:4px;margin-bottom:3px">'+
+      '<span style="color:var(--reach-tx);display:inline-flex;align-items:center">▲'+m.reaches+'</span>'+
+      '<span style="color:var(--muted);display:inline-flex;align-items:center">&#61;'+m.same+'</span>'+
+      '<span style="color:var(--dip-tx);display:inline-flex;align-items:center">▼'+m.dips+'</span></div>'+
       '<div style="font-family:var(--hf);font-size:14px;font-weight:700;line-height:1;color:'+netClr+'">'+netTxt+'</div>';
+  }
+  // Compact inline delta for mobile (shown inside pcol when dcol is hidden)
+  function deltaInlineHtml(m){
+    const tot=m.reaches+m.same+m.dips;
+    if(!tot)return'';
+    const net=m.reaches-m.dips;
+    const netTxt=net>0?'+'+net:(net<0?'−'+Math.abs(net):'0');
+    const netClr=net>0?'var(--reach-tx)':(net<0?'var(--dip-tx)':'var(--faint)');
+    return'<div class="pdelta"><span class="pdlbl">TH&#916;</span>'+
+      '<span style="color:var(--reach-tx)">&#9650;'+m.reaches+'</span>'+
+      '<span style="color:var(--muted)">&#61;'+m.same+'</span>'+
+      '<span style="color:var(--dip-tx)">&#9660;'+m.dips+'</span>'+
+      '<span class="pnet" style="color:'+netClr+'">'+netTxt+'</span>'+
+      '</div>';
   }
   function renderBody(list){
     document.getElementById('tbody').innerHTML=list.map(m=>{
@@ -513,8 +599,10 @@ function sortName(n){return stripEmoji(n);}
         '<div class="pmeta"><span class="badge '+m.status+'">'+(m.status==='left'?'Left':'Active')+'</span>'+
         (m.th?'<span class="thbadge">TH'+m.th+'</span>':'')+
         (m.status==='active'?'<span class="pw">'+m.played+'/'+m.eligible+' <span class="wlbl">wars</span></span>':'')+
-        '</div></td>';
-      r+='<td class="mcol"><span class="mval mono '+heat(m.missed)+'">'+m.missed+'</span></td>';
+        '</div>'+deltaInlineHtml(m)+'</td>';
+      r+='<td class="mcol"><span class="mval mono '+heat(m.missed)+'">'+m.missed+'</span>'+
+        (m.status==='active'?'<div class="mpart">'+m.played+'/'+m.eligible+'</div>':'')+
+        '</td>';
       r+='<td class="dcol">'+deltaColHtml(m)+'</td>';
       D.wars.forEach(w=>{r+=cellHtml(w,m.cells[w.id]||null);});
       return r+'</tr>';
@@ -543,7 +631,7 @@ function sortName(n){return stripEmoji(n);}
     });
   }
   const meta=D.meta;
-  document.getElementById('subline').textContent=meta.clanTag+' · '+meta.windowDays+'-day rolling window';
+  document.getElementById('subline').textContent=meta.clanTag;
   (function showSchedule(){
     const UTC_HOURS=[0,4,8,12,16,20];
     const RUNNER_LAG=7*60*1000; // ~7 min: cron trigger → API fetch → commit → Netlify deploy
@@ -633,10 +721,12 @@ function sortName(n){return stripEmoji(n);}
   function updateNav(){
     const maxL=scrollEl.scrollWidth-scrollEl.clientWidth;
     const noOverflow=maxL<=4;
+    const atLeft=scrollEl.scrollLeft<=4;
+    const atRight=scrollEl.scrollLeft>=maxL-4;
     btnL.style.display=noOverflow?'none':'';
     btnR.style.display=noOverflow?'none':'';
-    btnL.disabled=scrollEl.scrollLeft<=4;
-    btnR.disabled=scrollEl.scrollLeft>=maxL-4;
+    btnL.disabled=atLeft;
+    btnR.disabled=atRight;
   }
   function pageScroll(dir){scrollEl.scrollBy({left:dir*Math.max(240,scrollEl.clientWidth-290),behavior:'smooth'});}
   btnL.addEventListener('click',()=>pageScroll(-1));
@@ -649,6 +739,84 @@ function sortName(n){return stripEmoji(n);}
     else if(e.key==='ArrowLeft')pageScroll(-1);
   });
   updateNav();
+
+  // ── Mobile control bar ─────────────────────────────────────────────────────
+  (function(){
+    const drop=document.getElementById('mobDrop');
+    const sheet=document.getElementById('legSheet');
+    const legClose=document.getElementById('legClose');
+    let activeBtn=null;
+    // Config: each button maps to a desktop seg
+    const cfg={
+      mShow:{seg:'filterSeg',attr:'f',label:{active:'Active',all:'Everyone',left:'Left clan'},def:'active'},
+      mSort:{seg:'sortSeg',attr:'s',label:{th:'TH Level',participation:'Participation',missed:'Most Missed',delta:'TH Δ','name':'A–Z'},def:'th'},
+      mView:{seg:'viewSeg',attr:'v',label:{stars:'Stars',delta:'TH Δ',full:'Detail'},def:'stars'},
+      mWin:{seg:'windowSeg',attr:'w',label:{'7':'7d','30':'30d','60':'60d','90':'90d','all':'All','custom':'Custom…'},def:'60'},
+    };
+    function setLabel(btnId,val){
+      const btn=document.getElementById(btnId);
+      if(!btn)return;
+      const c=cfg[btnId];
+      const valEl=btn.querySelector('.mctl-val');
+      if(valEl&&c)valEl.textContent=c.label[val]||val;
+    }
+    function openDrop(triggerBtn,btnId){
+      if(!drop)return;
+      const c=cfg[btnId];if(!c)return;
+      // Build options
+      const seg=document.getElementById(c.seg);
+      if(!seg)return;
+      const cur=seg.querySelector('[aria-pressed="true"]');
+      const curVal=cur?cur.dataset[c.attr]:'';
+      drop.innerHTML=Object.entries(c.label).map(([v,l])=>{
+        const on=v===curVal?' md-on':'';
+        return'<button class="'+on+'" data-val="'+v+'">'+l+'</button>';
+      }).join('');
+      // Position below button
+      const r=triggerBtn.getBoundingClientRect();
+      const dw=160;
+      let left=r.left;
+      if(left+dw>window.innerWidth-8)left=window.innerWidth-8-dw;
+      drop.style.top=(r.bottom+6)+'px';
+      drop.style.left=Math.max(8,left)+'px';
+      drop.classList.add('open');
+      activeBtn=btnId;
+      // Click handler
+      drop.onclick=e=>{
+        const b=e.target.closest('[data-val]');if(!b)return;
+        const v=b.dataset.val;
+        const target=seg.querySelector('[data-'+c.attr+'="'+v+'"]');
+        if(target)target.click();
+        setLabel(btnId,v);
+        drop.classList.remove('open');
+        activeBtn=null;
+        // Special: if custom window, show date range for mobile
+        if(btnId==='mWin'&&v==='custom'){
+          const cr=document.getElementById('customRange');
+          if(cr)cr.classList.add('visible');
+        }
+      };
+    }
+    Object.keys(cfg).forEach(id=>{
+      const btn=document.getElementById(id);
+      if(!btn)return;
+      btn.addEventListener('click',e=>{
+        e.stopPropagation();
+        if(drop.classList.contains('open')&&activeBtn===id){drop.classList.remove('open');activeBtn=null;return;}
+        openDrop(btn,id);
+      });
+    });
+    // Legend
+    const mLeg=document.getElementById('mLeg');
+    if(mLeg&&sheet){
+      mLeg.addEventListener('click',e=>{e.stopPropagation();sheet.classList.add('open');});
+    }
+    if(legClose)legClose.addEventListener('click',()=>sheet.classList.remove('open'));
+    document.addEventListener('click',()=>{drop.classList.remove('open');activeBtn=null;});
+    document.addEventListener('keydown',e=>{
+      if(e.key==='Escape'){drop.classList.remove('open');sheet.classList.remove('open');}
+    });
+  })();
 })();
 </script>
 </body>
