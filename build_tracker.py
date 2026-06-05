@@ -4020,7 +4020,9 @@ for _war in wars:
     _war_dt = _parse_war_date(_war['date'])
     _in_window = _war_dt >= _cutoff
     _rc = _war['result']
-    if _war['in_prog']:      _result = 'live'
+    _is_prep_war = _war['cwl'] and _war['in_prog'] and sum(pd.get('a', 0) for pd in _war['players'].values()) == 0
+    if _is_prep_war:         _result = 'prep'
+    elif _war['in_prog']:    _result = 'live'
     elif _rc == 'W':         _result = 'win'
     elif _rc == 'L':         _result = 'loss'
     elif _rc == 'D':         _result = 'draw'
@@ -4270,6 +4272,7 @@ th.wh .wres{font-size:8.5px;font-weight:700;letter-spacing:.03em;padding:1px 4px
 .wres.loss{color:var(--miss-tx);background:var(--miss-bg)}
 .wres.draw{color:var(--muted);background:var(--surface3)}
 .wres.live{color:var(--live-tx);background:var(--live-bg)}
+.wres.prep{color:var(--muted);background:var(--surface3)}
 th.wh:hover{background:color-mix(in oklab,var(--star) 8%,var(--surface2))}
 th.wh.focused{background:color-mix(in oklab,var(--star) 18%,var(--surface2));box-shadow:inset 0 -2px 0 var(--star)}
 th.wh.focused .wdate{color:var(--ink)}
@@ -4323,6 +4326,7 @@ td.cell.part{background:var(--part-bg)}
 td.cell.miss{background:var(--miss-bg)}
 td.cell.none{background:var(--none-bg)}
 td.cell.live{background:var(--live-bg)}
+td.cell.prep{background:var(--surface2)}
 td.cell.archived{opacity:.42}
 .cmain{display:flex;align-items:baseline;justify-content:center;gap:5px;line-height:1.1}
 .cmain .ua{font-family:var(--mf);font-size:12px;color:var(--muted);font-weight:500}
@@ -4331,6 +4335,7 @@ td.cell.full .ua{color:var(--full-tx)}
 td.cell.part .ua{color:var(--part-tx)}
 .cmain .mx{font-family:var(--hf);font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--miss-tx)}
 td.cell.live .lv{font-size:10px;font-weight:700;letter-spacing:.05em;color:var(--live-tx)}
+td.cell.prep .lv{font-size:10px;font-weight:700;letter-spacing:.05em;color:var(--muted)}
 td.cell.none .dash{color:var(--none-tx);font-size:14px}
 .cd{display:none;margin-top:3px;font-family:var(--mf);font-size:9.5px;color:var(--muted);line-height:1.4}
 .ato{color:var(--faint);font-size:8px}
@@ -4561,7 +4566,7 @@ function sortName(n){return stripEmoji(n);}
   const D=window.WARDATA;
   const state={filter:'active',sort:'th',view:'stars',warFocus:null,windowMode:'60'};
   const pct=x=>Math.round(x*100)+'%';
-  const RES={win:'WIN',loss:'LOSS',draw:'DRAW',live:'LIVE'};
+  const RES={win:'WIN',loss:'LOSS',draw:'DRAW',live:'LIVE',prep:'PREP'};
   function heat(n){return n===0?'h0':(n<=2?'h1':(n<=4?'h2':'h3'));}
   function renderStrip(list){
     // equalise KPI box widths after render so both are the same size
@@ -4627,7 +4632,7 @@ function sortName(n){return stripEmoji(n);}
   function cellHtml(w,c){
     const arcCls=(D.wars.indexOf(w)===arcStartIdx)?' arc-start':'';
     if(c==null)return'<td class="cell none'+arcCls+'"><span class="dash">·</span></td>';
-    if(c.pending)return'<td class="cell live'+arcCls+'"><span class="lv">PENDING</span></td>';
+    if(c.pending){const isPrep=w.result==='prep';return'<td class="cell '+(isPrep?'prep':'live')+arcCls+'"><span class="lv">'+(isPrep?'PREP':'PENDING')+'</span></td>';}
     const archivedCls=w.inWindow?'':' archived';
     const cwlCls=w.cwl?' iscwl':'';
     if(c.used===0){
@@ -4853,13 +4858,9 @@ for _csk in sorted(_cwl_by_season.keys(), reverse=True):
     (cy, cm) = _csk
     _crounds = sorted(_cwl_by_season[_csk], key=lambda w: _parse_war_date(w['date']))
 
-    # Per-player stats — only non-prep rounds count
+    # Per-player stats — only non-prep rounds count toward stats
     _cspl = {}        # canonical key -> stats
-    _non_prep_nr = 0  # count of rounds that are not in prep
-
-    # Split rounds into non-prep (have/had attacks) and prep (not started yet)
-    _non_prep_rounds_list = [r for r in _crounds if not _cwl_is_prep(r)]
-    _non_prep_nr = len(_non_prep_rounds_list)
+    _nr_all = len(_crounds)  # total rounds including prep (for rd[] array size)
 
     # Pass 1: register every player seen in ANY round (for full roster)
     for _crw in _crounds:
@@ -4874,16 +4875,26 @@ for _csk in sorted(_cwl_by_season.keys(), reverse=True):
                     'active': _cm.get('status', 'left') == 'active',
                     's3':0,'s2':0,'s1':0,'s0':0,'ri':0,'rp':0,'ms':0,'st':0,
                     'in_cwl': True,
-                    'rd': [None] * _non_prep_nr  # per-round slot: None = not in that round
+                    'rd': [None] * _nr_all  # per-round slot indexed same as _crounds
                 }
 
-    # Pass 2: fill stats + per-round detail for non-prep rounds only
-    for _ri, _crw in enumerate(_non_prep_rounds_list):
+    # Pass 2: fill stats + per-round detail for ALL rounds (prep rounds shown but not counted in stats)
+    _non_prep_nr = 0  # count non-prep rounds for season KPIs
+    for _ri, _crw in enumerate(_crounds):
+        _is_prep = _cwl_is_prep(_crw)
+        if not _is_prep:
+            _non_prep_nr += 1
         for _cpkey, _cpd in _crw['players'].items():
             _ccanon = _cpkey if _cpkey.startswith('#') else _name_to_tag.get(_cpkey, _cpkey)
             if _ccanon not in _cspl:
                 continue
             _cp = _cspl[_ccanon]
+
+            if _is_prep:
+                # Prep round: show as PREP in the column, don't count toward stats
+                _cp['rd'][_ri] = {'prep': True}
+                continue
+
             _cused = _cpd.get('a', 0)
             _cstars = _cpd.get('s', 0)
 
@@ -4924,7 +4935,7 @@ for _csk in sorted(_cwl_by_season.keys(), reverse=True):
             'name': _cm3name, 'th': _cth3, 'active': True,
             's3':0,'s2':0,'s1':0,'s0':0,'ri':0,'rp':0,'ms':0,'st':0,
             'in_cwl': False,
-            'rd': [None] * _non_prep_nr
+            'rd': [None] * _nr_all
         }
 
     # Build sorted player list
@@ -4942,7 +4953,7 @@ for _csk in sorted(_cwl_by_season.keys(), reverse=True):
             'ri': _cp['ri'], 'rp': _cp['rp'], 'ms': _cms, 'st': _cp['st'],
             's3': _cp['s3'], 's2': _cp['s2'], 's1': _cp['s1'], 's0': _cp['s0'],
             'av': _cav, 'rw': _crwv, 'in_cwl': _cin_cwl,
-            'rd': _cp.get('rd', [None] * _non_prep_nr)
+            'rd': _cp.get('rd', [None] * _nr_all)
         })
     _cplayer_list.sort(key=lambda p: (0 if p['in_cwl'] else 1, -p['st'], -p['rp'], p['name'].lower()))
 
@@ -5108,6 +5119,8 @@ th.rc-head{text-align:center;width:64px;min-width:64px;max-width:64px;padding:6p
 td.rc{width:64px;min-width:64px;max-width:64px;height:44px;text-align:center;padding:2px;vertical-align:middle}
 td.rc-none{background:var(--none-bg)}
 td.rc-pend{background:oklch(0.22 0.06 244)}
+td.rc-prep{background:var(--surface2)}
+th.rc-head-prep{opacity:.55}
 td.rc-miss{background:var(--miss-bg)}
 td.rc-3{background:var(--full-bg)}
 td.rc-2{background:oklch(0.34 0.09 88)}
@@ -5120,6 +5133,7 @@ td.rc-0{background:oklch(0.30 0.09 28)}
 .rc-0 .rc-val{color:var(--miss-tx)}
 .rc-pend .rc-val{color:var(--live-tx);font-size:11px;letter-spacing:.05em}
 .rc-miss .rc-val{color:var(--miss-tx);font-size:13px}
+.rc-prep .rc-val{color:var(--faint);font-size:10px;letter-spacing:.05em}
 
 /* Player cell */
 .pname{font-family:'Oswald';font-weight:500;font-size:14.5px;letter-spacing:.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -5261,8 +5275,9 @@ function msCls(ms){return ms===0?'ms0':ms===1?'ms1':ms===2?'ms2':'ms3';}
 const REW_LABEL={full:'&#10003; Full',short:'&#9651; Short',none:'&#x2715; None',notcwl:'&mdash;'};
 
 function rcCell(rd){
-  // rd = null (not in round) | {a,st,live}
+  // rd = null (not in round) | {prep:true} | {a,st,live}
   if(!rd) return '<td class="rc rc-none"></td>';
+  if(rd.prep) return '<td class="rc rc-prep"><div class="rc-val">PREP</div></td>';
   if(rd.a>0){
     const cls='rc-'+Math.min(rd.st,3);
     return '<td class="rc '+cls+'"><div class="rc-val">'+rd.st+'&#9733;</div></td>';
@@ -5273,12 +5288,13 @@ function rcCell(rd){
 
 function renderTable(season){
   const players=sortPlayers(season.players);
-  const activeRounds=season.rounds.filter(r=>r.result!=='prep');
+  // Include ALL rounds (prep rounds show as dim PREP columns)
+  const allRounds=season.rounds;
 
   // Build thead dynamically
-  const RMAP2={win:'W',loss:'L',draw:'D',live:'LIVE'};
-  const rCols=activeRounds.map((r,i)=>
-    '<th class="nosort rc-head">'+
+  const RMAP2={win:'W',loss:'L',draw:'D',live:'LIVE',prep:'PREP'};
+  const rCols=allRounds.map((r,i)=>
+    '<th class="nosort rc-head'+(r.result==='prep'?' rc-head-prep':'')+'">'+
       '<div class="rh-num">R'+(i+1)+'</div>'+
       '<div class="rh-date">'+r.date+'</div>'+
       '<div><span class="rh-res '+r.result+'">'+(RMAP2[r.result]||'?')+'</span></div>'+
@@ -5310,7 +5326,7 @@ function renderTable(season){
               '<span class="b3">'+p.s3+'</span><span class="bkd">&middot;</span>'+
               '<span class="b2">'+p.s2+'</span><span class="bkd">&middot;</span>'+
               '<span class="b1">'+p.s1+'</span><span class="bkd">&middot;'+p.s0+'</span>';
-    const rdCells=activeRounds.map((_,ri)=>rcCell((p.rd||[])[ri])).join('');
+    const rdCells=allRounds.map((_,ri)=>rcCell((p.rd||[])[ri])).join('');
     const row_cls=p.rw==='full'?'row-full':'';
     return '<tr class="'+row_cls+'">'+
       '<td class="td-num">'+(i+1)+'</td>'+
