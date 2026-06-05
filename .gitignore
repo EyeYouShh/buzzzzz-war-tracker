@@ -2,6 +2,7 @@ __pycache__/
 *.pyc
 .DS_Store
 TRACKER_CONTEXT.md
+.claude/
 
 # Credentials & secrets — never commit these
 .env
