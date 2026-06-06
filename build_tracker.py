@@ -5461,6 +5461,13 @@ function renderKpis(season){
 }
 
 const RW_ORDER={full:0,short:1,none:2,notcwl:3};
+function rdSortKey(p,ri){
+  const rd=(p.rd||[])[ri];
+  if(!rd||rd.prep)return{tier:3,st:0};  // not rostered / prep → bottom
+  if(rd.a>0)return{tier:0,st:rd.st};   // attacked → sort by stars desc
+  if(rd.live)return{tier:1,st:0};      // pending (live, no attack yet)
+  return{tier:2,st:0};                 // missed
+}
 function sortPlayers(players){
   // "not in CWL" always floats to the bottom
   const inCwl=players.filter(p=>p.in_cwl);
@@ -5470,7 +5477,15 @@ function sortPlayers(players){
   else if(curSort==='av') inCwl.sort((a,b)=>b.av-a.av||b.st-a.st||a.name.localeCompare(b.name));
   else if(curSort==='ms') inCwl.sort((a,b)=>b.ms-a.ms||a.name.localeCompare(b.name));
   else if(curSort==='rw') inCwl.sort((a,b)=>RW_ORDER[a.rw]-RW_ORDER[b.rw]||b.st-a.st||a.name.localeCompare(b.name));
-  else                    inCwl.sort((a,b)=>a.name.localeCompare(b.name));
+  else if(curSort==='th') inCwl.sort((a,b)=>(b.th||0)-(a.th||0)||a.name.localeCompare(b.name));
+  else if(/^r\d+$/.test(curSort)){
+    const ri=parseInt(curSort.slice(1),10);
+    inCwl.sort((a,b)=>{
+      const ka=rdSortKey(a,ri),kb=rdSortKey(b,ri);
+      return ka.tier-kb.tier||kb.st-ka.st||a.name.localeCompare(b.name);
+    });
+  }
+  else inCwl.sort((a,b)=>a.name.localeCompare(b.name));
   return [...inCwl,...notCwl];
 }
 
@@ -5499,7 +5514,7 @@ function renderTable(season){
   // Build thead dynamically
   const RMAP2={win:'W',loss:'L',draw:'D',live:'LIVE',prep:'PREP'};
   const rCols=allRounds.map((r,i)=>
-    '<th class="nosort rc-head'+(r.result==='prep'?' rc-head-prep':'')+'">'+
+    '<th data-sort="r'+i+'" class="rc-head'+(r.result==='prep'?' rc-head-prep':'')+'">'+
       '<div class="rh-num">R'+(i+1)+'</div>'+
       '<div class="rh-date">'+r.date+'</div>'+
       '<div><span class="rh-res '+r.result+'">'+(RMAP2[r.result]||'?')+'</span></div>'+
@@ -5507,7 +5522,7 @@ function renderTable(season){
   ).join('');
   const statCols=
     '<th class="nosort td-num">#</th>'+
-    '<th class="nosort" style="min-width:185px">Player</th>'+
+    '<th data-sort="th" style="min-width:185px">Player</th>'+
     rCols+
     '<th data-sort="st" class="td-c">Stars</th>'+
     '<th class="nosort td-c" style="min-width:110px">3&#9733;&middot;2&#9733;&middot;1&#9733;&middot;0&#9733;</th>'+
