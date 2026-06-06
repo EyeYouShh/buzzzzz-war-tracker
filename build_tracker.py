@@ -80,6 +80,7 @@ PLAYER_TAGS = {
     "#R0GCPRLPL": "jj",
     "#R0RV2P0U0": "Pharah",
     "#R22Q89CCU": "Stevie Wonder",
+    "#R2GPPJ220": "das",
     "#RQCJR8JV": "SurgeGold",
     "#XXXXXXXX": "DisplayName",
     "#Y0UUGPRRU": "Americanpatriot",
@@ -93,7 +94,7 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
-("617554103","6/6/26","Family Clan","30v30","""
+("718011854","6/7/26","фиксики","30v30","""
 #90QCVGU8U|Slayer|1|18|0|0|0|
 #QL8CV0P0|gen|2|17|0|0|0|
 #QCUCLPPJV|Gr8Conqueror|3|17|0|0|0|
@@ -101,14 +102,9 @@ WAR_BLOCKS = [
 #L8UC9G0U8|wato|5|16|0|0|0|
 #LC020U2Q|drybonez|6|16|0|0|0|
 #209J8J0RL|Big Steppa|7|15|0|0|0|
-#QP0CU0UC8|stage5yo|8|15|0|0|0|
 #Y0UUGPRRU|Americanpatriot|9|15|0|0|0|
 #G0VGRUCC|SwiftyKinja|10|15|0|0|0|
 #8J2V8998|DE1|11|15|0|0|0|
-#2J9GYQRYC|Jac|12|14|0|0|0|
-#RQCJR8JV|SurgeGold|17|14|0|0|0|
-#GV80Y9L0Y|studkiller|18|14|0|0|0|
-#Q9UJG0RJP|Sumairu|19|14|0|0|0|
 #LGJ9RC9Y9|Halid #1|20|14|0|0|0|
 #GRRYCUJP8|crimpo|21|14|0|0|0|
 #R00L0CY9C|MiniPekka|22|14|0|0|0|
@@ -117,13 +113,51 @@ WAR_BLOCKS = [
 #PGLV2YQC|Kizaru|25|14|0|0|0|
 #QLPQC0GQ0|Loading…|26|14|0|0|0|
 #GJ20RJ8RP|arius67'|28|13|0|0|0|
-#PRCQVCCV2|Brandon|29|13|0|0|0|
 #8L9J0R2QJ|SWAGMUFFIN90|30|13|0|0|0|
+#QLYP90RPV|Ste|32|13|0|0|0|
+#QYQU2JYYC|MR. ASURAN YT|33|13|0|0|0|
+#YVCJC0VCQ|Marrow|34|13|0|0|0|
 #R0GCPRLPL|jj|35|13|0|0|0|
 #QUJLUR02G|UNSTOPPABLE ADI|37|13|0|0|0|
 #R0RV2P0U0|Pharah|38|13|0|0|0|
 #R02R82YG9|DandyPickle|39|13|0|0|0|
 #PQ98J82PR|F16|40|13|0|0|0|
+#R22Q89CCU|Stevie Wonder|41|12|0|0|0|
+#R2GPPJ220|das|42|12|0|0|0|
+#QUQ0RUG29|rinz|43|12|0|0|0|
+""", True, True),
+
+("617554103","6/6/26","Family Clan","30v30","""
+#90QCVGU8U|Slayer|1|18|0|0|0|
+#QL8CV0P0|gen|2|17|1|3|3|2:3:3:16
+#QCUCLPPJV|Gr8Conqueror|3|17|1|3|3|1:3:3:17
+#GQJUGLQRQ|stage6yo|4|16|1|3|3|4:3:3:15
+#L8UC9G0U8|wato|5|16|0|0|0|
+#LC020U2Q|drybonez|6|16|1|3|3|6:3:3:15
+#209J8J0RL|Big Steppa|7|15|1|3|3|7:3:3:15
+#QP0CU0UC8|stage5yo|8|15|1|3|3|8:3:3:15
+#Y0UUGPRRU|Americanpatriot|9|15|0|0|0|
+#G0VGRUCC|SwiftyKinja|10|15|1|3|3|10:3:3:15
+#8J2V8998|DE1|11|15|0|0|0|
+#2J9GYQRYC|Jac|12|14|0|0|0|
+#RQCJR8JV|SurgeGold|17|14|0|0|0|
+#GV80Y9L0Y|studkiller|18|14|0|0|0|
+#Q9UJG0RJP|Sumairu|19|14|0|0|0|
+#LGJ9RC9Y9|Halid #1|20|14|0|0|0|
+#GRRYCUJP8|crimpo|21|14|0|0|0|
+#R00L0CY9C|MiniPekka|22|14|1|3|3|18:3:3:15
+#GJLRURGC2|Cole|23|14|0|0|0|
+#GRGGPPQ8J|Pam from HR|24|14|0|0|0|
+#PGLV2YQC|Kizaru|25|14|1|3|3|21:3:3:15
+#QLPQC0GQ0|Loading…|26|14|1|3|3|22:3:3:15
+#GJ20RJ8RP|arius67'|28|13|0|0|0|
+#PRCQVCCV2|Brandon|29|13|1|1|1|24:1:1:15
+#8L9J0R2QJ|SWAGMUFFIN90|30|13|0|0|0|
+#R0GCPRLPL|jj|35|13|0|0|0|
+#QUJLUR02G|UNSTOPPABLE ADI|37|13|1|3|3|27:3:3:15
+#R0RV2P0U0|Pharah|38|13|0|0|0|
+#R02R82YG9|DandyPickle|39|13|0|0|0|
+#PQ98J82PR|F16|40|13|1|3|3|30:3:3:12
 """, True, True),
 
 ("517551714","6/5/26","SPARTA","30v30","""
@@ -157,7 +191,7 @@ WAR_BLOCKS = [
 #QYQU2JYYC|MR. ASURAN YT|33|13|1|1|1|36:1:1:13
 #YVCJC0VCQ|Marrow|34|13|1|3|3|40:3:3:12
 #QLLPQV8VJ|uhlisuh|35|13|1|3|3|41:3:3:11
-""", True, True),
+""", False, True),
 
 ("417523054","6/4/26","SS RAIDERS","30v30","""
 #90QCVGU8U|Slayer|1|18|1|2|2|1:2:2:17
@@ -3859,6 +3893,7 @@ WAR_BLOCKS = [
 
 # ── Win/Loss/Draw results keyed by war ID ──
 RESULTS = {
+    "517551714": "W",
     "417523054": "W",
     '273131437': 'W',  # Friendj of wer
     '272906647': 'D',  # ⚡INDIAN KINGDOM
