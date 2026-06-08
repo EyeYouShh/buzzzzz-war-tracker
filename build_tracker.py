@@ -4912,13 +4912,10 @@ function sortName(n){return stripEmoji(n);}
   const meta=D.meta;
   document.getElementById('subline').textContent=meta.clanTag;
   (function showSchedule(){
-    const UTC_HOURS=[0,4,8,12,16,20];
     const RUNNER_LAG=7*60*1000; // ~7 min: cron trigger → API fetch → commit → Netlify deploy
     const now=new Date();
-    const nowUTC=now.getUTCHours()*60+now.getUTCMinutes();
-    const nextH=UTC_HOURS.find(h=>h*60>nowUTC)??UTC_HOURS[0];
-    let cronNext=new Date(Date.UTC(now.getUTCFullYear(),now.getUTCMonth(),now.getUTCDate(),nextH,0,0));
-    if(cronNext<=now)cronNext.setUTCDate(cronNext.getUTCDate()+1);
+    // Hourly cron: fires at top of every hour (0 * * * *)
+    let cronNext=new Date(Date.UTC(now.getUTCFullYear(),now.getUTCMonth(),now.getUTCDate(),now.getUTCHours()+1,0,0));
     // If war is ending before next cron, use that time instead
     const warEndISO=meta.warEndISO||'';
     let est=new Date(cronNext.getTime()+RUNNER_LAG);
