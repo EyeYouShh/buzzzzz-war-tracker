@@ -1,0 +1,18 @@
+name: Setup VM Cron (one-time)
+on:
+  workflow_dispatch:
+
+jobs:
+  setup:
+    runs-on: [self-hosted, coc-runner]
+    steps:
+      - name: Install hourly crontab entry
+        run: |
+          # Remove any existing tracker cron entries, then add fresh one
+          (crontab -l 2>/dev/null | grep -v 'update_tracker.py') > /tmp/ct.txt || true
+          echo "0 * * * * cd /home/opc/buzzzzz-war-tracker && /usr/bin/python3 update_tracker.py >> /home/opc/cron.log 2>&1" >> /tmp/ct.txt
+          crontab /tmp/ct.txt
+          echo "=== Crontab now ==="
+          crontab -l
+          echo "=== Python path ==="
+          which python3
