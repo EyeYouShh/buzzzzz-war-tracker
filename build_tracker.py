@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 6/8/26 — 45 members
-    "@INSTAGRAM","Americanpatriot","BSGxZion","Big Steppa","Brandon","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Kizaru","Loading…","MR. ASURAN YT","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slayer","Ste","Stevie Wonder","Sumairu","SurgeGold","SwiftyKinja","Tretor","UNSTOPPABLE ADI","amz","arius67'","crimpo","das","drybonez","gen","hood","jj","rinz","spawnofwar","stage5yo","stage6yo","studkiller","uhlisuh","wato","خشم شب","⚡️LSWreckless⚡️"
+    # Auto-updated 6/9/26 — 45 members
+    "@INSTAGRAM","AHMAD KHAN","Americanpatriot","BSGxZion","Big Steppa","Brandon","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slayer","Ste","Stevie Wonder","Sumairu","SurgeGold","SwiftyKinja","Tretor","UNSTOPPABLE ADI","amz","arius67'","crimpo","das","drybonez","gen","hood","jj","rinz","spawnofwar","stage5yo","stage6yo","studkiller","uhlisuh","wato","خشم شب","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -22,7 +22,7 @@ PLAYER_TH = {
     "SWAGMUFFIN90": 13, "Brandon": 13, "Pharah": 13, "UNSTOPPABLE ADI": 13,
     "MR. ASURAN YT": 13, "jj": 13, "DandyPickle": 13, "F16": 13,
     "Stevie Wonder": 12, "das": 12, "rinz": 12,
-    "Tretor": 11,
+    "Tretor": 12,
     "•KAILAN•": 18,
     "@INSTAGRAM": 15,
     "Vicious Viking": 18,
@@ -31,6 +31,7 @@ PLAYER_TH = {
     "amz": 14,
     "BSGxZion": 14,
     "hood": 14,
+    "AHMAD KHAN": 14,
 }
 # In-game order (tiebreaker within same TH — matches the order user sees in-game)
 _CS_ORDER = [
@@ -106,9 +107,9 @@ WAR_BLOCKS = [
 #QCUCLPPJV|Gr8Conqueror|3|17|1|1|1|1:1:1:18
 #GQJUGLQRQ|stage6yo|4|16|1|3|3|4:3:3:17
 #L8UC9G0U8|wato|5|16|1|2|2|6:2:2:16
-#LC020U2Q|drybonez|6|16|0|0|0|
-#209J8J0RL|Big Steppa|7|15|0|0|0|
-#Y0UUGPRRU|Americanpatriot|9|15|0|0|0|
+#LC020U2Q|drybonez|6|16|1|2|2|7:2:2:16
+#209J8J0RL|Big Steppa|7|15|1|3|3|8:3:3:15
+#Y0UUGPRRU|Americanpatriot|9|15|1|3|3|9:3:3:15
 #G0VGRUCC|SwiftyKinja|10|15|1|3|3|10:3:3:15
 #8J2V8998|DE1|11|15|1|3|3|11:3:3:15
 #2J9GYQRYC|Jac|12|14|0|0|0|
@@ -130,7 +131,7 @@ WAR_BLOCKS = [
 #R22Q89CCU|Stevie Wonder|41|12|1|3|3|35:3:3:11
 #R2GPPJ220|das|42|12|1|3|3|36:3:3:11
 #QUQ0RUG29|rinz|43|12|1|3|3|37:3:3:10
-#98VGCVCCC|Tretor|44|11|0|0|0|
+#98VGCVCCC|Tretor|44|11|1|3|3|39:3:3:10
 """, True, True),
 
 ("718011854","6/7/26","фиксики","30v30","""
