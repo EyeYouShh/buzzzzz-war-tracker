@@ -113,10 +113,10 @@ WAR_BLOCKS = [
 #Y0UUGPRRU|Americanpatriot|9|15|1|3|3|9:3:3:15
 #G0VGRUCC|SwiftyKinja|10|15|1|3|3|10:3:3:15
 #8J2V8998|DE1|11|15|1|3|3|11:3:3:15
-#2J9GYQRYC|Jac|12|14|0|0|0|
+#2J9GYQRYC|Jac|12|14|1|2|2|12:2:2:14
 #GV80Y9L0Y|studkiller|17|14|1|3|3|13:3:3:15
 #LGJ9RC9Y9|Halid #1|18|14|1|2|2|14:2:2:14
-#RQCJR8JV|SurgeGold|19|14|0|0|0|
+#RQCJR8JV|SurgeGold|19|14|1|1|1|15:1:1:14
 #GRRYCUJP8|crimpo|20|14|1|3|3|16:3:3:14
 #Q9UJG0RJP|Sumairu|21|14|1|2|2|18:2:2:14
 #R00L0CY9C|MiniPekka|22|14|1|3|3|19:3:3:14
@@ -133,7 +133,7 @@ WAR_BLOCKS = [
 #R2GPPJ220|das|42|12|1|3|3|36:3:3:11
 #QUQ0RUG29|rinz|43|12|1|3|3|37:3:3:10
 #98VGCVCCC|Tretor|44|11|1|3|3|39:3:3:10
-""", True, True),
+""", False, True),
 
 ("718011854","6/7/26","фиксики","30v30","""
 #90QCVGU8U|Slayer|1|18|1|3|3|3:3:3:16
@@ -3934,6 +3934,7 @@ WAR_BLOCKS = [
 
 # ── Win/Loss/Draw results keyed by war ID ──
 RESULTS = {
+    "818082210": "W",
     "718011854": "W",
     "617554103": "W",
     "517551714": "W",
