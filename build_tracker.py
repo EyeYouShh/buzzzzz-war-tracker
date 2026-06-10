@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 6/9/26 — 41 members
-    "@INSTAGRAM","Americanpatriot","BSGxZion","Big Steppa","Brandon","Cole","DE1","DandyPickle","F16","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slayer","Ste","Stevie Wonder","StopImAsianBro","Sumairu","SurgeGold","SwiftyKinja","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","das","drybonez","gen","hood","jj","rinz","spawnofwar","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
+    # Auto-updated 6/10/26 — 42 members
+    "@INSTAGRAM","Americanpatriot","BSGxZion","Big Steppa","Brandon","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slayer","Ste","Stevie Wonder","StopImAsianBro","Sumairu","SurgeGold","SwiftyKinja","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","das","drybonez","gen","hood","jj","rinz","spawnofwar","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -53,13 +53,17 @@ _CS_RANK = {name: i+1 for i, name in enumerate(_CS_ORDER)}
 PLAYER_TAGS = {
     # AUTO-UPDATED by update_tracker.py
     "#209J8J0RL": "Big Steppa",
+    "#28VU9VCC0": "spawnofwar",
     "#2J9GYQRYC": "Jac",
+    "#8G8QL98YV": "StopImAsianBro",
     "#8J2V8998": "DE1",
     "#8L9J0R2QJ": "SWAGMUFFIN90",
     "#8YJCVQL9L": "rour",
     "#90QCVGU8U": "Slayer",
     "#98VGCVCCC": "Tretor",
+    "#9V9QUCLJV": "@INSTAGRAM",
     "#G0VGRUCC": "SwiftyKinja",
+    "#G9RY2R9L0": "hood",
     "#GJ20RJ8RP": "arius67'",
     "#GJLRURGC2": "Cole",
     "#GQJUGLQRQ": "stage6yo",
@@ -69,6 +73,7 @@ PLAYER_TAGS = {
     "#L8UC9G0U8": "wato",
     "#LC020U2Q": "drybonez",
     "#LGJ9RC9Y9": "Halid #1",
+    "#LR0CRU9JG": "BSGxZion",
     "#PGLV2YQC": "Kizaru",
     "#PQ98J82PR": "F16",
     "#PRCQVCCV2": "Brandon",
@@ -102,6 +107,44 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
+("610230017","6/10/26","war boys","35v35","""
+#90QCVGU8U|Slayer|1|18|0|0|0|
+#28VU9VCC0|spawnofwar|2|17|0|0|0|
+#QL8CV0P0|gen|3|17|0|0|0|
+#GQJUGLQRQ|stage6yo|4|16|0|0|0|
+#LC020U2Q|drybonez|5|16|0|0|0|
+#209J8J0RL|Big Steppa|6|15|0|0|0|
+#QP0CU0UC8|stage5yo|7|15|0|0|0|
+#Y0UUGPRRU|Americanpatriot|8|15|0|0|0|
+#9V9QUCLJV|@INSTAGRAM|9|15|0|0|0|
+#G0VGRUCC|SwiftyKinja|10|15|0|0|0|
+#8J2V8998|DE1|11|15|0|0|0|
+#LR0CRU9JG|BSGxZion|12|14|0|0|0|
+#2J9GYQRYC|Jac|13|14|0|0|0|
+#GV80Y9L0Y|studkiller|14|14|0|0|0|
+#GRRYCUJP8|crimpo|15|14|0|0|0|
+#LGJ9RC9Y9|Halid #1|16|14|0|0|0|
+#RQCJR8JV|SurgeGold|17|14|0|0|0|
+#8G8QL98YV|StopImAsianBro|18|14|0|0|0|
+#Q9UJG0RJP|Sumairu|19|14|0|0|0|
+#R00L0CY9C|MiniPekka|20|14|0|0|0|
+#GRGGPPQ8J|Pam from HR|21|14|0|0|0|
+#PGLV2YQC|Kizaru|22|14|0|0|0|
+#QLPQC0GQ0|Loading…|23|14|0|0|0|
+#G9RY2R9L0|hood|24|14|0|0|0|
+#QGRPYC928|⚡️LSWreckless⚡️|25|13|0|0|0|
+#QLYP90RPV|Ste|26|13|0|0|0|
+#8L9J0R2QJ|SWAGMUFFIN90|27|13|0|0|0|
+#PRCQVCCV2|Brandon|28|13|0|0|0|
+#R0GCPRLPL|jj|29|13|0|0|0|
+#YVCJC0VCQ|Marrow|30|13|0|0|0|
+#QLLPQV8VJ|uhlisuh|31|13|0|0|0|
+#QUJLUR02G|UNSTOPPABLE ADI|32|13|0|0|0|
+#R02R82YG9|DandyPickle|33|13|0|0|0|
+#R2GPPJ220|das|34|12|0|0|0|
+#QUQ0RUG29|rinz|35|12|0|0|0|
+""", True),
+
 ("818082210","6/8/26","Gentlemen","30v30","""
 #90QCVGU8U|Slayer|1|18|1|2|2|3:2:2:17
 #QL8CV0P0|gen|2|17|1|3|3|2:3:3:17
