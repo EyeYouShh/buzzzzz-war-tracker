@@ -106,44 +106,44 @@ PLAYER_TAGS = {
 # War end time (ISO 8601 UTC) — set by update_tracker.py when a war is active.
 # JS uses this to display the smart-capture end time as "Next update" instead of next cron slot.
 # Cleared by update_tracker.py when war ends or no war is active.
-WAR_END_ISO = ""
+WAR_END_ISO = "2026-06-11T23:00:17Z"
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
 ("610230017","6/10/26","war boys","35v35","""
 #90QCVGU8U|Slayer|1|18|0|0|0|
-#28VU9VCC0|spawnofwar|2|17|0|0|0|
+#28VU9VCC0|spawnofwar|2|17|1|1|0|3:1:0:17
 #QL8CV0P0|gen|3|17|0|0|0|
-#GQJUGLQRQ|stage6yo|4|16|0|0|0|
-#LC020U2Q|drybonez|5|16|0|0|0|
-#209J8J0RL|Big Steppa|6|15|0|0|0|
-#QP0CU0UC8|stage5yo|7|15|0|0|0|
+#GQJUGLQRQ|stage6yo|4|16|2|4|4|3:1:1:17,4:3:3:17
+#LC020U2Q|drybonez|5|16|2|5|3|5:2:2:16,9:3:1:15
+#209J8J0RL|Big Steppa|6|15|2|5|3|8:3:3:15,9:2:0:15
+#QP0CU0UC8|stage5yo|7|15|2|6|6|6:3:3:16,7:3:3:15
 #Y0UUGPRRU|Americanpatriot|8|15|0|0|0|
 #9V9QUCLJV|@INSTAGRAM|9|15|0|0|0|
-#G0VGRUCC|SwiftyKinja|10|15|0|0|0|
+#G0VGRUCC|SwiftyKinja|10|15|2|5|5|10:3:3:15,9:2:2:15
 #8J2V8998|DE1|11|15|0|0|0|
 #LR0CRU9JG|BSGxZion|12|14|0|0|0|
-#2J9GYQRYC|Jac|13|14|0|0|0|
-#GV80Y9L0Y|studkiller|14|14|0|0|0|
+#2J9GYQRYC|Jac|13|14|1|2|2|15:2:2:14
+#GV80Y9L0Y|studkiller|14|14|2|5|5|14:2:2:14,22:3:3:15
 #GRRYCUJP8|crimpo|15|14|0|0|0|
 #LGJ9RC9Y9|Halid #1|16|14|0|0|0|
 #RQCJR8JV|SurgeGold|17|14|0|0|0|
-#8G8QL98YV|StopImAsianBro|18|14|0|0|0|
-#Q9UJG0RJP|Sumairu|19|14|0|0|0|
-#R00L0CY9C|MiniPekka|20|14|0|0|0|
-#GRGGPPQ8J|Pam from HR|21|14|0|0|0|
-#PGLV2YQC|Kizaru|22|14|0|0|0|
+#8G8QL98YV|StopImAsianBro|18|14|2|3|3|16:2:2:14,17:1:1:14
+#Q9UJG0RJP|Sumairu|19|14|2|6|6|19:3:3:14,18:3:3:14
+#R00L0CY9C|MiniPekka|20|14|2|3|3|20:1:1:14,21:2:2:14
+#GRGGPPQ8J|Pam from HR|21|14|1|3|1|21:3:1:14
+#PGLV2YQC|Kizaru|22|14|1|3|2|20:3:2:14
 #QLPQC0GQ0|Loading…|23|14|0|0|0|
 #G9RY2R9L0|hood|24|14|0|0|0|
 #QGRPYC928|⚡️LSWreckless⚡️|25|13|0|0|0|
-#QLYP90RPV|Ste|26|13|0|0|0|
+#QLYP90RPV|Ste|26|13|2|6|6|26:3:3:14,25:3:3:13
 #8L9J0R2QJ|SWAGMUFFIN90|27|13|0|0|0|
-#PRCQVCCV2|Brandon|28|13|0|0|0|
-#R0GCPRLPL|jj|29|13|0|0|0|
-#YVCJC0VCQ|Marrow|30|13|0|0|0|
+#PRCQVCCV2|Brandon|28|13|2|4|4|28:2:2:13,29:2:2:13
+#R0GCPRLPL|jj|29|13|2|6|6|31:3:3:13,32:3:3:15
+#YVCJC0VCQ|Marrow|30|13|2|6|6|30:3:3:13,23:3:3:13
 #QLLPQV8VJ|uhlisuh|31|13|0|0|0|
 #QUJLUR02G|UNSTOPPABLE ADI|32|13|0|0|0|
-#R02R82YG9|DandyPickle|33|13|0|0|0|
+#R02R82YG9|DandyPickle|33|13|2|5|5|33:2:2:13,34:3:3:13
 #R2GPPJ220|das|34|12|0|0|0|
 #QUQ0RUG29|rinz|35|12|0|0|0|
 """, True),
