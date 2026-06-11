@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 6/11/26 — 43 members
-    "@INSTAGRAM","Americanpatriot","BSGxZion","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Halid #1","Jac","Kiromiga","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slayer","Ste","Stevie Wonder","StopImAsianBro","Sumairu","SurgeGold","SwiftyKinja","Tretor","UNSTOPPABLE ADI","Woot","arius67'","crimpo","das","drybonez","gen","jj","rinz","spawnofwar","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
+    # Auto-updated 6/11/26 — 44 members
+    "@INSTAGRAM","Americanpatriot","BSGxZion","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Kiromiga","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slayer","Ste","Stevie Wonder","StopImAsianBro","Sumairu","SurgeGold","SwiftyKinja","Tretor","UNSTOPPABLE ADI","Woot","arius67'","crimpo","das","drybonez","gen","jj","rinz","spawnofwar","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -119,14 +119,14 @@ WAR_BLOCKS = [
 #209J8J0RL|Big Steppa|6|15|2|5|3|8:3:3:15,9:2:0:15
 #QP0CU0UC8|stage5yo|7|15|2|6|6|6:3:3:16,7:3:3:15
 #Y0UUGPRRU|Americanpatriot|8|15|0|0|0|
-#9V9QUCLJV|@INSTAGRAM|9|15|0|0|0|
+#9V9QUCLJV|@INSTAGRAM|9|15|2|6|4|11:3:3:15,5:3:1:16
 #G0VGRUCC|SwiftyKinja|10|15|2|5|5|10:3:3:15,9:2:2:15
-#8J2V8998|DE1|11|15|0|0|0|
+#8J2V8998|DE1|11|15|1|3|3|12:3:3:15
 #LR0CRU9JG|BSGxZion|12|14|0|0|0|
 #2J9GYQRYC|Jac|13|14|1|2|2|15:2:2:14
 #GV80Y9L0Y|studkiller|14|14|2|5|5|14:2:2:14,22:3:3:15
-#GRRYCUJP8|crimpo|15|14|0|0|0|
-#LGJ9RC9Y9|Halid #1|16|14|0|0|0|
+#GRRYCUJP8|crimpo|15|14|2|6|3|14:3:1:14,13:3:2:15
+#LGJ9RC9Y9|Halid #1|16|14|1|3|1|15:3:1:14
 #RQCJR8JV|SurgeGold|17|14|2|3|2|17:2:1:14,13:1:1:15
 #8G8QL98YV|StopImAsianBro|18|14|2|3|3|16:2:2:14,17:1:1:14
 #Q9UJG0RJP|Sumairu|19|14|2|6|6|19:3:3:14,18:3:3:14
@@ -141,7 +141,7 @@ WAR_BLOCKS = [
 #PRCQVCCV2|Brandon|28|13|2|4|4|28:2:2:13,29:2:2:13
 #R0GCPRLPL|jj|29|13|2|6|6|31:3:3:13,32:3:3:15
 #YVCJC0VCQ|Marrow|30|13|2|6|6|30:3:3:13,23:3:3:13
-#QLLPQV8VJ|uhlisuh|31|13|0|0|0|
+#QLLPQV8VJ|uhlisuh|31|13|1|3|1|35:3:1:13
 #QUJLUR02G|UNSTOPPABLE ADI|32|13|2|6|6|24:3:3:13,27:3:3:13
 #R02R82YG9|DandyPickle|33|13|2|5|5|33:2:2:13,34:3:3:13
 #R2GPPJ220|das|34|12|2|5|3|35:2:2:13,33:3:1:13
