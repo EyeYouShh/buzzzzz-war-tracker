@@ -5628,7 +5628,7 @@ td.rc-0{background:oklch(0.30 0.09 28)}
 .av-hi{color:var(--full-tx)}.av-mid{color:var(--star)}.av-lo{color:var(--part-tx)}.av-bad{color:var(--miss-tx)}
 
 .bwrap{display:inline-flex;flex-wrap:wrap;gap:3px;justify-content:center;max-width:122px}
-.bchip{background:var(--surface3);border:1px solid var(--line2);color:var(--muted);border-radius:4px;padding:1px 5px;font-size:10.5px;font-weight:500;white-space:nowrap;font-family:'JetBrains Mono',monospace}
+.bchip{background:var(--full-bg);border:1px solid var(--full-bd);color:var(--full-tx);border-radius:4px;padding:1px 5px;font-size:10.5px;font-weight:500;white-space:nowrap;font-family:'JetBrains Mono',monospace}
 /* Reward chips */
 .rew{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11px;font-weight:700;white-space:nowrap;border:1px solid}
 .rew.full{color:var(--full-tx);background:var(--full-bg);border-color:var(--full-bd)}
@@ -5743,7 +5743,7 @@ function sortPlayers(players){
   else if(curSort==='av') inCwl.sort((a,b)=>b.av-a.av||b.st-a.st||a.name.localeCompare(b.name));
   else if(curSort==='ms') inCwl.sort((a,b)=>b.ms-a.ms||a.name.localeCompare(b.name));
   else if(curSort==='rw') inCwl.sort((a,b)=>RW_ORDER[a.rw]-RW_ORDER[b.rw]||b.st-a.st||a.name.localeCompare(b.name));
-  else if(curSort==='bn') inCwl.sort((a,b)=>(a.bnv||0)-(b.bnv||0)||a.name.localeCompare(b.name));
+  else if(curSort==='bn') inCwl.sort((a,b)=>(b.av||0)-(a.av||0)||(a.bnv||0)-(b.bnv||0)||(b.st||0)-(a.st||0)||a.name.localeCompare(b.name));
   else if(curSort==='th') inCwl.sort((a,b)=>(b.th||0)-(a.th||0)||a.name.localeCompare(b.name));
   else if(/^r\d+$/.test(curSort)){
     const ri=parseInt(curSort.slice(1),10);
@@ -5801,7 +5801,7 @@ function renderTable(season){
     '<th data-sort="ms" class="td-c">Missed</th>'+
     '<th data-sort="av" class="td-c">Avg &#9733;</th>'+
     '<th data-sort="rw" class="td-c">8&#9733; Reward</th>'+
-    '<th data-sort="bn" class="td-c" style="min-width:96px" title="Sort: never-received first, then longest-since-bonus to most-recent">Bonus</th>';
+    '<th data-sort="bn" class="td-c" style="min-width:96px" title="Sort: best Avg first; ties break to whoever has gone longest without a bonus">Bonus</th>';
   document.getElementById('cwl-thead').innerHTML='<tr>'+statCols+'</tr>';
   // Apply sort indicator once, cleanly — no accumulation possible
   document.querySelectorAll('#cwl-thead th[data-sort]').forEach(function(th){
