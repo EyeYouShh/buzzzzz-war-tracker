@@ -5525,7 +5525,7 @@ select.season-sel:focus{border-color:var(--star)}
 
 /* Scrollable body content — capped width so it's readable on big monitors */
 .page-body{flex:1;overflow:auto;min-height:0;display:flex;flex-direction:column;align-items:flex-start}
-.content{width:100%;max-width:1100px}
+.content{width:100%;max-width:1500px}
 
 /* Round strip */
 .rounds-wrap{padding:12px 20px;border-bottom:1px solid var(--line);background:var(--surface2);overflow-x:auto}
@@ -5743,7 +5743,7 @@ function sortPlayers(players){
   else if(curSort==='av') inCwl.sort((a,b)=>b.av-a.av||b.st-a.st||a.name.localeCompare(b.name));
   else if(curSort==='ms') inCwl.sort((a,b)=>b.ms-a.ms||a.name.localeCompare(b.name));
   else if(curSort==='rw') inCwl.sort((a,b)=>RW_ORDER[a.rw]-RW_ORDER[b.rw]||b.st-a.st||a.name.localeCompare(b.name));
-  else if(curSort==='bn') inCwl.sort((a,b)=>(b.av||0)-(a.av||0)||(a.bnv||0)-(b.bnv||0)||(b.st||0)-(a.st||0)||a.name.localeCompare(b.name));
+  else if(curSort==='bn') inCwl.sort((a,b)=>(a.bnv||0)-(b.bnv||0)||(b.av||0)-(a.av||0)||(b.st||0)-(a.st||0)||a.name.localeCompare(b.name));
   else if(curSort==='th') inCwl.sort((a,b)=>(b.th||0)-(a.th||0)||a.name.localeCompare(b.name));
   else if(/^r\d+$/.test(curSort)){
     const ri=parseInt(curSort.slice(1),10);
@@ -5801,7 +5801,7 @@ function renderTable(season){
     '<th data-sort="ms" class="td-c">Missed</th>'+
     '<th data-sort="av" class="td-c">Avg &#9733;</th>'+
     '<th data-sort="rw" class="td-c">8&#9733; Reward</th>'+
-    '<th data-sort="bn" class="td-c" style="min-width:96px" title="Sort: best Avg first; ties break to whoever has gone longest without a bonus">Bonus</th>';
+    '<th data-sort="bn" class="td-c" style="min-width:96px" title="Sort: never-received and longest-since-bonus first (oldest to newest); same month ordered by Avg">Bonus</th>';
   document.getElementById('cwl-thead').innerHTML='<tr>'+statCols+'</tr>';
   // Apply sort indicator once, cleanly — no accumulation possible
   document.querySelectorAll('#cwl-thead th[data-sort]').forEach(function(th){
