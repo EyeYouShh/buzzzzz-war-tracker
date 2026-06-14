@@ -5249,6 +5249,66 @@ def _cwl_is_prep(war):
     """A CWL round in prep: in_prog=True but zero attacks from anyone."""
     return war['in_prog'] and sum(pd.get('a', 0) for pd in war['players'].values()) == 0
 
+# ── CWL bonus history (MANUAL DATA — update_tracker.py never touches this) ──
+# Player display-name -> list of "M/YY" award dates. Add a date when a player earns a bonus.
+BONUS_HISTORY = {
+    "Americanpatriot": ["2/26", "5/26"],
+    "Dashinaw": ["2/26"],
+    "EVAL01": ["2/26"],
+    "Pharah": ["2/26", "5/26"],
+    "Rampage": ["2/26"],
+    "spectazen": ["2/26"],
+    "Stevie Wonder": ["2/26"],
+    "TyrantLeo": ["2/26"],
+    "arius67'": ["3/26", "6/26"],
+    "Cole": ["3/26", "6/26"],
+    "DandyPickle": ["3/26"],
+    "dexd": ["3/26"],
+    "Gary": ["3/26"],
+    "MR. ASURAN YT": ["3/26"],
+    "studkiller": ["3/26"],
+    "UNSTOPPABLE ADI": ["3/26"],
+    "Aye": ["4/26"],
+    "BlurTrigr": ["4/26"],
+    "Dragon": ["4/26"],
+    "drybonez": ["4/26"],
+    "high": ["4/26"],
+    "krump": ["4/26"],
+    "⚡️LSWreckless⚡️": ["4/26"],
+    "MACK": ["4/26"],
+    "MiniPekka": ["4/26"],
+    "Pam from HR": ["4/26"],
+    "Party": ["4/26"],
+    "Big Steppa": ["5/26"],
+    "Brandon": ["5/26"],
+    "crimpo": ["5/26"],
+    "DE1": ["5/26"],
+    "F16": ["5/26"],
+    "Kizaru": ["5/26"],
+    "Loading…": ["5/26"],
+    "Marrow": ["5/26"],
+    "uhlisuh": ["5/26"],
+    "gen": ["6/26"],
+    "Ste": ["6/26"],
+    "jj": ["6/26"],
+    "Halid #1": ["6/26"],
+    "SwiftyKinja": ["6/26"],
+    "rinz": ["6/26"],
+    "SurgeGold": ["6/26"],
+    "Sumairu": ["6/26"],
+}
+def _bonus_val(dates):
+    """Sort value = most-recent award as year*12+month; 0 if never."""
+    best = 0
+    for _d in dates:
+        try:
+            _m, _y = _d.split("/")
+            _v = (2000 + int(_y)) * 12 + int(_m)
+            if _v > best: best = _v
+        except Exception:
+            pass
+    return best
+
 # Group CWL wars by season (month/year)
 _cwl_by_season = {}
 for _cw in wars:
@@ -5360,7 +5420,9 @@ for _csk in sorted(_cwl_by_season.keys(), reverse=True):
             'ri': _cp['ri'], 'rp': _cp['rp'], 'ms': _cms, 'st': _cp['st'],
             's3': _cp['s3'], 's2': _cp['s2'], 's1': _cp['s1'], 's0': _cp['s0'],
             'av': _cav, 'rw': _crwv, 'in_cwl': _cin_cwl,
-            'rd': _cp.get('rd', [None] * _nr_all)
+            'rd': _cp.get('rd', [None] * _nr_all),
+            'bn': BONUS_HISTORY.get(_cp['name'], []),
+            'bnv': _bonus_val(BONUS_HISTORY.get(_cp['name'], []))
         })
     _cplayer_list.sort(key=lambda p: (0 if p['in_cwl'] else 1, -p['st'], -p['rp'], p['name'].lower()))
 
@@ -5565,6 +5627,8 @@ td.rc-0{background:oklch(0.30 0.09 28)}
 /* Avg */
 .av-hi{color:var(--full-tx)}.av-mid{color:var(--star)}.av-lo{color:var(--part-tx)}.av-bad{color:var(--miss-tx)}
 
+.bwrap{display:inline-flex;flex-wrap:wrap;gap:3px;justify-content:center;max-width:122px}
+.bchip{background:var(--surface3);border:1px solid var(--line2);color:var(--muted);border-radius:4px;padding:1px 5px;font-size:10.5px;font-weight:500;white-space:nowrap;font-family:'JetBrains Mono',monospace}
 /* Reward chips */
 .rew{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11px;font-weight:700;white-space:nowrap;border:1px solid}
 .rew.full{color:var(--full-tx);background:var(--full-bg);border-color:var(--full-bd)}
@@ -5679,6 +5743,7 @@ function sortPlayers(players){
   else if(curSort==='av') inCwl.sort((a,b)=>b.av-a.av||b.st-a.st||a.name.localeCompare(b.name));
   else if(curSort==='ms') inCwl.sort((a,b)=>b.ms-a.ms||a.name.localeCompare(b.name));
   else if(curSort==='rw') inCwl.sort((a,b)=>RW_ORDER[a.rw]-RW_ORDER[b.rw]||b.st-a.st||a.name.localeCompare(b.name));
+  else if(curSort==='bn') inCwl.sort((a,b)=>(a.bnv||0)-(b.bnv||0)||a.name.localeCompare(b.name));
   else if(curSort==='th') inCwl.sort((a,b)=>(b.th||0)-(a.th||0)||a.name.localeCompare(b.name));
   else if(/^r\d+$/.test(curSort)){
     const ri=parseInt(curSort.slice(1),10);
@@ -5708,6 +5773,11 @@ function rcCell(rd){
   return '<td class="rc rc-miss"><div class="rc-val">&#x2715;</div></td>';
 }
 
+function bonusCell(p){
+  const b=p.bn||[];
+  if(!b.length)return '<span class="bkd">&mdash;</span>';
+  return '<span class="bwrap">'+b.map(function(d){return '<span class="bchip">'+d+'</span>';}).join('')+'</span>';
+}
 function renderTable(season){
   const players=sortPlayers(season.players);
   // Include ALL rounds (prep rounds show as dim PREP columns)
@@ -5730,7 +5800,8 @@ function renderTable(season){
     '<th class="nosort td-c" style="min-width:110px">3&#9733;&middot;2&#9733;&middot;1&#9733;&middot;0&#9733;</th>'+
     '<th data-sort="ms" class="td-c">Missed</th>'+
     '<th data-sort="av" class="td-c">Avg &#9733;</th>'+
-    '<th data-sort="rw" class="td-c">8&#9733; Reward</th>';
+    '<th data-sort="rw" class="td-c">8&#9733; Reward</th>'+
+    '<th data-sort="bn" class="td-c" style="min-width:96px" title="Sort: never-received first, then longest-since-bonus to most-recent">Bonus</th>';
   document.getElementById('cwl-thead').innerHTML='<tr>'+statCols+'</tr>';
   // Apply sort indicator once, cleanly — no accumulation possible
   document.querySelectorAll('#cwl-thead th[data-sort]').forEach(function(th){
@@ -5765,6 +5836,7 @@ function renderTable(season){
       '<td class="td-c">'+(notCwl?'<span class="bkd">&mdash;</span>':'<span class="'+msCls(p.ms)+'">'+p.ms+'</span>')+'</td>'+
       '<td class="td-c">'+(notCwl?'<span class="bkd">&mdash;</span>':'<span class="'+avCls(p.av)+'">'+(p.rp>0?p.av.toFixed(2):'&mdash;')+'</span>')+'</td>'+
       '<td class="td-c"><span class="rew '+p.rw+'">'+(REW_LABEL[p.rw]||'&mdash;')+'</span></td>'+
+      '<td class="td-c">'+bonusCell(p)+'</td>'+
     '</tr>';
   }).join('');
 }
