@@ -112,7 +112,7 @@ PLAYER_TAGS = {
 # War end time (ISO 8601 UTC) — set by update_tracker.py when a war is active.
 # JS uses this to display the smart-capture end time as "Next update" instead of next cron slot.
 # Cleared by update_tracker.py when war ends or no war is active.
-WAR_END_ISO = ""
+WAR_END_ISO = "2026-06-16T01:10:39Z"
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
@@ -121,20 +121,20 @@ WAR_BLOCKS = [
 #QCUCLPPJV|Gr8Conqueror|2|17|0|0|0|
 #GQJUGLQRQ|stage6yo|3|16|0|0|0|
 #209J8J0RL|Big Steppa|4|15|0|0|0|
-#G0VGRUCC|SwiftyKinja|5|15|0|0|0|
-#Y0UUGPRRU|Americanpatriot|6|15|0|0|0|
+#G0VGRUCC|SwiftyKinja|5|15|2|6|6|6:3:3:15,4:3:3:17
+#Y0UUGPRRU|Americanpatriot|6|15|1|3|3|5:3:3:16
 #9V9QUCLJV|@INSTAGRAM|7|15|0|0|0|
-#8J2V8998|DE1|8|15|0|0|0|
-#GPLUYRQ9J|filet minion|9|14|0|0|0|
+#8J2V8998|DE1|8|15|1|3|3|8:3:3:15
+#GPLUYRQ9J|filet minion|9|14|1|3|3|9:3:3:14
 #2J9GYQRYC|Jac|10|14|0|0|0|
 #GRRYCUJP8|crimpo|11|14|0|0|0|
 #8G8QL98YV|StopImAsianBro|12|14|0|0|0|
 #LGJ9RC9Y9|Halid #1|13|14|0|0|0|
-#Q9UJG0RJP|Sumairu|14|14|0|0|0|
+#Q9UJG0RJP|Sumairu|14|14|2|6|6|14:3:3:14,15:3:3:14
 #R00L0CY9C|MiniPekka|15|14|0|0|0|
-#GJLRURGC2|Cole|16|14|0|0|0|
+#GJLRURGC2|Cole|16|14|2|6|6|19:3:3:14,18:3:3:14
 #GRGGPPQ8J|Pam from HR|17|14|0|0|0|
-#PGLV2YQC|Kizaru|18|14|0|0|0|
+#PGLV2YQC|Kizaru|18|14|1|3|3|17:3:3:15
 #QLPQC0GQ0|Loading…|19|14|0|0|0|
 #2C9JU8LU|Woot|20|14|0|0|0|
 #YLGQ20LP8|Brodie|21|14|0|0|0|
@@ -142,11 +142,11 @@ WAR_BLOCKS = [
 #R0GCPRLPL|jj|23|13|0|0|0|
 #QLYP90RPV|Ste|24|13|0|0|0|
 #8L9J0R2QJ|SWAGMUFFIN90|25|13|0|0|0|
-#YVCJC0VCQ|Marrow|26|13|0|0|0|
+#YVCJC0VCQ|Marrow|26|13|2|5|5|26:3:3:13,24:2:2:13
 #QUJLUR02G|UNSTOPPABLE ADI|27|13|0|0|0|
 #R0RV2P0U0|Pharah|28|13|0|0|0|
 #R02R82YG9|DandyPickle|29|13|0|0|0|
-#R2GPPJ220|das|30|12|0|0|0|
+#R2GPPJ220|das|30|12|2|6|6|30:3:3:14,29:3:3:13
 """, True),
 
 ("613010027","6/13/26","toman","35v35","""
