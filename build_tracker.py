@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 6/16/26 — 50 members
-    "@INSTAGRAM","Americanpatriot","Beast Gamer","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Good for you","Gr8Conqueror","Halid #1","Jac","Kiromiga","Kizaru","Loading…","Marrow","MiniPekka","My name is...","Pam from HR","Pharah","SWAGMUFFIN90","Ste","Stevie Wonder","StopImAsianBro","SubZero","Sumairu","SurgeGold","SwiftyKinja","Tomahawk","Tretor","UNSTOPPABLE ADI","Woot","ZEROSUBS","arius67'","crimpo","das","drybonez","filet minion","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","swastik","uhlisuh","⚡️LSWreckless⚡️"
+    # Auto-updated 6/17/26 — 49 members
+    "@INSTAGRAM","Americanpatriot","Beast Gamer","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Good for you","Halid #1","Jac","Kiromiga","Kizaru","Loading…","Marrow","MiniPekka","My name is...","Pam from HR","Pharah","SWAGMUFFIN90","Ste","Stevie Wonder","StopImAsianBro","SubZero","Sumairu","SurgeGold","SwiftyKinja","Tomahawk","Tretor","UNSTOPPABLE ADI","Woot","ZEROSUBS","arius67'","crimpo","das","drybonez","filet minion","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","swastik","uhlisuh","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -150,17 +150,17 @@ WAR_BLOCKS = [
 #8G8QL98YV|StopImAsianBro|18|14|0|0|0|
 #LGJ9RC9Y9|Halid #1|19|14|0|0|0|
 #RQCJR8JV|SurgeGold|20|14|0|0|0|
+#Q9UJG0RJP|Sumairu|21|14|0|0|0|
 #R00L0CY9C|MiniPekka|22|14|0|0|0|
 #GJLRURGC2|Cole|24|14|0|0|0|
+#GRGGPPQ8J|Pam from HR|25|14|0|0|0|
 #PGLV2YQC|Kizaru|26|14|0|0|0|
-#GV088PV02|roham|28|14|0|0|0|
-#GGQLQLVCC|Good for you|29|14|0|0|0|
+#QLPQC0GQ0|Loading…|27|14|0|0|0|
+#2C9JU8LU|Woot|30|14|0|0|0|
 #YLGQ20LP8|Brodie|31|14|0|0|0|
 #GG89UJ8G0|Kiromiga|33|14|0|0|0|
 #GJ20RJ8RP|arius67'|35|13|0|0|0|
 #QGRPYC928|⚡️LSWreckless⚡️|36|13|0|0|0|
-#YVCJC0VCQ|Marrow|40|13|0|0|0|
-#QUJLUR02G|UNSTOPPABLE ADI|43|13|0|0|0|
 """, True, True),
 
 ("615011039","6/15/26","Orange Juice","30v30","""
