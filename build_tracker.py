@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 6/17/26 — 50 members
-    "@INSTAGRAM","Americanpatriot","Beast Gamer","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Good for you","Halid #1","Jac","Kiromiga","Kizaru","Loading…","Marrow","MiniPekka","My name is...","Pam from HR","Pharah","SWAGMUFFIN90","Ste","Stevie Wonder","StopImAsianBro","SubZero","Sumairu","SurgeGold","SwiftyKinja","TigerGoMaow","Tomahawk","Tretor","UNSTOPPABLE ADI","Woot","ZEROSUBS","arius67'","crimpo","das","drybonez","filet minion","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","swastik","uhlisuh","⚡️LSWreckless⚡️"
+    # Auto-updated 6/17/26 — 49 members
+    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Good for you","Halid #1","Jac","Kiromiga","Kizaru","Loading…","Marrow","MiniPekka","My name is...","Pam from HR","Pharah","SWAGMUFFIN90","Ste","Stevie Wonder","StopImAsianBro","SubZero","Sumairu","SurgeGold","SwiftyKinja","TigerGoMaow","Tomahawk","Tretor","UNSTOPPABLE ADI","Woot","ZEROSUBS","arius67'","crimpo","das","drybonez","filet minion","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","swastik","uhlisuh","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -144,9 +144,9 @@ WAR_BLOCKS = [
 #Y0UUGPRRU|Americanpatriot|10|15|0|0|0|
 #9V9QUCLJV|@INSTAGRAM|11|15|0|0|0|
 #8J2V8998|DE1|12|15|0|0|0|
+#2J9GYQRYC|Jac|13|14|0|0|0|
 #GPLUYRQ9J|filet minion|14|14|0|0|0|
 #GV80Y9L0Y|studkiller|15|14|0|0|0|
-#9PCRUJ98|ZEROSUBS|16|14|0|0|0|
 #GRRYCUJP8|crimpo|17|14|0|0|0|
 #8G8QL98YV|StopImAsianBro|18|14|0|0|0|
 #LGJ9RC9Y9|Halid #1|19|14|0|0|0|
