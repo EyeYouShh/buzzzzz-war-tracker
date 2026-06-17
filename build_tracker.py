@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 6/17/26 — 49 members
-    "@INSTAGRAM","Americanpatriot","Beast Gamer","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Good for you","Halid #1","Jac","Kiromiga","Kizaru","Loading…","Marrow","MiniPekka","My name is...","Pam from HR","Pharah","SWAGMUFFIN90","Ste","Stevie Wonder","StopImAsianBro","SubZero","Sumairu","SurgeGold","SwiftyKinja","Tomahawk","Tretor","UNSTOPPABLE ADI","Woot","ZEROSUBS","arius67'","crimpo","das","drybonez","filet minion","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","swastik","uhlisuh","⚡️LSWreckless⚡️"
+    # Auto-updated 6/17/26 — 50 members
+    "@INSTAGRAM","Americanpatriot","Beast Gamer","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Good for you","Halid #1","Jac","Kiromiga","Kizaru","Loading…","Marrow","MiniPekka","My name is...","Pam from HR","Pharah","SWAGMUFFIN90","Ste","Stevie Wonder","StopImAsianBro","SubZero","Sumairu","SurgeGold","SwiftyKinja","TigerGoMaow","Tomahawk","Tretor","UNSTOPPABLE ADI","Woot","ZEROSUBS","arius67'","crimpo","das","drybonez","filet minion","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","swastik","uhlisuh","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -47,6 +47,7 @@ PLAYER_TH = {
     "Beast Gamer": 14,
     "Tomahawk": 18,
     "roham": 14,
+    "TigerGoMaow": 16,
 }
 # In-game order (tiebreaker within same TH — matches the order user sees in-game)
 _CS_ORDER = [
