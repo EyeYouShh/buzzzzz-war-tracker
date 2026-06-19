@@ -131,7 +131,7 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
-("1821430171","6/18/26","The Microwave","30v30","""
+("1921492064","6/19/26","VALAR MORGULIS","30v30","""
 #9Q2VLQL2R|Tomahawk|1|18|0|0|0|
 #QL8CV0P0|gen|2|17|0|0|0|
 #QCUCLPPJV|Gr8Conqueror|3|17|0|0|0|
@@ -149,15 +149,48 @@ WAR_BLOCKS = [
 #GV80Y9L0Y|studkiller|15|14|0|0|0|
 #9PCRUJ98|ZEROSUBS|16|14|0|0|0|
 #GRRYCUJP8|crimpo|17|14|0|0|0|
-#LGJ9RC9Y9|Halid #1|18|14|0|0|0|
-#8G8QL98YV|StopImAsianBro|19|14|0|0|0|
+#8G8QL98YV|StopImAsianBro|18|14|0|0|0|
+#LGJ9RC9Y9|Halid #1|19|14|0|0|0|
 #RQCJR8JV|SurgeGold|20|14|0|0|0|
 #Q9UJG0RJP|Sumairu|21|14|0|0|0|
 #R00L0CY9C|MiniPekka|22|14|0|0|0|
-#GJLRURGC2|Cole|24|14|0|0|0|
-#GRGGPPQ8J|Pam from HR|25|14|0|0|0|
+#GRGGPPQ8J|Pam from HR|24|14|0|0|0|
+#GJLRURGC2|Cole|25|14|0|0|0|
 #PGLV2YQC|Kizaru|26|14|0|0|0|
-#QLPQC0GQ0|Loading…|27|14|0|0|0|
+#YLGQ20LP8|Brodie|27|14|0|0|0|
+#QLPQC0GQ0|Loading…|28|14|0|0|0|
+#GV088PV02|roham|29|14|0|0|0|
+#2C9JU8LU|Woot|31|14|0|0|0|
+#GG89UJ8G0|Kiromiga|33|14|0|0|0|
+""", True, True),
+
+("1821430171","6/18/26","The Microwave","30v30","""
+#9Q2VLQL2R|Tomahawk|1|18|0|0|0|
+#QL8CV0P0|gen|2|17|0|0|0|
+#QCUCLPPJV|Gr8Conqueror|3|17|1|3|3|3:3:3:16
+#GQJUGLQRQ|stage6yo|4|16|0|0|0|
+#99R8208U|SubZero|5|16|0|0|0|
+#LC020U2Q|drybonez|6|16|0|0|0|
+#209J8J0RL|Big Steppa|7|15|0|0|0|
+#QP0CU0UC8|stage5yo|8|15|0|0|0|
+#G0VGRUCC|SwiftyKinja|9|15|1|3|3|10:3:3:16
+#Y0UUGPRRU|Americanpatriot|10|15|1|3|3|11:3:3:16
+#9V9QUCLJV|@INSTAGRAM|11|15|0|0|0|
+#8J2V8998|DE1|12|15|0|0|0|
+#2J9GYQRYC|Jac|13|14|1|2|2|14:2:2:15
+#GPLUYRQ9J|filet minion|14|14|0|0|0|
+#GV80Y9L0Y|studkiller|15|14|1|2|2|16:2:2:15
+#9PCRUJ98|ZEROSUBS|16|14|0|0|0|
+#GRRYCUJP8|crimpo|17|14|0|0|0|
+#LGJ9RC9Y9|Halid #1|18|14|0|0|0|
+#8G8QL98YV|StopImAsianBro|19|14|0|0|0|
+#RQCJR8JV|SurgeGold|20|14|0|0|0|
+#Q9UJG0RJP|Sumairu|21|14|1|1|1|23:1:1:15
+#R00L0CY9C|MiniPekka|22|14|1|2|2|27:2:2:14
+#GJLRURGC2|Cole|24|14|1|3|3|29:3:3:14
+#GRGGPPQ8J|Pam from HR|25|14|0|0|0|
+#PGLV2YQC|Kizaru|26|14|1|2|2|33:2:2:14
+#QLPQC0GQ0|Loading…|27|14|1|2|2|34:2:2:14
 #GV088PV02|roham|28|14|0|0|0|
 #YLGQ20LP8|Brodie|29|14|0|0|0|
 #2C9JU8LU|Woot|31|14|0|0|0|
@@ -195,7 +228,7 @@ WAR_BLOCKS = [
 #GG89UJ8G0|Kiromiga|33|14|1|3|3|28:3:3:15
 #GJ20RJ8RP|arius67'|35|13|1|3|3|29:3:3:13
 #QGRPYC928|⚡️LSWreckless⚡️|36|13|1|3|3|30:3:3:13
-""", True, True),
+""", False, True),
 
 ("615011039","6/15/26","Orange Juice","30v30","""
 #QL8CV0P0|gen|1|17|2|6|6|3:3:3:17,7:3:3:15
@@ -4138,6 +4171,7 @@ WAR_BLOCKS = [
 
 # ── Win/Loss/Draw results keyed by war ID ──
 RESULTS = {
+    "1721425644": "W",
     "615011039": "W",
     "613010027": "W",
     "610230017": "W",
