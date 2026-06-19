@@ -4213,13 +4213,13 @@ RESULTS = {
 
     # CWL historical seasons (defaulting to W — verify individual rounds)
     # CWL Mar 2026 — Buzzzzz
-    '8LV88URGJ': 'W', '8LUVGV9C0': 'W', '8LUC82QYP': 'W', '8LUGGL2RU': 'W', '8LUL2CUV0': 'W', '8LU9QV89P': 'W', '8LU2822CG': 'W',
+    '8LV88URGJ': 'W', '8LUVGV9C0': 'W', '8LUC82QYP': 'W', '8LUGGL2RU': 'W', '8LUL2CUV0': 'W', '8LU9QV89P': 'L', '8LU2822CG': 'W',
     # CWL Feb 2026 — Buzzzzz
     '8GJLRCP0V': 'W', '8GJPY8YVC': 'W', '8GJ2CJLGV': 'W', '8GRVLY9G2': 'W', '8GRJV2PVQ': 'W', '8GRGG9Q29': 'W', '8GRLVCCUR': 'W',
     # CWL Jan 2026 — Buzzzzz
     '8YUL00G92': 'W', '8YU9Q8QUQ': 'W', '8YU20V90Q': 'W', '8YCUGRVLC': 'W', '8YCJ8YG9R': 'W', '8YCQR0QVR': 'W', '8YCYRJ88Q': 'W',
     # CWL Dec 2025 — Buzzzzz
-    '8QCCR22LC': 'W', '8QCRGJC22': 'W', '8QCQ0VUQ2': 'W', '8QCPQ2JVY': 'W', '8QC2VJ8CR': 'W', '8QJVLPVV2': 'W', '8QJJURPPC': 'W',
+    '8QCCR22LC': 'L', '8QCRGJC22': 'W', '8QCQ0VUQ2': 'W', '8QCPQ2JVY': 'W', '8QC2VJ8CR': 'L', '8QJVLPVV2': 'L', '8QJJURPPC': 'L',
 
     # Regular wars (historical, pre-automation) — results pulled from ClashSpot
     '267347499': 'W',  # Aliens Worriors (3/28/26)
