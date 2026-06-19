@@ -5425,21 +5425,41 @@ def _bonus_val(dates):
             pass
     return best
 
-# Group CWL wars by season (month/year)
-_cwl_by_season = {}
-for _cw in wars:
-    if not _cw['cwl']:
-        continue
+# Group CWL wars into distinct seasons. Normally one CWL per calendar month, but
+# CoC occasionally runs two in a month - split them by date gap (>4 days = new CWL).
+_cwl_all = sorted([_w for _w in wars if _w['cwl']], key=lambda w: _parse_war_date(w['date']))
+_cwl_clusters = []
+for _cw in _cwl_all:
     _cdt = _parse_war_date(_cw['date'])
-    _csk = (_cdt.year, _cdt.month)
-    if _csk not in _cwl_by_season:
-        _cwl_by_season[_csk] = []
-    _cwl_by_season[_csk].append(_cw)
+    if _cwl_clusters and (_cdt - _parse_war_date(_cwl_clusters[-1][-1]['date'])).days <= 4:
+        _cwl_clusters[-1].append(_cw)
+    else:
+        _cwl_clusters.append([_cw])
+# Label each cluster; add " (1)/(2)" only when one calendar month has multiple CWLs
+_cwl_month_total = {}
+for _cl in _cwl_clusters:
+    _d0 = _parse_war_date(_cl[0]['date'])
+    _cwl_month_total[(_d0.year, _d0.month)] = _cwl_month_total.get((_d0.year, _d0.month), 0) + 1
+_cwl_month_occ = {}
+_cwl_groups = []
+for _cl in _cwl_clusters:
+    _d0 = _parse_war_date(_cl[0]['date'])
+    _gy, _gm = _d0.year, _d0.month
+    if _cwl_month_total[(_gy, _gm)] > 1:
+        _cwl_month_occ[(_gy, _gm)] = _cwl_month_occ.get((_gy, _gm), 0) + 1
+        _occ = _cwl_month_occ[(_gy, _gm)]
+        _gsid = _cwl_sid(_gy, _gm) + "_" + str(_occ)
+        _gslbl = _cwl_slbl(_gy, _gm) + " (" + str(_occ) + ")"
+    else:
+        _gsid = _cwl_sid(_gy, _gm)
+        _gslbl = _cwl_slbl(_gy, _gm)
+    _cwl_groups.append({'rounds': _cl, 'cy': _gy, 'cm': _gm, 'sid': _gsid, 'slbl': _gslbl})
+_cwl_groups.sort(key=lambda g: _parse_war_date(g['rounds'][-1]['date']), reverse=True)
 
 _cwl_seasons_out = []
-for _csk in sorted(_cwl_by_season.keys(), reverse=True):
-    (cy, cm) = _csk
-    _crounds = sorted(_cwl_by_season[_csk], key=lambda w: _parse_war_date(w['date']))
+for _grp in _cwl_groups:
+    cy, cm = _grp['cy'], _grp['cm']
+    _crounds = _grp['rounds']
 
     # Per-player stats — only non-prep rounds count toward stats
     _cspl = {}        # canonical key -> stats
@@ -5576,8 +5596,8 @@ for _csk in sorted(_cwl_by_season.keys(), reverse=True):
     _crec = f"W{_cwins} · L{_closses}" + (f" · D{_cdraws}" if _cdraws else "")
 
     _cwl_seasons_out.append({
-        'id': _cwl_sid(cy, cm),
-        'label': _cwl_slbl(cy, cm),
+        'id': _grp['sid'],
+        'label': _grp['slbl'],
         'nr': _non_prep_nr,
         'np': _cn_cwl,
         'rounds': _cround_strips,
