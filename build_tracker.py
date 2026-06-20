@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 6/20/26 — 48 members
-    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Good for you","Gr8Conqueror","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","My name is...","Pam from HR","Pharah","SWAGMUFFIN90","Ste","Stevie Wonder","StopImAsianBro","SubZero","Sumairu","SurgeGold","SwiftyKinja","Tomahawk","Tretor","UNSTOPPABLE ADI","Woot","ZEROSUBS","arius67'","crimpo","das","drybonez","filet minion","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","swastik","uhlisuh","⚡️LSWreckless⚡️"
+    # Auto-updated 6/20/26 — 47 members
+    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Good for you","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","My name is...","Pam from HR","Pharah","SWAGMUFFIN90","Ste","Stevie Wonder","StopImAsianBro","SubZero","Sumairu","SurgeGold","SwiftyKinja","Tomahawk","Tretor","UNSTOPPABLE ADI","Woot","ZEROSUBS","arius67'","crimpo","das","drybonez","filet minion","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","swastik","uhlisuh","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -18,7 +18,7 @@ PLAYER_TH = {
     "Kizaru": 14, "Jac": 14, "Halid #1": 14, "SurgeGold": 14, "Loading…": 14,
     "Sumairu": 14, "Pam from HR": 14, "louis": 14, "imnotstraight10": 14,
     "the beast": 14, "seth": 14,
-    "arius67'": 13, "Marrow": 13, "⚡️LSWreckless⚡️": 13, "Ste": 13, "uhlisuh": 13,
+    "arius67'": 14, "Marrow": 13, "⚡️LSWreckless⚡️": 13, "Ste": 13, "uhlisuh": 13,
     "SWAGMUFFIN90": 13, "Brandon": 13, "Pharah": 13, "UNSTOPPABLE ADI": 13,
     "MR. ASURAN YT": 13, "jj": 13, "DandyPickle": 13, "F16": 13,
     "Stevie Wonder": 12, "das": 12, "rinz": 12,
@@ -172,11 +172,11 @@ WAR_BLOCKS = [
 #99R8208U|SubZero|5|16|1|3|3|5:3:3:15
 #209J8J0RL|Big Steppa|7|15|1|3|3|6:3:3:15
 #9V9QUCLJV|@INSTAGRAM|11|15|0|0|0|
-#2J9GYQRYC|Jac|13|14|0|0|0|
+#2J9GYQRYC|Jac|13|14|1|2|2|8:2:2:14
 #GV80Y9L0Y|studkiller|15|14|1|3|3|9:3:3:14
 #GRRYCUJP8|crimpo|17|14|1|3|3|10:3:3:14
 #LGJ9RC9Y9|Halid #1|19|14|1|3|3|12:3:3:14
-#RQCJR8JV|SurgeGold|20|14|0|0|0|
+#RQCJR8JV|SurgeGold|20|14|1|1|1|13:1:1:14
 #R00L0CY9C|MiniPekka|22|14|1|3|3|14:3:3:14
 #GRGGPPQ8J|Pam from HR|24|14|0|0|0|
 #GJLRURGC2|Cole|25|14|1|3|3|16:3:3:14
