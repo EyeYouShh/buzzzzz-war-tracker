@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 6/20/26 — 49 members
-    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Good for you","Gr8Conqueror","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","My name is...","Pam from HR","Pharah","SWAGMUFFIN90","Ste","Stevie Wonder","StopImAsianBro","SubZero","Sumairu","SurgeGold","SwiftyKinja","Tomahawk","Tretor","UNSTOPPABLE ADI","Vicious Viking","Woot","ZEROSUBS","arius67'","crimpo","das","drybonez","filet minion","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","swastik","uhlisuh","⚡️LSWreckless⚡️"
+    # Auto-updated 6/20/26 — 48 members
+    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Good for you","Gr8Conqueror","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","My name is...","Pam from HR","Pharah","SWAGMUFFIN90","Ste","Stevie Wonder","StopImAsianBro","SubZero","Sumairu","SurgeGold","SwiftyKinja","Tomahawk","Tretor","UNSTOPPABLE ADI","Woot","ZEROSUBS","arius67'","crimpo","das","drybonez","filet minion","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","swastik","uhlisuh","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -131,7 +131,7 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
-("1922165264","6/19/26","VALAR MORGULIS","30v30","""
+("2022183188","6/20/26","Anti pahlawan","30v30","""
 #9Q2VLQL2R|Tomahawk|1|18|0|0|0|
 #QL8CV0P0|gen|2|17|0|0|0|
 #QCUCLPPJV|Gr8Conqueror|3|17|0|0|0|
@@ -141,15 +141,15 @@ WAR_BLOCKS = [
 #9V9QUCLJV|@INSTAGRAM|11|15|0|0|0|
 #2J9GYQRYC|Jac|13|14|0|0|0|
 #GV80Y9L0Y|studkiller|15|14|0|0|0|
-#GRRYCUJP8|crimpo|17|14|0|0|0|
+#GRRYCUJP8|crimpo|18|14|0|0|0|
 #LGJ9RC9Y9|Halid #1|19|14|0|0|0|
 #RQCJR8JV|SurgeGold|20|14|0|0|0|
 #R00L0CY9C|MiniPekka|22|14|0|0|0|
-#GRGGPPQ8J|Pam from HR|24|14|0|0|0|
+#GJLRURGC2|Cole|24|14|0|0|0|
+#GRGGPPQ8J|Pam from HR|25|14|0|0|0|
 #PGLV2YQC|Kizaru|26|14|0|0|0|
 #YLGQ20LP8|Brodie|27|14|0|0|0|
 #GV088PV02|roham|29|14|0|0|0|
-#GG89UJ8G0|Kiromiga|33|14|0|0|0|
 #GJ20RJ8RP|arius67'|35|13|0|0|0|
 #QGRPYC928|⚡️LSWreckless⚡️|36|13|0|0|0|
 #8L9J0R2QJ|SWAGMUFFIN90|37|13|0|0|0|
@@ -162,6 +162,39 @@ WAR_BLOCKS = [
 #R0RV2P0U0|Pharah|44|13|0|0|0|
 #PQ98J82PR|F16|45|13|0|0|0|
 #R02R82YG9|DandyPickle|46|13|0|0|0|
+""", True, True),
+
+("1922165264","6/19/26","VALAR MORGULIS","30v30","""
+#9Q2VLQL2R|Tomahawk|1|18|1|3|3|1:3:3:18
+#QL8CV0P0|gen|2|17|0|0|0|
+#QCUCLPPJV|Gr8Conqueror|3|17|1|3|3|3:3:3:16
+#GQJUGLQRQ|stage6yo|4|16|1|3|3|4:3:3:15
+#99R8208U|SubZero|5|16|1|3|3|5:3:3:15
+#209J8J0RL|Big Steppa|7|15|1|3|3|6:3:3:15
+#9V9QUCLJV|@INSTAGRAM|11|15|0|0|0|
+#2J9GYQRYC|Jac|13|14|0|0|0|
+#GV80Y9L0Y|studkiller|15|14|0|0|0|
+#GRRYCUJP8|crimpo|17|14|0|0|0|
+#LGJ9RC9Y9|Halid #1|19|14|0|0|0|
+#RQCJR8JV|SurgeGold|20|14|0|0|0|
+#R00L0CY9C|MiniPekka|22|14|0|0|0|
+#GRGGPPQ8J|Pam from HR|24|14|0|0|0|
+#GJLRURGC2|Cole|25|14|1|3|3|16:3:3:14
+#PGLV2YQC|Kizaru|26|14|1|3|3|18:3:3:14
+#YLGQ20LP8|Brodie|27|14|0|0|0|
+#GV088PV02|roham|29|14|0|0|0|
+#GJ20RJ8RP|arius67'|35|13|0|0|0|
+#QGRPYC928|⚡️LSWreckless⚡️|36|13|0|0|0|
+#8L9J0R2QJ|SWAGMUFFIN90|37|13|0|0|0|
+#QLYP90RPV|Ste|38|13|0|0|0|
+#R0GCPRLPL|jj|39|13|0|0|0|
+#YVCJC0VCQ|Marrow|40|13|1|3|3|31:3:3:13
+#PRCQVCCV2|Brandon|41|13|0|0|0|
+#QLLPQV8VJ|uhlisuh|42|13|0|0|0|
+#QUJLUR02G|UNSTOPPABLE ADI|43|13|1|3|3|36:3:3:13
+#R0RV2P0U0|Pharah|44|13|0|0|0|
+#PQ98J82PR|F16|45|13|0|0|0|
+#R02R82YG9|DandyPickle|46|13|1|3|3|43:3:3:13
 """, True, True),
 
 ("1921492064","6/19/26","VALAR MORGULIS","30v30","""
@@ -228,7 +261,7 @@ WAR_BLOCKS = [
 #YLGQ20LP8|Brodie|29|14|1|3|3|36:3:3:16
 #2C9JU8LU|Woot|31|14|1|3|3|37:3:3:13
 #GG89UJ8G0|Kiromiga|33|14|0|0|0|
-""", True, True),
+""", False, True),
 
 ("1721425644","6/17/26","tu mama","30v30","""
 #9Q2VLQL2R|Tomahawk|1|18|1|3|3|1:3:3:17
@@ -4204,6 +4237,7 @@ WAR_BLOCKS = [
 
 # ── Win/Loss/Draw results keyed by war ID ──
 RESULTS = {
+    "1821430171": "L",
     "1721425644": "W",
     "615011039": "W",
     "613010027": "W",
