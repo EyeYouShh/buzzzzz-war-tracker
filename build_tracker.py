@@ -5630,8 +5630,10 @@ for _grp in _cwl_groups:
             _cused = _cpd.get('a', 0)
             _cstars = _cpd.get('s', 0)
 
-            # Store per-round detail: a=attacks_used, st=stars, live=is_round_live
-            _cp['rd'][_ri] = {'a': _cused, 'st': _cstars, 'live': _crw['in_prog']}
+            # Store per-round detail: a=attacks_used, st=stars, live=is_round_live, d=TH-delta/attack
+            _cth_atk = _cpd.get('th', 0)
+            _crd_d = [(_cak[3] - _cth_atk) for _cak in _cpd.get('atks', []) if _cak[3] and _cth_atk]
+            _cp['rd'][_ri] = {'a': _cused, 'st': _cstars, 'live': _crw['in_prog'], 'd': _crd_d}
 
             _cp['ri'] += 1
             if _cused > 0:
@@ -5733,7 +5735,8 @@ for _grp in _cwl_groups:
         'players': _cplayer_list,
         'kpis': {
             'tot': _ctot, 'full': _cfull, 'np': _cn_cwl,
-            '3pct': _c3pct, 'avg': _cavg, 'record': _crec
+            '3pct': _c3pct, 'avg': _cavg, 'record': _crec,
+            'wins': _cwins, 'bonus': 10 * _cwins, 'official': _ctot + 10 * _cwins
         }
     })
 
@@ -5892,6 +5895,11 @@ td.rc-0{background:oklch(0.30 0.09 28)}
 /* Avg */
 .av-hi{color:var(--full-tx)}.av-mid{color:var(--star)}.av-lo{color:var(--part-tx)}.av-bad{color:var(--miss-tx)}
 
+.dch{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;padding:0 3px;border-radius:4px;line-height:1.5;letter-spacing:-.02em;display:inline-block}
+.dch.up{color:oklch(0.86 0.12 244);background:oklch(0.40 0.09 244)}
+.dch.dip{color:oklch(0.88 0.13 56);background:oklch(0.43 0.11 56)}
+.dch.even{color:var(--muted);background:var(--surface3)}
+.rc-d{margin-top:2px;text-align:center;line-height:1}
 .bwrap{display:inline-flex;flex-wrap:wrap;gap:3px;justify-content:center;max-width:122px}
 .bchip{background:var(--full-bg);border:1px solid var(--full-bd);color:var(--full-tx);border-radius:4px;padding:1px 5px;font-size:10.5px;font-weight:500;white-space:nowrap;font-family:'JetBrains Mono',monospace}
 /* Reward chips */
@@ -5979,7 +5987,7 @@ function renderKpis(season){
   const nr=season.rounds.filter(r=>r.result!=='prep').length;
   const items=[
     {k:'Record',          v:k.record,             u:nr+' rounds played',   c:'var(--full-tx)'},
-    {k:'Total &#9733;',   v:k.tot,                u:'clan stars',           c:'var(--star)'},
+    {k:'Total &#9733;',   v:k.tot,                u:k.bonus?('+'+k.bonus+' win bonus &#8594; '+k.official+' official'):'clan stars',           c:'var(--star)'},
     {k:'Full Reward',     v:k.full,               u:'&#8805;8&#9733; earned',c:'var(--full-tx)'},
     {k:'3&#9733; Rate',   v:k['3pct']+'%',        u:'of all attacks',       c:'var(--full-tx)'},
     {k:'Avg &#9733;/War', v:k.avg.toFixed(2),     u:'per round played',     c:'var(--star)'},
@@ -6026,13 +6034,17 @@ function avCls(av){return av>=2.9?'av-hi':av>=2.5?'av-mid':av>=1.5?'av-lo':'av-b
 function msCls(ms){return ms===0?'ms0':ms===1?'ms1':ms===2?'ms2':'ms3';}
 const REW_LABEL={full:'&#10003; Full',short:'&#9651; Short',none:'&#x2715; None',notcwl:'&mdash;'};
 
+function dCls(d){return d>0?'up':(d<0?'dip':'even');}
+function dArrow(d){return d>0?'▲':(d<0?'▼':'=');}
+function dTxt(d){return d>0?'+'+d:(d<0?'−'+Math.abs(d):'0');}
 function rcCell(rd){
   // rd = null (not in round) | {prep:true} | {a,st,live}
   if(!rd) return '<td class="rc rc-none"></td>';
   if(rd.prep) return '<td class="rc rc-prep"><div class="rc-val">PREP</div></td>';
   if(rd.a>0){
     const cls='rc-'+Math.min(rd.st,3);
-    return '<td class="rc '+cls+'"><div class="rc-val">'+rd.st+'&#9733;</div></td>';
+    const dc=(rd.d||[]).map(function(d){return '<span class="dch '+dCls(d)+'">'+dArrow(d)+(d?dTxt(d):'')+'</span>';}).join('');
+    return '<td class="rc '+cls+'"><div class="rc-val">'+rd.st+'&#9733;</div>'+(dc?'<div class="rc-d">'+dc+'</div>':'')+'</td>';
   }
   if(rd.live) return '<td class="rc rc-pend"><div class="rc-val">PEND</div></td>';
   return '<td class="rc rc-miss"><div class="rc-val">&#x2715;</div></td>';
