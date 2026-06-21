@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 6/21/26 — 46 members
-    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Good for you","Gr8Conqueror","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Ste","Stevie Wonder","StopImAsianBro","SubZero","Sumairu","SurgeGold","SwiftyKinja","Tomahawk","Tretor","UNSTOPPABLE ADI","Woot","ZEROSUBS","arius67'","crimpo","das","drybonez","filet minion","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
+    # Auto-updated 6/21/26 — 49 members
+    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Good for you","Gr8Conqueror","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Ste","Stevie Wonder","StopImAsianBro","SubZero","Sumairu","SurgeGold","SwiftyKinja","Tomahawk","Tretor","Tupac","UNSTOPPABLE ADI","Woot","ZEROSUBS","arius67'","crimpo","das","drybonez","filet minion","gen","jj","roham","stage5yo","stage6yo","studkiller","uhlisuh","ʙᴜᴛᴄʜᴇʀ","♥امپراطور☆شمال♥","⚡️LSWreckless⚡️","彡๛sulta彡"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -48,6 +48,10 @@ PLAYER_TH = {
     "Tomahawk": 18,
     "roham": 14,
     "TigerGoMaow": 16,
+    "Tupac": 17,
+    "ʙᴜᴛᴄʜᴇʀ": 17,
+    "♥امپراطور☆شمال♥": 17,
+    "彡๛sulta彡": 17,
 }
 # In-game order (tiebreaker within same TH — matches the order user sees in-game)
 _CS_ORDER = [
@@ -193,7 +197,7 @@ WAR_BLOCKS = [
 #YLGQ20LP8|Brodie|27|14|1|3|3|43:3:3:13
 #QLPQC0GQ0|Loading…|28|14|1|3|3|44:3:3:13
 #GGQLQLVCC|Good for you|30|14|1|3|3|46:3:3:13
-#2C9JU8LU|Woot|31|14|0|0|0|
+#2C9JU8LU|Woot|31|14|1|3|3|49:3:3:12
 #GJ20RJ8RP|arius67'|35|14|1|3|3|47:3:3:13
 #QGRPYC928|⚡️LSWreckless⚡️|36|13|1|3|3|50:3:3:11
 """, True, True),
