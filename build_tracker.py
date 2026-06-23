@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 6/22/26 — 50 members
-    "@INSTAGRAM","Americanpatriot","BARSA","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Good for you","Gr8Conqueror","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Ste","Stevie Wonder","StopImAsianBro","SubZero","Sumairu","SurgeGold","SwiftyKinja","Tomahawk","Tretor","Tupac","UNSTOPPABLE ADI","Woot","ZEROSUBS","arius67'","crimpo","das","drybonez","filet minion","gen","jj","roham","stage5yo","stage6yo","studkiller","uhlisuh","ʙᴜᴛᴄʜᴇʀ","♥امپراطور☆شمال♥","⚡️LSWreckless⚡️","彡๛sulta彡"
+    # Auto-updated 6/23/26 — 49 members
+    "@INSTAGRAM","Americanpatriot","BARSA","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Good for you","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Ste","Stevie Wonder","StopImAsianBro","SubZero","Sumairu","SurgeGold","SwiftyKinja","Tomahawk","Tretor","Tupac","UNSTOPPABLE ADI","Woot","ZEROSUBS","arius67'","crimpo","das","drybonez","filet minion","gen","jj","roham","stage5yo","stage6yo","studkiller","uhlisuh","ʙᴜᴛᴄʜᴇʀ","♥امپراطور☆شمال♥","⚡️LSWreckless⚡️","彡๛sulta彡"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -185,13 +185,13 @@ WAR_BLOCKS = [
 #2J9GYQRYC|Jac|13|14|0|0|0|
 #8G8QL98YV|StopImAsianBro|17|14|1|3|3|20:3:3:13
 #9PCRUJ98|ZEROSUBS|18|14|1|3|3|21:3:3:13
-#GRRYCUJP8|crimpo|19|14|0|0|0|
+#GRRYCUJP8|crimpo|19|14|1|3|3|22:3:3:13
 #Q9UJG0RJP|Sumairu|22|14|1|3|3|24:3:3:13
-#GJLRURGC2|Cole|25|14|0|0|0|
+#GJLRURGC2|Cole|25|14|1|3|3|26:3:3:13
 #GJ20RJ8RP|arius67'|34|14|1|3|3|19:3:3:13
-#R0GCPRLPL|jj|37|13|0|0|0|
+#R0GCPRLPL|jj|37|13|1|2|2|28:2:2:13
 #8L9J0R2QJ|SWAGMUFFIN90|38|13|0|0|0|
-#YVCJC0VCQ|Marrow|39|13|0|0|0|
+#YVCJC0VCQ|Marrow|39|13|1|3|3|31:3:3:13
 #QLYP90RPV|Ste|40|13|1|3|3|32:3:3:13
 #PRCQVCCV2|Brandon|41|13|1|2|2|34:2:2:13
 #QLLPQV8VJ|uhlisuh|42|13|1|2|2|35:2:2:13
