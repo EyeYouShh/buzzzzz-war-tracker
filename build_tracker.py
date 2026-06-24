@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 6/23/26 — 44 members
-    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Good for you","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Ste","Stevie Wonder","StopImAsianBro","SubZero","Sumairu","SurgeGold","SwiftyKinja","Tomahawk","Tretor","UNSTOPPABLE ADI","Woot","ZEROSUBS","arius67'","crimpo","das","drybonez","filet minion","gen","jj","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
+    # Auto-updated 6/24/26 — 45 members
+    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Good for you","Gr8Conqueror","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Ste","Stevie Wonder","StopImAsianBro","SubZero","Sumairu","SurgeGold","SwiftyKinja","Tomahawk","Tretor","UNSTOPPABLE ADI","Woot","ZEROSUBS","arius67'","crimpo","das","drybonez","filet minion","gen","jj","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -18,7 +18,7 @@ PLAYER_TH = {
     "Kizaru": 14, "Jac": 14, "Halid #1": 14, "SurgeGold": 14, "Loading…": 14,
     "Sumairu": 14, "Pam from HR": 14, "louis": 14, "imnotstraight10": 14,
     "the beast": 14, "seth": 14,
-    "arius67'": 14, "Marrow": 13, "⚡️LSWreckless⚡️": 13, "Ste": 13, "uhlisuh": 13,
+    "arius67'": 14, "Marrow": 14, "⚡️LSWreckless⚡️": 13, "Ste": 13, "uhlisuh": 13,
     "SWAGMUFFIN90": 13, "Brandon": 13, "Pharah": 13, "UNSTOPPABLE ADI": 13,
     "MR. ASURAN YT": 13, "jj": 13, "DandyPickle": 13, "F16": 13,
     "Stevie Wonder": 12, "das": 12, "rinz": 12,
@@ -138,36 +138,36 @@ WAR_END_ISO = ""
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
 ("2322270300","6/23/26","only me.","30v30","""
-#9Q2VLQL2R|Tomahawk|1|18|0|0|0|
-#QL8CV0P0|gen|2|17|0|0|0|
-#QCUCLPPJV|Gr8Conqueror|3|17|0|0|0|
-#GQJUGLQRQ|stage6yo|4|16|0|0|0|
+#9Q2VLQL2R|Tomahawk|1|18|1|3|3|1:3:3:18
+#QL8CV0P0|gen|2|17|1|2|2|2:2:2:18
+#QCUCLPPJV|Gr8Conqueror|3|17|1|2|2|3:2:2:18
+#GQJUGLQRQ|stage6yo|4|16|1|3|3|4:3:3:18
 #99R8208U|SubZero|5|16|0|0|0|
-#LC020U2Q|drybonez|6|16|0|0|0|
-#209J8J0RL|Big Steppa|7|15|0|0|0|
-#QP0CU0UC8|stage5yo|8|15|0|0|0|
+#LC020U2Q|drybonez|6|16|1|3|3|6:3:3:17
+#209J8J0RL|Big Steppa|7|15|1|3|3|12:3:3:17
+#QP0CU0UC8|stage5yo|8|15|1|3|3|13:3:3:15
 #G0VGRUCC|SwiftyKinja|9|15|0|0|0|
 #Y0UUGPRRU|Americanpatriot|10|15|0|0|0|
 #9V9QUCLJV|@INSTAGRAM|11|15|0|0|0|
 #8J2V8998|DE1|12|15|0|0|0|
 #2J9GYQRYC|Jac|13|14|0|0|0|
-#GPLUYRQ9J|filet minion|15|14|0|0|0|
+#GPLUYRQ9J|filet minion|15|14|1|3|3|24:3:3:15
 #8G8QL98YV|StopImAsianBro|17|14|0|0|0|
-#GRRYCUJP8|crimpo|19|14|0|0|0|
+#GRRYCUJP8|crimpo|19|14|1|3|3|28:3:3:15
 #Q9UJG0RJP|Sumairu|23|14|0|0|0|
 #GRGGPPQ8J|Pam from HR|25|14|0|0|0|
-#YLGQ20LP8|Brodie|27|14|0|0|0|
+#YLGQ20LP8|Brodie|27|14|1|2|2|31:2:2:14
 #GJ20RJ8RP|arius67'|34|14|0|0|0|
 #8L9J0R2QJ|SWAGMUFFIN90|37|13|0|0|0|
 #R0GCPRLPL|jj|38|13|0|0|0|
-#YVCJC0VCQ|Marrow|39|13|0|0|0|
-#QLYP90RPV|Ste|40|13|0|0|0|
+#YVCJC0VCQ|Marrow|39|13|1|3|3|37:3:3:14
+#QLYP90RPV|Ste|40|13|1|3|3|39:3:3:12
 #PRCQVCCV2|Brandon|41|13|0|0|0|
-#QLLPQV8VJ|uhlisuh|42|13|0|0|0|
+#QLLPQV8VJ|uhlisuh|42|13|1|3|3|42:3:3:12
 #QUJLUR02G|UNSTOPPABLE ADI|43|13|0|0|0|
-#R0RV2P0U0|Pharah|44|13|0|0|0|
+#R0RV2P0U0|Pharah|44|13|1|3|3|45:3:3:11
 #PQ98J82PR|F16|45|13|0|0|0|
-#R02R82YG9|DandyPickle|46|13|0|0|0|
+#R02R82YG9|DandyPickle|46|13|1|3|3|47:3:3:9
 """, True, True),
 
 ("2222262133","6/22/26","Invazion","30v30","""
@@ -190,7 +190,7 @@ WAR_BLOCKS = [
 #GJLRURGC2|Cole|25|14|1|3|3|26:3:3:13
 #GJ20RJ8RP|arius67'|34|14|1|3|3|19:3:3:13
 #R0GCPRLPL|jj|37|13|1|2|2|28:2:2:13
-#8L9J0R2QJ|SWAGMUFFIN90|38|13|0|0|0|
+#8L9J0R2QJ|SWAGMUFFIN90|38|13|1|3|3|29:3:3:13
 #YVCJC0VCQ|Marrow|39|13|1|3|3|31:3:3:13
 #QLYP90RPV|Ste|40|13|1|3|3|32:3:3:13
 #PRCQVCCV2|Brandon|41|13|1|2|2|34:2:2:13
@@ -200,8 +200,8 @@ WAR_BLOCKS = [
 #PQ98J82PR|F16|45|13|1|3|3|42:3:3:12
 #R02R82YG9|DandyPickle|46|13|1|2|2|43:2:2:12
 #R2GPPJ220|das|47|12|1|3|3|44:3:3:12
-#98VGCVCCC|Tretor|50|12|0|0|0|
-""", True, True),
+#98VGCVCCC|Tretor|50|12|1|3|3|45:3:3:12
+""", False, True),
 
 ("2122211763","6/21/26","حيدر الحنين","30v30","""
 #9Q2VLQL2R|Tomahawk|1|18|1|3|3|1:3:3:17
@@ -4342,6 +4342,7 @@ WAR_BLOCKS = [
 
 # ── Win/Loss/Draw results keyed by war ID ──
 RESULTS = {
+    "2222262133": "W",
     "2122211763": "W",
     "2022183188": "W",
     "1922165264": "W",
