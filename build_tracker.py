@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 6/24/26 — 45 members
-    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Good for you","Gr8Conqueror","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Ste","Stevie Wonder","StopImAsianBro","SubZero","Sumairu","SurgeGold","SwiftyKinja","Tomahawk","Tretor","UNSTOPPABLE ADI","Woot","ZEROSUBS","arius67'","crimpo","das","drybonez","filet minion","gen","jj","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
+    # Auto-updated 6/25/26 — 46 members
+    "@INSTAGRAM","Americanpatriot","BUILT DIFFERENT","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Good for you","Gr8Conqueror","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Ste","Stevie Wonder","StopImAsianBro","SubZero","Sumairu","SurgeGold","SwiftyKinja","Tomahawk","Tretor","UNSTOPPABLE ADI","Woot","ZEROSUBS","arius67'","crimpo","das","drybonez","filet minion","gen","jj","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -53,6 +53,7 @@ PLAYER_TH = {
     "♥امپراطور☆شمال♥": 17,
     "彡๛sulta彡": 17,
     "BARSA": 14,
+    "BUILT DIFFERENT": 14,
 }
 # In-game order (tiebreaker within same TH — matches the order user sees in-game)
 _CS_ORDER = [
@@ -150,7 +151,7 @@ WAR_BLOCKS = [
 #Y0UUGPRRU|Americanpatriot|10|15|1|3|3|16:3:3:15
 #9V9QUCLJV|@INSTAGRAM|11|15|1|3|3|17:3:3:17
 #8J2V8998|DE1|12|15|1|3|3|18:3:3:16
-#2J9GYQRYC|Jac|13|14|0|0|0|
+#2J9GYQRYC|Jac|13|14|1|3|3|33:3:3:14
 #GPLUYRQ9J|filet minion|15|14|1|3|3|24:3:3:15
 #8G8QL98YV|StopImAsianBro|17|14|1|2|2|27:2:2:15
 #GRRYCUJP8|crimpo|19|14|1|3|3|28:3:3:15
@@ -168,7 +169,7 @@ WAR_BLOCKS = [
 #R0RV2P0U0|Pharah|44|13|1|3|3|45:3:3:11
 #PQ98J82PR|F16|45|13|1|3|3|46:3:3:9
 #R02R82YG9|DandyPickle|46|13|1|3|3|47:3:3:9
-""", True, True),
+""", False, True),
 
 ("2222262133","6/22/26","Invazion","30v30","""
 #9Q2VLQL2R|Tomahawk|1|18|1|3|3|1:3:3:18
@@ -4342,6 +4343,7 @@ WAR_BLOCKS = [
 
 # ── Win/Loss/Draw results keyed by war ID ──
 RESULTS = {
+    "2322270300": "W",
     "2222262133": "W",
     "2122211763": "W",
     "2022183188": "W",
