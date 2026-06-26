@@ -135,40 +135,40 @@ PLAYER_TAGS = {
 # War end time (ISO 8601 UTC) — set by update_tracker.py when a war is active.
 # JS uses this to display the smart-capture end time as "Next update" instead of next cron slot.
 # Cleared by update_tracker.py when war ends or no war is active.
-WAR_END_ISO = ""
+WAR_END_ISO = "2026-06-27T16:00:35Z"
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
 ("626160035","6/26/26","80'ler 90'lar","30v30","""
-#9Q2VLQL2R|Tomahawk|1|18|0|0|0|
+#9Q2VLQL2R|Tomahawk|1|18|2|6|6|1:3:3:18,2:3:3:17
 #QL8CV0P0|gen|2|17|0|0|0|
 #QCUCLPPJV|Gr8Conqueror|3|17|0|0|0|
 #GQJUGLQRQ|stage6yo|4|16|0|0|0|
 #QP0CU0UC8|stage5yo|5|15|0|0|0|
 #G0VGRUCC|SwiftyKinja|6|15|0|0|0|
 #Y0UUGPRRU|Americanpatriot|7|15|0|0|0|
-#9V9QUCLJV|@INSTAGRAM|8|15|0|0|0|
+#9V9QUCLJV|@INSTAGRAM|8|15|2|5|5|3:3:3:16,5:2:2:16
 #8J2V8998|DE1|9|15|0|0|0|
 #2J9GYQRYC|Jac|10|14|0|0|0|
 #GV80Y9L0Y|studkiller|11|14|0|0|0|
 #8290JCG8Y|BUILT DIFFERENT|12|14|0|0|0|
-#8G8QL98YV|StopImAsianBro|13|14|0|0|0|
-#LGJ9RC9Y9|Halid #1|14|14|0|0|0|
+#8G8QL98YV|StopImAsianBro|13|14|1|2|2|13:2:2:14
+#LGJ9RC9Y9|Halid #1|14|14|1|3|3|14:3:3:15
 #R00L0CY9C|MiniPekka|15|14|0|0|0|
 #GRRYCUJP8|crimpo|16|14|0|0|0|
 #GJLRURGC2|Cole|17|14|0|0|0|
-#PGLV2YQC|Kizaru|18|14|0|0|0|
+#PGLV2YQC|Kizaru|18|14|2|6|4|18:3:3:14,26:3:1:13
 #GRGGPPQ8J|Pam from HR|19|14|0|0|0|
-#YLGQ20LP8|Brodie|20|14|0|0|0|
+#YLGQ20LP8|Brodie|20|14|2|5|5|20:2:2:14,19:3:3:14
 #2C9JU8LU|Woot|21|14|0|0|0|
 #GJ20RJ8RP|arius67'|22|14|0|0|0|
 #YVCJC0VCQ|Marrow|23|14|0|0|0|
 #R0GCPRLPL|jj|24|13|0|0|0|
-#QLYP90RPV|Ste|25|13|0|0|0|
-#PRCQVCCV2|Brandon|26|13|0|0|0|
-#QUJLUR02G|UNSTOPPABLE ADI|27|13|0|0|0|
+#QLYP90RPV|Ste|25|13|1|3|3|24:3:3:13
+#PRCQVCCV2|Brandon|26|13|1|2|2|26:2:2:13
+#QUJLUR02G|UNSTOPPABLE ADI|27|13|2|6|6|27:3:3:13,25:3:3:13
 #R0RV2P0U0|Pharah|28|13|0|0|0|
-#R02R82YG9|DandyPickle|29|13|0|0|0|
+#R02R82YG9|DandyPickle|29|13|1|3|3|29:3:3:13
 #R2GPPJ220|das|30|12|0|0|0|
 """, True),
 
