@@ -14,7 +14,7 @@ PLAYER_TH = {
     "gen": 17, "Gr8Conqueror": 17,
     "stage6yo": 16, "wato": 16, "drybonez": 16,
     "Americanpatriot": 15, "Big Steppa": 15, "SwiftyKinja": 15, "stage5yo": 15, "DE1": 15,
-    "crimpo": 14, "Cole": 14, "studkiller": 14, "rour": 14, "MiniPekka": 14,
+    "crimpo": 14, "Cole": 14, "studkiller": 15, "rour": 14, "MiniPekka": 14,
     "Kizaru": 14, "Jac": 14, "Halid #1": 14, "SurgeGold": 14, "Loading…": 14,
     "Sumairu": 14, "Pam from HR": 14, "louis": 14, "imnotstraight10": 14,
     "the beast": 14, "seth": 14,
@@ -142,34 +142,34 @@ WAR_BLOCKS = [
 ("626160035","6/26/26","80'ler 90'lar","30v30","""
 #9Q2VLQL2R|Tomahawk|1|18|2|6|6|1:3:3:18,2:3:3:17
 #QL8CV0P0|gen|2|17|0|0|0|
-#QCUCLPPJV|Gr8Conqueror|3|17|0|0|0|
+#QCUCLPPJV|Gr8Conqueror|3|17|2|6|6|4:3:3:16,6:3:3:16
 #GQJUGLQRQ|stage6yo|4|16|0|0|0|
-#QP0CU0UC8|stage5yo|5|15|0|0|0|
+#QP0CU0UC8|stage5yo|5|15|2|6|6|8:3:3:15,9:3:3:15
 #G0VGRUCC|SwiftyKinja|6|15|0|0|0|
 #Y0UUGPRRU|Americanpatriot|7|15|0|0|0|
 #9V9QUCLJV|@INSTAGRAM|8|15|2|5|5|3:3:3:16,5:2:2:16
 #8J2V8998|DE1|9|15|0|0|0|
 #2J9GYQRYC|Jac|10|14|0|0|0|
-#GV80Y9L0Y|studkiller|11|14|0|0|0|
+#GV80Y9L0Y|studkiller|11|14|2|4|4|12:1:1:14,15:3:3:14
 #8290JCG8Y|BUILT DIFFERENT|12|14|0|0|0|
 #8G8QL98YV|StopImAsianBro|13|14|1|2|2|13:2:2:14
-#LGJ9RC9Y9|Halid #1|14|14|1|3|3|14:3:3:15
+#LGJ9RC9Y9|Halid #1|14|14|2|4|3|14:3:3:15,13:1:0:14
 #R00L0CY9C|MiniPekka|15|14|0|0|0|
 #GRRYCUJP8|crimpo|16|14|0|0|0|
 #GJLRURGC2|Cole|17|14|0|0|0|
 #PGLV2YQC|Kizaru|18|14|2|6|4|18:3:3:14,26:3:1:13
-#GRGGPPQ8J|Pam from HR|19|14|0|0|0|
+#GRGGPPQ8J|Pam from HR|19|14|1|3|1|20:3:1:14
 #YLGQ20LP8|Brodie|20|14|2|5|5|20:2:2:14,19:3:3:14
 #2C9JU8LU|Woot|21|14|0|0|0|
-#GJ20RJ8RP|arius67'|22|14|0|0|0|
-#YVCJC0VCQ|Marrow|23|14|0|0|0|
+#GJ20RJ8RP|arius67'|22|14|1|2|2|7:2:2:15
+#YVCJC0VCQ|Marrow|23|14|2|6|6|23:3:3:13,22:3:3:13
 #R0GCPRLPL|jj|24|13|0|0|0|
-#QLYP90RPV|Ste|25|13|1|3|3|24:3:3:13
+#QLYP90RPV|Ste|25|13|2|5|5|24:3:3:13,21:2:2:14
 #PRCQVCCV2|Brandon|26|13|1|2|2|26:2:2:13
 #QUJLUR02G|UNSTOPPABLE ADI|27|13|2|6|6|27:3:3:13,25:3:3:13
-#R0RV2P0U0|Pharah|28|13|0|0|0|
-#R02R82YG9|DandyPickle|29|13|1|3|3|29:3:3:13
-#R2GPPJ220|das|30|12|0|0|0|
+#R0RV2P0U0|Pharah|28|13|1|2|2|28:2:2:13
+#R02R82YG9|DandyPickle|29|13|2|6|4|29:3:3:13,30:3:1:14
+#R2GPPJ220|das|30|12|2|5|3|30:2:2:14,28:3:1:13
 """, True),
 
 ("2322270300","6/23/26","only me.","30v30","""
