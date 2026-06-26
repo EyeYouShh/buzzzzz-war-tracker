@@ -5605,60 +5605,68 @@ def _cwl_is_prep(war):
     return war['in_prog'] and sum(pd.get('a', 0) for pd in war['players'].values()) == 0
 
 # ── CWL bonus history (MANUAL DATA — update_tracker.py never touches this) ──
-# Player display-name -> list of "M/YY" award dates. Add a date when a player earns a bonus.
+# Player display-name -> list of "Mon YY" / "Mon YY (N)" award dates (N = CWL # within a month).
 BONUS_HISTORY = {
-    "Americanpatriot": ["2/26", "5/26"],
-    "Dashinaw": ["2/26"],
-    "EVAL01": ["2/26"],
-    "Pharah": ["2/26", "5/26"],
-    "Rampage": ["2/26"],
-    "spectazen": ["2/26"],
-    "Stevie Wonder": ["2/26"],
-    "TyrantLeo": ["2/26"],
-    "arius67'": ["3/26", "6/26"],
-    "Cole": ["3/26", "6/26"],
-    "DandyPickle": ["3/26"],
-    "dexd": ["3/26"],
-    "Gary": ["3/26"],
-    "MR. ASURAN YT": ["3/26"],
-    "studkiller": ["3/26"],
-    "UNSTOPPABLE ADI": ["3/26"],
-    "Aye": ["4/26"],
-    "BlurTrigr": ["4/26"],
-    "Dragon": ["4/26"],
-    "drybonez": ["4/26"],
-    "high": ["4/26"],
-    "krump": ["4/26"],
-    "⚡️LSWreckless⚡️": ["4/26"],
-    "MACK": ["4/26"],
-    "MiniPekka": ["4/26"],
-    "Pam from HR": ["4/26"],
-    "Party": ["4/26"],
-    "Big Steppa": ["5/26"],
-    "Brandon": ["5/26"],
-    "crimpo": ["5/26"],
-    "DE1": ["5/26"],
-    "F16": ["5/26"],
-    "Kizaru": ["5/26"],
-    "Loading…": ["5/26"],
-    "Marrow": ["5/26"],
-    "uhlisuh": ["5/26"],
-    "gen": ["6/26"],
-    "Ste": ["6/26"],
-    "jj": ["6/26"],
-    "Halid #1": ["6/26"],
-    "SwiftyKinja": ["6/26"],
-    "rinz": ["6/26"],
-    "SurgeGold": ["6/26"],
-    "Sumairu": ["6/26"],
+    "@INSTAGRAM": ["Jun 26 (2)"],
+    "Tomahawk": ["Jun 26 (2)"],
+    "SubZero": ["Jun 26 (2)"],
+    "SWAGMUFFIN90": ["Jun 26 (2)"],
+    "Brodie": ["Jun 26 (2)"],
+    "Jac": ["Jun 26 (2)"],
+    "Gr8Conqueror": ["Jun 26 (2)"],
+    "Americanpatriot": ["Feb 26", "May 26"],
+    "Dashinaw": ["Feb 26"],
+    "EVAL01": ["Feb 26"],
+    "Pharah": ["Feb 26", "May 26"],
+    "Rampage": ["Feb 26"],
+    "spectazen": ["Feb 26"],
+    "Stevie Wonder": ["Feb 26"],
+    "TyrantLeo": ["Feb 26"],
+    "arius67'": ["Mar 26", "Jun 26 (1)"],
+    "Cole": ["Mar 26", "Jun 26 (1)"],
+    "DandyPickle": ["Mar 26", "Jun 26 (2)"],
+    "dexd": ["Mar 26"],
+    "Gary": ["Mar 26"],
+    "MR. ASURAN YT": ["Mar 26"],
+    "studkiller": ["Mar 26", "Jun 26 (2)"],
+    "UNSTOPPABLE ADI": ["Mar 26", "Jun 26 (2)"],
+    "Aye": ["Apr 26"],
+    "BlurTrigr": ["Apr 26"],
+    "Dragon": ["Apr 26"],
+    "drybonez": ["Apr 26"],
+    "high": ["Apr 26"],
+    "krump": ["Apr 26"],
+    "⚡️LSWreckless⚡️": ["Apr 26"],
+    "MACK": ["Apr 26"],
+    "MiniPekka": ["Apr 26"],
+    "Pam from HR": ["Apr 26"],
+    "Party": ["Apr 26"],
+    "Big Steppa": ["May 26"],
+    "Brandon": ["May 26"],
+    "crimpo": ["May 26"],
+    "DE1": ["May 26"],
+    "F16": ["May 26"],
+    "Kizaru": ["May 26"],
+    "Loading…": ["May 26"],
+    "Marrow": ["May 26"],
+    "uhlisuh": ["May 26"],
+    "gen": ["Jun 26 (1)"],
+    "Ste": ["Jun 26 (1)"],
+    "jj": ["Jun 26 (1)"],
+    "Halid #1": ["Jun 26 (1)"],
+    "SwiftyKinja": ["Jun 26 (1)"],
+    "rinz": ["Jun 26 (1)"],
+    "SurgeGold": ["Jun 26 (1)"],
+    "Sumairu": ["Jun 26 (1)"],
 }
 def _bonus_val(dates):
-    """Sort value = most-recent award as year*12+month; 0 if never."""
+    """Sort value from 'Mon YY' / 'Mon YY (N)': older=lower; later CWL within a month ranks higher; 0 if never."""
+    _MON = {"jan":1,"feb":2,"mar":3,"apr":4,"may":5,"jun":6,"jul":7,"aug":8,"sep":9,"oct":10,"nov":11,"dec":12}
     best = 0
     for _d in dates:
         try:
-            _m, _y = _d.split("/")
-            _v = (2000 + int(_y)) * 12 + int(_m)
+            _p = _d.split()
+            _v = ((2000 + int(_p[1])) * 12 + _MON[_p[0][:3].lower()]) * 10 + (int(_p[2].strip("()")) if len(_p) > 2 else 0)
             if _v > best: best = _v
         except Exception:
             pass
@@ -6010,7 +6018,7 @@ td.rc-0{background:oklch(0.30 0.09 28)}
 .dch.dip{color:oklch(0.88 0.13 56);background:oklch(0.43 0.11 56)}
 .dch.even{color:var(--muted);background:var(--surface3)}
 .rc-d{margin-top:2px;text-align:center;line-height:1}
-.bwrap{display:inline-flex;flex-wrap:wrap;gap:3px;justify-content:center;max-width:122px}
+.bwrap{display:inline-flex;flex-direction:column;gap:2px;align-items:center}
 .bchip{background:var(--full-bg);border:1px solid var(--full-bd);color:var(--full-tx);border-radius:4px;padding:1px 5px;font-size:10.5px;font-weight:500;white-space:nowrap;font-family:'JetBrains Mono',monospace}
 /* Reward chips */
 .rew{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11px;font-weight:700;white-space:nowrap;border:1px solid}
