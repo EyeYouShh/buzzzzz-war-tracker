@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 6/28/26 — 44 members
-    "@INSTAGRAM","Americanpatriot","BUILT DIFFERENT","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Ste","Stevie Wonder","StopImAsianBro","SubZero","Sumairu","SurgeGold","SwiftyKinja","Tomahawk","Tretor","UNSTOPPABLE ADI","Woot","ZEROSUBS","arius67'","crimpo","das","drybonez","gen","jj","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
+    # Auto-updated 6/28/26 — 46 members
+    "@INSTAGRAM","Americanpatriot","BUILT DIFFERENT","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","SaYNaNaFoO","Ste","Stevie Wonder","StopImAsianBro","SubZero","Sumairu","SurgeGold","SwiftyKinja","Tomahawk","Tretor","UNSTOPPABLE ADI","Vicious Viking","Woot","ZEROSUBS","arius67'","crimpo","das","drybonez","gen","jj","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -54,6 +54,7 @@ PLAYER_TH = {
     "彡๛sulta彡": 17,
     "BARSA": 14,
     "BUILT DIFFERENT": 14,
+    "SaYNaNaFoO": 18,
 }
 # In-game order (tiebreaker within same TH — matches the order user sees in-game)
 _CS_ORDER = [
@@ -144,8 +145,8 @@ WAR_BLOCKS = [
 #QL8CV0P0|gen|2|17|2|6|6|2:3:3:17,3:3:3:18
 #QCUCLPPJV|Gr8Conqueror|3|17|2|5|5|1:2:2:18,4:3:3:17
 #GQJUGLQRQ|stage6yo|4|16|0|0|0|
-#99R8208U|SubZero|5|16|0|0|0|
-#209J8J0RL|Big Steppa|6|15|0|0|0|
+#99R8208U|SubZero|5|16|1|3|3|5:3:3:17
+#209J8J0RL|Big Steppa|6|15|2|2|2|9:1:1:15,10:1:1:15
 #QP0CU0UC8|stage5yo|7|15|2|6|6|7:3:3:15,8:3:3:15
 #G0VGRUCC|SwiftyKinja|8|15|0|0|0|
 #Y0UUGPRRU|Americanpatriot|9|15|0|0|0|
@@ -157,22 +158,22 @@ WAR_BLOCKS = [
 #LGJ9RC9Y9|Halid #1|15|14|0|0|0|
 #R00L0CY9C|MiniPekka|16|14|0|0|0|
 #GRRYCUJP8|crimpo|17|14|0|0|0|
-#9PCRUJ98|ZEROSUBS|18|14|0|0|0|
+#9PCRUJ98|ZEROSUBS|18|14|1|3|3|18:3:3:14
 #GJLRURGC2|Cole|19|14|0|0|0|
 #GRGGPPQ8J|Pam from HR|20|14|0|0|0|
 #PGLV2YQC|Kizaru|21|14|0|0|0|
-#YLGQ20LP8|Brodie|22|14|0|0|0|
+#YLGQ20LP8|Brodie|22|14|2|4|4|21:2:2:14,20:2:2:14
 #GV088PV02|roham|23|14|1|3|3|23:3:3:14
 #2C9JU8LU|Woot|24|14|0|0|0|
 #YVCJC0VCQ|Marrow|25|14|0|0|0|
 #8L9J0R2QJ|SWAGMUFFIN90|26|13|0|0|0|
 #R0GCPRLPL|jj|27|13|0|0|0|
-#QLYP90RPV|Ste|28|13|0|0|0|
+#QLYP90RPV|Ste|28|13|2|6|6|28:3:3:14,27:3:3:13
 #QLLPQV8VJ|uhlisuh|29|13|1|2|2|29:2:2:13
-#QUJLUR02G|UNSTOPPABLE ADI|30|13|1|3|3|30:3:3:13
-#R0RV2P0U0|Pharah|31|13|0|0|0|
+#QUJLUR02G|UNSTOPPABLE ADI|30|13|2|6|6|30:3:3:13,31:3:3:13
+#R0RV2P0U0|Pharah|31|13|1|2|0|29:2:0:13
 #R02R82YG9|DandyPickle|32|13|1|3|3|32:3:3:13
-#R2GPPJ220|das|33|12|0|0|0|
+#R2GPPJ220|das|33|12|2|6|6|34:3:3:14,33:3:3:13
 #R22Q89CCU|Stevie Wonder|34|12|0|0|0|
 #98VGCVCCC|Tretor|35|12|0|0|0|
 """, True),
