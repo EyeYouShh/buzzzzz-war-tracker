@@ -14,7 +14,7 @@ PLAYER_TH = {
     "gen": 17, "Gr8Conqueror": 17,
     "stage6yo": 16, "wato": 16, "drybonez": 16,
     "Americanpatriot": 15, "Big Steppa": 15, "SwiftyKinja": 15, "stage5yo": 15, "DE1": 15,
-    "crimpo": 14, "Cole": 14, "studkiller": 15, "rour": 14, "MiniPekka": 14,
+    "crimpo": 14, "Cole": 14, "studkiller": 15, "rour": 14, "MiniPekka": 15,
     "Kizaru": 14, "Jac": 15, "Halid #1": 14, "SurgeGold": 14, "Loading…": 14,
     "Sumairu": 14, "Pam from HR": 14, "louis": 14, "imnotstraight10": 14,
     "the beast": 14, "seth": 14,
