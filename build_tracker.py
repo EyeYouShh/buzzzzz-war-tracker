@@ -12,7 +12,7 @@ ACTIVE = {
 PLAYER_TH = {
     "Slayer": 18,
     "gen": 17, "Gr8Conqueror": 17,
-    "stage6yo": 16, "wato": 16, "drybonez": 16,
+    "stage6yo": 17, "wato": 16, "drybonez": 16,
     "Americanpatriot": 15, "Big Steppa": 16, "SwiftyKinja": 15, "stage5yo": 15, "DE1": 15,
     "crimpo": 14, "Cole": 14, "studkiller": 15, "rour": 14, "MiniPekka": 15,
     "Kizaru": 14, "Jac": 15, "Halid #1": 14, "SurgeGold": 15, "Loading…": 14,
@@ -151,7 +151,7 @@ WAR_BLOCKS = [
 #Y0UUGPRRU|Americanpatriot|8|15|2|6|6|8:3:3:15,6:3:3:16
 #9V9QUCLJV|@INSTAGRAM|9|15|2|6|2|7:3:1:16,11:3:1:15
 #GV80Y9L0Y|studkiller|10|15|2|6|6|10:3:3:15,9:3:3:15
-#2J9GYQRYC|Jac|11|15|0|0|0|
+#2J9GYQRYC|Jac|11|15|2|6|0|30:3:0:11,29:3:0:13
 #8J2V8998|DE1|12|15|2|6|4|12:3:3:14,14:3:1:14
 #8G8QL98YV|StopImAsianBro|13|14|2|5|5|14:2:2:14,15:3:3:14
 #8290JCG8Y|BUILT DIFFERENT|14|14|0|0|0|
@@ -159,7 +159,7 @@ WAR_BLOCKS = [
 #R00L0CY9C|MiniPekka|16|15|2|6|3|25:3:3:13,11:3:0:15
 #LGJ9RC9Y9|Halid #1|17|14|2|2|0|1:0:0:18,5:2:0:16
 #GJLRURGC2|Cole|18|14|2|6|6|18:3:3:14,16:3:3:14
-#PGLV2YQC|Kizaru|19|14|1|2|2|19:2:2:14
+#PGLV2YQC|Kizaru|19|14|2|5|2|19:2:2:14,23:3:0:14
 #GRGGPPQ8J|Pam from HR|20|14|1|2|2|20:2:2:14
 #YLGQ20LP8|Brodie|21|14|2|4|4|21:3:3:14,13:1:1:14
 #GV088PV02|roham|22|14|2|6|2|20:3:1:14,19:3:1:14
