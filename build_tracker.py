@@ -20,7 +20,7 @@ PLAYER_TH = {
     "the beast": 14, "seth": 14,
     "arius67'": 14, "Marrow": 14, "⚡️LSWreckless⚡️": 13, "Ste": 13, "uhlisuh": 13,
     "SWAGMUFFIN90": 14, "Brandon": 13, "Pharah": 13, "UNSTOPPABLE ADI": 13,
-    "MR. ASURAN YT": 13, "jj": 13, "DandyPickle": 13, "F16": 13,
+    "MR. ASURAN YT": 13, "jj": 13, "DandyPickle": 13, "F16": 14,
     "Stevie Wonder": 12, "das": 13, "rinz": 12,
     "Tretor": 12,
     "•KAILAN•": 18,
@@ -144,7 +144,7 @@ WAR_BLOCKS = [
 #9Q2VLQL2R|Tomahawk|1|18|2|6|6|1:3:3:18,2:3:3:18
 #QL8CV0P0|gen|2|17|2|6|6|3:3:3:18,4:3:3:18
 #QCUCLPPJV|Gr8Conqueror|3|17|2|6|3|5:3:1:16,13:3:2:14
-#GQJUGLQRQ|stage6yo|4|16|0|0|0|
+#GQJUGLQRQ|stage6yo|4|16|2|3|0|1:1:0:18,2:2:0:18
 #209J8J0RL|Big Steppa|5|16|2|6|6|24:3:3:13,26:3:3:13
 #G0VGRUCC|SwiftyKinja|6|15|2|4|4|5:2:2:16,7:2:2:16
 #QP0CU0UC8|stage5yo|7|15|2|6|4|29:3:1:13,30:3:3:11
