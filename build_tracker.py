@@ -15,7 +15,7 @@ PLAYER_TH = {
     "stage6yo": 16, "wato": 16, "drybonez": 16,
     "Americanpatriot": 15, "Big Steppa": 16, "SwiftyKinja": 15, "stage5yo": 15, "DE1": 15,
     "crimpo": 14, "Cole": 14, "studkiller": 15, "rour": 14, "MiniPekka": 15,
-    "Kizaru": 14, "Jac": 15, "Halid #1": 14, "SurgeGold": 14, "Loading…": 14,
+    "Kizaru": 14, "Jac": 15, "Halid #1": 14, "SurgeGold": 15, "Loading…": 14,
     "Sumairu": 14, "Pam from HR": 14, "louis": 14, "imnotstraight10": 14,
     "the beast": 14, "seth": 14,
     "arius67'": 14, "Marrow": 14, "⚡️LSWreckless⚡️": 13, "Ste": 13, "uhlisuh": 13,
@@ -157,7 +157,7 @@ WAR_BLOCKS = [
 #8290JCG8Y|BUILT DIFFERENT|14|14|0|0|0|
 #GRRYCUJP8|crimpo|15|14|0|0|0|
 #R00L0CY9C|MiniPekka|16|15|2|6|3|25:3:3:13,11:3:0:15
-#LGJ9RC9Y9|Halid #1|17|14|0|0|0|
+#LGJ9RC9Y9|Halid #1|17|14|2|2|0|1:0:0:18,5:2:0:16
 #GJLRURGC2|Cole|18|14|2|6|6|18:3:3:14,16:3:3:14
 #PGLV2YQC|Kizaru|19|14|1|2|2|19:2:2:14
 #GRGGPPQ8J|Pam from HR|20|14|1|2|2|20:2:2:14
