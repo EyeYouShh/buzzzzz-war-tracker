@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 7/2/26 — 40 members
-    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","Stevie Wonder","StopImAsianBro","Sumairu","SurgeGold","SwiftyKinja","Tomahawk","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
+    # Auto-updated 7/2/26 — 39 members
+    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","StopImAsianBro","Sumairu","SurgeGold","SwiftyKinja","Tomahawk","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -80,6 +80,7 @@ PLAYER_TAGS = {
     "#2C9JU8LU": "Woot",
     "#2J9GYQRYC": "Jac",
     "#8290JCG8Y": "BUILT DIFFERENT",
+    "#82G8C2YJ9": "Slime",
     "#8G8QL98YV": "StopImAsianBro",
     "#8J2V8998": "DE1",
     "#8L9J0R2QJ": "SWAGMUFFIN90",
@@ -141,6 +142,39 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
+("317054832","7/3/26","KP COC","30v30","""
+#9Q2VLQL2R|Tomahawk|1|18|0|0|0|
+#QL8CV0P0|gen|2|17|0|0|0|
+#QCUCLPPJV|Gr8Conqueror|3|17|0|0|0|
+#GQJUGLQRQ|stage6yo|4|17|0|0|0|
+#209J8J0RL|Big Steppa|5|16|0|0|0|
+#82G8C2YJ9|Slime|6|16|0|0|0|
+#LC020U2Q|drybonez|7|16|0|0|0|
+#G0VGRUCC|SwiftyKinja|8|15|0|0|0|
+#QP0CU0UC8|stage5yo|9|15|0|0|0|
+#Y0UUGPRRU|Americanpatriot|10|15|0|0|0|
+#9V9QUCLJV|@INSTAGRAM|11|15|0|0|0|
+#GV80Y9L0Y|studkiller|12|15|0|0|0|
+#2J9GYQRYC|Jac|13|15|0|0|0|
+#R00L0CY9C|MiniPekka|14|15|0|0|0|
+#8J2V8998|DE1|15|15|0|0|0|
+#RQCJR8JV|SurgeGold|16|15|0|0|0|
+#8G8QL98YV|StopImAsianBro|17|14|0|0|0|
+#LGJ9RC9Y9|Halid #1|18|14|0|0|0|
+#GRRYCUJP8|crimpo|19|14|0|0|0|
+#Q9UJG0RJP|Sumairu|20|14|0|0|0|
+#GRGGPPQ8J|Pam from HR|21|14|0|0|0|
+#PGLV2YQC|Kizaru|22|14|0|0|0|
+#GJLRURGC2|Cole|23|14|0|0|0|
+#YLGQ20LP8|Brodie|24|14|0|0|0|
+#GV088PV02|roham|25|14|0|0|0|
+#YVCJC0VCQ|Marrow|27|14|0|0|0|
+#GJ20RJ8RP|arius67'|28|14|0|0|0|
+#QGRPYC928|⚡️LSWreckless⚡️|31|13|0|0|0|
+#QLYP90RPV|Ste|33|13|0|0|0|
+#QUJLUR02G|UNSTOPPABLE ADI|36|13|0|0|0|
+""", True, True),
+
 ("630192719","6/30/26","التبيع يوم عصفر","30v30","""
 #9Q2VLQL2R|Tomahawk|1|18|2|6|6|1:3:3:18,2:3:3:18
 #QL8CV0P0|gen|2|17|2|6|6|3:3:3:18,4:3:3:18
