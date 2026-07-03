@@ -13,7 +13,7 @@ PLAYER_TH = {
     "Slayer": 18,
     "gen": 17, "Gr8Conqueror": 17,
     "stage6yo": 17, "wato": 16, "drybonez": 16,
-    "Americanpatriot": 15, "Big Steppa": 16, "SwiftyKinja": 15, "stage5yo": 15, "DE1": 15,
+    "Americanpatriot": 16, "Big Steppa": 16, "SwiftyKinja": 15, "stage5yo": 15, "DE1": 15,
     "crimpo": 14, "Cole": 14, "studkiller": 15, "rour": 14, "MiniPekka": 15,
     "Kizaru": 14, "Jac": 15, "Halid #1": 14, "SurgeGold": 15, "Loading…": 14,
     "Sumairu": 14, "Pam from HR": 14, "louis": 14, "imnotstraight10": 14,
@@ -142,7 +142,7 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
-("317054832","7/3/26","KP COC","30v30","""
+("417055717","7/4/26","CFC fighter","30v30","""
 #9Q2VLQL2R|Tomahawk|1|18|0|0|0|
 #QL8CV0P0|gen|2|17|0|0|0|
 #QCUCLPPJV|Gr8Conqueror|3|17|0|0|0|
@@ -154,25 +154,58 @@ WAR_BLOCKS = [
 #QP0CU0UC8|stage5yo|9|15|0|0|0|
 #Y0UUGPRRU|Americanpatriot|10|15|0|0|0|
 #9V9QUCLJV|@INSTAGRAM|11|15|0|0|0|
-#GV80Y9L0Y|studkiller|12|15|0|0|0|
-#2J9GYQRYC|Jac|13|15|0|0|0|
-#R00L0CY9C|MiniPekka|14|15|0|0|0|
-#8J2V8998|DE1|15|15|0|0|0|
-#RQCJR8JV|SurgeGold|16|15|0|0|0|
+#R00L0CY9C|MiniPekka|12|15|0|0|0|
+#GV80Y9L0Y|studkiller|13|15|0|0|0|
+#2J9GYQRYC|Jac|14|15|0|0|0|
+#RQCJR8JV|SurgeGold|15|15|0|0|0|
+#8J2V8998|DE1|16|15|0|0|0|
 #8G8QL98YV|StopImAsianBro|17|14|0|0|0|
-#LGJ9RC9Y9|Halid #1|18|14|0|0|0|
-#GRRYCUJP8|crimpo|19|14|0|0|0|
+#GRRYCUJP8|crimpo|18|14|0|0|0|
+#LGJ9RC9Y9|Halid #1|19|14|0|0|0|
 #Q9UJG0RJP|Sumairu|20|14|0|0|0|
 #GRGGPPQ8J|Pam from HR|21|14|0|0|0|
-#PGLV2YQC|Kizaru|22|14|0|0|0|
-#GJLRURGC2|Cole|23|14|0|0|0|
+#GJLRURGC2|Cole|22|14|0|0|0|
+#PGLV2YQC|Kizaru|23|14|0|0|0|
 #YLGQ20LP8|Brodie|24|14|0|0|0|
 #GV088PV02|roham|25|14|0|0|0|
 #YVCJC0VCQ|Marrow|27|14|0|0|0|
 #GJ20RJ8RP|arius67'|28|14|0|0|0|
 #8L9J0R2QJ|SWAGMUFFIN90|29|14|0|0|0|
-#QGRPYC928|⚡️LSWreckless⚡️|31|13|0|0|0|
-#QLYP90RPV|Ste|33|13|0|0|0|
+#QGRPYC928|⚡️LSWreckless⚡️|30|14|0|0|0|
+#QLYP90RPV|Ste|32|13|0|0|0|
+""", True, True),
+
+("317054832","7/3/26","KP COC","30v30","""
+#9Q2VLQL2R|Tomahawk|1|18|1|3|3|1:3:3:18
+#QL8CV0P0|gen|2|17|1|3|3|2:3:3:18
+#QCUCLPPJV|Gr8Conqueror|3|17|0|0|0|
+#GQJUGLQRQ|stage6yo|4|17|0|0|0|
+#209J8J0RL|Big Steppa|5|16|0|0|0|
+#82G8C2YJ9|Slime|6|16|1|1|1|6:1:1:18
+#LC020U2Q|drybonez|7|16|1|2|2|7:2:2:18
+#G0VGRUCC|SwiftyKinja|8|15|1|2|2|8:2:2:18
+#QP0CU0UC8|stage5yo|9|15|0|0|0|
+#Y0UUGPRRU|Americanpatriot|10|15|1|2|2|10:2:2:18
+#9V9QUCLJV|@INSTAGRAM|11|15|0|0|0|
+#GV80Y9L0Y|studkiller|12|15|1|2|2|12:2:2:18
+#2J9GYQRYC|Jac|13|15|0|0|0|
+#R00L0CY9C|MiniPekka|14|15|0|0|0|
+#8J2V8998|DE1|15|15|0|0|0|
+#RQCJR8JV|SurgeGold|16|15|0|0|0|
+#8G8QL98YV|StopImAsianBro|17|14|0|0|0|
+#LGJ9RC9Y9|Halid #1|18|14|1|2|2|18:2:2:18
+#GRRYCUJP8|crimpo|19|14|0|0|0|
+#Q9UJG0RJP|Sumairu|20|14|0|0|0|
+#GRGGPPQ8J|Pam from HR|21|14|0|0|0|
+#PGLV2YQC|Kizaru|22|14|0|0|0|
+#GJLRURGC2|Cole|23|14|1|2|2|23:2:2:18
+#YLGQ20LP8|Brodie|24|14|1|1|1|24:1:1:18
+#GV088PV02|roham|25|14|1|2|2|25:2:2:18
+#YVCJC0VCQ|Marrow|27|14|0|0|0|
+#GJ20RJ8RP|arius67'|28|14|0|0|0|
+#8L9J0R2QJ|SWAGMUFFIN90|29|14|0|0|0|
+#QGRPYC928|⚡️LSWreckless⚡️|31|14|1|3|3|30:3:3:12
+#QLYP90RPV|Ste|33|13|1|3|3|35:3:3:10
 """, True, True),
 
 ("630192719","6/30/26","التبيع يوم عصفر","30v30","""
