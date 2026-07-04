@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
     # Auto-updated 7/4/26 — 38 members
-    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","StopImAsianBro","Sumairu","SurgeGold","SwiftyKinja","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
+    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","StopImAsianBro","Sumairu","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -24,7 +24,7 @@ PLAYER_TH = {
     "Stevie Wonder": 12, "das": 13, "rinz": 12,
     "Tretor": 12,
     "•KAILAN•": 18,
-    "@INSTAGRAM": 15,
+    "@INSTAGRAM": 16,
     "Vicious Viking": 18,
     "spawnofwar": 17,
     "خشم شب": 14,
@@ -203,7 +203,7 @@ WAR_BLOCKS = [
 #GV088PV02|roham|25|14|1|2|2|25:2:2:18
 #YVCJC0VCQ|Marrow|27|14|1|2|2|26:2:2:18
 #GJ20RJ8RP|arius67'|28|14|1|2|2|27:2:2:18
-#8L9J0R2QJ|SWAGMUFFIN90|29|14|0|0|0|
+#8L9J0R2QJ|SWAGMUFFIN90|29|14|1|2|2|28:2:2:16
 #QGRPYC928|⚡️LSWreckless⚡️|31|14|1|3|3|30:3:3:12
 #QLYP90RPV|Ste|33|13|1|3|3|35:3:3:10
 """, True, True),
