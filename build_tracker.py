@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 7/4/26 — 37 members
-    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","Slime","Ste","StopImAsianBro","Sumairu","SurgeGold","SwiftyKinja","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
+    # Auto-updated 7/4/26 — 38 members
+    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","StopImAsianBro","Sumairu","SurgeGold","SwiftyKinja","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -143,7 +143,6 @@ WAR_END_ISO = ""
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
 ("417055717","7/4/26","CFC fighter","30v30","""
-#9Q2VLQL2R|Tomahawk|1|18|0|0|0|
 #QL8CV0P0|gen|2|17|0|0|0|
 #QCUCLPPJV|Gr8Conqueror|3|17|0|0|0|
 #GQJUGLQRQ|stage6yo|4|17|0|0|0|
@@ -173,6 +172,7 @@ WAR_BLOCKS = [
 #8L9J0R2QJ|SWAGMUFFIN90|29|14|0|0|0|
 #QGRPYC928|⚡️LSWreckless⚡️|30|14|0|0|0|
 #QLYP90RPV|Ste|32|13|0|0|0|
+#R0RV2P0U0|Pharah|36|13|0|0|0|
 """, True, True),
 
 ("317054832","7/3/26","KP COC","30v30","""
@@ -195,14 +195,14 @@ WAR_BLOCKS = [
 #8G8QL98YV|StopImAsianBro|17|14|1|1|1|17:1:1:18
 #LGJ9RC9Y9|Halid #1|18|14|1|2|2|18:2:2:18
 #GRRYCUJP8|crimpo|19|14|0|0|0|
-#Q9UJG0RJP|Sumairu|20|14|0|0|0|
+#Q9UJG0RJP|Sumairu|20|14|1|1|1|20:1:1:18
 #GRGGPPQ8J|Pam from HR|21|14|1|1|1|21:1:1:18
 #PGLV2YQC|Kizaru|22|14|1|2|2|22:2:2:18
 #GJLRURGC2|Cole|23|14|1|2|2|23:2:2:18
 #YLGQ20LP8|Brodie|24|14|1|1|1|24:1:1:18
 #GV088PV02|roham|25|14|1|2|2|25:2:2:18
 #YVCJC0VCQ|Marrow|27|14|1|2|2|26:2:2:18
-#GJ20RJ8RP|arius67'|28|14|0|0|0|
+#GJ20RJ8RP|arius67'|28|14|1|2|2|27:2:2:18
 #8L9J0R2QJ|SWAGMUFFIN90|29|14|0|0|0|
 #QGRPYC928|⚡️LSWreckless⚡️|31|14|1|3|3|30:3:3:12
 #QLYP90RPV|Ste|33|13|1|3|3|35:3:3:10
