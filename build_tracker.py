@@ -46,7 +46,7 @@ PLAYER_TH = {
     "My name is...": 14,
     "Beast Gamer": 14,
     "Tomahawk": 18,
-    "roham": 14,
+    "roham": 15,
     "TigerGoMaow": 16,
     "Tupac": 17,
     "ʙᴜᴛᴄʜᴇʀ": 17,
