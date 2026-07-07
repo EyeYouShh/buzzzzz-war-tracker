@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 7/6/26 — 39 members
-    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","StopImAsianBro","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
+    # Auto-updated 7/7/26 — 38 members
+    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","StopImAsianBro","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -170,24 +170,24 @@ WAR_BLOCKS = [
 #YVCJC0VCQ|Marrow|26|14|0|0|0|
 #8L9J0R2QJ|SWAGMUFFIN90|28|14|0|0|0|
 #GJ20RJ8RP|arius67'|29|14|0|0|0|
-#QLYP90RPV|Ste|32|13|0|0|0|
 #PRCQVCCV2|Brandon|34|13|0|0|0|
 #QLLPQV8VJ|uhlisuh|35|13|0|0|0|
 #R0RV2P0U0|Pharah|36|13|0|0|0|
+#QUJLUR02G|UNSTOPPABLE ADI|37|13|0|0|0|
 """, True, True),
 
 ("617080473","7/6/26","Royal","30v30","""
-#QL8CV0P0|gen|2|17|0|0|0|
+#QL8CV0P0|gen|2|17|1|3|3|21:3:3:17
 #QCUCLPPJV|Gr8Conqueror|3|17|1|2|2|3:2:2:18
 #GQJUGLQRQ|stage6yo|4|17|1|3|3|24:3:3:17
 #209J8J0RL|Big Steppa|5|16|1|3|3|25:3:3:17
 #82G8C2YJ9|Slime|6|16|1|2|2|26:2:2:17
 #LC020U2Q|drybonez|7|16|0|0|0|
-#Y0UUGPRRU|Americanpatriot|8|16|0|0|0|
-#9V9QUCLJV|@INSTAGRAM|9|16|0|0|0|
+#Y0UUGPRRU|Americanpatriot|8|16|1|3|3|29:3:3:17
+#9V9QUCLJV|@INSTAGRAM|9|16|1|2|2|30:2:2:17
 #G0VGRUCC|SwiftyKinja|10|15|1|3|3|31:3:3:17
 #QP0CU0UC8|stage5yo|11|15|1|3|3|20:3:3:17
-#GV80Y9L0Y|studkiller|12|15|0|0|0|
+#GV80Y9L0Y|studkiller|12|15|1|2|2|33:2:2:17
 #R00L0CY9C|MiniPekka|13|15|0|0|0|
 #8J2V8998|DE1|15|15|0|0|0|
 #RQCJR8JV|SurgeGold|16|15|0|0|0|
@@ -204,7 +204,7 @@ WAR_BLOCKS = [
 #GJ20RJ8RP|arius67'|28|14|1|2|2|32:2:2:17
 #8L9J0R2QJ|SWAGMUFFIN90|29|14|0|0|0|
 #QGRPYC928|⚡️LSWreckless⚡️|30|14|1|2|2|14:2:2:18
-#QLYP90RPV|Ste|32|13|0|0|0|
+#QLYP90RPV|Ste|32|13|1|0|0|39:0:0:16
 #PRCQVCCV2|Brandon|34|13|1|0|0|19:0:0:17
 #R0RV2P0U0|Pharah|36|13|1|0|0|39:0:0:16
 """, True, True),
