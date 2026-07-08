@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 7/7/26 — 40 members
-    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","StopImAsianBro","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","ʙᴜᴛᴄʜᴇʀ","⚡️LSWreckless⚡️"
+    # Auto-updated 7/8/26 — 41 members
+    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Hoosierdaddy","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","StopImAsianBro","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","ʙᴜᴛᴄʜᴇʀ","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -13,7 +13,7 @@ PLAYER_TH = {
     "Slayer": 18,
     "gen": 17, "Gr8Conqueror": 17,
     "stage6yo": 17, "wato": 16, "drybonez": 16,
-    "Americanpatriot": 16, "Big Steppa": 16, "SwiftyKinja": 15, "stage5yo": 15, "DE1": 15,
+    "Americanpatriot": 16, "Big Steppa": 16, "SwiftyKinja": 16, "stage5yo": 15, "DE1": 15,
     "crimpo": 14, "Cole": 14, "studkiller": 15, "rour": 14, "MiniPekka": 15,
     "Kizaru": 14, "Jac": 15, "Halid #1": 14, "SurgeGold": 15, "Loading…": 14,
     "Sumairu": 14, "Pam from HR": 14, "louis": 14, "imnotstraight10": 14,
@@ -57,6 +57,7 @@ PLAYER_TH = {
     "SaYNaNaFoO": 18,
     "Slime": 16,
     "THE DARK SPY": 17,
+    "Hoosierdaddy": 18,
 }
 # In-game order (tiebreaker within same TH — matches the order user sees in-game)
 _CS_ORDER = [
@@ -156,6 +157,7 @@ WAR_BLOCKS = [
 #GV80Y9L0Y|studkiller|12|15|0|0|0|
 #R00L0CY9C|MiniPekka|13|15|0|0|0|
 #RQCJR8JV|SurgeGold|14|15|0|0|0|
+#2J9GYQRYC|Jac|15|15|0|0|0|
 #8J2V8998|DE1|16|15|0|0|0|
 #8G8QL98YV|StopImAsianBro|17|15|0|0|0|
 #GV088PV02|roham|18|15|0|0|0|
@@ -169,7 +171,6 @@ WAR_BLOCKS = [
 #YVCJC0VCQ|Marrow|26|14|0|0|0|
 #8L9J0R2QJ|SWAGMUFFIN90|28|14|0|0|0|
 #GJ20RJ8RP|arius67'|29|14|0|0|0|
-#R0GCPRLPL|jj|33|13|0|0|0|
 #PRCQVCCV2|Brandon|34|13|0|0|0|
 #R0RV2P0U0|Pharah|35|13|0|0|0|
 #QLLPQV8VJ|uhlisuh|36|13|0|0|0|
@@ -178,7 +179,7 @@ WAR_BLOCKS = [
 
 ("717165433","7/7/26","REQ","30v30","""
 #QL8CV0P0|gen|2|17|0|0|0|
-#QCUCLPPJV|Gr8Conqueror|3|17|0|0|0|
+#QCUCLPPJV|Gr8Conqueror|3|17|1|3|3|3:3:3:18
 #GQJUGLQRQ|stage6yo|4|17|1|3|3|4:3:3:17
 #209J8J0RL|Big Steppa|5|16|0|0|0|
 #82G8C2YJ9|Slime|6|16|1|3|3|7:3:3:17
@@ -197,14 +198,14 @@ WAR_BLOCKS = [
 #PGLV2YQC|Kizaru|21|14|1|2|2|27:2:2:15
 #GJLRURGC2|Cole|22|14|0|0|0|
 #Q9UJG0RJP|Sumairu|23|14|0|0|0|
-#GRGGPPQ8J|Pam from HR|24|14|0|0|0|
+#GRGGPPQ8J|Pam from HR|24|14|1|2|2|34:2:2:14
 #YLGQ20LP8|Brodie|25|14|1|3|3|35:3:3:14
 #YVCJC0VCQ|Marrow|26|14|1|3|3|37:3:3:14
 #8L9J0R2QJ|SWAGMUFFIN90|28|14|0|0|0|
 #GJ20RJ8RP|arius67'|29|14|1|3|3|32:3:3:15
 #R0GCPRLPL|jj|33|13|0|0|0|
-#PRCQVCCV2|Brandon|34|13|0|0|0|
-#QLLPQV8VJ|uhlisuh|35|13|0|0|0|
+#PRCQVCCV2|Brandon|34|13|1|2|2|43:2:2:14
+#QLLPQV8VJ|uhlisuh|35|13|1|1|1|44:1:1:13
 #R0RV2P0U0|Pharah|36|13|0|0|0|
 #QUJLUR02G|UNSTOPPABLE ADI|37|13|0|0|0|
 """, True, True),
