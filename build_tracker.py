@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 7/8/26 — 41 members
-    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Hoosierdaddy","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","StopImAsianBro","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","ʙᴜᴛᴄʜᴇʀ","⚡️LSWreckless⚡️"
+    # Auto-updated 7/8/26 — 40 members
+    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Hoosierdaddy","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","StopImAsianBro","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -14,7 +14,7 @@ PLAYER_TH = {
     "gen": 17, "Gr8Conqueror": 17,
     "stage6yo": 17, "wato": 16, "drybonez": 16,
     "Americanpatriot": 16, "Big Steppa": 16, "SwiftyKinja": 16, "stage5yo": 15, "DE1": 15,
-    "crimpo": 14, "Cole": 14, "studkiller": 15, "rour": 14, "MiniPekka": 15,
+    "crimpo": 15, "Cole": 14, "studkiller": 15, "rour": 14, "MiniPekka": 15,
     "Kizaru": 14, "Jac": 15, "Halid #1": 14, "SurgeGold": 15, "Loading…": 14,
     "Sumairu": 14, "Pam from HR": 14, "louis": 14, "imnotstraight10": 14,
     "the beast": 14, "seth": 14,
@@ -181,10 +181,10 @@ WAR_BLOCKS = [
 #QL8CV0P0|gen|2|17|1|3|3|1:3:3:18
 #QCUCLPPJV|Gr8Conqueror|3|17|1|3|3|3:3:3:18
 #GQJUGLQRQ|stage6yo|4|17|1|3|3|4:3:3:17
-#209J8J0RL|Big Steppa|5|16|0|0|0|
+#209J8J0RL|Big Steppa|5|16|1|3|3|6:3:3:17
 #82G8C2YJ9|Slime|6|16|1|3|3|7:3:3:17
 #Y0UUGPRRU|Americanpatriot|8|16|1|3|3|9:3:3:16
-#9V9QUCLJV|@INSTAGRAM|9|16|0|0|0|
+#9V9QUCLJV|@INSTAGRAM|9|16|1|3|3|10:3:3:17
 #G0VGRUCC|SwiftyKinja|10|15|1|2|2|11:2:2:16
 #QP0CU0UC8|stage5yo|11|15|1|3|3|12:3:3:16
 #GV80Y9L0Y|studkiller|12|15|1|3|3|14:3:3:18
@@ -193,7 +193,7 @@ WAR_BLOCKS = [
 #RQCJR8JV|SurgeGold|15|15|0|0|0|
 #8G8QL98YV|StopImAsianBro|17|15|1|1|1|21:1:1:15
 #GV088PV02|roham|18|15|1|2|2|22:2:2:15
-#GRRYCUJP8|crimpo|19|14|0|0|0|
+#GRRYCUJP8|crimpo|19|14|1|3|3|24:3:3:15
 #LGJ9RC9Y9|Halid #1|20|14|1|2|2|26:2:2:15
 #PGLV2YQC|Kizaru|21|14|1|2|2|27:2:2:15
 #GJLRURGC2|Cole|22|14|1|3|3|30:3:3:16
