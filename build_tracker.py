@@ -150,7 +150,7 @@ WAR_BLOCKS = [
 #GQJUGLQRQ|stage6yo|4|17|1|3|3|3:3:3:18
 #209J8J0RL|Big Steppa|5|16|1|2|2|4:2:2:18
 #82G8C2YJ9|Slime|6|16|1|2|2|5:2:2:18
-#Y0UUGPRRU|Americanpatriot|8|16|0|0|0|
+#Y0UUGPRRU|Americanpatriot|8|16|1|2|2|6:2:2:18
 #9V9QUCLJV|@INSTAGRAM|9|16|1|3|3|7:3:3:18
 #G0VGRUCC|SwiftyKinja|10|16|1|3|3|8:3:3:18
 #QP0CU0UC8|stage5yo|11|15|1|2|2|9:2:2:18
@@ -175,7 +175,7 @@ WAR_BLOCKS = [
 #QLLPQV8VJ|uhlisuh|36|13|1|2|2|31:2:2:12
 #QUJLUR02G|UNSTOPPABLE ADI|37|13|1|3|3|32:3:3:12
 #QUQ0RUG29|rinz|39|12|1|3|3|33:3:3:11
-""", True, True),
+""", False, True),
 
 ("817171029","7/8/26","КАЙФУН - ТАЙФУН","30v30","""
 #QL8CV0P0|gen|2|17|1|1|1|1:1:1:18
@@ -4684,6 +4684,7 @@ WAR_BLOCKS = [
 
 # ── Win/Loss/Draw results keyed by war ID ──
 RESULTS = {
+    "917412071": "W",
     "817171029": "W",
     "717165433": "W",
     "617080473": "L",
