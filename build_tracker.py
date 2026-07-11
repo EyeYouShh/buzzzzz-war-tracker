@@ -33,7 +33,7 @@ PLAYER_TH = {
     "hood": 14,
     "AHMAD KHAN": 14,
     "StopImAsianBro": 15,
-    "Brodie": 14,
+    "Brodie": 15,
     "Kiromiga": 14,
     "Woot": 14,
     "filet minion": 14,
