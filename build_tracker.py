@@ -6337,7 +6337,7 @@ td.rc-0{background:oklch(0.30 0.09 28)}
 .dch.dip{color:oklch(0.88 0.13 56);background:oklch(0.43 0.11 56)}
 .dch.even{color:var(--muted);background:var(--surface3)}
 .rc-d{margin-top:2px;text-align:center;line-height:1}
-.bwrap{display:inline-flex;flex-direction:column;gap:2px;align-items:center}
+.bwrap{display:inline-flex;gap:3px;align-items:center}
 .bchip{background:var(--full-bg);border:1px solid var(--full-bd);color:var(--full-tx);border-radius:4px;padding:1px 5px;font-size:10.5px;font-weight:500;white-space:nowrap;font-family:'JetBrains Mono',monospace}
 /* Reward chips */
 .rew{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11px;font-weight:700;white-space:nowrap;border:1px solid}
