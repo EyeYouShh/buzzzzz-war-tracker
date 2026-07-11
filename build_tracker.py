@@ -123,6 +123,7 @@ PLAYER_TAGS = {
     "#QP0CU0UC8": "stage5yo",
     "#QUJLUR02G": "UNSTOPPABLE ADI",
     "#QUQ0RUG29": "rinz",
+    "#QYLP02CJ0": "Hoosierdaddy",
     "#QYQU2JYYC": "MR. ASURAN YT",
     "#R00L0CY9C": "MiniPekka",
     "#R02R82YG9": "DandyPickle",
@@ -144,6 +145,29 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
+("712134433","7/12/26","MFC WARIORR","20v20","""
+#QYLP02CJ0|Hoosierdaddy|1|18|0|0|0|
+#QL8CV0P0|gen|2|17|0|0|0|
+#GQJUGLQRQ|stage6yo|3|17|0|0|0|
+#QCUCLPPJV|Gr8Conqueror|4|17|0|0|0|
+#9V9QUCLJV|@INSTAGRAM|5|16|0|0|0|
+#G0VGRUCC|SwiftyKinja|6|16|0|0|0|
+#R00L0CY9C|MiniPekka|7|15|0|0|0|
+#8J2V8998|DE1|8|15|0|0|0|
+#2J9GYQRYC|Jac|9|15|0|0|0|
+#RQCJR8JV|SurgeGold|10|15|0|0|0|
+#GRRYCUJP8|crimpo|11|15|0|0|0|
+#YLGQ20LP8|Brodie|12|15|0|0|0|
+#8G8QL98YV|StopImAsianBro|13|15|0|0|0|
+#GRGGPPQ8J|Pam from HR|14|14|0|0|0|
+#YVCJC0VCQ|Marrow|15|14|0|0|0|
+#R0GCPRLPL|jj|16|13|0|0|0|
+#QLYP90RPV|Ste|17|13|0|0|0|
+#QUJLUR02G|UNSTOPPABLE ADI|18|13|0|0|0|
+#R02R82YG9|DandyPickle|19|13|0|0|0|
+#QUQ0RUG29|rinz|20|12|0|0|0|
+""", True),
+
 ("917412071","7/9/26","IRAN VIKINGS","30v30","""
 #QL8CV0P0|gen|2|17|1|3|3|1:3:3:18
 #QCUCLPPJV|Gr8Conqueror|3|17|1|3|3|2:3:3:18
