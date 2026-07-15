@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 7/13/26 — 39 members
-    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Halid #1","Hoosierdaddy","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","StopImAsianBro","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
+    # Auto-updated 7/15/26 — 37 members
+    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -147,7 +147,7 @@ WAR_END_ISO = "2026-07-15T18:23:16Z"
 WAR_BLOCKS = [
 ("714182316","7/14/26","KOLKATA BOYS","20v20","""
 #QYLP02CJ0|Hoosierdaddy|1|18|2|5|3|20:3:3:11,13:2:0:15
-#QL8CV0P0|gen|2|17|0|0|0|
+#QL8CV0P0|gen|2|17|2|6|2|12:3:1:15,13:3:1:15
 #GQJUGLQRQ|stage6yo|3|17|2|6|6|1:3:3:18,2:3:3:17
 #209J8J0RL|Big Steppa|4|16|2|6|2|5:3:1:16,10:3:1:15
 #82G8C2YJ9|Slime|5|16|0|0|0|
