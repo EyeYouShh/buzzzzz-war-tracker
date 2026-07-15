@@ -15,7 +15,7 @@ PLAYER_TH = {
     "stage6yo": 17, "wato": 16, "drybonez": 16,
     "Americanpatriot": 16, "Big Steppa": 16, "SwiftyKinja": 16, "stage5yo": 15, "DE1": 15,
     "crimpo": 15, "Cole": 14, "studkiller": 15, "rour": 14, "MiniPekka": 15,
-    "Kizaru": 15, "Jac": 15, "Halid #1": 14, "SurgeGold": 15, "Loading…": 14,
+    "Kizaru": 15, "Jac": 15, "Halid #1": 15, "SurgeGold": 15, "Loading…": 14,
     "Sumairu": 14, "Pam from HR": 14, "louis": 14, "imnotstraight10": 14,
     "the beast": 14, "seth": 14,
     "arius67'": 14, "Marrow": 14, "⚡️LSWreckless⚡️": 14, "Ste": 13, "uhlisuh": 13,
@@ -146,24 +146,24 @@ WAR_END_ISO = "2026-07-15T18:23:16Z"
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
 ("714182316","7/14/26","KOLKATA BOYS","20v20","""
-#QYLP02CJ0|Hoosierdaddy|1|18|0|0|0|
+#QYLP02CJ0|Hoosierdaddy|1|18|2|5|3|20:3:3:11,13:2:0:15
 #QL8CV0P0|gen|2|17|0|0|0|
 #GQJUGLQRQ|stage6yo|3|17|2|6|6|1:3:3:18,2:3:3:17
-#209J8J0RL|Big Steppa|4|16|0|0|0|
+#209J8J0RL|Big Steppa|4|16|2|6|2|5:3:1:16,10:3:1:15
 #82G8C2YJ9|Slime|5|16|0|0|0|
-#9V9QUCLJV|@INSTAGRAM|6|16|1|3|3|4:3:3:16
-#GV80Y9L0Y|studkiller|7|15|1|3|3|7:3:3:15
+#9V9QUCLJV|@INSTAGRAM|6|16|2|6|6|4:3:3:16,3:3:3:17
+#GV80Y9L0Y|studkiller|7|15|2|6|6|7:3:3:15,14:3:3:15
 #R00L0CY9C|MiniPekka|8|15|2|5|5|9:3:3:15,5:2:2:16
 #8J2V8998|DE1|9|15|2|6|6|6:3:3:16,8:3:3:15
 #RQCJR8JV|SurgeGold|10|15|0|0|0|
 #GRRYCUJP8|crimpo|11|15|0|0|0|
 #YLGQ20LP8|Brodie|12|15|2|5|5|11:3:3:15,10:2:2:15
 #8G8QL98YV|StopImAsianBro|13|15|2|4|4|13:2:2:15,12:2:2:15
-#GJLRURGC2|Cole|14|14|0|0|0|
-#GRGGPPQ8J|Pam from HR|15|14|0|0|0|
+#GJLRURGC2|Cole|14|14|2|6|6|15:3:3:14,17:3:3:14
+#GRGGPPQ8J|Pam from HR|15|14|1|2|2|16:2:2:14
 #YVCJC0VCQ|Marrow|16|14|0|0|0|
 #8L9J0R2QJ|SWAGMUFFIN90|17|14|0|0|0|
-#QLYP90RPV|Ste|18|13|0|0|0|
+#QLYP90RPV|Ste|18|13|1|3|1|16:3:1:14
 #QUJLUR02G|UNSTOPPABLE ADI|19|13|2|6|6|19:3:3:12,18:3:3:13
 #QUQ0RUG29|rinz|20|12|0|0|0|
 """, True),
