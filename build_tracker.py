@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 7/15/26 — 37 members
-    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
+    # Auto-updated 7/16/26 — 36 members
+    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
