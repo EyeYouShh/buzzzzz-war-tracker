@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 7/16/26 — 37 members
-    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
+    # Auto-updated 7/17/26 — 38 members
+    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","The Black Pearl","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -58,6 +58,7 @@ PLAYER_TH = {
     "Slime": 16,
     "THE DARK SPY": 17,
     "Hoosierdaddy": 18,
+    "The Black Pearl": 17,
 }
 # In-game order (tiebreaker within same TH — matches the order user sees in-game)
 _CS_ORDER = [
@@ -147,21 +148,21 @@ WAR_END_ISO = "2026-07-17T19:31:48Z"
 WAR_BLOCKS = [
 ("716193148","7/16/26","MAHAKAL","25v25","""
 #QL8CV0P0|gen|1|17|2|5|5|2:3:3:18,1:2:2:18
-#GQJUGLQRQ|stage6yo|2|17|0|0|0|
+#GQJUGLQRQ|stage6yo|2|17|2|5|0|1:2:0:18,2:3:0:18
 #209J8J0RL|Big Steppa|3|16|0|0|0|
 #82G8C2YJ9|Slime|4|16|2|6|6|6:3:3:15,10:3:3:15
 #9V9QUCLJV|@INSTAGRAM|5|16|2|6|4|3:3:3:17,1:3:1:18
 #G0VGRUCC|SwiftyKinja|6|16|2|6|6|4:3:3:16,5:3:3:15
-#QP0CU0UC8|stage5yo|7|15|0|0|0|
+#QP0CU0UC8|stage5yo|7|15|2|5|0|1:2:0:18,3:3:0:17
 #GV80Y9L0Y|studkiller|8|15|2|6|6|8:3:3:15,14:3:3:17
 #R00L0CY9C|MiniPekka|9|15|2|6|6|9:3:3:15,7:3:3:16
 #2J9GYQRYC|Jac|10|15|2|6|4|11:3:1:15,24:3:3:11
 #8J2V8998|DE1|11|15|2|3|0|2:1:0:18,1:2:0:18
-#RQCJR8JV|SurgeGold|12|15|1|3|3|12:3:3:15
-#GRRYCUJP8|crimpo|13|15|1|3|1|13:3:1:15
-#GV088PV02|roham|14|15|0|0|0|
+#RQCJR8JV|SurgeGold|12|15|2|4|3|12:3:3:15,1:1:0:18
+#GRRYCUJP8|crimpo|13|15|2|4|1|13:3:1:15,1:1:0:18
+#GV088PV02|roham|14|15|2|3|0|1:1:0:18,3:2:0:17
 #YLGQ20LP8|Brodie|15|15|2|5|5|15:3:3:15,11:2:2:15
-#PGLV2YQC|Kizaru|16|15|1|3|3|16:3:3:14
+#PGLV2YQC|Kizaru|16|15|2|6|3|16:3:3:14,17:3:0:16
 #GJLRURGC2|Cole|17|14|2|6|6|18:3:3:14,17:3:3:16
 #GRGGPPQ8J|Pam from HR|18|14|2|5|5|21:3:3:13,13:2:2:15
 #YVCJC0VCQ|Marrow|19|14|2|6|6|19:3:3:14,20:3:3:14
