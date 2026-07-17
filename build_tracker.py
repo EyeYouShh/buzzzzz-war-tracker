@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 7/17/26 — 38 members
-    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","The Black Pearl","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
+    # Auto-updated 7/17/26 — 46 members
+    "@INSTAGRAM","Americanpatriot","BARSA","Big Steppa","Brandon","Brodie","Cole","Commando","DE1","DandyPickle","F16","Halid #1","Jac","Kizaru","Loading…","MAYKY","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","The Black Pearl","Tupac","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","wWwww","ʙᴜᴛᴄʜᴇʀ","♥امپراطور☆شمال♥","⚡️LSWreckless⚡️","彡๛sulta彡"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -52,13 +52,16 @@ PLAYER_TH = {
     "ʙᴜᴛᴄʜᴇʀ": 17,
     "♥امپراطور☆شمال♥": 17,
     "彡๛sulta彡": 17,
-    "BARSA": 14,
+    "BARSA": 15,
     "BUILT DIFFERENT": 14,
     "SaYNaNaFoO": 18,
     "Slime": 16,
     "THE DARK SPY": 17,
     "Hoosierdaddy": 18,
     "The Black Pearl": 17,
+    "Commando": 15,
+    "wWwww": 15,
+    "MAYKY": 15,
 }
 # In-game order (tiebreaker within same TH — matches the order user sees in-game)
 _CS_ORDER = [
@@ -149,7 +152,7 @@ WAR_BLOCKS = [
 ("716193148","7/16/26","MAHAKAL","25v25","""
 #QL8CV0P0|gen|1|17|2|5|5|2:3:3:18,1:2:2:18
 #GQJUGLQRQ|stage6yo|2|17|2|5|0|1:2:0:18,2:3:0:18
-#209J8J0RL|Big Steppa|3|16|0|0|0|
+#209J8J0RL|Big Steppa|3|16|2|5|0|3:3:0:17,2:2:0:18
 #82G8C2YJ9|Slime|4|16|2|6|6|6:3:3:15,10:3:3:15
 #9V9QUCLJV|@INSTAGRAM|5|16|2|6|4|3:3:3:17,1:3:1:18
 #G0VGRUCC|SwiftyKinja|6|16|2|6|6|4:3:3:16,5:3:3:15
