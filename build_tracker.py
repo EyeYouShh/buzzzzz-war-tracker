@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 7/17/26 — 40 members
-    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","The Black Pearl","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","wWwww","•KAILAN•","⚡️LSWreckless⚡️"
+    # Auto-updated 7/17/26 — 38 members
+    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","The Black Pearl","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -145,7 +145,7 @@ PLAYER_TAGS = {
 # War end time (ISO 8601 UTC) — set by update_tracker.py when a war is active.
 # JS uses this to display the smart-capture end time as "Next update" instead of next cron slot.
 # Cleared by update_tracker.py when war ends or no war is active.
-WAR_END_ISO = "2026-07-17T19:31:48Z"
+WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
@@ -173,7 +173,7 @@ WAR_BLOCKS = [
 #R0GCPRLPL|jj|21|13|0|0|0|
 #QLYP90RPV|Ste|22|13|1|3|3|25:3:3:10
 #QUJLUR02G|UNSTOPPABLE ADI|23|13|2|6|6|23:3:3:12,22:3:3:13
-#R02R82YG9|DandyPickle|24|13|1|3|0|24:3:0:11
+#R02R82YG9|DandyPickle|24|13|2|6|0|24:3:0:11,23:3:0:12
 #QUQ0RUG29|rinz|25|12|0|0|0|
 """, True),
 
