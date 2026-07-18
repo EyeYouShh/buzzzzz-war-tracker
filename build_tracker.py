@@ -5004,31 +5004,26 @@ def parse_war(war_id, date, opp, size, raw, in_prog=False, cwl=False):
 
 wars = [parse_war(*b) for b in WAR_BLOCKS]
 
-# ── Dedup CWL rounds split into prep + live/completed blocks ───────────────────
+# ── Dedup wars (regular + CWL) split into prep + live/completed blocks ───────────────────
 # The runner's startTime-derived war id can change between a round's prep day and its
 # battle day, creating two WAR_BLOCKS for the same round. (date, opp) identifies a CWL
 # round uniquely, so keep the most-advanced block: completed > has-attacks > prep.
-def _cwl_rank(_w):
+def _war_rank(_w):
     _atks = sum(_pd.get('a', 0) for _pd in _w['players'].values())
     return (0 if _w['in_prog'] else 1, _atks)
-_cwl_keep = {}
+_war_keep = {}
 for _w in wars:
-    if not _w['cwl']:
-        continue
-    _k = (_w['date'], _w['opp'])
-    if _k not in _cwl_keep or _cwl_rank(_w) > _cwl_rank(_cwl_keep[_k]):
-        _cwl_keep[_k] = _w
-_seen_cwl_keys = set()
+    _k = (_w['date'], _w['opp'], _w['cwl'])
+    if _k not in _war_keep or _war_rank(_w) > _war_rank(_war_keep[_k]):
+        _war_keep[_k] = _w
+_seen_war_keys = set()
 _deduped_wars = []
 for _w in wars:
-    if _w['cwl']:
-        _k = (_w['date'], _w['opp'])
-        if _k in _seen_cwl_keys:
-            continue
-        _seen_cwl_keys.add(_k)
-        _deduped_wars.append(_cwl_keep[_k])
-    else:
-        _deduped_wars.append(_w)
+    _k = (_w['date'], _w['opp'], _w['cwl'])
+    if _k in _seen_war_keys:
+        continue
+    _seen_war_keys.add(_k)
+    _deduped_wars.append(_war_keep[_k])
 wars = _deduped_wars
 
 # Seed all_players:
