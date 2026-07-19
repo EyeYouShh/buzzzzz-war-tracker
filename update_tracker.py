@@ -420,6 +420,53 @@ def wait_for_war_end(war_data):
     return True
 
 
+def finalize_stale_regular_wars(current_id):
+    """Safety net: any in-progress REGULAR war block that is NOT the current war gets
+    finalized from the war log. Fixes wars stuck 'live' when the runner missed their end
+    window (e.g. VM downtime). Cannot recover lost attack data, but always sets the correct
+    result + ended state. CWL wars are left alone (handled via the leaguegroup fetch)."""
+    with open(TRACKER_PY, "r") as f:
+        content = f.read()
+    stale = []  # (wid, opp, full_block_text)
+    for m in re.finditer(r'\("(\d+)","([^"]*)","([^"]*)","([^"]*)",\s*"""(.*?)"""(.*?)\)', content, re.DOTALL):
+        wid = m.group(1); opp = m.group(3)
+        flags = [x.strip() for x in m.group(6).split(",") if x.strip()]
+        in_prog = len(flags) >= 1 and flags[0] == "True"
+        is_cwl = len(flags) >= 2
+        if in_prog and not is_cwl and wid != current_id:
+            stale.append((wid, opp, m.group(0)))
+    if not stale:
+        return False
+    try:
+        wl = api_get(f"/clans/{CLAN_TAG}/warlog?limit=20")
+    except Exception as e:
+        print(f"Stale-war finalize: war log fetch failed ({e})")
+        return False
+    res_of = {}
+    for it in wl.get("items", []):
+        o = it.get("opponent", {}).get("name", "")
+        r = {"win": "W", "lose": "L", "tie": "D"}.get(it.get("result", ""), "")
+        if o and o not in res_of:
+            res_of[o] = r
+    changed = False
+    for wid, opp, block in stale:
+        result = res_of.get(opp, "")
+        if not result:
+            print(f"Stale war {wid} vs {opp}: not in war log yet, will retry next cycle.")
+            continue
+        cut = block.rfind(", True)")
+        new_block = block[:cut] + ")"
+        content = content.replace(block, new_block, 1)
+        if f'"{wid}":' not in content and f"'{wid}':" not in content:
+            content = content.replace("RESULTS = {\n", f'RESULTS = {{\n    "{wid}": "{result}",\n', 1)
+        print(f"Finalized stale war {wid} vs {opp} -> {result}")
+        changed = True
+    if changed:
+        with open(TRACKER_PY, "w") as f:
+            f.write(content)
+    return changed
+
+
 def main():
     if not API_KEY:
         print("ERROR: COC_API_KEY not set")
@@ -471,6 +518,16 @@ def main():
             changed = update_build_tracker(war_data_final)
             any_changed = any_changed or changed
             update_war_end_iso("")   # war ended — clear the end time
+
+        # 1b. Safety net: finalize any regular war left stuck "live"
+        _cur_id = ""
+        if state in ("preparation", "inWar", "warEnded"):
+            try:
+                _cur_id = war_id_from_start(war_data["startTime"])
+            except Exception:
+                _cur_id = ""
+        if finalize_stale_regular_wars(_cur_id):
+            any_changed = True
 
     except Exception as e:
         print(f"Regular war API error: {e}")

@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 7/17/26 — 38 members
-    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","The Black Pearl","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","jj","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
+    # Auto-updated 7/19/26 — 37 members
+    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Halid #1","Jac","Kizaru","Loading…","Marrow","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","The Black Pearl","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -153,7 +153,7 @@ WAR_BLOCKS = [
 ("718192347","7/18/26","iran66","25v25","""
 #QL8CV0P0|gen|1|17|0|0|0|
 #GGRJCJC0U|The Black Pearl|2|17|2|6|6|2:3:3:17,3:3:3:17
-#GQJUGLQRQ|stage6yo|3|17|0|0|0|
+#GQJUGLQRQ|stage6yo|3|17|2|6|0|1:3:0:18,2:3:0:17
 #209J8J0RL|Big Steppa|4|16|1|3|0|1:3:0:18
 #82G8C2YJ9|Slime|5|16|2|6|3|7:3:3:16,4:3:0:17
 #9V9QUCLJV|@INSTAGRAM|6|16|2|6|6|6:3:3:17,1:3:3:18
@@ -232,7 +232,7 @@ WAR_BLOCKS = [
 #QUJLUR02G|UNSTOPPABLE ADI|23|13|0|0|0|
 #R02R82YG9|DandyPickle|24|13|0|0|0|
 #QUQ0RUG29|rinz|25|12|0|0|0|
-""", True),
+"""),
 
 ("714182316","7/14/26","KOLKATA BOYS","20v20","""
 #QYLP02CJ0|Hoosierdaddy|1|18|2|5|3|20:3:3:11,13:2:0:15
@@ -278,7 +278,7 @@ WAR_BLOCKS = [
 #QLYP90RPV|Ste|18|13|0|0|0|
 #QUJLUR02G|UNSTOPPABLE ADI|19|13|0|0|0|
 #QUQ0RUG29|rinz|20|12|0|0|0|
-""", True),
+"""),
 
 ("712134433","7/12/26","MFC WARIORR","20v20","""
 #QYLP02CJ0|Hoosierdaddy|1|18|2|5|5|4:3:3:16,5:2:2:16
@@ -4843,6 +4843,8 @@ WAR_BLOCKS = [
 
 # ── Win/Loss/Draw results keyed by war ID ──
 RESULTS = {
+    "714174606": "D",
+    "716183637": "D",
     "714182316": "D",
     "712134433": "W",
     "917412071": "W",
