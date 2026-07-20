@@ -16,7 +16,7 @@ PLAYER_TH = {
     "Americanpatriot": 16, "Big Steppa": 16, "SwiftyKinja": 16, "stage5yo": 15, "DE1": 15,
     "crimpo": 15, "Cole": 14, "studkiller": 15, "rour": 14, "MiniPekka": 15,
     "Kizaru": 15, "Jac": 15, "Halid #1": 15, "SurgeGold": 15, "Loading…": 14,
-    "Sumairu": 14, "Pam from HR": 14, "louis": 14, "imnotstraight10": 14,
+    "Sumairu": 15, "Pam from HR": 14, "louis": 14, "imnotstraight10": 14,
     "the beast": 14, "seth": 14,
     "arius67'": 14, "Marrow": 14, "⚡️LSWreckless⚡️": 14, "Ste": 14, "uhlisuh": 13,
     "SWAGMUFFIN90": 14, "Brandon": 13, "Pharah": 13, "UNSTOPPABLE ADI": 13,
@@ -149,35 +149,35 @@ PLAYER_TAGS = {
 # War end time (ISO 8601 UTC) — set by update_tracker.py when a war is active.
 # JS uses this to display the smart-capture end time as "Next update" instead of next cron slot.
 # Cleared by update_tracker.py when war ends or no war is active.
-WAR_END_ISO = ""
+WAR_END_ISO = "2026-07-21T18:52:12Z"
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
 ("720185212","7/20/26","Mashhad 051","25v25","""
-#QL8CV0P0|gen|1|17|0|0|0|
-#GGRJCJC0U|The Black Pearl|2|17|0|0|0|
+#QL8CV0P0|gen|1|17|2|6|6|1:3:3:18,2:3:3:17
+#GGRJCJC0U|The Black Pearl|2|17|2|6|6|3:3:3:17,14:3:3:16
 #GQJUGLQRQ|stage6yo|3|17|0|0|0|
 #209J8J0RL|Big Steppa|4|16|0|0|0|
-#82G8C2YJ9|Slime|5|16|0|0|0|
+#82G8C2YJ9|Slime|5|16|2|6|6|8:3:3:15,10:3:3:15
 #9V9QUCLJV|@INSTAGRAM|6|16|0|0|0|
-#G0VGRUCC|SwiftyKinja|7|16|0|0|0|
+#G0VGRUCC|SwiftyKinja|7|16|2|6|6|4:3:3:16,5:3:3:16
 #QP0CU0UC8|stage5yo|8|15|0|0|0|
-#GV80Y9L0Y|studkiller|9|15|0|0|0|
-#R00L0CY9C|MiniPekka|10|15|0|0|0|
+#GV80Y9L0Y|studkiller|9|15|2|6|6|9:3:3:15,6:3:3:17
+#R00L0CY9C|MiniPekka|10|15|1|3|3|12:3:3:15
 #2J9GYQRYC|Jac|11|15|0|0|0|
-#8J2V8998|DE1|12|15|0|0|0|
-#RQCJR8JV|SurgeGold|13|15|0|0|0|
+#8J2V8998|DE1|12|15|2|6|6|11:3:3:16,7:3:3:15
+#RQCJR8JV|SurgeGold|13|15|1|3|3|13:3:3:15
 #LGJ9RC9Y9|Halid #1|14|15|0|0|0|
 #GRRYCUJP8|crimpo|15|15|0|0|0|
-#GV088PV02|roham|16|15|0|0|0|
-#PGLV2YQC|Kizaru|17|15|0|0|0|
-#YLGQ20LP8|Brodie|18|15|0|0|0|
-#GJLRURGC2|Cole|19|14|0|0|0|
-#YVCJC0VCQ|Marrow|20|14|0|0|0|
+#GV088PV02|roham|16|15|2|6|6|16:3:3:15,21:3:3:15
+#PGLV2YQC|Kizaru|17|15|1|3|3|17:3:3:15
+#YLGQ20LP8|Brodie|18|15|2|3|3|18:2:2:15,15:1:1:15
+#GJLRURGC2|Cole|19|14|2|6|6|19:3:3:15,22:3:3:14
+#YVCJC0VCQ|Marrow|20|14|2|6|6|20:3:3:14,23:3:3:14
 #GJ20RJ8RP|arius67'|21|14|0|0|0|
 #8L9J0R2QJ|SWAGMUFFIN90|22|14|0|0|0|
-#QLYP90RPV|Ste|23|13|0|0|0|
-#QUJLUR02G|UNSTOPPABLE ADI|24|13|0|0|0|
+#QLYP90RPV|Ste|23|14|0|0|0|
+#QUJLUR02G|UNSTOPPABLE ADI|24|13|2|6|6|24:3:3:12,25:3:3:10
 #R02R82YG9|DandyPickle|25|13|0|0|0|
 """, True),
 
