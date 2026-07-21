@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 7/21/26 — 40 members
-    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Halid #1","Jac","Kizaru","Loading…","Marrow","Mason","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","The Black Pearl","UNSTOPPABLE ADI","ali","arius67'","crimpo","drybonez","gen","kk","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
+    # Auto-updated 7/21/26 — 41 members
+    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Halid #1","Jac","Jacob","Kizaru","Loading…","Marrow","Mason","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","The Black Pearl","UNSTOPPABLE ADI","ali","arius67'","crimpo","drybonez","gen","kk","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -58,13 +58,14 @@ PLAYER_TH = {
     "Slime": 16,
     "THE DARK SPY": 17,
     "Hoosierdaddy": 18,
-    "The Black Pearl": 17,
+    "The Black Pearl": 18,
     "Commando": 15,
     "wWwww": 15,
     "MAYKY": 15,
     "Mason": 16,
     "kk": 15,
     "ali": 15,
+    "Jacob": 15,
 }
 # In-game order (tiebreaker within same TH — matches the order user sees in-game)
 _CS_ORDER = [
@@ -149,7 +150,7 @@ PLAYER_TAGS = {
 # War end time (ISO 8601 UTC) — set by update_tracker.py when a war is active.
 # JS uses this to display the smart-capture end time as "Next update" instead of next cron slot.
 # Cleared by update_tracker.py when war ends or no war is active.
-WAR_END_ISO = "2026-07-21T18:52:12Z"
+WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
@@ -159,7 +160,7 @@ WAR_BLOCKS = [
 #GQJUGLQRQ|stage6yo|3|17|2|6|0|1:3:0:18,2:3:0:17
 #209J8J0RL|Big Steppa|4|16|2|6|0|1:3:0:18,2:3:0:17
 #82G8C2YJ9|Slime|5|16|2|6|6|8:3:3:15,10:3:3:15
-#9V9QUCLJV|@INSTAGRAM|6|16|0|0|0|
+#9V9QUCLJV|@INSTAGRAM|6|16|2|6|0|1:3:0:18,2:3:0:17
 #G0VGRUCC|SwiftyKinja|7|16|2|6|6|4:3:3:16,5:3:3:16
 #QP0CU0UC8|stage5yo|8|15|2|6|0|1:3:0:18,2:3:0:17
 #GV80Y9L0Y|studkiller|9|15|2|6|6|9:3:3:15,6:3:3:17
@@ -167,19 +168,19 @@ WAR_BLOCKS = [
 #2J9GYQRYC|Jac|11|15|2|3|0|6:2:0:17,2:1:0:17
 #8J2V8998|DE1|12|15|2|6|6|11:3:3:16,7:3:3:15
 #RQCJR8JV|SurgeGold|13|15|2|5|3|13:3:3:15,1:2:0:18
-#LGJ9RC9Y9|Halid #1|14|15|0|0|0|
+#LGJ9RC9Y9|Halid #1|14|15|2|5|0|1:2:0:18,2:3:0:17
 #GRRYCUJP8|crimpo|15|15|2|6|0|4:3:0:16,3:3:0:17
 #GV088PV02|roham|16|15|2|6|6|16:3:3:15,21:3:3:15
-#PGLV2YQC|Kizaru|17|15|1|3|3|17:3:3:15
+#PGLV2YQC|Kizaru|17|15|2|5|3|17:3:3:15,18:2:0:15
 #YLGQ20LP8|Brodie|18|15|2|3|3|18:2:2:15,15:1:1:15
 #GJLRURGC2|Cole|19|14|2|6|6|19:3:3:15,22:3:3:14
 #YVCJC0VCQ|Marrow|20|14|2|6|6|20:3:3:14,23:3:3:14
 #GJ20RJ8RP|arius67'|21|14|2|5|2|15:2:1:15,18:3:1:15
-#8L9J0R2QJ|SWAGMUFFIN90|22|14|0|0|0|
+#8L9J0R2QJ|SWAGMUFFIN90|22|14|2|3|0|3:2:0:17,2:1:0:17
 #QLYP90RPV|Ste|23|14|1|3|0|22:3:0:14
 #QUJLUR02G|UNSTOPPABLE ADI|24|13|2|6|6|24:3:3:12,25:3:3:10
 #R02R82YG9|DandyPickle|25|13|2|6|0|25:3:0:10,24:3:0:12
-""", True),
+"""),
 
 ("718192347","7/18/26","iran66","25v25","""
 #QL8CV0P0|gen|1|17|2|4|0|1:2:0:18,2:2:0:17
@@ -4874,6 +4875,7 @@ WAR_BLOCKS = [
 
 # ── Win/Loss/Draw results keyed by war ID ──
 RESULTS = {
+    "720185212": "W",
     "718192347": "D",
     "714174606": "D",
     "716183637": "D",
