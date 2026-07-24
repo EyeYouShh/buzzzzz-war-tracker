@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 7/24/26 — 45 members
-    "@INSTAGRAM","Americanpatriot","BARSA","Big Steppa","Brandon","Brodie","Commando","DE1","DandyPickle","F16","Halid #1","Jac","Jacob","Kizaru","MAYKY","Marrow","Mason","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","Tupac","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","kk","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","wWwww","ʙᴜᴛᴄʜᴇʀ","♥امپراطور☆شمال♥","⚡️LSWreckless⚡️","彡๛sulta彡"
+    # Auto-updated 7/24/26 — 36 members
+    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","DE1","DandyPickle","F16","Halid #1","Jac","Kizaru","Marrow","Mason","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","kk","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -150,7 +150,7 @@ PLAYER_TAGS = {
 # War end time (ISO 8601 UTC) — set by update_tracker.py when a war is active.
 # JS uses this to display the smart-capture end time as "Next update" instead of next cron slot.
 # Cleared by update_tracker.py when war ends or no war is active.
-WAR_END_ISO = "2026-07-24T14:57:22Z"
+WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
@@ -167,15 +167,15 @@ WAR_BLOCKS = [
 #GV088PV02|roham|10|16|2|5|5|10:2:2:15,11:3:3:15
 #RQCJR8JV|SurgeGold|11|15|2|3|0|1:2:0:16,2:1:0:16
 #GRRYCUJP8|crimpo|12|15|2|5|0|2:2:0:16,1:3:0:16
-#PGLV2YQC|Kizaru|13|15|1|3|3|13:3:3:15
+#PGLV2YQC|Kizaru|13|15|2|6|3|13:3:3:15,20:3:0:12
 #GRGGPPQ8J|Pam from HR|14|14|2|5|3|16:3:3:15,10:2:0:15
 #GJ20RJ8RP|arius67'|15|14|2|5|3|15:3:3:14,10:2:0:15
-#8L9J0R2QJ|SWAGMUFFIN90|16|14|0|0|0|
+#8L9J0R2QJ|SWAGMUFFIN90|16|14|2|3|0|1:1:0:16,3:2:0:17
 #QLYP90RPV|Ste|17|14|0|0|0|
 #PRCQVCCV2|Brandon|18|15|2|6|6|18:3:3:13,17:3:3:13
 #QLLPQV8VJ|uhlisuh|19|13|2|6|1|19:3:1:13,20:3:0:12
 #R02R82YG9|DandyPickle|20|13|2|5|5|20:3:3:12,19:2:2:13
-""", True),
+"""),
 
 ("720185212","7/20/26","Mashhad 051","25v25","""
 #QL8CV0P0|gen|1|17|2|6|6|1:3:3:18,2:3:3:17
@@ -4898,6 +4898,7 @@ WAR_BLOCKS = [
 
 # ── Win/Loss/Draw results keyed by war ID ──
 RESULTS = {
+    "723145722": "W",
     "720185212": "W",
     "718192347": "D",
     "714174606": "D",
