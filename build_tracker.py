@@ -11,10 +11,10 @@ ACTIVE = {
 # Order = ClashSpot trophy/league rank within each TH tier — used as default sort
 PLAYER_TH = {
     "Slayer": 18,
-    "gen": 17, "Gr8Conqueror": 17,
+    "gen": 18, "Gr8Conqueror": 17,
     "stage6yo": 17, "wato": 16, "drybonez": 16,
     "Americanpatriot": 16, "Big Steppa": 16, "SwiftyKinja": 16, "stage5yo": 15, "DE1": 15,
-    "crimpo": 15, "Cole": 14, "studkiller": 15, "rour": 14, "MiniPekka": 15,
+    "crimpo": 15, "Cole": 15, "studkiller": 15, "rour": 14, "MiniPekka": 15,
     "Kizaru": 15, "Jac": 15, "Halid #1": 15, "SurgeGold": 16, "Loading…": 14,
     "Sumairu": 15, "Pam from HR": 14, "louis": 14, "imnotstraight10": 14,
     "the beast": 14, "seth": 14,
@@ -154,6 +154,29 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
+("727011602","7/27/26","初心者大歓迎","20v20","""
+#QL8CV0P0|gen|1|18|0|0|0|
+#209J8J0RL|Big Steppa|2|16|0|0|0|
+#9V9QUCLJV|@INSTAGRAM|3|16|0|0|0|
+#G0VGRUCC|SwiftyKinja|4|16|0|0|0|
+#RQCJR8JV|SurgeGold|5|16|0|0|0|
+#GV80Y9L0Y|studkiller|6|15|0|0|0|
+#GV088PV02|roham|7|16|0|0|0|
+#8J2V8998|DE1|8|15|0|0|0|
+#2J9GYQRYC|Jac|9|15|0|0|0|
+#LGJ9RC9Y9|Halid #1|10|15|0|0|0|
+#GRRYCUJP8|crimpo|11|15|0|0|0|
+#GJLRURGC2|Cole|12|15|0|0|0|
+#PGLV2YQC|Kizaru|13|15|0|0|0|
+#GRGGPPQ8J|Pam from HR|14|14|0|0|0|
+#GJ20RJ8RP|arius67'|15|14|0|0|0|
+#8L9J0R2QJ|SWAGMUFFIN90|16|14|0|0|0|
+#QLYP90RPV|Ste|17|14|0|0|0|
+#QUJLUR02G|UNSTOPPABLE ADI|18|13|0|0|0|
+#R02R82YG9|DandyPickle|19|13|0|0|0|
+#QUQ0RUG29|rinz|20|12|0|0|0|
+""", True),
+
 ("723145722","7/23/26","UTTARKHAN KING","20v20","""
 #QL8CV0P0|gen|1|17|2|4|4|4:3:3:16,5:1:1:17
 #GQJUGLQRQ|stage6yo|2|17|2|6|6|3:3:3:17,6:3:3:16
