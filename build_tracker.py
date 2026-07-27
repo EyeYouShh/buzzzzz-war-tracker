@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 7/27/26 — 40 members
-    "@INSTAGRAM","Americanpatriot","Anik the great","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Halid #1","Jac","Kizaru","Marrow","Mason","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","kk","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","up 2 no good","⚡️LSWreckless⚡️"
+    # Auto-updated 7/27/26 — 38 members
+    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Halid #1","Jac","Kizaru","Marrow","Mason","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","kk","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -165,15 +165,15 @@ WAR_BLOCKS = [
 #RQCJR8JV|SurgeGold|5|16|0|0|0|
 #GV80Y9L0Y|studkiller|6|15|2|6|6|6:3:3:15,5:3:3:15
 #GV088PV02|roham|7|16|2|4|4|7:2:2:15,8:2:2:15
-#8J2V8998|DE1|8|15|1|3|1|8:3:1:15
+#8J2V8998|DE1|8|15|2|5|1|8:3:1:15,2:2:0:16
 #2J9GYQRYC|Jac|9|15|0|0|0|
-#LGJ9RC9Y9|Halid #1|10|15|0|0|0|
+#LGJ9RC9Y9|Halid #1|10|15|2|5|5|9:3:3:15,10:2:2:15
 #GRRYCUJP8|crimpo|11|15|2|6|4|11:3:3:15,2:3:1:16
 #GJLRURGC2|Cole|12|15|2|6|6|12:3:3:15,13:3:3:15
-#PGLV2YQC|Kizaru|13|15|0|0|0|
-#GRGGPPQ8J|Pam from HR|14|14|0|0|0|
+#PGLV2YQC|Kizaru|13|15|2|6|2|10:3:1:15,14:3:1:15
+#GRGGPPQ8J|Pam from HR|14|14|2|5|1|16:3:1:14,17:2:0:14
 #GJ20RJ8RP|arius67'|15|14|1|3|3|15:3:3:14
-#8L9J0R2QJ|SWAGMUFFIN90|16|14|0|0|0|
+#8L9J0R2QJ|SWAGMUFFIN90|16|14|1|2|0|17:2:0:14
 #QLYP90RPV|Ste|17|14|2|6|6|19:3:3:16,18:3:3:14
 #QUJLUR02G|UNSTOPPABLE ADI|18|13|2|4|4|16:2:2:14,14:2:2:15
 #R02R82YG9|DandyPickle|19|13|2|5|5|20:3:3:12,17:2:2:14
