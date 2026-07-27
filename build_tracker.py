@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 7/26/26 — 39 members
-    "@INSTAGRAM","Americanpatriot","Anik the great","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Halid #1","Jac","Kizaru","Marrow","Mason","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","kk","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","up 2 no good","⚡️LSWreckless⚡️"
+    # Auto-updated 7/27/26 — 40 members
+    "@INSTAGRAM","Americanpatriot","Anik the great","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Halid #1","Jac","Kizaru","Marrow","Mason","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","kk","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","up 2 no good","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -22,7 +22,7 @@ PLAYER_TH = {
     "SWAGMUFFIN90": 14, "Brandon": 15, "Pharah": 13, "UNSTOPPABLE ADI": 13,
     "MR. ASURAN YT": 13, "jj": 13, "DandyPickle": 13, "F16": 14,
     "Stevie Wonder": 12, "das": 13, "rinz": 12,
-    "Tretor": 12,
+    "Tretor": 13,
     "•KAILAN•": 18,
     "@INSTAGRAM": 16,
     "Vicious Viking": 18,
@@ -153,28 +153,28 @@ PLAYER_TAGS = {
 # War end time (ISO 8601 UTC) — set by update_tracker.py when a war is active.
 # JS uses this to display the smart-capture end time as "Next update" instead of next cron slot.
 # Cleared by update_tracker.py when war ends or no war is active.
-WAR_END_ISO = ""
+WAR_END_ISO = "2026-07-28T01:16:02Z"
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
 ("727011602","7/27/26","初心者大歓迎","20v20","""
-#QL8CV0P0|gen|1|18|0|0|0|
-#209J8J0RL|Big Steppa|2|16|0|0|0|
+#QL8CV0P0|gen|1|18|2|6|6|3:3:3:17,4:3:3:16
+#209J8J0RL|Big Steppa|2|16|1|3|3|1:3:3:16
 #9V9QUCLJV|@INSTAGRAM|3|16|0|0|0|
-#G0VGRUCC|SwiftyKinja|4|16|0|0|0|
+#G0VGRUCC|SwiftyKinja|4|16|1|2|2|2:2:2:16
 #RQCJR8JV|SurgeGold|5|16|0|0|0|
-#GV80Y9L0Y|studkiller|6|15|0|0|0|
+#GV80Y9L0Y|studkiller|6|15|2|6|6|6:3:3:15,5:3:3:15
 #GV088PV02|roham|7|16|0|0|0|
 #8J2V8998|DE1|8|15|0|0|0|
 #2J9GYQRYC|Jac|9|15|0|0|0|
 #LGJ9RC9Y9|Halid #1|10|15|0|0|0|
-#GRRYCUJP8|crimpo|11|15|0|0|0|
+#GRRYCUJP8|crimpo|11|15|2|6|4|11:3:3:15,2:3:1:16
 #GJLRURGC2|Cole|12|15|0|0|0|
 #PGLV2YQC|Kizaru|13|15|0|0|0|
 #GRGGPPQ8J|Pam from HR|14|14|0|0|0|
 #GJ20RJ8RP|arius67'|15|14|0|0|0|
 #8L9J0R2QJ|SWAGMUFFIN90|16|14|0|0|0|
-#QLYP90RPV|Ste|17|14|0|0|0|
+#QLYP90RPV|Ste|17|14|2|6|6|19:3:3:16,18:3:3:14
 #QUJLUR02G|UNSTOPPABLE ADI|18|13|0|0|0|
 #R02R82YG9|DandyPickle|19|13|0|0|0|
 #QUQ0RUG29|rinz|20|12|0|0|0|
