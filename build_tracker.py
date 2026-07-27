@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 7/27/26 — 38 members
-    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Halid #1","Jac","Kizaru","Marrow","Mason","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","kk","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
+    # Auto-updated 7/27/26 — 37 members
+    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","DE1","DandyPickle","F16","Halid #1","Jac","Kizaru","Marrow","Mason","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","kk","rinz","roham","stage5yo","stage6yo","studkiller","uhlisuh","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -166,7 +166,7 @@ WAR_BLOCKS = [
 #GV80Y9L0Y|studkiller|6|15|2|6|6|6:3:3:15,5:3:3:15
 #GV088PV02|roham|7|16|2|4|4|7:2:2:15,8:2:2:15
 #8J2V8998|DE1|8|15|2|5|1|8:3:1:15,2:2:0:16
-#2J9GYQRYC|Jac|9|15|0|0|0|
+#2J9GYQRYC|Jac|9|15|1|3|1|17:3:1:14
 #LGJ9RC9Y9|Halid #1|10|15|2|5|5|9:3:3:15,10:2:2:15
 #GRRYCUJP8|crimpo|11|15|2|6|4|11:3:3:15,2:3:1:16
 #GJLRURGC2|Cole|12|15|2|6|6|12:3:3:15,13:3:3:15
