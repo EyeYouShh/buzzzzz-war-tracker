@@ -14,7 +14,7 @@ PLAYER_TH = {
     "gen": 18, "Gr8Conqueror": 17,
     "stage6yo": 17, "wato": 16, "drybonez": 16,
     "Americanpatriot": 16, "Big Steppa": 16, "SwiftyKinja": 16, "stage5yo": 15, "DE1": 15,
-    "crimpo": 15, "Cole": 15, "studkiller": 15, "rour": 14, "MiniPekka": 15,
+    "crimpo": 15, "Cole": 15, "studkiller": 16, "rour": 14, "MiniPekka": 15,
     "Kizaru": 15, "Jac": 15, "Halid #1": 15, "SurgeGold": 16, "Loading…": 14,
     "Sumairu": 15, "Pam from HR": 14, "louis": 14, "imnotstraight10": 14,
     "the beast": 14, "seth": 14,
@@ -119,6 +119,7 @@ PLAYER_TAGS = {
     "#GV088PV02": "roham",
     "#GV80Y9L0Y": "studkiller",
     "#L8UC9G0U8": "wato",
+    "#L9JGLLYQ": "Mason",
     "#LC020U2Q": "drybonez",
     "#LGJ9RC9Y9": "Halid #1",
     "#LR0CRU9JG": "BSGxZion",
@@ -157,6 +158,29 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
+("729030815","7/29/26","ALIN","20v20","""
+#QL8CV0P0|gen|1|18|0|0|0|
+#GQJUGLQRQ|stage6yo|2|17|0|0|0|
+#209J8J0RL|Big Steppa|3|16|0|0|0|
+#L9JGLLYQ|Mason|4|16|0|0|0|
+#9V9QUCLJV|@INSTAGRAM|5|16|0|0|0|
+#RQCJR8JV|SurgeGold|6|16|0|0|0|
+#G0VGRUCC|SwiftyKinja|7|16|0|0|0|
+#GV088PV02|roham|8|16|0|0|0|
+#GV80Y9L0Y|studkiller|9|15|0|0|0|
+#QP0CU0UC8|stage5yo|10|15|0|0|0|
+#8J2V8998|DE1|11|15|0|0|0|
+#2J9GYQRYC|Jac|12|15|0|0|0|
+#YLGQ20LP8|Brodie|13|15|0|0|0|
+#LGJ9RC9Y9|Halid #1|14|15|0|0|0|
+#GRRYCUJP8|crimpo|15|15|0|0|0|
+#PGLV2YQC|Kizaru|16|15|0|0|0|
+#GRGGPPQ8J|Pam from HR|17|14|0|0|0|
+#8L9J0R2QJ|SWAGMUFFIN90|18|14|0|0|0|
+#QLYP90RPV|Ste|19|14|0|0|0|
+#QUJLUR02G|UNSTOPPABLE ADI|20|13|0|0|0|
+""", True),
+
 ("727011602","7/27/26","初心者大歓迎","20v20","""
 #QL8CV0P0|gen|1|18|2|6|6|3:3:3:17,4:3:3:16
 #209J8J0RL|Big Steppa|2|16|2|5|3|1:3:3:16,7:2:0:15
