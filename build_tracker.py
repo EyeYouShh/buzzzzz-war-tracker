@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 7/29/26 — 42 members
-    "Americanpatriot","Anik the great","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Halid #1","JAAT","Jac","Jaier_Kid","Kizaru","Larry","Marrow","Mason","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","kk","rinz","roham","stage5yo","stage6yo","studkiller","tiger king","uhlisuh","⚡️LSWreckless⚡️"
+    # Auto-updated 7/29/26 — 43 members
+    "@INSTAGRAM","Americanpatriot","Anik the great","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Halid #1","JAAT","Jac","Jaier_Kid","Kizaru","Larry","Marrow","Mason","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","kk","rinz","roham","stage5yo","stage6yo","studkiller","tiger king","uhlisuh","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -174,15 +174,15 @@ WAR_BLOCKS = [
 #G0VGRUCC|SwiftyKinja|7|16|2|5|5|4:3:3:16,5:2:2:17
 #GV088PV02|roham|8|16|2|3|3|8:2:2:15,10:1:1:15
 #GV80Y9L0Y|studkiller|9|16|2|6|6|14:3:3:15,15:3:3:15
-#QP0CU0UC8|stage5yo|10|15|0|0|0|
-#8J2V8998|DE1|11|15|1|3|1|5:3:1:17
+#QP0CU0UC8|stage5yo|10|15|2|4|0|1:1:0:18,18:3:0:15
+#8J2V8998|DE1|11|15|2|5|1|5:3:1:17,1:2:0:18
 #2J9GYQRYC|Jac|12|15|2|6|0|20:3:0:15,19:3:0:14
-#YLGQ20LP8|Brodie|13|15|0|0|0|
+#YLGQ20LP8|Brodie|13|15|2|4|0|8:1:0:15,7:3:0:16
 #LGJ9RC9Y9|Halid #1|14|15|0|0|0|
 #GRRYCUJP8|crimpo|15|15|2|6|4|8:3:1:15,6:3:3:16
 #PGLV2YQC|Kizaru|16|15|2|6|6|16:3:3:15,17:3:3:16
 #GRGGPPQ8J|Pam from HR|17|14|1|3|3|18:3:3:15
-#8L9J0R2QJ|SWAGMUFFIN90|18|14|0|0|0|
+#8L9J0R2QJ|SWAGMUFFIN90|18|14|2|1|0|3:1:0:16,2:0:0:17
 #QLYP90RPV|Ste|19|14|0|0|0|
 #QUJLUR02G|UNSTOPPABLE ADI|20|13|2|6|6|20:3:3:15,19:3:3:14
 """, True),
