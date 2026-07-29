@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 7/29/26 — 43 members
-    "@INSTAGRAM","Americanpatriot","Anik the great","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","G.A","Halid #1","JAAT","Jac","Jaier_Kid","Kizaru","Marrow","Mason","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","kk","rinz","roham","stage5yo","stage6yo","studkiller","tiger king","uhlisuh","⚡️LSWreckless⚡️"
+    # Auto-updated 7/29/26 — 42 members
+    "@INSTAGRAM","Americanpatriot","Anik the great","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Halid #1","JAAT","Jac","Jaier_Kid","Kizaru","Marrow","Mason","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","kk","rinz","roham","stage5yo","stage6yo","studkiller","tiger king","uhlisuh","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -164,7 +164,7 @@ WAR_END_ISO = "2026-07-30T03:08:15Z"
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
 ("729030815","7/29/26","ALIN","20v20","""
-#QL8CV0P0|gen|1|18|0|0|0|
+#QL8CV0P0|gen|1|18|2|5|4|1:2:2:18,10:3:2:15
 #GQJUGLQRQ|stage6yo|2|17|0|0|0|
 #209J8J0RL|Big Steppa|3|16|2|6|6|9:3:3:16,7:3:3:16
 #L9JGLLYQ|Mason|4|16|2|6|6|2:3:3:17,3:3:3:16
