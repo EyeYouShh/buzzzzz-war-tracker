@@ -160,7 +160,7 @@ PLAYER_TAGS = {
 # War end time (ISO 8601 UTC) — set by update_tracker.py when a war is active.
 # JS uses this to display the smart-capture end time as "Next update" instead of next cron slot.
 # Cleared by update_tracker.py when war ends or no war is active.
-WAR_END_ISO = "2026-07-30T03:08:15Z"
+WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
@@ -170,7 +170,7 @@ WAR_BLOCKS = [
 #209J8J0RL|Big Steppa|3|16|2|6|6|9:3:3:16,7:3:3:16
 #L9JGLLYQ|Mason|4|16|2|6|6|2:3:3:17,3:3:3:16
 #9V9QUCLJV|@INSTAGRAM|5|16|2|6|6|11:3:3:15,13:3:3:15
-#RQCJR8JV|SurgeGold|6|16|0|0|0|
+#RQCJR8JV|SurgeGold|6|16|2|4|0|1:1:0:18,2:3:0:17
 #G0VGRUCC|SwiftyKinja|7|16|2|5|5|4:3:3:16,5:2:2:17
 #GV088PV02|roham|8|16|2|3|3|8:2:2:15,10:1:1:15
 #GV80Y9L0Y|studkiller|9|16|2|6|6|14:3:3:15,15:3:3:15
@@ -178,14 +178,14 @@ WAR_BLOCKS = [
 #8J2V8998|DE1|11|15|2|5|1|5:3:1:17,1:2:0:18
 #2J9GYQRYC|Jac|12|15|2|6|0|20:3:0:15,19:3:0:14
 #YLGQ20LP8|Brodie|13|15|2|4|0|8:1:0:15,7:3:0:16
-#LGJ9RC9Y9|Halid #1|14|15|0|0|0|
+#LGJ9RC9Y9|Halid #1|14|15|2|4|0|1:1:0:18,2:3:0:17
 #GRRYCUJP8|crimpo|15|15|2|6|4|8:3:1:15,6:3:3:16
 #PGLV2YQC|Kizaru|16|15|2|6|6|16:3:3:15,17:3:3:16
 #GRGGPPQ8J|Pam from HR|17|14|1|3|3|18:3:3:15
 #8L9J0R2QJ|SWAGMUFFIN90|18|14|2|1|0|3:1:0:16,2:0:0:17
 #QLYP90RPV|Ste|19|14|0|0|0|
 #QUJLUR02G|UNSTOPPABLE ADI|20|13|2|6|6|20:3:3:15,19:3:3:14
-""", True),
+"""),
 
 ("727011602","7/27/26","初心者大歓迎","20v20","""
 #QL8CV0P0|gen|1|18|2|6|6|3:3:3:17,4:3:3:16
@@ -4954,6 +4954,7 @@ WAR_BLOCKS = [
 
 # ── Win/Loss/Draw results keyed by war ID ──
 RESULTS = {
+    "729030815": "W",
     "727011602": "W",
     "723145722": "W",
     "720185212": "W",
