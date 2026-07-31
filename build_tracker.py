@@ -13,7 +13,7 @@ PLAYER_TH = {
     "Slayer": 18,
     "gen": 18, "Gr8Conqueror": 17,
     "stage6yo": 17, "wato": 16, "drybonez": 16,
-    "Americanpatriot": 16, "Big Steppa": 16, "SwiftyKinja": 16, "stage5yo": 15, "DE1": 15,
+    "Americanpatriot": 16, "Big Steppa": 16, "SwiftyKinja": 16, "stage5yo": 15, "DE1": 16,
     "crimpo": 15, "Cole": 15, "studkiller": 16, "rour": 14, "MiniPekka": 16,
     "Kizaru": 15, "Jac": 15, "Halid #1": 15, "SurgeGold": 16, "Loading…": 14,
     "Sumairu": 15, "Pam from HR": 14, "louis": 14, "imnotstraight10": 14,
@@ -164,19 +164,19 @@ PLAYER_TAGS = {
 # War end time (ISO 8601 UTC) — set by update_tracker.py when a war is active.
 # JS uses this to display the smart-capture end time as "Next update" instead of next cron slot.
 # Cleared by update_tracker.py when war ends or no war is active.
-WAR_END_ISO = "2026-08-01T03:11:48Z"
+WAR_END_ISO = "2026-08-01T03:43:44Z"
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
 ("731031148","7/31/26","TROLLERS 2","30v30","""
-#QL8CV0P0|gen|1|18|0|0|0|
+#QL8CV0P0|gen|1|18|2|6|2|8:3:1:16,16:3:1:15
 #P08PJRQU0|Larry|2|18|0|0|0|
 #GQJUGLQRQ|stage6yo|3|17|2|6|6|1:3:3:17,2:3:3:17
 #GGCJP909Q|Anik the great|4|17|0|0|0|
 #209J8J0RL|Big Steppa|5|16|2|5|3|5:2:0:16,6:3:3:16
 #G0VGRUCC|SwiftyKinja|6|16|2|6|6|3:3:3:16,7:3:3:16
-#L9JGLLYQ|Mason|7|16|0|0|0|
-#UCP22QCU|Jaier_Kid|8|16|0|0|0|
+#L9JGLLYQ|Mason|7|16|2|6|2|14:3:1:15,15:3:1:15
+#UCP22QCU|Jaier_Kid|8|16|1|3|3|11:3:3:16
 #9V9QUCLJV|@INSTAGRAM|9|16|0|0|0|
 #GV80Y9L0Y|studkiller|10|16|2|6|6|10:3:3:16,9:3:3:16
 #RQCJR8JV|SurgeGold|11|16|0|0|0|
@@ -191,11 +191,11 @@ WAR_BLOCKS = [
 #LGJ9RC9Y9|Halid #1|20|15|0|0|0|
 #PGLV2YQC|Kizaru|21|15|1|3|3|21:3:3:14
 #GJLRURGC2|Cole|22|15|2|6|6|18:3:3:15,19:3:3:15
-#PRCQVCCV2|Brandon|23|15|0|0|0|
+#PRCQVCCV2|Brandon|23|15|2|4|4|25:3:3:14,26:1:1:13
 #YVCJC0VCQ|Marrow|24|14|2|6|6|24:3:3:14,22:3:3:14
 #GRGGPPQ8J|Pam from HR|25|14|0|0|0|
 #8L9J0R2QJ|SWAGMUFFIN90|26|14|0|0|0|
-#QLYP90RPV|Ste|27|14|0|0|0|
+#QLYP90RPV|Ste|27|14|1|3|2|26:3:2:13
 #QUJLUR02G|UNSTOPPABLE ADI|28|13|2|6|6|28:3:3:13,29:3:3:13
 #R02R82YG9|DandyPickle|29|13|0|0|0|
 #98VGCVCCC|Tretor|30|13|0|0|0|
