@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 7/31/26 — 41 members
-    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Halid #1","Jac","Jaier_Kid","Kizaru","Larry","Marrow","Mason","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","kk","rinz","roham","stage5yo","stage6yo","studkiller","tiger king","uhlisuh","⚡️LSWreckless⚡️"
+    # Auto-updated 7/31/26 — 42 members
+    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Jaier_Kid","Kizaru","Larry","Marrow","Mason","MiniPekka","Pam from HR","Pharah","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","kk","rinz","roham","stage5yo","stage6yo","studkiller","tiger king","uhlisuh","⚡️LSWreckless⚡️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -170,7 +170,7 @@ WAR_END_ISO = "2026-08-01T03:43:44Z"
 WAR_BLOCKS = [
 ("731031148","7/31/26","TROLLERS 2","30v30","""
 #QL8CV0P0|gen|1|18|2|6|2|8:3:1:16,16:3:1:15
-#P08PJRQU0|Larry|2|18|0|0|0|
+#P08PJRQU0|Larry|2|18|2|6|3|30:3:3:12,1:3:0:17
 #GQJUGLQRQ|stage6yo|3|17|2|6|6|1:3:3:17,2:3:3:17
 #GGCJP909Q|Anik the great|4|17|0|0|0|
 #209J8J0RL|Big Steppa|5|16|2|5|3|5:2:0:16,6:3:3:16
@@ -189,11 +189,11 @@ WAR_BLOCKS = [
 #YLGQ20LP8|Brodie|18|15|2|4|4|16:2:2:15,14:2:2:15
 #Q9UJG0RJP|Sumairu|19|15|2|3|1|20:1:1:14,16:2:0:15
 #LGJ9RC9Y9|Halid #1|20|15|0|0|0|
-#PGLV2YQC|Kizaru|21|15|1|3|3|21:3:3:14
+#PGLV2YQC|Kizaru|21|15|2|6|5|21:3:3:14,20:3:2:14
 #GJLRURGC2|Cole|22|15|2|6|6|18:3:3:15,19:3:3:15
 #PRCQVCCV2|Brandon|23|15|2|4|4|25:3:3:14,26:1:1:13
 #YVCJC0VCQ|Marrow|24|14|2|6|6|24:3:3:14,22:3:3:14
-#GRGGPPQ8J|Pam from HR|25|14|0|0|0|
+#GRGGPPQ8J|Pam from HR|25|14|2|5|3|27:3:3:13,17:2:0:15
 #8L9J0R2QJ|SWAGMUFFIN90|26|14|0|0|0|
 #QLYP90RPV|Ste|27|14|1|3|2|26:3:2:13
 #QUJLUR02G|UNSTOPPABLE ADI|28|13|2|6|6|28:3:3:13,29:3:3:13
