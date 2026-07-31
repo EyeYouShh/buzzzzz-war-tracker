@@ -14,7 +14,7 @@ PLAYER_TH = {
     "gen": 18, "Gr8Conqueror": 17,
     "stage6yo": 17, "wato": 16, "drybonez": 16,
     "Americanpatriot": 16, "Big Steppa": 16, "SwiftyKinja": 16, "stage5yo": 15, "DE1": 15,
-    "crimpo": 15, "Cole": 15, "studkiller": 16, "rour": 14, "MiniPekka": 15,
+    "crimpo": 15, "Cole": 15, "studkiller": 16, "rour": 14, "MiniPekka": 16,
     "Kizaru": 15, "Jac": 15, "Halid #1": 15, "SurgeGold": 16, "Loading…": 14,
     "Sumairu": 15, "Pam from HR": 14, "louis": 14, "imnotstraight10": 14,
     "the beast": 14, "seth": 14,
@@ -182,9 +182,9 @@ WAR_BLOCKS = [
 #RQCJR8JV|SurgeGold|11|16|0|0|0|
 #GV088PV02|roham|12|16|2|6|6|12:3:3:16,13:3:3:15
 #QP0CU0UC8|stage5yo|13|15|1|3|1|5:3:1:16
-#8J2V8998|DE1|14|15|1|2|2|5:2:2:16
+#8J2V8998|DE1|14|15|2|4|4|5:2:2:16,8:2:2:16
 #2J9GYQRYC|Jac|15|15|0|0|0|
-#LV29URQLP|tiger king|16|15|0|0|0|
+#LV29URQLP|tiger king|16|15|1|2|2|15:2:2:15
 #GRRYCUJP8|crimpo|17|15|2|6|6|17:3:3:15,4:3:3:16
 #YLGQ20LP8|Brodie|18|15|2|4|4|16:2:2:15,14:2:2:15
 #Q9UJG0RJP|Sumairu|19|15|0|0|0|
@@ -196,7 +196,7 @@ WAR_BLOCKS = [
 #GRGGPPQ8J|Pam from HR|25|14|0|0|0|
 #8L9J0R2QJ|SWAGMUFFIN90|26|14|0|0|0|
 #QLYP90RPV|Ste|27|14|0|0|0|
-#QUJLUR02G|UNSTOPPABLE ADI|28|13|0|0|0|
+#QUJLUR02G|UNSTOPPABLE ADI|28|13|2|6|6|28:3:3:13,29:3:3:13
 #R02R82YG9|DandyPickle|29|13|0|0|0|
 #98VGCVCCC|Tretor|30|13|0|0|0|
 """, True),
