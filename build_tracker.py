@@ -18,7 +18,7 @@ PLAYER_TH = {
     "Kizaru": 15, "Jac": 15, "Halid #1": 15, "SurgeGold": 16, "Loading…": 14,
     "Sumairu": 15, "Pam from HR": 14, "louis": 14, "imnotstraight10": 14,
     "the beast": 14, "seth": 14,
-    "arius67'": 14, "Marrow": 14, "⚡️LSWreckless⚡️": 14, "Ste": 14, "uhlisuh": 13,
+    "arius67'": 14, "Marrow": 15, "⚡️LSWreckless⚡️": 14, "Ste": 14, "uhlisuh": 13,
     "SWAGMUFFIN90": 14, "Brandon": 15, "Pharah": 13, "UNSTOPPABLE ADI": 13,
     "MR. ASURAN YT": 13, "jj": 13, "DandyPickle": 13, "F16": 14,
     "Stevie Wonder": 12, "das": 13, "rinz": 12,
@@ -164,7 +164,7 @@ PLAYER_TAGS = {
 # War end time (ISO 8601 UTC) — set by update_tracker.py when a war is active.
 # JS uses this to display the smart-capture end time as "Next update" instead of next cron slot.
 # Cleared by update_tracker.py when war ends or no war is active.
-WAR_END_ISO = "2026-08-01T03:43:44Z"
+WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
@@ -177,9 +177,9 @@ WAR_BLOCKS = [
 #G0VGRUCC|SwiftyKinja|6|16|2|6|6|3:3:3:16,7:3:3:16
 #L9JGLLYQ|Mason|7|16|2|6|2|14:3:1:15,15:3:1:15
 #UCP22QCU|Jaier_Kid|8|16|1|3|3|11:3:3:16
-#9V9QUCLJV|@INSTAGRAM|9|16|0|0|0|
+#9V9QUCLJV|@INSTAGRAM|9|16|2|6|0|1:3:0:17,2:3:0:17
 #GV80Y9L0Y|studkiller|10|16|2|6|6|10:3:3:16,9:3:3:16
-#RQCJR8JV|SurgeGold|11|16|0|0|0|
+#RQCJR8JV|SurgeGold|11|16|2|5|0|1:2:0:17,2:3:0:17
 #GV088PV02|roham|12|16|2|6|6|12:3:3:16,13:3:3:15
 #QP0CU0UC8|stage5yo|13|15|1|3|1|5:3:1:16
 #8J2V8998|DE1|14|15|2|4|4|5:2:2:16,8:2:2:16
@@ -188,18 +188,18 @@ WAR_BLOCKS = [
 #GRRYCUJP8|crimpo|17|15|2|6|6|17:3:3:15,4:3:3:16
 #YLGQ20LP8|Brodie|18|15|2|4|4|16:2:2:15,14:2:2:15
 #Q9UJG0RJP|Sumairu|19|15|2|3|1|20:1:1:14,16:2:0:15
-#LGJ9RC9Y9|Halid #1|20|15|0|0|0|
+#LGJ9RC9Y9|Halid #1|20|15|2|5|0|1:2:0:17,2:3:0:17
 #PGLV2YQC|Kizaru|21|15|2|6|5|21:3:3:14,20:3:2:14
 #GJLRURGC2|Cole|22|15|2|6|6|18:3:3:15,19:3:3:15
 #PRCQVCCV2|Brandon|23|15|2|4|4|25:3:3:14,26:1:1:13
 #YVCJC0VCQ|Marrow|24|14|2|6|6|24:3:3:14,22:3:3:14
 #GRGGPPQ8J|Pam from HR|25|14|2|5|3|27:3:3:13,17:2:0:15
-#8L9J0R2QJ|SWAGMUFFIN90|26|14|0|0|0|
+#8L9J0R2QJ|SWAGMUFFIN90|26|14|2|2|0|1:1:0:17,2:1:0:17
 #QLYP90RPV|Ste|27|14|1|3|2|26:3:2:13
 #QUJLUR02G|UNSTOPPABLE ADI|28|13|2|6|6|28:3:3:13,29:3:3:13
 #R02R82YG9|DandyPickle|29|13|0|0|0|
 #98VGCVCCC|Tretor|30|13|0|0|0|
-""", True),
+"""),
 
 ("729030815","7/29/26","ALIN","20v20","""
 #QL8CV0P0|gen|1|18|2|5|4|1:2:2:18,10:3:2:15
@@ -4991,6 +4991,7 @@ WAR_BLOCKS = [
 
 # ── Win/Loss/Draw results keyed by war ID ──
 RESULTS = {
+    "731031148": "W",
     "729030815": "W",
     "727011602": "W",
     "723145722": "W",
