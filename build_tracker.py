@@ -18,7 +18,7 @@ PLAYER_TH = {
     "Kizaru": 15, "Jac": 15, "Halid #1": 15, "SurgeGold": 16, "Loading…": 14,
     "Sumairu": 15, "Pam from HR": 14, "louis": 14, "imnotstraight10": 14,
     "the beast": 14, "seth": 14,
-    "arius67'": 14, "Marrow": 15, "⚡️LSWreckless⚡️": 14, "Ste": 14, "uhlisuh": 13,
+    "arius67'": 15, "Marrow": 15, "⚡️LSWreckless⚡️": 14, "Ste": 14, "uhlisuh": 13,
     "SWAGMUFFIN90": 14, "Brandon": 15, "Pharah": 13, "UNSTOPPABLE ADI": 13,
     "MR. ASURAN YT": 13, "jj": 13, "DandyPickle": 13, "F16": 14,
     "Stevie Wonder": 12, "das": 13, "rinz": 12,
@@ -200,8 +200,8 @@ WAR_BLOCKS = [
 #QPLCGG9CR|kk|22|15|0|0|0|
 #2J9GYQRYC|Jac|24|15|0|0|0|
 #YLGQ20LP8|Brodie|25|15|0|0|0|
-#LV29URQLP|tiger king|26|15|0|0|0|
 #GRRYCUJP8|crimpo|27|15|0|0|0|
+#Q9UJG0RJP|Sumairu|28|15|0|0|0|
 #PGLV2YQC|Kizaru|29|15|0|0|0|
 #LGJ9RC9Y9|Halid #1|30|15|0|0|0|
 #GJLRURGC2|Cole|31|15|0|0|0|
@@ -240,7 +240,7 @@ WAR_BLOCKS = [
 #YVCJC0VCQ|Marrow|31|15|1|3|3|28:3:3:13
 #GJLRURGC2|Cole|32|15|1|3|3|29:3:3:13
 #PRCQVCCV2|Brandon|33|15|1|3|3|30:3:3:13
-#GJ20RJ8RP|arius67'|34|14|0|0|0|
+#GJ20RJ8RP|arius67'|34|14|1|3|3|31:3:3:13
 """, True, True),
 
 ("731031148","7/31/26","TROLLERS 2","30v30","""
