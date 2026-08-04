@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 8/4/26 — 42 members
-    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Jaier_Kid","Kizaru","Marrow","Mason","MiniPekka","Pam from HR","Pharah","Pratham","RIPsj","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","kk","mastermike","rinz","roham","stage5yo","stage6yo","studkiller","tiger king","uhlisuh"
+    # Auto-updated 8/4/26 — 41 members
+    "Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Jaier_Kid","Kizaru","Marrow","Mason","MiniPekka","Pam from HR","Pharah","Pratham","RIPsj","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","kk","mastermike","rinz","roham","stage5yo","stage6yo","studkiller","tiger king","uhlisuh"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -222,14 +222,14 @@ WAR_BLOCKS = [
 #GV80Y9L0Y|studkiller|11|16|0|0|0|
 #Y0UUGPRRU|Americanpatriot|12|16|0|0|0|
 #RQCJR8JV|SurgeGold|13|16|0|0|0|
-#9V9QUCLJV|@INSTAGRAM|14|16|0|0|0|
+#9V9QUCLJV|@INSTAGRAM|14|16|1|3|3|14:3:3:17
 #UCP22QCU|Jaier_Kid|15|16|0|0|0|
-#R00L0CY9C|MiniPekka|16|16|0|0|0|
+#R00L0CY9C|MiniPekka|16|16|1|3|3|16:3:3:16
 #8J2V8998|DE1|18|16|0|0|0|
 #GV088PV02|roham|19|16|1|3|3|18:3:3:15
 #GQU082R20|Pratham|20|15|1|3|3|19:3:3:15
 #QP0CU0UC8|stage5yo|21|15|1|3|3|28:3:3:12
-#QPLCGG9CR|kk|22|15|0|0|0|
+#QPLCGG9CR|kk|22|15|1|3|3|21:3:3:16
 #2J9GYQRYC|Jac|24|15|0|0|0|
 #YLGQ20LP8|Brodie|25|15|0|0|0|
 #GRRYCUJP8|crimpo|27|15|1|3|3|24:3:3:13
@@ -238,7 +238,7 @@ WAR_BLOCKS = [
 #LGJ9RC9Y9|Halid #1|30|15|0|0|0|
 #GJLRURGC2|Cole|31|15|1|3|3|20:3:3:15
 #YVCJC0VCQ|Marrow|32|15|1|3|3|29:3:3:12
-#PRCQVCCV2|Brandon|33|15|0|0|0|
+#PRCQVCCV2|Brandon|33|15|1|3|3|30:3:3:11
 #GJ20RJ8RP|arius67'|34|15|1|3|3|31:3:3:11
 #GRGGPPQ8J|Pam from HR|35|14|0|0|0|
 """, True, True),
