@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 8/3/26 — 44 members
-    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Jaier_Kid","Kizaru","Larry","Marrow","Mason","MiniPekka","Pam from HR","Pharah","Pratham","RIPsj","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","kk","mastermike","rinz","roham","skylaaaa","stage5yo","stage6yo","studkiller","tiger king","uhlisuh"
+    # Auto-updated 8/4/26 — 43 members
+    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Jaier_Kid","Kizaru","Larry","Marrow","Mason","MiniPekka","Pam from HR","Pharah","Pratham","RIPsj","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","kk","mastermike","rinz","roham","skylaaaa","stage5yo","stage6yo","studkiller","tiger king","uhlisuh"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -221,22 +221,22 @@ WAR_BLOCKS = [
 #G0VGRUCC|SwiftyKinja|8|16|1|3|3|9:3:3:17
 #82G8C2YJ9|Slime|9|16|1|3|3|10:3:3:14
 #L9JGLLYQ|Mason|10|16|1|3|3|11:3:3:14
-#RQCJR8JV|SurgeGold|11|16|0|0|0|
+#RQCJR8JV|SurgeGold|11|16|1|3|3|16:3:3:13
 #GV80Y9L0Y|studkiller|12|16|1|3|3|13:3:3:13
 #9V9QUCLJV|@INSTAGRAM|13|16|1|3|3|14:3:3:13
 #Y0UUGPRRU|Americanpatriot|14|16|1|3|3|15:3:3:13
-#UCP22QCU|Jaier_Kid|15|16|0|0|0|
+#UCP22QCU|Jaier_Kid|15|16|1|3|3|12:3:3:14
 #R00L0CY9C|MiniPekka|16|16|1|3|3|17:3:3:13
 #8J2V8998|DE1|18|16|1|3|3|18:3:3:13
 #GQU082R20|Pratham|20|15|1|3|3|19:3:3:13
 #QP0CU0UC8|stage5yo|21|15|1|3|3|20:3:3:13
 #QPLCGG9CR|kk|22|15|1|3|3|21:3:3:13
-#2J9GYQRYC|Jac|24|15|0|0|0|
+#2J9GYQRYC|Jac|24|15|1|3|3|22:3:3:13
 #YLGQ20LP8|Brodie|25|15|1|3|3|23:3:3:13
 #LV29URQLP|tiger king|26|15|0|0|0|
-#GRRYCUJP8|crimpo|27|15|0|0|0|
+#GRRYCUJP8|crimpo|27|15|1|3|3|25:3:3:13
 #PGLV2YQC|Kizaru|29|15|1|3|3|26:3:3:13
-#LGJ9RC9Y9|Halid #1|30|15|0|0|0|
+#LGJ9RC9Y9|Halid #1|30|15|1|3|3|27:3:3:13
 #YVCJC0VCQ|Marrow|31|15|1|3|3|28:3:3:13
 #GJLRURGC2|Cole|32|15|1|3|3|29:3:3:13
 #PRCQVCCV2|Brandon|33|15|1|3|3|30:3:3:13
