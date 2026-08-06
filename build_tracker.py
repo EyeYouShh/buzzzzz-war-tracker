@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 8/6/26 — 44 members
-    "123456789101112","@INSTAGRAM","Americanpatriot","Aye","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Jaier_Kid","Kizaru","Marrow","Mason","MiniPekka","Pam from HR","Pharah","Pratham","RIPsj","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","kk","mastermike","rinz","roham","stage5yo","stage6yo","studkiller","tiger king","uhlisuh"
+    # Auto-updated 8/6/26 — 43 members
+    "123456789101112","@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Jaier_Kid","Kizaru","Marrow","Mason","MiniPekka","Pam from HR","Pharah","Pratham","RIPsj","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","kk","mastermike","rinz","roham","stage5yo","stage6yo","studkiller","tiger king","uhlisuh"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
