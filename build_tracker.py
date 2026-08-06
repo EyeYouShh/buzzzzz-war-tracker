@@ -179,7 +179,7 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
-("616250231","8/6/26","Blue Ice","30v30","""
+("716325035","8/7/26","Sup Ercell?","30v30","""
 #QL8CV0P0|gen|1|18|0|0|0|
 #GQJUGLQRQ|stage6yo|3|17|0|0|0|
 #8UC0RGJL9|RIPsj|4|17|0|0|0|
@@ -196,8 +196,8 @@ WAR_BLOCKS = [
 #R00L0CY9C|MiniPekka|16|16|0|0|0|
 #GV088PV02|roham|18|16|0|0|0|
 #8J2V8998|DE1|19|16|0|0|0|
-#QP0CU0UC8|stage5yo|20|15|0|0|0|
-#GQU082R20|Pratham|21|15|0|0|0|
+#GQU082R20|Pratham|20|15|0|0|0|
+#QP0CU0UC8|stage5yo|21|15|0|0|0|
 #QPLCGG9CR|kk|22|15|0|0|0|
 #2J9GYQRYC|Jac|24|15|0|0|0|
 #LV29URQLP|tiger king|25|15|0|0|0|
@@ -210,6 +210,39 @@ WAR_BLOCKS = [
 #YVCJC0VCQ|Marrow|32|15|0|0|0|
 #GJLRURGC2|Cole|33|15|0|0|0|
 #PRCQVCCV2|Brandon|34|15|0|0|0|
+""", True, True),
+
+("616250231","8/6/26","Blue Ice","30v30","""
+#QL8CV0P0|gen|1|18|0|0|0|
+#GQJUGLQRQ|stage6yo|3|17|0|0|0|
+#8UC0RGJL9|RIPsj|4|17|0|0|0|
+#QCUCLPPJV|Gr8Conqueror|5|17|0|0|0|
+#209J8J0RL|Big Steppa|7|16|0|0|0|
+#L9JGLLYQ|Mason|8|16|1|3|3|6:3:3:16
+#82G8C2YJ9|Slime|9|16|0|0|0|
+#G0VGRUCC|SwiftyKinja|10|16|1|3|3|9:3:3:16
+#RQCJR8JV|SurgeGold|11|16|0|0|0|
+#UCP22QCU|Jaier_Kid|12|16|0|0|0|
+#9V9QUCLJV|@INSTAGRAM|13|16|1|3|3|13:3:3:16
+#GV80Y9L0Y|studkiller|14|16|1|3|3|14:3:3:15
+#Y0UUGPRRU|Americanpatriot|15|16|0|0|0|
+#R00L0CY9C|MiniPekka|16|16|0|0|0|
+#GV088PV02|roham|18|16|1|3|3|17:3:3:15
+#8J2V8998|DE1|19|16|0|0|0|
+#QP0CU0UC8|stage5yo|20|15|0|0|0|
+#GQU082R20|Pratham|21|15|0|0|0|
+#QPLCGG9CR|kk|22|15|0|0|0|
+#2J9GYQRYC|Jac|24|15|0|0|0|
+#LV29URQLP|tiger king|25|15|0|0|0|
+#YLGQ20LP8|Brodie|26|15|0|0|0|
+#GRRYCUJP8|crimpo|27|15|1|3|3|25:3:3:15
+#Q9UJG0RJP|Sumairu|28|15|0|0|0|
+#PGLV2YQC|Kizaru|29|15|1|3|3|28:3:3:15
+#LGJ9RC9Y9|Halid #1|30|15|1|1|1|29:1:1:15
+#GJ20RJ8RP|arius67'|31|15|1|3|3|30:3:3:15
+#YVCJC0VCQ|Marrow|32|15|0|0|0|
+#GJLRURGC2|Cole|33|15|1|3|3|35:3:3:14
+#PRCQVCCV2|Brandon|34|15|1|1|1|36:1:1:14
 """, True, True),
 
 ("615541331","8/6/26","Blue Ice","30v30","""
@@ -276,7 +309,7 @@ WAR_BLOCKS = [
 #8L9J0R2QJ|SWAGMUFFIN90|36|14|1|3|3|28:3:3:9
 #QLYP90RPV|Ste|37|14|1|3|3|29:3:3:8
 #R02R82YG9|DandyPickle|39|13|1|3|3|30:3:3:7
-""", True, True),
+""", False, True),
 
 ("415503649","8/4/26","Klate News Era","30v30","""
 #QL8CV0P0|gen|1|18|1|3|3|1:3:3:18
@@ -5167,6 +5200,7 @@ WAR_BLOCKS = [
 
 # ── Win/Loss/Draw results keyed by war ID ──
 RESULTS = {
+    "515515985": "W",
     "415503649": "W",
     "315502671": "W",
     "731031148": "W",
