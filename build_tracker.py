@@ -213,7 +213,7 @@ WAR_BLOCKS = [
 """, True, True),
 
 ("616250231","8/6/26","Blue Ice","30v30","""
-#QL8CV0P0|gen|1|18|0|0|0|
+#QL8CV0P0|gen|1|18|1|3|3|1:3:3:18
 #GQJUGLQRQ|stage6yo|3|17|1|3|3|2:3:3:18
 #8UC0RGJL9|RIPsj|4|17|1|3|3|3:3:3:16
 #QCUCLPPJV|Gr8Conqueror|5|17|1|3|3|4:3:3:16
