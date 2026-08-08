@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 8/8/26 — 47 members
-    "123456789101112","@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Kizaru","Marrow","Mason","Masum mahmud 02","Masum mahmud 03","MiniPekka","Misu","Mr.Joshi","Pam from HR","Pharah","Pratham","RIPsj","SWAGMUFFIN90","ShUßh !!","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","kk","masum mahmud","rinz","roham","stage5yo","stage6yo","studkiller","tiger king","uhlisuh"
+    # Auto-updated 8/8/26 — 45 members
+    "123456789101112","@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Kizaru","Marrow","Mason","Masum mahmud 02","Masum mahmud 03","MiniPekka","Misu","Mr.Joshi","Pam from HR","Pharah","Pratham","RIPsj","SWAGMUFFIN90","ShUßh !!","Slime","Ste","SurgeGold","SwiftyKinja","THE DARK SPY","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","kk","masum mahmud","rinz","roham","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -203,7 +203,7 @@ WAR_BLOCKS = [
 #QP0CU0UC8|stage5yo|21|15|0|0|0|
 #QPLCGG9CR|kk|22|15|0|0|0|
 #2J9GYQRYC|Jac|24|15|0|0|0|
-#YLGQ20LP8|Brodie|25|15|0|0|0|
+#LV29URQLP|tiger king|26|15|0|0|0|
 #GRRYCUJP8|crimpo|27|15|0|0|0|
 #PGLV2YQC|Kizaru|29|15|0|0|0|
 #LGJ9RC9Y9|Halid #1|30|15|0|0|0|
@@ -219,29 +219,29 @@ WAR_BLOCKS = [
 
 ("816325997","8/8/26","Xclash Indo","30v30","""
 #QL8CV0P0|gen|1|18|1|3|3|1:3:3:18
-#GQJUGLQRQ|stage6yo|3|17|0|0|0|
+#GQJUGLQRQ|stage6yo|3|17|1|3|3|2:3:3:17
 #8UC0RGJL9|RIPsj|4|17|1|3|3|3:3:3:17
 #QCUCLPPJV|Gr8Conqueror|5|17|1|3|3|4:3:3:16
 #209J8J0RL|Big Steppa|7|17|0|0|0|
-#L9JGLLYQ|Mason|8|16|0|0|0|
+#L9JGLLYQ|Mason|8|16|1|3|3|8:3:3:16
 #G0VGRUCC|SwiftyKinja|9|16|1|3|3|10:3:3:16
 #82G8C2YJ9|Slime|10|16|1|3|3|11:3:3:16
 #RQCJR8JV|SurgeGold|11|16|0|0|0|
-#9V9QUCLJV|@INSTAGRAM|13|16|0|0|0|
+#9V9QUCLJV|@INSTAGRAM|13|16|1|3|3|13:3:3:16
 #Y0UUGPRRU|Americanpatriot|14|16|0|0|0|
-#GV80Y9L0Y|studkiller|15|16|0|0|0|
-#R00L0CY9C|MiniPekka|16|16|0|0|0|
+#GV80Y9L0Y|studkiller|15|16|1|3|3|15:3:3:16
+#R00L0CY9C|MiniPekka|16|16|1|2|2|16:2:2:16
 #GV088PV02|roham|18|16|1|2|2|17:2:2:16
 #8J2V8998|DE1|19|16|0|0|0|
 #QPLCGG9CR|kk|22|15|1|3|3|19:3:3:16
 #2J9GYQRYC|Jac|24|15|0|0|0|
 #YLGQ20LP8|Brodie|26|15|1|2|2|22:2:2:16
 #GRRYCUJP8|crimpo|27|15|0|0|0|
-#Q9UJG0RJP|Sumairu|28|15|0|0|0|
-#PGLV2YQC|Kizaru|29|15|0|0|0|
+#Q9UJG0RJP|Sumairu|28|15|1|2|2|25:2:2:15
+#PGLV2YQC|Kizaru|29|15|1|3|3|27:3:3:16
 #LGJ9RC9Y9|Halid #1|30|15|0|0|0|
-#GJ20RJ8RP|arius67'|31|15|0|0|0|
-#YVCJC0VCQ|Marrow|32|15|0|0|0|
+#GJ20RJ8RP|arius67'|31|15|1|3|3|30:3:3:15
+#YVCJC0VCQ|Marrow|32|15|1|2|2|32:2:2:15
 #GJLRURGC2|Cole|33|15|1|3|3|33:3:3:15
 #PRCQVCCV2|Brandon|34|15|0|0|0|
 #GRGGPPQ8J|Pam from HR|35|14|0|0|0|
