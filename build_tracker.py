@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 8/7/26 — 44 members
-    "123456789101112","@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Jaier_Kid","Kizaru","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","Pharah","Pratham","RIPsj","SWAGMUFFIN90","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","kk","mastermike","rinz","roham","stage5yo","stage6yo","studkiller","tiger king","uhlisuh"
+    # Auto-updated 8/8/26 — 44 members
+    "123456789101112","@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Jaier_Kid","Kizaru","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","Pharah","Pratham","RIPsj","SWAGMUFFIN90","ShUßh !!","Slime","Ste","Sumairu","SurgeGold","SwiftyKinja","THE DARK SPY","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","kk","rinz","roham","stage5yo","stage6yo","studkiller","tiger king","uhlisuh"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -82,6 +82,7 @@ PLAYER_TH = {
     "mastermike": 15,
     "123456789101112": 15,
     "Mr.Joshi": 15,
+    "ShUßh !!": 16,
 }
 # In-game order (tiebreaker within same TH — matches the order user sees in-game)
 _CS_ORDER = [
@@ -236,7 +237,7 @@ WAR_BLOCKS = [
 #GRRYCUJP8|crimpo|27|15|1|3|3|21:3:3:14
 #Q9UJG0RJP|Sumairu|28|15|0|0|0|
 #PGLV2YQC|Kizaru|29|15|1|3|3|23:3:3:14
-#LGJ9RC9Y9|Halid #1|30|15|0|0|0|
+#LGJ9RC9Y9|Halid #1|30|15|1|3|3|24:3:3:14
 #GJ20RJ8RP|arius67'|31|15|1|3|3|25:3:3:14
 #YVCJC0VCQ|Marrow|32|15|1|3|3|26:3:3:14
 #GJLRURGC2|Cole|33|15|1|3|3|27:3:3:14
