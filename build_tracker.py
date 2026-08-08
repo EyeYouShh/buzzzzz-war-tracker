@@ -13,7 +13,7 @@ PLAYER_TH = {
     "Slayer": 18,
     "gen": 18, "Gr8Conqueror": 17,
     "stage6yo": 17, "wato": 16, "drybonez": 16,
-    "Americanpatriot": 16, "Big Steppa": 16, "SwiftyKinja": 16, "stage5yo": 15, "DE1": 16,
+    "Americanpatriot": 16, "Big Steppa": 17, "SwiftyKinja": 16, "stage5yo": 15, "DE1": 16,
     "crimpo": 15, "Cole": 15, "studkiller": 16, "rour": 14, "MiniPekka": 16,
     "Kizaru": 15, "Jac": 15, "Halid #1": 15, "SurgeGold": 16, "Loading…": 14,
     "Sumairu": 15, "Pam from HR": 14, "louis": 14, "imnotstraight10": 14,
@@ -194,10 +194,9 @@ WAR_BLOCKS = [
 #GV80Y9L0Y|studkiller|15|16|0|0|0|
 #R00L0CY9C|MiniPekka|16|16|0|0|0|
 #GV088PV02|roham|18|16|0|0|0|
-#GQU082R20|Pratham|20|15|0|0|0|
+#8J2V8998|DE1|19|16|0|0|0|
 #QPLCGG9CR|kk|22|15|0|0|0|
 #2J9GYQRYC|Jac|24|15|0|0|0|
-#LV29URQLP|tiger king|25|15|0|0|0|
 #YLGQ20LP8|Brodie|26|15|0|0|0|
 #GRRYCUJP8|crimpo|27|15|0|0|0|
 #Q9UJG0RJP|Sumairu|28|15|0|0|0|
@@ -210,6 +209,7 @@ WAR_BLOCKS = [
 #GRGGPPQ8J|Pam from HR|35|14|0|0|0|
 #8L9J0R2QJ|SWAGMUFFIN90|36|14|0|0|0|
 #QLYP90RPV|Ste|37|14|0|0|0|
+#R02R82YG9|DandyPickle|39|13|0|0|0|
 """, True, True),
 
 ("716325035","8/7/26","Sup Ercell?","30v30","""
@@ -231,7 +231,7 @@ WAR_BLOCKS = [
 #GQU082R20|Pratham|20|15|1|3|3|16:3:3:15
 #QPLCGG9CR|kk|22|15|1|3|3|17:3:3:15
 #2J9GYQRYC|Jac|24|15|0|0|0|
-#LV29URQLP|tiger king|25|15|0|0|0|
+#LV29URQLP|tiger king|25|15|1|3|3|19:3:3:15
 #YLGQ20LP8|Brodie|26|15|1|3|3|20:3:3:16
 #GRRYCUJP8|crimpo|27|15|1|3|3|21:3:3:14
 #Q9UJG0RJP|Sumairu|28|15|0|0|0|
