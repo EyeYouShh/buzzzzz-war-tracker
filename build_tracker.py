@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 8/10/26 — 41 members
-    "123456789101112","@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Kizaru","Marrow","Mason","Masum mahmud 02","Masum mahmud 03","MiniPekka","Misu","Mr.Joshi","Pam from HR","Pratham","RIPsj","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","THE DARK SPY","UNSTOPPABLE ADI","arius67'","crimpo","gen","kk","masum mahmud","roham","stage5yo","stage6yo","studkiller","tiger king"
+    # Auto-updated 8/10/26 — 39 members
+    "123456789101112","@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Jac","Kizaru","Marrow","Mason","Masum mahmud 02","Masum mahmud 03","MiniPekka","Misu","Mr.Joshi","Pam from HR","RIPsj","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","THE DARK SPY","UNSTOPPABLE ADI","arius67'","crimpo","gen","kk","masum mahmud","roham","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -63,7 +63,7 @@ PLAYER_TH = {
     "wWwww": 15,
     "MAYKY": 15,
     "Mason": 16,
-    "kk": 15,
+    "kk": 16,
     "ali": 15,
     "Jacob": 15,
     "up 2 no good": 16,
@@ -215,7 +215,7 @@ WAR_BLOCKS = [
 #8L9J0R2QJ|SWAGMUFFIN90|36|14|1|3|3|29:3:3:10
 #QLYP90RPV|Ste|37|14|1|3|3|30:3:3:10
 #R02R82YG9|DandyPickle|39|13|1|3|3|31:3:3:9
-""", True, True),
+""", False, True),
 
 ("816325997","8/8/26","Xclash Indo","30v30","""
 #QL8CV0P0|gen|1|18|1|3|3|1:3:3:18
@@ -5271,6 +5271,7 @@ WAR_BLOCKS = [
 
 # ── Win/Loss/Draw results keyed by war ID ──
 RESULTS = {
+    "916343138": "W",
     "816325997": "W",
     "716325035": "W",
     "616250231": "W",
