@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 8/10/26 — 46 members
-    "123456789101112","@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Kizaru","Marrow","Mason","Masum mahmud 02","Masum mahmud 03","MiniPekka","Misu","Mr.Joshi","Pam from HR","Pharah","Pratham","RIPsj","SWAGMUFFIN90","ShUßh !!","Slime","Ste","SurgeGold","SwiftyKinja","THE DARK SPY","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","drybonez","gen","kk","masum mahmud","rinz","roham","stage5yo","stage6yo","studkiller","tiger king"
+    # Auto-updated 8/10/26 — 41 members
+    "123456789101112","@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Halid #1","Jac","Kizaru","Marrow","Mason","Masum mahmud 02","Masum mahmud 03","MiniPekka","Misu","Mr.Joshi","Pam from HR","Pratham","RIPsj","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","THE DARK SPY","UNSTOPPABLE ADI","arius67'","crimpo","gen","kk","masum mahmud","roham","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -202,13 +202,13 @@ WAR_BLOCKS = [
 #GQU082R20|Pratham|20|15|1|3|3|15:3:3:15
 #QP0CU0UC8|stage5yo|21|15|1|3|3|16:3:3:15
 #QPLCGG9CR|kk|22|15|1|3|3|17:3:3:15
-#2J9GYQRYC|Jac|24|15|0|0|0|
+#2J9GYQRYC|Jac|24|15|1|3|3|24:3:3:10
 #YLGQ20LP8|Brodie|25|15|1|3|3|19:3:3:15
 #LV29URQLP|tiger king|26|15|0|0|0|
 #GRRYCUJP8|crimpo|27|15|1|3|3|21:3:3:11
 #PGLV2YQC|Kizaru|29|15|1|3|3|22:3:3:11
 #LGJ9RC9Y9|Halid #1|30|15|0|0|0|
-#GJ20RJ8RP|arius67'|31|15|0|0|0|
+#GJ20RJ8RP|arius67'|31|15|1|3|3|18:3:3:15
 #YVCJC0VCQ|Marrow|32|15|1|3|3|25:3:3:10
 #GJLRURGC2|Cole|33|15|1|3|3|26:3:3:10
 #PRCQVCCV2|Brandon|34|15|1|3|3|28:3:3:10
