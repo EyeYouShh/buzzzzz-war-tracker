@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 8/11/26 — 36 members
-    "@INSTAGRAM","Americanpatriot","Aye 9","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Misu","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","THE DARK SPY","UNSTOPPABLE ADI","arius67'","crimpo","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king"
+    # Auto-updated 8/11/26 — 35 members
+    "@INSTAGRAM","Americanpatriot","Aye 9","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","THE DARK SPY","UNSTOPPABLE ADI","arius67'","crimpo","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -13,7 +13,7 @@ PLAYER_TH = {
     "Slayer": 18,
     "gen": 18, "Gr8Conqueror": 17,
     "stage6yo": 17, "wato": 16, "drybonez": 16,
-    "Americanpatriot": 16, "Big Steppa": 17, "SwiftyKinja": 16, "stage5yo": 15, "DE1": 16,
+    "Americanpatriot": 16, "Big Steppa": 17, "SwiftyKinja": 16, "stage5yo": 16, "DE1": 16,
     "crimpo": 15, "Cole": 15, "studkiller": 16, "rour": 14, "MiniPekka": 16,
     "Kizaru": 15, "Jac": 15, "Halid #1": 15, "SurgeGold": 16, "Loading…": 14,
     "Sumairu": 15, "Pam from HR": 14, "louis": 14, "imnotstraight10": 14,
