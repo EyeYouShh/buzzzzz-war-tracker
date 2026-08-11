@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 8/10/26 — 41 members
-    "123456789101112","@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","Descended","F16","Gr8Conqueror","Jac","Kizaru","Lil Slime","Marrow","Mason","Masum mahmud 02","Masum mahmud 03","MiniPekka","Misu","Mr.Joshi","Pam from HR","RIPsj","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","THE DARK SPY","UNSTOPPABLE ADI","arius67'","crimpo","gen","kk","masum mahmud","roham","stage5yo","stage6yo","studkiller","tiger king"
+    # Auto-updated 8/11/26 — 35 members
+    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Gr8Conqueror","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Misu","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","THE DARK SPY","UNSTOPPABLE ADI","arius67'","crimpo","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -20,7 +20,7 @@ PLAYER_TH = {
     "the beast": 14, "seth": 14,
     "arius67'": 15, "Marrow": 15, "⚡️LSWreckless⚡️": 14, "Ste": 14, "uhlisuh": 13,
     "SWAGMUFFIN90": 14, "Brandon": 15, "Pharah": 13, "UNSTOPPABLE ADI": 13,
-    "MR. ASURAN YT": 13, "jj": 13, "DandyPickle": 13, "F16": 14,
+    "MR. ASURAN YT": 13, "jj": 13, "DandyPickle": 14, "F16": 14,
     "Stevie Wonder": 12, "das": 15, "rinz": 12,
     "Tretor": 13,
     "•KAILAN•": 18,
