@@ -178,6 +178,7 @@ PLAYER_TAGS = {
     "#R0RV2P0U0": "Pharah",
     "#R22Q89CCU": "Stevie Wonder",
     "#R2GPPJ220": "das",
+    "#R8JRUUQ8V": "de4",
     "#RQCJR8JV": "SurgeGold",
     "#UCP22QCU": "Jaier_Kid",
     "#XXXXXXXX": "DisplayName",
@@ -193,6 +194,34 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
+("815144515","8/15/26","رينيه سوريا","25v25","""
+#QL8CV0P0|gen|1|18|0|0|0|
+#GQJUGLQRQ|stage6yo|2|17|0|0|0|
+#209J8J0RL|Big Steppa|3|17|0|0|0|
+#L9JGLLYQ|Mason|4|16|0|0|0|
+#G0VGRUCC|SwiftyKinja|5|16|0|0|0|
+#GV80Y9L0Y|studkiller|6|16|0|0|0|
+#9V9QUCLJV|@INSTAGRAM|7|16|0|0|0|
+#R00L0CY9C|MiniPekka|8|16|0|0|0|
+#Y0UUGPRRU|Americanpatriot|9|16|0|0|0|
+#8J2V8998|DE1|10|16|0|0|0|
+#GV088PV02|roham|11|16|0|0|0|
+#2J9GYQRYC|Jac|12|15|0|0|0|
+#GJ92CG9VL|Mr.Joshi|13|15|0|0|0|
+#YLGQ20LP8|Brodie|14|15|0|0|0|
+#LV29URQLP|tiger king|15|15|0|0|0|
+#GRRYCUJP8|crimpo|16|15|0|0|0|
+#PGLV2YQC|Kizaru|17|15|0|0|0|
+#GJ20RJ8RP|arius67'|18|15|0|0|0|
+#YVCJC0VCQ|Marrow|19|15|0|0|0|
+#GJLRURGC2|Cole|20|15|0|0|0|
+#GRGGPPQ8J|Pam from HR|21|14|0|0|0|
+#QLYP90RPV|Ste|22|14|0|0|0|
+#R02R82YG9|DandyPickle|23|14|0|0|0|
+#QUJLUR02G|UNSTOPPABLE ADI|24|13|0|0|0|
+#R8JRUUQ8V|de4|25|11|0|0|0|
+""", True),
+
 ("812163503","8/12/26","TEAM LIQUID","25v25","""
 #QL8CV0P0|gen|1|18|2|5|3|1:3:1:18,3:2:2:17
 #GQJUGLQRQ|stage6yo|2|17|2|6|3|17:3:3:16,1:3:0:18
