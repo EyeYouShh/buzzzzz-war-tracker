@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 8/14/26 — 35 members
-    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","crimpo","das","de4","donation bot DE","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king"
+    # Auto-updated 8/15/26 — 36 members
+    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","das","de4","donation bot DE","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -195,28 +195,28 @@ WAR_END_ISO = "2026-08-16T14:45:15Z"
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
 ("815144515","8/15/26","رينيه سوريا","25v25","""
-#QL8CV0P0|gen|1|18|0|0|0|
+#QL8CV0P0|gen|1|18|2|5|5|1:2:2:18,2:3:3:18
 #GQJUGLQRQ|stage6yo|2|17|0|0|0|
-#209J8J0RL|Big Steppa|3|17|0|0|0|
-#L9JGLLYQ|Mason|4|16|1|3|3|4:3:3:17
-#G0VGRUCC|SwiftyKinja|5|16|0|0|0|
-#GV80Y9L0Y|studkiller|6|16|0|0|0|
-#9V9QUCLJV|@INSTAGRAM|7|16|0|0|0|
+#209J8J0RL|Big Steppa|3|17|2|6|4|7:3:1:16,13:3:3:15
+#L9JGLLYQ|Mason|4|16|2|6|4|4:3:3:17,1:3:1:18
+#G0VGRUCC|SwiftyKinja|5|16|2|5|5|7:2:2:16,8:3:3:16
+#GV80Y9L0Y|studkiller|6|16|2|6|6|6:3:3:16,9:3:3:16
+#9V9QUCLJV|@INSTAGRAM|7|16|2|6|6|5:3:3:16,3:3:3:18
 #R00L0CY9C|MiniPekka|8|16|0|0|0|
 #Y0UUGPRRU|Americanpatriot|9|16|0|0|0|
 #8J2V8998|DE1|10|16|0|0|0|
-#GV088PV02|roham|11|16|0|0|0|
+#GV088PV02|roham|11|16|2|6|6|11:3:3:16,12:3:3:15
 #2J9GYQRYC|Jac|12|15|0|0|0|
 #GJ92CG9VL|Mr.Joshi|13|15|0|0|0|
 #YLGQ20LP8|Brodie|14|15|0|0|0|
 #LV29URQLP|tiger king|15|15|0|0|0|
 #GRRYCUJP8|crimpo|16|15|0|0|0|
-#PGLV2YQC|Kizaru|17|15|0|0|0|
-#GJ20RJ8RP|arius67'|18|15|0|0|0|
+#PGLV2YQC|Kizaru|17|15|1|3|3|17:3:3:15
+#GJ20RJ8RP|arius67'|18|15|2|6|6|18:3:3:15,10:3:3:16
 #YVCJC0VCQ|Marrow|19|15|0|0|0|
-#GJLRURGC2|Cole|20|15|0|0|0|
+#GJLRURGC2|Cole|20|15|2|6|6|19:3:3:15,21:3:3:15
 #GRGGPPQ8J|Pam from HR|21|14|0|0|0|
-#QLYP90RPV|Ste|22|14|0|0|0|
+#QLYP90RPV|Ste|22|14|2|6|6|24:3:3:14,22:3:3:15
 #R02R82YG9|DandyPickle|23|14|0|0|0|
 #QUJLUR02G|UNSTOPPABLE ADI|24|13|0|0|0|
 #R8JRUUQ8V|de4|25|11|0|0|0|
