@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 8/17/26 — 35 members
-    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","crimpo","das","de4","donation bot DE","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king"
+    # Auto-updated 8/18/26 — 34 members
+    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","DandyPickle","F16","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","crimpo","das","donation bot DE","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -12,7 +12,7 @@ ACTIVE = {
 PLAYER_TH = {
     "Slayer": 18,
     "gen": 18, "Gr8Conqueror": 17,
-    "stage6yo": 17, "wato": 16, "drybonez": 16,
+    "stage6yo": 18, "wato": 16, "drybonez": 16,
     "Americanpatriot": 16, "Big Steppa": 17, "SwiftyKinja": 16, "stage5yo": 16, "DE1": 16,
     "crimpo": 15, "Cole": 15, "studkiller": 16, "rour": 14, "MiniPekka": 16,
     "Kizaru": 15, "Jac": 15, "Halid #1": 15, "SurgeGold": 16, "Loading…": 14,
@@ -203,15 +203,15 @@ WAR_BLOCKS = [
 #GV80Y9L0Y|studkiller|6|16|2|6|6|11:3:3:16,12:3:3:16
 #RQCJR8JV|SurgeGold|7|16|0|0|0|
 #9V9QUCLJV|@INSTAGRAM|8|16|2|6|2|15:3:2:15,1:3:0:18
-#R00L0CY9C|MiniPekka|9|16|0|0|0|
+#R00L0CY9C|MiniPekka|9|16|2|5|3|22:3:3:15,1:2:0:18
 #Y0UUGPRRU|Americanpatriot|10|16|2|6|6|8:3:3:16,10:3:3:16
 #QP0CU0UC8|stage5yo|11|16|2|6|4|9:3:3:16,4:3:1:17
 #8J2V8998|DE1|12|16|2|6|5|16:3:2:16,17:3:3:15
 #GV088PV02|roham|13|16|2|6|6|13:3:3:18,14:3:3:16
-#GJ92CG9VL|Mr.Joshi|14|15|0|0|0|
+#GJ92CG9VL|Mr.Joshi|14|15|2|4|1|25:3:1:14,2:1:0:18
 #YLGQ20LP8|Brodie|15|15|2|2|2|15:1:1:15,16:1:1:16
 #LV29URQLP|tiger king|16|15|0|0|0|
-#GRRYCUJP8|crimpo|17|15|0|0|0|
+#GRRYCUJP8|crimpo|17|15|1|2|0|1:2:0:18
 #PGLV2YQC|Kizaru|18|15|2|6|4|18:3:3:15,24:3:1:16
 #GJLRURGC2|Cole|19|15|2|6|6|19:3:3:15,23:3:3:15
 #YVCJC0VCQ|Marrow|20|15|2|6|6|20:3:3:16,21:3:3:15
