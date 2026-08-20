@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 8/19/26 — 34 members
-    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","F16","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","TD,THOR","UNSTOPPABLE ADI","arius67'","crimpo","das","donation bot DE","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king"
+    # Auto-updated 8/20/26 — 33 members
+    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","F16","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","TD,THOR","UNSTOPPABLE ADI","arius67'","crimpo","das","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -204,13 +204,13 @@ WAR_END_ISO = "2026-08-20T22:13:40Z"
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
 ("819221340","8/19/26","TacticRebellion","30v30","""
-#QL8CV0P0|gen|1|18|0|0|0|
+#QL8CV0P0|gen|1|18|2|6|4|1:3:1:18,5:3:3:17
 #GQJUGLQRQ|stage6yo|2|18|2|5|3|1:2:2:18,2:3:1:18
-#209J8J0RL|Big Steppa|3|17|1|3|3|3:3:3:18
+#209J8J0RL|Big Steppa|3|17|2|6|6|3:3:3:18,6:3:3:17
 #L9JGLLYQ|Mason|4|16|2|5|5|4:3:3:17,2:2:2:18
 #G0VGRUCC|SwiftyKinja|5|16|2|6|6|11:3:3:16,12:3:3:16
 #82G8C2YJ9|Slime|6|16|0|0|0|
-#QP0CU0UC8|stage5yo|7|16|0|0|0|
+#QP0CU0UC8|stage5yo|7|16|2|6|4|15:3:3:15,14:3:1:15
 #GV80Y9L0Y|studkiller|8|16|2|6|6|8:3:3:16,7:3:3:16
 #RQCJR8JV|SurgeGold|9|16|0|0|0|
 #9V9QUCLJV|@INSTAGRAM|10|16|0|0|0|
@@ -219,20 +219,20 @@ WAR_BLOCKS = [
 #8J2V8998|DE1|13|16|2|6|6|10:3:3:16,9:3:3:16
 #GV088PV02|roham|14|16|2|5|5|14:2:2:15,13:3:3:15
 #2J9GYQRYC|Jac|15|15|0|0|0|
-#GJ92CG9VL|Mr.Joshi|16|15|0|0|0|
+#GJ92CG9VL|Mr.Joshi|16|15|2|5|5|16:3:3:15,17:2:2:15
 #YLGQ20LP8|Brodie|17|15|0|0|0|
-#GRRYCUJP8|crimpo|18|15|0|0|0|
+#GRRYCUJP8|crimpo|18|15|2|6|4|17:3:1:15,18:3:3:15
 #LV29URQLP|tiger king|19|15|0|0|0|
 #GJ20RJ8RP|arius67'|20|15|0|0|0|
 #PGLV2YQC|Kizaru|21|15|1|3|3|21:3:3:15
 #GJLRURGC2|Cole|22|15|0|0|0|
 #YVCJC0VCQ|Marrow|23|15|0|0|0|
-#R2GPPJ220|das|24|15|0|0|0|
-#GRGGPPQ8J|Pam from HR|25|14|0|0|0|
+#R2GPPJ220|das|24|15|2|6|6|24:3:3:15,23:3:3:15
+#GRGGPPQ8J|Pam from HR|25|14|2|4|4|30:3:3:13,25:1:1:15
 #8L9J0R2QJ|SWAGMUFFIN90|26|14|0|0|0|
 #QLYP90RPV|Ste|27|14|2|6|6|27:3:3:15,28:3:3:14
-#QUJLUR02G|UNSTOPPABLE ADI|28|13|0|0|0|
-#R9QJ8YC8Q|donation bot DE|29|13|0|0|0|
+#QUJLUR02G|UNSTOPPABLE ADI|28|13|2|6|6|29:3:3:15,26:3:3:15
+#R9QJ8YC8Q|donation bot DE|29|13|2|3|0|30:1:0:13,29:2:0:15
 #Q9GU8LQPV|Lil Slime|30|13|0|0|0|
 """, True),
 
