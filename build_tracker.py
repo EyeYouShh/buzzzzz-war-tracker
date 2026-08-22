@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 8/21/26 — 33 members
-    "@INSTAGRAM","Americanpatriot","Big Steppa","BigSmoke™","Brandon","Brodie","Cole","DE1","F16","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","crimpo","das","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king"
+    # Auto-updated 8/22/26 — 33 members
+    "@INSTAGRAM","Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","F16","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","crimpo","das","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king","•KAILAN•"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -205,24 +205,24 @@ WAR_END_ISO = "2026-08-22T21:51:42Z"
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
 ("821215142","8/21/26","PERSAIN GULF","25v25","""
-#GQJUGLQRQ|stage6yo|1|18|0|0|0|
-#QL8CV0P0|gen|2|18|0|0|0|
-#209J8J0RL|Big Steppa|3|17|0|0|0|
+#GQJUGLQRQ|stage6yo|1|18|2|6|2|4:3:1:17,16:3:1:15
+#QL8CV0P0|gen|2|18|2|6|4|2:3:3:18,1:3:1:18
+#209J8J0RL|Big Steppa|3|17|2|6|6|10:3:3:16,14:3:3:16
 #L9JGLLYQ|Mason|4|16|2|5|5|4:2:2:17,3:3:3:18
-#G0VGRUCC|SwiftyKinja|5|16|0|0|0|
-#82G8C2YJ9|Slime|6|16|0|0|0|
-#QP0CU0UC8|stage5yo|7|16|0|0|0|
+#G0VGRUCC|SwiftyKinja|5|16|2|5|5|5:2:2:16,7:3:3:17
+#82G8C2YJ9|Slime|6|16|2|6|4|8:3:3:16,5:3:1:16
+#QP0CU0UC8|stage5yo|7|16|2|4|3|25:3:3:15,1:1:0:18
 #RQCJR8JV|SurgeGold|8|16|0|0|0|
 #9V9QUCLJV|@INSTAGRAM|9|16|0|0|0|
 #R00L0CY9C|MiniPekka|10|16|0|0|0|
 #Y0UUGPRRU|Americanpatriot|11|16|2|6|6|11:3:3:16,6:3:3:16
 #8J2V8998|DE1|12|16|0|0|0|
-#GV088PV02|roham|13|16|0|0|0|
-#GJ92CG9VL|Mr.Joshi|14|15|0|0|0|
+#GV088PV02|roham|13|16|2|6|6|13:3:3:16,23:3:3:16
+#GJ92CG9VL|Mr.Joshi|14|15|2|4|3|16:1:0:15,24:3:3:16
 #GRRYCUJP8|crimpo|15|15|0|0|0|
-#YLGQ20LP8|Brodie|16|16|0|0|0|
-#LV29URQLP|tiger king|17|15|0|0|0|
-#GJ20RJ8RP|arius67'|18|15|0|0|0|
+#YLGQ20LP8|Brodie|16|16|2|6|6|12:3:3:16,9:3:3:16
+#LV29URQLP|tiger king|17|15|2|5|5|16:2:2:15,15:3:3:16
+#GJ20RJ8RP|arius67'|18|15|2|5|5|17:3:3:15,1:2:2:18
 #PGLV2YQC|Kizaru|19|15|1|3|3|19:3:3:15
 #GJLRURGC2|Cole|20|15|2|6|6|20:3:3:16,18:3:3:15
 #YVCJC0VCQ|Marrow|21|15|2|6|6|21:3:3:16,22:3:3:15
