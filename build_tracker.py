@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 8/24/26 — 31 members
-    "Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","F16","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","crimpo","das","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king"
+    # Auto-updated 8/24/26 — 33 members
+    "Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","Erick","F16","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","Tupac","UNSTOPPABLE ADI","arius67'","crimpo","das","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -103,6 +103,7 @@ PLAYER_TH = {
     "tinthanmg": 15,
     "Olive596": 11,
     "BigSmoke™": 16,
+    "Erick": 17,
 }
 # In-game order (tiebreaker within same TH — matches the order user sees in-game)
 _CS_ORDER = [
@@ -200,7 +201,7 @@ PLAYER_TAGS = {
 # War end time (ISO 8601 UTC) — set by update_tracker.py when a war is active.
 # JS uses this to display the smart-capture end time as "Next update" instead of next cron slot.
 # Cleared by update_tracker.py when war ends or no war is active.
-WAR_END_ISO = "2026-08-24T22:06:56Z"
+WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
@@ -217,13 +218,13 @@ WAR_BLOCKS = [
 #Y0UUGPRRU|Americanpatriot|10|16|1|3|3|10:3:3:16
 #8J2V8998|DE1|11|16|2|6|2|18:3:1:15,17:3:1:15
 #GV088PV02|roham|12|16|2|4|4|12:1:1:16,21:3:3:15
-#YLGQ20LP8|Brodie|13|16|0|0|0|
+#YLGQ20LP8|Brodie|13|16|2|5|0|6:2:0:16,7:3:0:16
 #2J9GYQRYC|Jac|14|15|0|0|0|
 #GJ92CG9VL|Mr.Joshi|15|15|2|4|2|15:2:2:15,18:2:0:15
 #GRRYCUJP8|crimpo|16|15|2|6|6|5:3:3:17,6:3:3:16
 #LV29URQLP|tiger king|17|15|2|5|5|23:3:3:15,25:2:2:15
 #GJ20RJ8RP|arius67'|18|15|2|6|6|14:3:3:15,9:3:3:16
-#PGLV2YQC|Kizaru|19|15|1|3|3|19:3:3:15
+#PGLV2YQC|Kizaru|19|15|2|6|3|19:3:3:15,22:3:0:15
 #YVCJC0VCQ|Marrow|20|15|2|5|5|20:3:3:15,18:2:2:15
 #R2GPPJ220|das|21|15|2|6|4|25:3:1:15,22:3:3:15
 #8L9J0R2QJ|SWAGMUFFIN90|22|15|0|0|0|
