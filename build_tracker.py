@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 8/24/26 — 32 members
-    "Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","F16","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","crimpo","das","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king","•KAILAN•"
+    # Auto-updated 8/24/26 — 31 members
+    "Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","F16","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","crimpo","das","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -227,7 +227,7 @@ WAR_BLOCKS = [
 #YVCJC0VCQ|Marrow|20|15|2|5|5|20:3:3:15,18:2:2:15
 #R2GPPJ220|das|21|15|0|0|0|
 #8L9J0R2QJ|SWAGMUFFIN90|22|15|0|0|0|
-#GRGGPPQ8J|Pam from HR|23|14|0|0|0|
+#GRGGPPQ8J|Pam from HR|23|14|2|5|3|25:2:0:15,24:3:3:15
 #QLYP90RPV|Ste|24|14|0|0|0|
 #QUJLUR02G|UNSTOPPABLE ADI|25|13|0|0|0|
 """, True),
