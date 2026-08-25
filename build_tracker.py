@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 8/24/26 — 33 members
-    "Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","Erick","F16","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","Tupac","UNSTOPPABLE ADI","arius67'","crimpo","das","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king"
+    # Auto-updated 8/25/26 — 32 members
+    "Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","Erick","F16","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","crimpo","das","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -205,6 +205,34 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
+("825234552","8/25/26","C.S.","25v25","""
+#GQJUGLQRQ|stage6yo|1|18|0|0|0|
+#QL8CV0P0|gen|2|18|0|0|0|
+#209J8J0RL|Big Steppa|3|17|0|0|0|
+#L9JGLLYQ|Mason|4|16|0|0|0|
+#G0VGRUCC|SwiftyKinja|5|16|0|0|0|
+#QP0CU0UC8|stage5yo|6|16|0|0|0|
+#GV80Y9L0Y|studkiller|7|16|0|0|0|
+#R00L0CY9C|MiniPekka|8|16|0|0|0|
+#Y0UUGPRRU|Americanpatriot|9|16|0|0|0|
+#8J2V8998|DE1|10|16|0|0|0|
+#GV088PV02|roham|11|16|0|0|0|
+#YLGQ20LP8|Brodie|12|16|0|0|0|
+#2J9GYQRYC|Jac|13|15|0|0|0|
+#GRRYCUJP8|crimpo|14|15|0|0|0|
+#GJ92CG9VL|Mr.Joshi|15|15|0|0|0|
+#LV29URQLP|tiger king|16|15|0|0|0|
+#PGLV2YQC|Kizaru|17|15|0|0|0|
+#GJ20RJ8RP|arius67'|18|15|0|0|0|
+#YVCJC0VCQ|Marrow|19|15|0|0|0|
+#GJLRURGC2|Cole|20|15|0|0|0|
+#8L9J0R2QJ|SWAGMUFFIN90|21|15|0|0|0|
+#R2GPPJ220|das|22|15|0|0|0|
+#GRGGPPQ8J|Pam from HR|23|14|0|0|0|
+#QLYP90RPV|Ste|24|14|0|0|0|
+#QUJLUR02G|UNSTOPPABLE ADI|25|13|0|0|0|
+""", True),
+
 ("823220656","8/23/26","Glo Glo Glo","25v25","""
 #GQJUGLQRQ|stage6yo|1|18|2|6|4|3:3:3:18,4:3:1:17
 #QL8CV0P0|gen|2|18|2|6|6|2:3:3:18,1:3:3:18
