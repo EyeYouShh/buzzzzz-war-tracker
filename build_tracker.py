@@ -19,7 +19,7 @@ PLAYER_TH = {
     "Sumairu": 15, "Pam from HR": 14, "louis": 14, "imnotstraight10": 14,
     "the beast": 14, "seth": 14,
     "arius67'": 15, "Marrow": 15, "⚡️LSWreckless⚡️": 14, "Ste": 14, "uhlisuh": 13,
-    "SWAGMUFFIN90": 15, "Brandon": 15, "Pharah": 13, "UNSTOPPABLE ADI": 13,
+    "SWAGMUFFIN90": 15, "Brandon": 15, "Pharah": 13, "UNSTOPPABLE ADI": 14,
     "MR. ASURAN YT": 13, "jj": 13, "DandyPickle": 14, "F16": 14,
     "Stevie Wonder": 12, "das": 15, "rinz": 12,
     "Tretor": 13,
