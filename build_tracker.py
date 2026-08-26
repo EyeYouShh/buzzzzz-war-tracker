@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 8/26/26 — 34 members
-    "Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","F16","Hunter B","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","das","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king","•KAILAN•"
+    # Auto-updated 8/26/26 — 32 members
+    "Americanpatriot","Big Steppa","Brandon","Brodie","Cole","DE1","F16","Hunter B","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","crimpo","das","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -202,14 +202,14 @@ PLAYER_TAGS = {
 # War end time (ISO 8601 UTC) — set by update_tracker.py when a war is active.
 # JS uses this to display the smart-capture end time as "Next update" instead of next cron slot.
 # Cleared by update_tracker.py when war ends or no war is active.
-WAR_END_ISO = "2026-08-26T23:45:52Z"
+WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
 ("825234552","8/25/26","C.S.","25v25","""
 #GQJUGLQRQ|stage6yo|1|18|2|6|4|5:3:3:16,6:3:1:16
 #QL8CV0P0|gen|2|18|2|6|6|1:3:3:18,2:3:3:17
-#209J8J0RL|Big Steppa|3|17|0|0|0|
+#209J8J0RL|Big Steppa|3|17|2|6|0|3:3:0:17,2:3:0:17
 #L9JGLLYQ|Mason|4|16|2|6|2|4:3:1:17,3:3:1:17
 #G0VGRUCC|SwiftyKinja|5|16|2|4|4|6:2:2:16,4:2:2:17
 #QP0CU0UC8|stage5yo|6|16|0|0|0|
@@ -232,7 +232,7 @@ WAR_BLOCKS = [
 #GRGGPPQ8J|Pam from HR|23|14|2|5|0|20:2:0:14,21:3:0:14
 #QLYP90RPV|Ste|24|14|2|6|6|22:3:3:14,23:3:3:15
 #QUJLUR02G|UNSTOPPABLE ADI|25|14|0|0|0|
-""", True),
+"""),
 
 ("823220656","8/23/26","Glo Glo Glo","25v25","""
 #GQJUGLQRQ|stage6yo|1|18|2|6|4|3:3:3:18,4:3:1:17
@@ -5494,6 +5494,7 @@ WAR_BLOCKS = [
 
 # ── Win/Loss/Draw results keyed by war ID ──
 RESULTS = {
+    "825234552": "D",
     "823220656": "W",
     "821215142": "W",
     "819221340": "W",
