@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 8/28/26 — 35 members
-    "Americanpatriot","Aye","Big Steppa","Brandon","Brodie","Buck","Cole","DE1","F16","Hunter B","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","crimpo","das","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king","•KAILAN•"
+    # Auto-updated 8/28/26 — 34 members
+    "Americanpatriot","Aye","Big Steppa","Brandon","Brodie","Buck","Cole","DE1","F16","Hunter B","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","crimpo","das","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -212,24 +212,24 @@ WAR_BLOCKS = [
 #GQJUGLQRQ|stage6yo|1|18|0|0|0|
 #QL8CV0P0|gen|2|18|2|5|5|1:2:2:18,2:3:3:18
 #209J8J0RL|Big Steppa|3|17|2|5|5|3:2:2:17,4:3:3:17
-#L9JGLLYQ|Mason|4|16|0|0|0|
-#G0VGRUCC|SwiftyKinja|5|16|0|0|0|
+#L9JGLLYQ|Mason|4|16|2|5|3|3:2:0:17,5:3:3:17
+#G0VGRUCC|SwiftyKinja|5|16|1|2|2|6:2:2:16
 #QP0CU0UC8|stage5yo|6|16|0|0|0|
 #GV80Y9L0Y|studkiller|7|16|2|6|6|7:3:3:16,9:3:3:16
 #RQCJR8JV|SurgeGold|8|16|0|0|0|
 #20PL28LUQ|Hunter B|9|16|0|0|0|
 #R00L0CY9C|MiniPekka|10|16|0|0|0|
 #Y0UUGPRRU|Americanpatriot|11|16|0|0|0|
-#GV088PV02|roham|12|16|0|0|0|
-#8J2V8998|DE1|13|16|0|0|0|
-#YLGQ20LP8|Brodie|14|16|0|0|0|
+#GV088PV02|roham|12|16|2|6|6|23:3:3:16,20:3:3:15
+#8J2V8998|DE1|13|16|2|6|4|13:3:1:18,11:3:3:16
+#YLGQ20LP8|Brodie|14|16|2|5|5|14:3:3:16,13:2:2:18
 #GRRYCUJP8|crimpo|15|15|0|0|0|
-#GJ92CG9VL|Mr.Joshi|16|15|1|2|2|17:2:2:16
+#GJ92CG9VL|Mr.Joshi|16|15|2|3|3|17:2:2:16,18:1:1:15
 #LV29URQLP|tiger king|17|15|0|0|0|
-#PGLV2YQC|Kizaru|18|15|0|0|0|
+#PGLV2YQC|Kizaru|18|15|1|2|2|16:2:2:15
 #GJ20RJ8RP|arius67'|19|15|1|3|3|19:3:3:15
 #GJLRURGC2|Cole|20|15|0|0|0|
-#YVCJC0VCQ|Marrow|21|15|0|0|0|
+#YVCJC0VCQ|Marrow|21|15|2|6|6|22:3:3:15,21:3:3:15
 #8L9J0R2QJ|SWAGMUFFIN90|22|15|0|0|0|
 #R2GPPJ220|das|23|15|0|0|0|
 #GRGGPPQ8J|Pam from HR|24|14|0|0|0|
