@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 8/28/26 — 33 members
-    "Americanpatriot","Big Steppa","Brandon","Brodie","Buck","Cole","DE1","F16","Hunter B","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","crimpo","das","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king"
+    # Auto-updated 8/28/26 — 35 members
+    "Americanpatriot","Aye","Big Steppa","Brandon","Brodie","Buck","Cole","DE1","F16","Hunter B","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","crimpo","das","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king","•KAILAN•"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -204,18 +204,18 @@ PLAYER_TAGS = {
 # War end time (ISO 8601 UTC) — set by update_tracker.py when a war is active.
 # JS uses this to display the smart-capture end time as "Next update" instead of next cron slot.
 # Cleared by update_tracker.py when war ends or no war is active.
-WAR_END_ISO = ""
+WAR_END_ISO = "2026-08-29T00:36:19Z"
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
 ("828003619","8/28/26","invincibles","25v25","""
 #GQJUGLQRQ|stage6yo|1|18|0|0|0|
-#QL8CV0P0|gen|2|18|0|0|0|
-#209J8J0RL|Big Steppa|3|17|0|0|0|
+#QL8CV0P0|gen|2|18|2|5|5|1:2:2:18,2:3:3:18
+#209J8J0RL|Big Steppa|3|17|2|5|5|3:2:2:17,4:3:3:17
 #L9JGLLYQ|Mason|4|16|0|0|0|
 #G0VGRUCC|SwiftyKinja|5|16|0|0|0|
 #QP0CU0UC8|stage5yo|6|16|0|0|0|
-#GV80Y9L0Y|studkiller|7|16|0|0|0|
+#GV80Y9L0Y|studkiller|7|16|2|6|6|7:3:3:16,9:3:3:16
 #RQCJR8JV|SurgeGold|8|16|0|0|0|
 #20PL28LUQ|Hunter B|9|16|0|0|0|
 #R00L0CY9C|MiniPekka|10|16|0|0|0|
@@ -224,16 +224,16 @@ WAR_BLOCKS = [
 #8J2V8998|DE1|13|16|0|0|0|
 #YLGQ20LP8|Brodie|14|16|0|0|0|
 #GRRYCUJP8|crimpo|15|15|0|0|0|
-#GJ92CG9VL|Mr.Joshi|16|15|0|0|0|
+#GJ92CG9VL|Mr.Joshi|16|15|1|2|2|17:2:2:16
 #LV29URQLP|tiger king|17|15|0|0|0|
 #PGLV2YQC|Kizaru|18|15|0|0|0|
-#GJ20RJ8RP|arius67'|19|15|0|0|0|
+#GJ20RJ8RP|arius67'|19|15|1|3|3|19:3:3:15
 #GJLRURGC2|Cole|20|15|0|0|0|
 #YVCJC0VCQ|Marrow|21|15|0|0|0|
 #8L9J0R2QJ|SWAGMUFFIN90|22|15|0|0|0|
 #R2GPPJ220|das|23|15|0|0|0|
 #GRGGPPQ8J|Pam from HR|24|14|0|0|0|
-#QLYP90RPV|Ste|25|14|0|0|0|
+#QLYP90RPV|Ste|25|14|2|6|6|25:3:3:12,24:3:3:16
 """, True),
 
 ("825234552","8/25/26","C.S.","25v25","""
