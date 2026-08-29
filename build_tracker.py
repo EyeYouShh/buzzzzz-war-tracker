@@ -127,6 +127,7 @@ PLAYER_TAGS = {
     # AUTO-UPDATED by update_tracker.py
     "#209J8J0RL": "Big Steppa",
     "#20PL28LUQ": "Hunter B",
+    "#22JUR20L2": "Buck",
     "#28VU9VCC0": "spawnofwar",
     "#2C9JU8LU": "Woot",
     "#2J9GYQRYC": "Jac",
@@ -168,6 +169,7 @@ PLAYER_TAGS = {
     "#LR0CRU9JG": "BSGxZion",
     "#LV29URQLP": "tiger king",
     "#P08PJRQU0": "Larry",
+    "#P9JPJ80CG": "Aye",
     "#PGLV2YQC": "Kizaru",
     "#PQ98J82PR": "F16",
     "#PRCQVCCV2": "Brandon",
@@ -208,6 +210,34 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
+("830004145","8/30/26","Mohamaya friend","25v25","""
+#GQJUGLQRQ|stage6yo|1|18|0|0|0|
+#QL8CV0P0|gen|2|18|0|0|0|
+#209J8J0RL|Big Steppa|3|17|0|0|0|
+#L9JGLLYQ|Mason|4|16|0|0|0|
+#G0VGRUCC|SwiftyKinja|5|16|0|0|0|
+#QP0CU0UC8|stage5yo|6|16|0|0|0|
+#RQCJR8JV|SurgeGold|7|16|0|0|0|
+#R00L0CY9C|MiniPekka|8|16|0|0|0|
+#Y0UUGPRRU|Americanpatriot|9|16|0|0|0|
+#GV088PV02|roham|10|16|0|0|0|
+#8J2V8998|DE1|11|16|0|0|0|
+#YLGQ20LP8|Brodie|12|16|0|0|0|
+#22JUR20L2|Buck|13|16|0|0|0|
+#2J9GYQRYC|Jac|14|15|0|0|0|
+#GRRYCUJP8|crimpo|15|15|0|0|0|
+#GJ92CG9VL|Mr.Joshi|16|15|0|0|0|
+#LV29URQLP|tiger king|17|15|0|0|0|
+#PGLV2YQC|Kizaru|18|15|0|0|0|
+#GJ20RJ8RP|arius67'|19|15|0|0|0|
+#GJLRURGC2|Cole|20|15|0|0|0|
+#YVCJC0VCQ|Marrow|21|15|0|0|0|
+#P9JPJ80CG|Aye|22|15|0|0|0|
+#8L9J0R2QJ|SWAGMUFFIN90|23|15|0|0|0|
+#GRGGPPQ8J|Pam from HR|24|14|0|0|0|
+#QLYP90RPV|Ste|25|14|0|0|0|
+""", True),
+
 ("828003619","8/28/26","invincibles","25v25","""
 #GQJUGLQRQ|stage6yo|1|18|2|6|2|1:3:1:18,6:3:1:16
 #QL8CV0P0|gen|2|18|2|5|5|1:2:2:18,2:3:3:18
