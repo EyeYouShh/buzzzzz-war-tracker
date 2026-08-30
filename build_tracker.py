@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 8/29/26 — 35 members
-    "Americanpatriot","Aye","Big Steppa","Brandon","Brodie","Buck","Cole","DE1","F16","Hunter B","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","das","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king"
+    # Auto-updated 8/30/26 — 36 members
+    "Americanpatriot","Aye","Big Steppa","Brandon","Brodie","Buck","Cole","DE1","F16","Gr8Conqueror","Hunter B","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","das","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -206,15 +206,15 @@ PLAYER_TAGS = {
 # War end time (ISO 8601 UTC) — set by update_tracker.py when a war is active.
 # JS uses this to display the smart-capture end time as "Next update" instead of next cron slot.
 # Cleared by update_tracker.py when war ends or no war is active.
-WAR_END_ISO = ""
+WAR_END_ISO = "2026-08-31T00:41:45Z"
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
 ("830004145","8/30/26","Mohamaya friend","25v25","""
 #GQJUGLQRQ|stage6yo|1|18|0|0|0|
-#QL8CV0P0|gen|2|18|0|0|0|
-#209J8J0RL|Big Steppa|3|17|0|0|0|
-#L9JGLLYQ|Mason|4|16|0|0|0|
+#QL8CV0P0|gen|2|18|2|6|6|2:3:3:18,1:3:3:18
+#209J8J0RL|Big Steppa|3|17|2|6|3|3:3:0:17,5:3:3:16
+#L9JGLLYQ|Mason|4|16|2|6|6|3:3:3:17,4:3:3:16
 #G0VGRUCC|SwiftyKinja|5|16|0|0|0|
 #QP0CU0UC8|stage5yo|6|16|0|0|0|
 #RQCJR8JV|SurgeGold|7|16|0|0|0|
@@ -223,7 +223,7 @@ WAR_BLOCKS = [
 #GV088PV02|roham|10|16|0|0|0|
 #8J2V8998|DE1|11|16|0|0|0|
 #YLGQ20LP8|Brodie|12|16|0|0|0|
-#22JUR20L2|Buck|13|16|0|0|0|
+#22JUR20L2|Buck|13|16|1|3|3|13:3:3:17
 #2J9GYQRYC|Jac|14|15|0|0|0|
 #GRRYCUJP8|crimpo|15|15|0|0|0|
 #GJ92CG9VL|Mr.Joshi|16|15|0|0|0|
@@ -231,11 +231,11 @@ WAR_BLOCKS = [
 #PGLV2YQC|Kizaru|18|15|0|0|0|
 #GJ20RJ8RP|arius67'|19|15|0|0|0|
 #GJLRURGC2|Cole|20|15|0|0|0|
-#YVCJC0VCQ|Marrow|21|15|0|0|0|
-#P9JPJ80CG|Aye|22|15|0|0|0|
+#YVCJC0VCQ|Marrow|21|15|2|3|3|18:0:0:15,17:3:3:15
+#P9JPJ80CG|Aye|22|15|2|6|6|11:3:3:15,12:3:3:16
 #8L9J0R2QJ|SWAGMUFFIN90|23|15|0|0|0|
 #GRGGPPQ8J|Pam from HR|24|14|0|0|0|
-#QLYP90RPV|Ste|25|14|0|0|0|
+#QLYP90RPV|Ste|25|14|2|6|6|22:3:3:16,25:3:3:11
 """, True),
 
 ("828003619","8/28/26","invincibles","25v25","""
