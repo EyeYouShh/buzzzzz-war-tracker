@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 8/30/26 — 36 members
-    "Americanpatriot","Aye","Big Steppa","Brandon","Brodie","Buck","Cole","DE1","F16","Gr8Conqueror","Hunter B","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","das","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king"
+    # Auto-updated 8/30/26 — 34 members
+    "Americanpatriot","Aye","Big Steppa","Brandon","Brodie","Buck","Cole","DE1","F16","Hunter B","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","crimpo","das","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -220,16 +220,16 @@ WAR_BLOCKS = [
 #RQCJR8JV|SurgeGold|7|16|0|0|0|
 #R00L0CY9C|MiniPekka|8|16|0|0|0|
 #Y0UUGPRRU|Americanpatriot|9|16|0|0|0|
-#GV088PV02|roham|10|16|0|0|0|
+#GV088PV02|roham|10|16|2|6|6|14:3:3:15,15:3:3:15
 #8J2V8998|DE1|11|16|0|0|0|
-#YLGQ20LP8|Brodie|12|16|0|0|0|
+#YLGQ20LP8|Brodie|12|16|2|5|5|10:3:3:16,9:2:2:16
 #22JUR20L2|Buck|13|16|1|3|3|13:3:3:17
 #2J9GYQRYC|Jac|14|15|0|0|0|
 #GRRYCUJP8|crimpo|15|15|0|0|0|
-#GJ92CG9VL|Mr.Joshi|16|15|0|0|0|
+#GJ92CG9VL|Mr.Joshi|16|15|1|2|2|16:2:2:15
 #LV29URQLP|tiger king|17|15|0|0|0|
 #PGLV2YQC|Kizaru|18|15|0|0|0|
-#GJ20RJ8RP|arius67'|19|15|0|0|0|
+#GJ20RJ8RP|arius67'|19|15|2|6|6|18:3:3:15,6:3:3:16
 #GJLRURGC2|Cole|20|15|0|0|0|
 #YVCJC0VCQ|Marrow|21|15|2|3|3|18:0:0:15,17:3:3:15
 #P9JPJ80CG|Aye|22|15|2|6|6|11:3:3:15,12:3:3:16
