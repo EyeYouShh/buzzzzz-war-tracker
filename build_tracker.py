@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 8/30/26 — 34 members
-    "Americanpatriot","Aye","Big Steppa","Brandon","Brodie","Buck","Cole","DE1","F16","Hunter B","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","crimpo","das","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king"
+    # Auto-updated 8/30/26 — 40 members
+    "Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","Aye 5","Aye 6","Big Steppa","Brandon","Brodie","Buck","Cole","DE1","F16","Hunter B","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","das","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -106,6 +106,8 @@ PLAYER_TH = {
     "Erick": 17,
     "Hunter B": 16,
     "Buck": 16,
+    "Aye 4": 11,
+    "Aye 5": 11,
 }
 # In-game order (tiebreaker within same TH — matches the order user sees in-game)
 _CS_ORDER = [
@@ -215,7 +217,7 @@ WAR_BLOCKS = [
 #QL8CV0P0|gen|2|18|2|6|6|2:3:3:18,1:3:3:18
 #209J8J0RL|Big Steppa|3|17|2|6|3|3:3:0:17,5:3:3:16
 #L9JGLLYQ|Mason|4|16|2|6|6|3:3:3:17,4:3:3:16
-#G0VGRUCC|SwiftyKinja|5|16|0|0|0|
+#G0VGRUCC|SwiftyKinja|5|16|2|5|5|7:2:2:16,8:3:3:16
 #QP0CU0UC8|stage5yo|6|16|0|0|0|
 #RQCJR8JV|SurgeGold|7|16|0|0|0|
 #R00L0CY9C|MiniPekka|8|16|0|0|0|
@@ -225,10 +227,10 @@ WAR_BLOCKS = [
 #YLGQ20LP8|Brodie|12|16|2|5|5|10:3:3:16,9:2:2:16
 #22JUR20L2|Buck|13|16|1|3|3|13:3:3:17
 #2J9GYQRYC|Jac|14|15|0|0|0|
-#GRRYCUJP8|crimpo|15|15|0|0|0|
+#GRRYCUJP8|crimpo|15|15|2|6|2|9:3:1:16,7:3:1:16
 #GJ92CG9VL|Mr.Joshi|16|15|1|2|2|16:2:2:15
-#LV29URQLP|tiger king|17|15|0|0|0|
-#PGLV2YQC|Kizaru|18|15|0|0|0|
+#LV29URQLP|tiger king|17|15|2|4|0|9:2:0:16,7:2:0:16
+#PGLV2YQC|Kizaru|18|15|1|3|3|19:3:3:15
 #GJ20RJ8RP|arius67'|19|15|2|6|6|18:3:3:15,6:3:3:16
 #GJLRURGC2|Cole|20|15|0|0|0|
 #YVCJC0VCQ|Marrow|21|15|2|3|3|18:0:0:15,17:3:3:15
