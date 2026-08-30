@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 8/30/26 — 40 members
-    "Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","Aye 5","Aye 6","Big Steppa","Brandon","Brodie","Buck","Cole","DE1","F16","Hunter B","Jac","Kizaru","Lil Slime","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","das","gen","kk","roham","stage5yo","stage6yo","studkiller","tiger king"
+    # Auto-updated 8/30/26 — 39 members
+    "Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","Aye 5","Aye 6","Big Steppa","Brandon","Brodie","Buck","Cole","DE1","F16","Hunter B","Jac","Kizaru","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","Slime","Ste","SurgeGold","SwiftyKinja","Tretor","UNSTOPPABLE ADI","arius67'","crimpo","das","gen","icyace","kk","roham","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -108,6 +108,7 @@ PLAYER_TH = {
     "Buck": 16,
     "Aye 4": 11,
     "Aye 5": 11,
+    "icyace": 13,
 }
 # In-game order (tiebreaker within same TH — matches the order user sees in-game)
 _CS_ORDER = [
@@ -221,7 +222,7 @@ WAR_BLOCKS = [
 #QP0CU0UC8|stage5yo|6|16|0|0|0|
 #RQCJR8JV|SurgeGold|7|16|0|0|0|
 #R00L0CY9C|MiniPekka|8|16|0|0|0|
-#Y0UUGPRRU|Americanpatriot|9|16|1|3|1|16:3:1:15
+#Y0UUGPRRU|Americanpatriot|9|16|2|6|4|16:3:1:15,23:3:3:13
 #GV088PV02|roham|10|16|2|6|6|14:3:3:15,15:3:3:15
 #8J2V8998|DE1|11|16|0|0|0|
 #YLGQ20LP8|Brodie|12|16|2|5|5|10:3:3:16,9:2:2:16
@@ -230,12 +231,12 @@ WAR_BLOCKS = [
 #GRRYCUJP8|crimpo|15|15|2|6|2|9:3:1:16,7:3:1:16
 #GJ92CG9VL|Mr.Joshi|16|15|2|5|5|16:2:2:15,20:3:3:14
 #LV29URQLP|tiger king|17|15|2|4|0|9:2:0:16,7:2:0:16
-#PGLV2YQC|Kizaru|18|15|1|3|3|19:3:3:15
+#PGLV2YQC|Kizaru|18|15|2|6|6|19:3:3:15,21:3:3:14
 #GJ20RJ8RP|arius67'|19|15|2|6|6|18:3:3:15,6:3:3:16
 #GJLRURGC2|Cole|20|15|0|0|0|
 #YVCJC0VCQ|Marrow|21|15|2|3|3|18:0:0:15,17:3:3:15
 #P9JPJ80CG|Aye|22|15|2|6|6|11:3:3:15,12:3:3:16
-#8L9J0R2QJ|SWAGMUFFIN90|23|15|0|0|0|
+#8L9J0R2QJ|SWAGMUFFIN90|23|15|1|3|3|24:3:3:13
 #GRGGPPQ8J|Pam from HR|24|14|0|0|0|
 #QLYP90RPV|Ste|25|14|2|6|6|22:3:3:16,25:3:3:11
 """, True),
