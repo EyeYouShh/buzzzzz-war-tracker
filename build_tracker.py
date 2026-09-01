@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 9/1/26 — 41 members
-    "Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","Big Steppa","Big_Johnson03","Brandon","Brodie","Buck","Cole","DE1","F16","Hunter B","Jac","Kizaru","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","Ranger","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","choiboi601","crimpo","das","gen","kk","ritz","roham","stage5yo","stage6yo","studkiller","tiger king","☠️DESTROYER☠️"
+    # Auto-updated 9/1/26 — 40 members
+    "Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","Big Steppa","Big_Johnson03","Brandon","Brodie","Buck","Cole","DE1","F16","Hunter B","Jac","Kizaru","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","choiboi601","crimpo","das","gen","kk","ritz","roham","stage5yo","stage6yo","studkiller","tiger king","☠️DESTROYER☠️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -216,24 +216,24 @@ PLAYER_TAGS = {
 # War end time (ISO 8601 UTC) — set by update_tracker.py when a war is active.
 # JS uses this to display the smart-capture end time as "Next update" instead of next cron slot.
 # Cleared by update_tracker.py when war ends or no war is active.
-WAR_END_ISO = ""
+WAR_END_ISO = "2026-09-02T14:33:28Z"
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
 ("901143328","9/1/26","EMPIRE","25v25","""
-#GQJUGLQRQ|stage6yo|1|18|0|0|0|
+#GQJUGLQRQ|stage6yo|1|18|2|5|5|1:3:3:18,2:2:2:18
 #QL8CV0P0|gen|2|18|0|0|0|
 #209J8J0RL|Big Steppa|3|17|0|0|0|
-#L9JGLLYQ|Mason|4|16|0|0|0|
-#G0VGRUCC|SwiftyKinja|5|16|0|0|0|
+#L9JGLLYQ|Mason|4|16|2|4|3|4:3:3:17,2:1:0:18
+#G0VGRUCC|SwiftyKinja|5|17|0|0|0|
 #GV80Y9L0Y|studkiller|6|16|0|0|0|
 #QP0CU0UC8|stage5yo|7|16|0|0|0|
-#R00L0CY9C|MiniPekka|8|16|0|0|0|
+#R00L0CY9C|MiniPekka|8|16|2|6|6|8:3:3:16,6:3:3:16
 #Y0UUGPRRU|Americanpatriot|9|16|0|0|0|
 #8J2V8998|DE1|10|16|0|0|0|
-#GV088PV02|roham|11|16|0|0|0|
+#GV088PV02|roham|11|16|2|6|6|11:3:3:15,10:3:3:16
 #YLGQ20LP8|Brodie|12|16|0|0|0|
-#22JUR20L2|Buck|13|16|0|0|0|
+#22JUR20L2|Buck|13|16|1|3|3|13:3:3:15
 #GRRYCUJP8|crimpo|14|15|0|0|0|
 #GJ92CG9VL|Mr.Joshi|15|15|0|0|0|
 #LV29URQLP|tiger king|16|15|0|0|0|
@@ -244,7 +244,7 @@ WAR_BLOCKS = [
 #P9JPJ80CG|Aye|21|15|0|0|0|
 #R2GPPJ220|das|22|15|0|0|0|
 #GRGGPPQ8J|Pam from HR|23|14|0|0|0|
-#QLYP90RPV|Ste|24|14|0|0|0|
+#QLYP90RPV|Ste|24|14|1|3|3|24:3:3:16
 #QUJLUR02G|UNSTOPPABLE ADI|25|14|0|0|0|
 """, True),
 
