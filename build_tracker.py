@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 9/1/26 — 45 members
-    "Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","Aye 5","Aye 6","Aye 7","Aye 8","Aye 9","Big Steppa","Big_Johnson03","Brandon","Brodie","Buck","Cole","DE1","F16","Hunter B","Jac","Kizaru","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","choiboi601","crimpo","das","gen","kk","ritz","roham","stage5yo","stage6yo","studkiller","tiger king","☠️DESTROYER☠️"
+    # Auto-updated 9/1/26 — 40 members
+    "Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","Big Steppa","Big_Johnson03","Brandon","Brodie","Buck","Cole","DE1","F16","Hunter B","Jac","Kizaru","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","choiboi601","crimpo","das","gen","kk","ritz","roham","stage5yo","stage6yo","studkiller","tiger king","☠️DESTROYER☠️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -13,7 +13,7 @@ PLAYER_TH = {
     "Slayer": 18,
     "gen": 18, "Gr8Conqueror": 17,
     "stage6yo": 18, "wato": 16, "drybonez": 16,
-    "Americanpatriot": 16, "Big Steppa": 17, "SwiftyKinja": 16, "stage5yo": 16, "DE1": 16,
+    "Americanpatriot": 16, "Big Steppa": 17, "SwiftyKinja": 17, "stage5yo": 16, "DE1": 16,
     "crimpo": 15, "Cole": 15, "studkiller": 16, "rour": 14, "MiniPekka": 16,
     "Kizaru": 15, "Jac": 15, "Halid #1": 15, "SurgeGold": 16, "Loading…": 14,
     "Sumairu": 15, "Pam from HR": 14, "louis": 14, "imnotstraight10": 14,
