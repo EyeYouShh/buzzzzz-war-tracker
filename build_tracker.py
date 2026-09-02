@@ -144,6 +144,7 @@ PLAYER_TAGS = {
     "#28VU9VCC0": "spawnofwar",
     "#2C9JU8LU": "Woot",
     "#2J9GYQRYC": "Jac",
+    "#2Q9C899CG": "hacker123",
     "#8290JCG8Y": "BUILT DIFFERENT",
     "#82G8C2YJ9": "Slime",
     "#8G8QL98YV": "StopImAsianBro",
@@ -158,6 +159,7 @@ PLAYER_TAGS = {
     "#9PCRUJ98": "ZEROSUBS",
     "#9Q2VLQL2R": "Tomahawk",
     "#9V9QUCLJV": "@INSTAGRAM",
+    "#CCRL9YRJ": "choiboi601",
     "#G0VGRUCC": "SwiftyKinja",
     "#G99V98V2L": "My name is...",
     "#G9RY2R9L0": "hood",
@@ -179,11 +181,13 @@ PLAYER_TAGS = {
     "#L9JGLLYQ": "Mason",
     "#LC020U2Q": "drybonez",
     "#LGJ9RC9Y9": "Halid #1",
+    "#LPVP8UVU9": "☠️DESTROYER☠️",
     "#LR0CRU9JG": "BSGxZion",
     "#LV29URQLP": "tiger king",
     "#P08PJRQU0": "Larry",
     "#P9JPJ80CG": "Aye",
     "#PGLV2YQC": "Kizaru",
+    "#PGV8GJULC": "Big_Johnson03",
     "#PQ98J82PR": "F16",
     "#PRCQVCCV2": "Brandon",
     "#Q9GU8LQPV": "Lil Slime",
@@ -196,6 +200,7 @@ PLAYER_TAGS = {
     "#QLYP90RPV": "Ste",
     "#QP0CU0UC8": "stage5yo",
     "#QPLCGG9CR": "kk",
+    "#QR8LP8LUL": "jukes\md",
     "#QUJLUR02G": "UNSTOPPABLE ADI",
     "#QUQ0RUG29": "rinz",
     "#QYLP02CJ0": "Hoosierdaddy",
@@ -223,6 +228,39 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
+("315393955","9/3/26","The Dark Knight","30v30","""
+#2Q9C899CG|hacker123|1|18|0|0|0|
+#GQJUGLQRQ|stage6yo|2|18|0|0|0|
+#QL8CV0P0|gen|3|18|0|0|0|
+#209J8J0RL|Big Steppa|4|17|0|0|0|
+#CCRL9YRJ|choiboi601|5|17|0|0|0|
+#G0VGRUCC|SwiftyKinja|6|17|0|0|0|
+#L9JGLLYQ|Mason|7|16|0|0|0|
+#QP0CU0UC8|stage5yo|8|16|0|0|0|
+#GV80Y9L0Y|studkiller|9|16|0|0|0|
+#82G8C2YJ9|Slime|10|16|0|0|0|
+#RQCJR8JV|SurgeGold|11|16|0|0|0|
+#20PL28LUQ|Hunter B|12|16|0|0|0|
+#R00L0CY9C|MiniPekka|13|16|0|0|0|
+#QPLCGG9CR|kk|14|16|0|0|0|
+#Y0UUGPRRU|Americanpatriot|15|16|0|0|0|
+#8J2V8998|DE1|16|16|0|0|0|
+#GV088PV02|roham|17|16|0|0|0|
+#YLGQ20LP8|Brodie|18|16|0|0|0|
+#22JUR20L2|Buck|19|16|0|0|0|
+#LPVP8UVU9|☠️DESTROYER☠️|20|15|0|0|0|
+#2J9GYQRYC|Jac|21|15|0|0|0|
+#GRRYCUJP8|crimpo|22|15|0|0|0|
+#GJ92CG9VL|Mr.Joshi|23|15|0|0|0|
+#LV29URQLP|tiger king|24|15|0|0|0|
+#PGV8GJULC|Big_Johnson03|25|15|0|0|0|
+#PGLV2YQC|Kizaru|26|15|0|0|0|
+#GJ20RJ8RP|arius67'|27|15|0|0|0|
+#GJLRURGC2|Cole|28|15|0|0|0|
+#QR8LP8LUL|jukes\md|29|15|0|0|0|
+#YVCJC0VCQ|Marrow|30|15|0|0|0|
+""", True, True),
+
 ("901143328","9/1/26","EMPIRE","25v25","""
 #GQJUGLQRQ|stage6yo|1|18|2|5|5|1:3:3:18,2:2:2:18
 #QL8CV0P0|gen|2|18|1|3|1|2:3:1:18
