@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 9/1/26 — 41 members
-    "Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","Big Steppa","Big_Johnson03","Brandon","Brodie","Buck","Cole","DE1","F16","Hunter B","Jac","Kizaru","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","choiboi601","crimpo","das","gen","jukes\md","kk","ritz","roham","stage5yo","stage6yo","studkiller","tiger king","☠️DESTROYER☠️"
+    # Auto-updated 9/2/26 — 43 members
+    "Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","BLUEJAYS™","Big Steppa","Big_Johnson03","Brandon","Brodie","Buck","Cole","DE1","F16","Hunter B","Jac","Kizaru","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","choiboi601","crimpo","das","gen","hacker123","jukes\md","kk","ritz","roham","stage5yo","stage6yo","studkiller","tiger king","☠️DESTROYER☠️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -117,6 +117,8 @@ PLAYER_TH = {
     "choiboi601": 17,
     "Ranger": 15,
     "jukes\md": 15,
+    "BLUEJAYS™": 18,
+    "hacker123": 18,
 }
 # In-game order (tiebreaker within same TH — matches the order user sees in-game)
 _CS_ORDER = [
@@ -223,11 +225,11 @@ WAR_END_ISO = "2026-09-02T14:33:28Z"
 WAR_BLOCKS = [
 ("901143328","9/1/26","EMPIRE","25v25","""
 #GQJUGLQRQ|stage6yo|1|18|2|5|5|1:3:3:18,2:2:2:18
-#QL8CV0P0|gen|2|18|0|0|0|
+#QL8CV0P0|gen|2|18|1|3|1|2:3:1:18
 #209J8J0RL|Big Steppa|3|17|2|5|3|5:3:3:17,2:2:0:18
 #L9JGLLYQ|Mason|4|16|2|4|3|4:3:3:17,2:1:0:18
 #G0VGRUCC|SwiftyKinja|5|17|0|0|0|
-#GV80Y9L0Y|studkiller|6|16|0|0|0|
+#GV80Y9L0Y|studkiller|6|16|2|6|6|18:3:3:15,20:3:3:15
 #QP0CU0UC8|stage5yo|7|16|0|0|0|
 #R00L0CY9C|MiniPekka|8|16|2|6|6|8:3:3:16,6:3:3:16
 #Y0UUGPRRU|Americanpatriot|9|16|0|0|0|
@@ -238,7 +240,7 @@ WAR_BLOCKS = [
 #GRRYCUJP8|crimpo|14|15|0|0|0|
 #GJ92CG9VL|Mr.Joshi|15|15|2|6|6|15:3:3:17,14:3:3:15
 #LV29URQLP|tiger king|16|15|0|0|0|
-#PGLV2YQC|Kizaru|17|15|1|3|3|17:3:3:15
+#PGLV2YQC|Kizaru|17|15|2|6|6|17:3:3:15,19:3:3:16
 #GJ20RJ8RP|arius67'|18|15|2|6|6|16:3:3:15,7:3:3:16
 #YVCJC0VCQ|Marrow|19|15|2|6|4|23:3:1:16,21:3:3:16
 #8L9J0R2QJ|SWAGMUFFIN90|20|15|0|0|0|
