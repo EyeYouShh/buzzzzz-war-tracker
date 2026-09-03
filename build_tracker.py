@@ -229,6 +229,39 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
+("316081555","9/3/26","The Dark Knight","30v30","""
+#2Q9C899CG|hacker123|1|18|0|0|0|
+#GQJUGLQRQ|stage6yo|2|18|0|0|0|
+#QL8CV0P0|gen|3|18|0|0|0|
+#209J8J0RL|Big Steppa|4|17|0|0|0|
+#CCRL9YRJ|choiboi601|5|17|0|0|0|
+#G0VGRUCC|SwiftyKinja|6|17|0|0|0|
+#L9JGLLYQ|Mason|7|16|0|0|0|
+#GV80Y9L0Y|studkiller|9|16|0|0|0|
+#82G8C2YJ9|Slime|10|16|0|0|0|
+#RQCJR8JV|SurgeGold|11|16|0|0|0|
+#20PL28LUQ|Hunter B|12|16|0|0|0|
+#R00L0CY9C|MiniPekka|13|16|0|0|0|
+#QPLCGG9CR|kk|14|16|0|0|0|
+#Y0UUGPRRU|Americanpatriot|15|16|0|0|0|
+#GV088PV02|roham|17|16|0|0|0|
+#YLGQ20LP8|Brodie|18|16|0|0|0|
+#22JUR20L2|Buck|19|16|0|0|0|
+#LPVP8UVU9|☠️DESTROYER☠️|20|15|0|0|0|
+#2J9GYQRYC|Jac|21|15|0|0|0|
+#GRRYCUJP8|crimpo|22|15|0|0|0|
+#GJ92CG9VL|Mr.Joshi|23|15|0|0|0|
+#LV29URQLP|tiger king|24|15|0|0|0|
+#PGV8GJULC|Big_Johnson03|25|15|0|0|0|
+#PGLV2YQC|Kizaru|26|15|0|0|0|
+#GJ20RJ8RP|arius67'|27|15|0|0|0|
+#QR8LP8LUL|jukes\md|29|15|0|0|0|
+#YVCJC0VCQ|Marrow|30|15|0|0|0|
+#8L9J0R2QJ|SWAGMUFFIN90|32|15|0|0|0|
+#PRCQVCCV2|Brandon|33|15|0|0|0|
+#QLYP90RPV|Ste|36|14|0|0|0|
+""", True, True),
+
 ("315393955","9/3/26","The Dark Knight","30v30","""
 #2Q9C899CG|hacker123|1|18|0|0|0|
 #GQJUGLQRQ|stage6yo|2|18|0|0|0|
