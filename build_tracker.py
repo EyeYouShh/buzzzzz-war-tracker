@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 9/2/26 — 42 members
-    "Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","BLUEJAYS™","Big Steppa","Big_Johnson03","Brandon","Brodie","Buck","Cole","DE1","F16","Hunter B","Jac","Kizaru","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","choiboi601","crimpo","das","gen","hacker123","jukes\md","kk","roham","stage5yo","stage6yo","studkiller","tiger king","☠️DESTROYER☠️"
+    # Auto-updated 9/3/26 — 43 members
+    "Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","BLUEJAYS™","Big Steppa","Big_Johnson03","Brandon","Brodie","Buck","Cole","DE1","F16","Hunter B","Jac","Kizaru","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","SWAG-YOLO","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","choiboi601","crimpo","das","gen","hacker123","jukes\md","kk","roham","stage5yo","stage6yo","studkiller","tiger king","☠️DESTROYER☠️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -119,6 +119,7 @@ PLAYER_TH = {
     "jukes\md": 15,
     "BLUEJAYS™": 18,
     "hacker123": 18,
+    "SWAG-YOLO": 18,
 }
 # In-game order (tiebreaker within same TH — matches the order user sees in-game)
 _CS_ORDER = [
