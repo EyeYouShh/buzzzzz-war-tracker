@@ -265,7 +265,7 @@ WAR_BLOCKS = [
 ("316081555","9/3/26","The Dark Knight","30v30","""
 #2Q9C899CG|hacker123|1|18|1|3|3|1:3:3:18
 #GQJUGLQRQ|stage6yo|2|18|1|3|3|2:3:3:18
-#QL8CV0P0|gen|3|18|0|0|0|
+#QL8CV0P0|gen|3|18|1|3|3|3:3:3:18
 #209J8J0RL|Big Steppa|4|17|1|2|2|5:2:2:18
 #CCRL9YRJ|choiboi601|5|17|0|0|0|
 #G0VGRUCC|SwiftyKinja|6|17|1|3|3|7:3:3:18
