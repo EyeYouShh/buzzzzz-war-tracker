@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 9/4/26 — 43 members
-    "Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","BLUEJAYS™","Big Steppa","Brandon","Brodie","Buck","Cole","DE1","F16","Hunter B","Jac","Kizaru","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","Robin2hood","SWAG-YOLO","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","choiboi601","crimpo","das","gen","hacker123","jukes\md","kk","roham","stage5yo","stage6yo","studkiller","tiger king","☠️DESTROYER☠️"
+    # Auto-updated 9/4/26 — 41 members
+    "Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","Big Steppa","Brandon","Brodie","Buck","Cole","DE1","F16","Hunter B","Jac","Kizaru","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","Robin2hood","SWAG-YOLO","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","choiboi601","crimpo","das","gen","jukes\md","kk","roham","stage5yo","stage6yo","studkiller","tiger king","☠️DESTROYER☠️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -230,7 +230,7 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
-("416082224","9/4/26","THAI ORIGINAL !","30v30","""
+("516084463","9/5/26","Mighty A-Clan","30v30","""
 #2Q9C899CG|hacker123|1|18|0|0|0|
 #GQJUGLQRQ|stage6yo|2|18|0|0|0|
 #QL8CV0P0|gen|3|18|0|0|0|
@@ -252,14 +252,47 @@ WAR_BLOCKS = [
 #LPVP8UVU9|☠️DESTROYER☠️|20|15|0|0|0|
 #GRRYCUJP8|crimpo|22|15|0|0|0|
 #GJ92CG9VL|Mr.Joshi|23|15|0|0|0|
-#LV29URQLP|tiger king|24|15|0|0|0|
-#PGV8GJULC|Robin2hood|25|15|0|0|0|
+#PGV8GJULC|Robin2hood|24|15|0|0|0|
+#LV29URQLP|tiger king|25|15|0|0|0|
 #PGLV2YQC|Kizaru|26|15|0|0|0|
 #GJ20RJ8RP|arius67'|27|15|0|0|0|
 #QR8LP8LUL|jukes\md|29|15|0|0|0|
 #YVCJC0VCQ|Marrow|30|15|0|0|0|
 #P9JPJ80CG|Aye|31|15|0|0|0|
 #PRCQVCCV2|Brandon|33|15|0|0|0|
+#QLYP90RPV|Ste|36|14|0|0|0|
+""", True, True),
+
+("416082224","9/4/26","THAI ORIGINAL !","30v30","""
+#2Q9C899CG|hacker123|1|18|1|2|2|1:2:2:18
+#GQJUGLQRQ|stage6yo|2|18|0|0|0|
+#QL8CV0P0|gen|3|18|0|0|0|
+#209J8J0RL|Big Steppa|4|17|0|0|0|
+#CCRL9YRJ|choiboi601|5|17|0|0|0|
+#G0VGRUCC|SwiftyKinja|6|17|0|0|0|
+#L9JGLLYQ|Mason|7|16|1|3|3|7:3:3:17
+#QP0CU0UC8|stage5yo|8|16|0|0|0|
+#GV80Y9L0Y|studkiller|9|16|1|3|3|9:3:3:17
+#82G8C2YJ9|Slime|10|16|0|0|0|
+#RQCJR8JV|SurgeGold|11|16|0|0|0|
+#R00L0CY9C|MiniPekka|12|16|1|3|3|12:3:3:17
+#20PL28LUQ|Hunter B|13|16|0|0|0|
+#QPLCGG9CR|kk|14|16|0|0|0|
+#Y0UUGPRRU|Americanpatriot|15|16|0|0|0|
+#YLGQ20LP8|Brodie|17|16|0|0|0|
+#GV088PV02|roham|18|16|0|0|0|
+#22JUR20L2|Buck|19|16|0|0|0|
+#LPVP8UVU9|☠️DESTROYER☠️|20|15|1|3|3|19:3:3:17
+#GRRYCUJP8|crimpo|22|15|0|0|0|
+#GJ92CG9VL|Mr.Joshi|23|15|1|3|3|21:3:3:15
+#LV29URQLP|tiger king|24|15|0|0|0|
+#PGV8GJULC|Robin2hood|25|15|0|0|0|
+#PGLV2YQC|Kizaru|26|15|1|3|3|24:3:3:15
+#GJ20RJ8RP|arius67'|27|15|1|3|3|25:3:3:15
+#QR8LP8LUL|jukes\md|29|15|1|3|3|26:3:3:18
+#YVCJC0VCQ|Marrow|30|15|0|0|0|
+#P9JPJ80CG|Aye|31|15|0|0|0|
+#PRCQVCCV2|Brandon|33|15|1|3|3|29:3:3:14
 #QLYP90RPV|Ste|36|14|0|0|0|
 """, True, True),
 
@@ -294,7 +327,7 @@ WAR_BLOCKS = [
 #8L9J0R2QJ|SWAGMUFFIN90|32|15|1|2|2|44:2:2:15
 #PRCQVCCV2|Brandon|33|15|1|3|3|45:3:3:16
 #QLYP90RPV|Ste|36|14|1|2|2|47:2:2:14
-""", True, True),
+""", False, True),
 
 ("315393955","9/3/26","The Dark Knight","30v30","""
 #2Q9C899CG|hacker123|1|18|0|0|0|
@@ -5701,6 +5734,7 @@ WAR_BLOCKS = [
 
 # ── Win/Loss/Draw results keyed by war ID ──
 RESULTS = {
+    "316081555": "L",
     "901143328": "W",
     "830004145": "W",
     "828003619": "D",
