@@ -112,7 +112,7 @@ PLAYER_TH = {
     "ritz": 15,
     "Aye 8": 10,
     "Aye 7": 10,
-    "☠️DESTROYER☠️": 15,
+    "☠️DESTROYER☠️": 16,
     "Big_Johnson03": 15,
     "choiboi601": 17,
     "Ranger": 15,
