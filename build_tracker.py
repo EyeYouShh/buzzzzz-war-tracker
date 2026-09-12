@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 9/11/26 — 44 members
-    "Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","Big Steppa","Brandon","Brodie","Buck","Cole","DE1","Hunter B","Jac","Kizaru","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","Robin2hood","SWAG-YOLO","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","choiboi601","cracker snacker","crimpo","crispyscool","das","eldude49","gen","hacker123","jukes\md","kk","roham","stage5yo","stage6yo","studkiller","tiger king","☠️DESTROYER☠️"
+    # Auto-updated 9/12/26 — 43 members
+    "Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","Big Steppa","Brandon","Brodie","Buck","Cole","DE1","Hunter B","Jac","Kizaru","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","Robin2hood","SWAG-YOLO","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","choiboi601","cracker snacker","crimpo","crispyscool","das","eldude49","gen","jukes\md","kk","roham","stage5yo","stage6yo","studkiller","tiger king","☠️DESTROYER☠️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -238,37 +238,37 @@ WAR_END_ISO = "2026-09-12T18:27:47Z"
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
 ("911182747","9/11/26","M. HUNTERS ll","35v35","""
-#2Q9C899CG|hacker123|1|18|0|0|0|
-#GQJUGLQRQ|stage6yo|2|18|0|0|0|
+#2Q9C899CG|hacker123|1|18|2|6|4|1:3:1:18,3:3:3:18
+#GQJUGLQRQ|stage6yo|2|18|1|3|0|1:3:0:18
 #QL8CV0P0|gen|3|18|2|5|5|1:2:2:18,2:3:3:18
-#209J8J0RL|Big Steppa|4|17|1|3|3|4:3:3:18
+#209J8J0RL|Big Steppa|4|17|2|6|6|4:3:3:18,22:3:3:17
 #CCRL9YRJ|choiboi601|5|17|0|0|0|
-#99P9VPUY|SWAG-YOLO|6|18|0|0|0|
+#99P9VPUY|SWAG-YOLO|6|18|2|6|6|32:3:3:16,33:3:3:15
 #G0VGRUCC|SwiftyKinja|7|17|2|5|5|6:2:2:17,10:3:3:16
 #L9JGLLYQ|Mason|8|16|2|6|4|6:3:1:17,5:3:3:18
 #GV80Y9L0Y|studkiller|9|16|1|3|3|9:3:3:16
 #QP0CU0UC8|stage5yo|10|16|0|0|0|
 #QQYU92VU|eldude49|11|16|0|0|0|
 #20PL28LUQ|Hunter B|12|16|0|0|0|
-#R00L0CY9C|MiniPekka|13|16|0|0|0|
-#QPLCGG9CR|kk|14|16|0|0|0|
+#R00L0CY9C|MiniPekka|13|16|2|6|6|13:3:3:16,16:3:3:16
+#QPLCGG9CR|kk|14|16|2|5|5|19:2:2:16,21:3:3:16
 #Y0UUGPRRU|Americanpatriot|15|16|0|0|0|
 #8J2V8998|DE1|16|16|2|6|6|12:3:3:16,11:3:3:16
 #YLGQ20LP8|Brodie|17|16|0|0|0|
 #GV088PV02|roham|18|16|2|4|3|29:3:3:15,2:1:0:18
 #LPVP8UVU9|☠️DESTROYER☠️|19|16|2|6|6|7:3:3:16,8:3:3:16
-#22JUR20L2|Buck|20|16|0|0|0|
-#82G8C2YJ9|Slime|21|16|0|0|0|
+#22JUR20L2|Buck|20|16|1|1|1|20:1:1:16
+#82G8C2YJ9|Slime|21|16|2|6|6|17:3:3:16,18:3:3:16
 #2J9GYQRYC|Jac|22|15|0|0|0|
 #GRRYCUJP8|crimpo|23|15|0|0|0|
 #GJ92CG9VL|Mr.Joshi|24|15|2|6|6|24:3:3:15,23:3:3:15
 #LV29URQLP|tiger king|25|15|0|0|0|
 #PGV8GJULC|Robin2hood|26|15|2|6|6|26:3:3:15,25:3:3:16
 #PGLV2YQC|Kizaru|27|15|0|0|0|
-#GJ20RJ8RP|arius67'|28|15|0|0|0|
+#GJ20RJ8RP|arius67'|28|15|2|6|3|20:3:2:16,19:3:1:16
 #QR8LP8LUL|jukes\md|29|15|2|6|6|15:3:3:18,14:3:3:16
-#YVCJC0VCQ|Marrow|30|15|0|0|0|
-#P9JPJ80CG|Aye|31|15|0|0|0|
+#YVCJC0VCQ|Marrow|30|15|2|6|6|30:3:3:15,28:3:3:15
+#P9JPJ80CG|Aye|31|15|2|6|6|31:3:3:15,27:3:3:15
 #8L9J0R2QJ|SWAGMUFFIN90|32|15|0|0|0|
 #PRCQVCCV2|Brandon|33|15|0|0|0|
 #GRGGPPQ8J|Pam from HR|34|14|1|1|1|34:1:1:14
