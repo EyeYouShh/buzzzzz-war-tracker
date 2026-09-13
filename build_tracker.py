@@ -55,7 +55,7 @@ PLAYER_TH = {
     "BARSA": 15,
     "BUILT DIFFERENT": 14,
     "SaYNaNaFoO": 18,
-    "Slime": 16,
+    "Slime": 17,
     "THE DARK SPY": 17,
     "Hoosierdaddy": 18,
     "The Black Pearl": 18,
