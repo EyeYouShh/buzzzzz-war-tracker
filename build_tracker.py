@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 9/13/26 — 41 members
-    "Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","Big Steppa","Brandon","Brodie","Buck","Cole","DE1","Hunter B","Jac","Kizaru","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","Robin2hood","SWAG-YOLO","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","cracker snacker","crimpo","crispyscool","das","gen","jukes\md","kk","roham","stage5yo","stage6yo","studkiller","tiger king","☠️DESTROYER☠️"
+    # Auto-updated 9/14/26 — 40 members
+    "Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","Big Steppa","Brandon","Brodie","Cole","DE1","Hunter B","Jac","Kizaru","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","Robin2hood","SWAG-YOLO","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","cracker snacker","crimpo","crispyscool","das","gen","jukes\md","kk","roham","stage5yo","stage6yo","studkiller","tiger king","☠️DESTROYER☠️"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -234,7 +234,7 @@ PLAYER_TAGS = {
 # War end time (ISO 8601 UTC) — set by update_tracker.py when a war is active.
 # JS uses this to display the smart-capture end time as "Next update" instead of next cron slot.
 # Cleared by update_tracker.py when war ends or no war is active.
-WAR_END_ISO = "2026-09-14T21:31:25Z"
+WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
@@ -251,8 +251,8 @@ WAR_BLOCKS = [
 #8J2V8998|DE1|10|16|2|5|1|14:3:1:15,17:2:0:15
 #YLGQ20LP8|Brodie|11|16|2|5|2|6:2:1:18,17:3:1:15
 #GV088PV02|roham|12|16|2|3|0|3:2:0:18,6:1:0:18
-#LPVP8UVU9|☠️DESTROYER☠️|13|16|0|0|0|
-#22JUR20L2|Buck|14|16|0|0|0|
+#LPVP8UVU9|☠️DESTROYER☠️|13|16|2|5|1|6:2:0:18,20:3:1:15
+#22JUR20L2|Buck|14|16|2|6|1|8:3:0:17,19:3:1:15
 #82G8C2YJ9|Slime|15|17|2|5|5|7:2:2:17,13:3:3:15
 #RPL0LQCR|crispyscool|16|15|0|0|0|
 #GRRYCUJP8|crimpo|17|15|2|4|1|6:1:0:18,15:3:1:15
@@ -264,12 +264,12 @@ WAR_BLOCKS = [
 #YVCJC0VCQ|Marrow|23|15|2|5|4|23:3:3:15,15:2:1:15
 #QR8LP8LUL|jukes\md|24|15|2|6|6|10:3:3:16,12:3:3:16
 #P9JPJ80CG|Aye|25|15|0|0|0|
-#8L9J0R2QJ|SWAGMUFFIN90|26|15|0|0|0|
-#PRCQVCCV2|Brandon|27|15|0|0|0|
-#GRGGPPQ8J|Pam from HR|28|14|0|0|0|
+#8L9J0R2QJ|SWAGMUFFIN90|26|15|2|2|0|6:1:0:18,4:1:0:18
+#PRCQVCCV2|Brandon|27|15|1|3|1|27:3:1:15
+#GRGGPPQ8J|Pam from HR|28|14|2|5|5|27:2:2:15,30:3:3:11
 #QLYP90RPV|Ste|29|14|2|6|6|28:3:3:16,29:3:3:13
 #QUJLUR02G|UNSTOPPABLE ADI|30|14|0|0|0|
-""", True),
+"""),
 
 ("911182747","9/11/26","M. HUNTERS ll","35v35","""
 #2Q9C899CG|hacker123|1|18|2|6|4|1:3:1:18,3:3:3:18
@@ -5945,6 +5945,7 @@ WAR_BLOCKS = [
 
 # ── Win/Loss/Draw results keyed by war ID ──
 RESULTS = {
+    "913213125": "W",
     "911182747": "W",
     "916184486": "L",
     "816183517": "L",
