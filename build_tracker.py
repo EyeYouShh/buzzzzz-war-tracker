@@ -238,16 +238,16 @@ PLAYER_TAGS = {
 # War end time (ISO 8601 UTC) — set by update_tracker.py when a war is active.
 # JS uses this to display the smart-capture end time as "Next update" instead of next cron slot.
 # Cleared by update_tracker.py when war ends or no war is active.
-WAR_END_ISO = ""
+WAR_END_ISO = "2026-09-17T18:16:39Z"
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
 ("916181639","9/16/26","VisKo","25v25","""
 #GQJUGLQRQ|stage6yo|1|18|0|0|0|
-#QL8CV0P0|gen|2|18|0|0|0|
+#QL8CV0P0|gen|2|18|2|5|5|1:2:2:18,2:3:3:18
 #209J8J0RL|Big Steppa|3|17|0|0|0|
 #99P9VPUY|SWAG-YOLO|4|18|0|0|0|
-#G0VGRUCC|SwiftyKinja|5|17|0|0|0|
+#G0VGRUCC|SwiftyKinja|5|17|1|2|2|5:2:2:17
 #82G8C2YJ9|Slime|6|17|0|0|0|
 #QP0CU0UC8|stage5yo|7|16|0|0|0|
 #8J2V8998|DE1|8|16|0|0|0|
@@ -256,14 +256,14 @@ WAR_BLOCKS = [
 #LPVP8UVU9|☠️DESTROYER☠️|11|16|0|0|0|
 #2J9GYQRYC|Jac|12|15|0|0|0|
 #GRRYCUJP8|crimpo|13|15|0|0|0|
-#GJ92CG9VL|Mr.Joshi|14|15|0|0|0|
-#PGV8GJULC|Robin2hood|15|15|0|0|0|
+#GJ92CG9VL|Mr.Joshi|14|15|2|4|4|11:2:2:15,14:2:2:15
+#PGV8GJULC|Robin2hood|15|15|2|6|6|15:3:3:15,12:3:3:15
 #LV29URQLP|tiger king|16|15|0|0|0|
-#PGLV2YQC|Kizaru|17|15|0|0|0|
+#PGLV2YQC|Kizaru|17|16|2|6|4|17:3:3:15,11:3:1:15
 #PYC8PLU8|#AgentKush007|18|15|0|0|0|
-#GJ20RJ8RP|arius67'|19|15|0|0|0|
-#QR8LP8LUL|jukes\md|20|15|0|0|0|
-#YVCJC0VCQ|Marrow|21|15|0|0|0|
+#GJ20RJ8RP|arius67'|19|15|2|4|3|19:3:3:15,1:1:0:18
+#QR8LP8LUL|jukes\md|20|15|2|6|6|13:3:3:15,9:3:3:16
+#YVCJC0VCQ|Marrow|21|15|2|6|4|21:3:3:15,14:3:1:15
 #8L9J0R2QJ|SWAGMUFFIN90|22|15|0|0|0|
 #R2GPPJ220|das|23|15|0|0|0|
 #GRGGPPQ8J|Pam from HR|24|14|0|0|0|
