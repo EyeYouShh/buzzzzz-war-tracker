@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 9/15/26 — 42 members
-    "#AgentKush007","Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Hunter B","Jac","Kizaru","Marrow","Mason","MiniPekka","Mr.Joshi","Pam from HR","Robin2hood","SWAG-YOLO","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","cracker snacker","crimpo","das","gen","jukes\md","kk","perfectguy10104","roham","stage5yo","stage6yo","studkiller","tiger king","☠️DESTROYER☠️"
+    # Auto-updated 9/17/26 — 42 members
+    "#AgentKush007","Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Hunter B","Jac","Kizaru","Marrow","Mason","Masterp;)","MiniPekka","Mr.Joshi","Pam from HR","Robin2hood","SWAG-YOLO","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","cracker snacker","crimpo","das","gen","jukes\md","kk","perfectguy10104","roham","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -129,6 +129,7 @@ PLAYER_TH = {
     "Clasher JD": 16,
     "#AgentKush007": 15,
     "perfectguy10104": 15,
+    "Masterp;)": 18,
 }
 # In-game order (tiebreaker within same TH — matches the order user sees in-game)
 _CS_ORDER = [
@@ -246,14 +247,14 @@ WAR_BLOCKS = [
 #GQJUGLQRQ|stage6yo|1|18|0|0|0|
 #QL8CV0P0|gen|2|18|2|5|5|1:2:2:18,2:3:3:18
 #209J8J0RL|Big Steppa|3|17|0|0|0|
-#99P9VPUY|SWAG-YOLO|4|18|0|0|0|
+#99P9VPUY|SWAG-YOLO|4|18|2|6|4|3:3:3:17,5:3:1:17
 #G0VGRUCC|SwiftyKinja|5|17|2|5|5|5:2:2:17,4:3:3:17
-#82G8C2YJ9|Slime|6|17|0|0|0|
+#82G8C2YJ9|Slime|6|17|2|6|4|7:3:3:16,8:3:1:16
 #QP0CU0UC8|stage5yo|7|16|0|0|0|
 #8J2V8998|DE1|8|16|0|0|0|
 #YLGQ20LP8|Brodie|9|16|0|0|0|
 #GV088PV02|roham|10|16|0|0|0|
-#LPVP8UVU9|☠️DESTROYER☠️|11|16|0|0|0|
+#LPVP8UVU9|☠️DESTROYER☠️|11|16|2|5|5|6:3:3:16,8:2:2:16
 #2J9GYQRYC|Jac|12|15|0|0|0|
 #GRRYCUJP8|crimpo|13|15|0|0|0|
 #GJ92CG9VL|Mr.Joshi|14|15|2|4|4|11:2:2:15,14:2:2:15
@@ -266,7 +267,7 @@ WAR_BLOCKS = [
 #YVCJC0VCQ|Marrow|21|15|2|6|4|21:3:3:15,14:3:1:15
 #8L9J0R2QJ|SWAGMUFFIN90|22|15|0|0|0|
 #R2GPPJ220|das|23|15|0|0|0|
-#GRGGPPQ8J|Pam from HR|24|14|0|0|0|
+#GRGGPPQ8J|Pam from HR|24|14|1|2|2|24:2:2:14
 #QUJLUR02G|UNSTOPPABLE ADI|25|14|0|0|0|
 """, True),
 
