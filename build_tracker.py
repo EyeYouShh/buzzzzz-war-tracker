@@ -14,7 +14,7 @@ PLAYER_TH = {
     "gen": 18, "Gr8Conqueror": 17,
     "stage6yo": 18, "wato": 16, "drybonez": 16,
     "Americanpatriot": 16, "Big Steppa": 17, "SwiftyKinja": 17, "stage5yo": 16, "DE1": 16,
-    "crimpo": 16, "Cole": 15, "studkiller": 16, "rour": 14, "MiniPekka": 16,
+    "crimpo": 16, "Cole": 15, "studkiller": 17, "rour": 14, "MiniPekka": 16,
     "Kizaru": 16, "Jac": 15, "Halid #1": 15, "SurgeGold": 16, "Loading…": 14,
     "Sumairu": 15, "Pam from HR": 14, "louis": 14, "imnotstraight10": 14,
     "the beast": 14, "seth": 14,
@@ -241,7 +241,7 @@ PLAYER_TAGS = {
 # War end time (ISO 8601 UTC) — set by update_tracker.py when a war is active.
 # JS uses this to display the smart-capture end time as "Next update" instead of next cron slot.
 # Cleared by update_tracker.py when war ends or no war is active.
-WAR_END_ISO = "2026-09-19T19:01:41Z"
+WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
@@ -252,14 +252,14 @@ WAR_BLOCKS = [
 #99P9VPUY|SWAG-YOLO|4|18|2|5|3|8:3:3:16,1:2:0:18
 #G0VGRUCC|SwiftyKinja|5|17|2|6|6|5:3:3:17,6:3:3:16
 #82G8C2YJ9|Slime|6|17|2|6|6|7:3:3:16,4:3:3:17
-#QP0CU0UC8|stage5yo|7|16|0|0|0|
-#R00L0CY9C|MiniPekka|8|16|0|0|0|
+#QP0CU0UC8|stage5yo|7|16|2|4|0|1:2:0:18,2:2:0:18
+#R00L0CY9C|MiniPekka|8|16|2|5|0|8:3:0:16,1:2:0:18
 #8J2V8998|DE1|9|16|0|0|0|
 #YLGQ20LP8|Brodie|10|16|0|0|0|
 #QGGUGUQ98|Clasher JD|11|16|2|6|6|21:3:3:15,23:3:3:15
 #GV088PV02|roham|12|16|2|3|0|2:2:0:18,3:1:0:18
 #PGLV2YQC|Kizaru|13|16|2|6|6|13:3:3:15,16:3:3:15
-#GRRYCUJP8|crimpo|14|16|0|0|0|
+#GRRYCUJP8|crimpo|14|16|2|4|0|1:2:0:18,2:2:0:18
 #GJ92CG9VL|Mr.Joshi|15|15|2|3|0|1:1:0:18,2:2:0:18
 #PGV8GJULC|Robin2hood|16|15|2|6|6|14:3:3:15,12:3:3:15
 #LV29URQLP|tiger king|17|15|2|5|0|11:3:0:17,8:2:0:16
@@ -271,7 +271,7 @@ WAR_BLOCKS = [
 #P9JPJ80CG|Aye|23|15|2|6|6|9:3:3:16,17:3:3:15
 #8L9J0R2QJ|SWAGMUFFIN90|24|15|0|0|0|
 #R2GPPJ220|das|25|15|0|0|0|
-""", True),
+"""),
 
 ("916181639","9/16/26","VisKo","25v25","""
 #GQJUGLQRQ|stage6yo|1|18|2|4|3|1:1:0:18,10:3:3:16
@@ -6008,6 +6008,7 @@ WAR_BLOCKS = [
 
 # ── Win/Loss/Draw results keyed by war ID ──
 RESULTS = {
+    "918190141": "D",
     "916181639": "D",
     "913213125": "W",
     "911182747": "W",
