@@ -242,36 +242,36 @@ PLAYER_TAGS = {
 # War end time (ISO 8601 UTC) — set by update_tracker.py when a war is active.
 # JS uses this to display the smart-capture end time as "Next update" instead of next cron slot.
 # Cleared by update_tracker.py when war ends or no war is active.
-WAR_END_ISO = ""
+WAR_END_ISO = "2026-09-21T18:34:13Z"
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
 ("920183413","9/20/26","KATSIYANIHA","25v25","""
-#QY99LUG8Q|Masterp;)|1|18|0|0|0|
+#QY99LUG8Q|Masterp;)|1|18|1|2|2|1:2:2:18
 #GQJUGLQRQ|stage6yo|2|18|0|0|0|
-#QL8CV0P0|gen|3|18|0|0|0|
+#QL8CV0P0|gen|3|18|2|6|4|2:3:3:18,1:3:1:18
 #209J8J0RL|Big Steppa|4|17|0|0|0|
 #99P9VPUY|SWAG-YOLO|5|18|0|0|0|
-#G0VGRUCC|SwiftyKinja|6|17|0|0|0|
-#GV80Y9L0Y|studkiller|7|17|0|0|0|
-#82G8C2YJ9|Slime|8|17|0|0|0|
+#G0VGRUCC|SwiftyKinja|6|17|2|5|5|6:2:2:17,5:3:3:17
+#GV80Y9L0Y|studkiller|7|17|1|3|3|11:3:3:16
+#82G8C2YJ9|Slime|8|17|2|5|3|6:2:0:17,10:3:3:16
 #QP0CU0UC8|stage5yo|9|16|0|0|0|
 #R00L0CY9C|MiniPekka|10|16|0|0|0|
 #8J2V8998|DE1|11|16|0|0|0|
-#QGGUGUQ98|Clasher JD|12|16|0|0|0|
+#QGGUGUQ98|Clasher JD|12|16|2|5|5|12:3:3:16,9:2:2:16
 #GV088PV02|roham|13|16|0|0|0|
-#GRRYCUJP8|crimpo|14|16|0|0|0|
-#PGLV2YQC|Kizaru|15|16|0|0|0|
+#GRRYCUJP8|crimpo|14|16|2|6|6|8:3:3:16,7:3:3:17
+#PGLV2YQC|Kizaru|15|16|1|3|3|15:3:3:17
 #GJ92CG9VL|Mr.Joshi|16|15|0|0|0|
-#PGV8GJULC|Robin2hood|17|15|0|0|0|
+#PGV8GJULC|Robin2hood|17|15|2|6|6|17:3:3:17,13:3:3:16
 #LV29URQLP|tiger king|18|15|0|0|0|
-#9QRRRQQG9|perfectguy10104|19|15|0|0|0|
+#9QRRRQQG9|perfectguy10104|19|15|1|2|2|19:2:2:15
 #GJ20RJ8RP|arius67'|20|15|0|0|0|
-#QR8LP8LUL|jukes\md|21|15|0|0|0|
+#QR8LP8LUL|jukes\md|21|15|2|6|6|16:3:3:16,14:3:3:17
 #YVCJC0VCQ|Marrow|22|15|0|0|0|
 #P9JPJ80CG|Aye|23|15|0|0|0|
 #GRGGPPQ8J|Pam from HR|24|14|0|0|0|
-#QLYP90RPV|Ste|25|14|0|0|0|
+#QLYP90RPV|Ste|25|14|1|3|3|25:3:3:8
 """, True),
 
 ("918190141","9/18/26","Broderhood BR","25v25","""
