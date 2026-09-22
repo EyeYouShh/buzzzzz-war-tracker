@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 9/21/26 — 42 members
-    "#AgentKush007","Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Hunter B","Jac","Kizaru","Marrow","Mason","Masterp;)","MiniPekka","Mr.Joshi","Pam from HR","Robin2hood","SWAG-YOLO","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","UNSTOPPABLE ADI","arius67'","cracker snacker","crimpo","das","gen","jukes\md","kk","perfectguy10104","roham","stage5yo","stage6yo","studkiller","tiger king"
+    # Auto-updated 9/22/26 — 43 members
+    "#AgentKush007","Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Hunter B","Jac","Kizaru","Marrow","Mason","Masterp;)","MiniPekka","Mr.Joshi","Pam from HR","Robin2hood","SWAG-YOLO","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","Tupac","UNSTOPPABLE ADI","arius67'","cracker snacker","crimpo","das","gen","jukes\md","kk","perfectguy10104","roham","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -48,7 +48,7 @@ PLAYER_TH = {
     "Tomahawk": 18,
     "roham": 16,
     "TigerGoMaow": 16,
-    "Tupac": 17,
+    "Tupac": 18,
     "ʙᴜᴛᴄʜᴇʀ": 17,
     "♥امپراطور☆شمال♥": 17,
     "彡๛sulta彡": 17,
