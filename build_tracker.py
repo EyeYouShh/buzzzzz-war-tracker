@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 9/22/26 — 46 members
-    "#AgentKush007","Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Hunter B","Jac","Kizaru","Marrow","Mason","Masterp;)","MiniPekka","Mr.Joshi","Pam from HR","Robin2hood","SWAG-YOLO","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","Tupac","UNSTOPPABLE ADI","arius67'","cracker snacker","crimpo","das","gen","jukes\md","kk","leo","perfectguy10104","roham","slogo","stage5yo","stage6yo","studkiller","tiger king","〘✨ʍe̸H̸яz̶a̶d:〙"
+    # Auto-updated 9/23/26 — 45 members
+    "#AgentKush007","Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Hunter B","Jac","Kizaru","Marrow","Mason","Masterp;)","MiniPekka","Mr.Joshi","Pam from HR","Robin2hood","SWAG-YOLO","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","Tupac","UNSTOPPABLE ADI","arius67'","cracker snacker","crimpo","das","gen","jukes\md","kk","leo","perfectguy10104","roham","slogo","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -250,12 +250,12 @@ WAR_END_ISO = "2026-09-23T19:07:57Z"
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
 ("922190757","9/22/26","اسودالعراق111","30v30","""
-#QY99LUG8Q|Masterp;)|1|18|0|0|0|
+#QY99LUG8Q|Masterp;)|1|18|1|2|2|1:2:2:18
 #GQJUGLQRQ|stage6yo|2|18|0|0|0|
-#QL8CV0P0|gen|3|18|0|0|0|
+#QL8CV0P0|gen|3|18|1|3|3|2:3:3:18
 #209J8J0RL|Big Steppa|4|17|0|0|0|
-#99P9VPUY|SWAG-YOLO|5|18|0|0|0|
-#G0VGRUCC|SwiftyKinja|6|17|0|0|0|
+#99P9VPUY|SWAG-YOLO|5|18|1|3|3|5:3:3:18
+#G0VGRUCC|SwiftyKinja|6|17|2|6|6|6:3:3:17,7:3:3:18
 #GV80Y9L0Y|studkiller|7|17|0|0|0|
 #82G8C2YJ9|Slime|8|17|0|0|0|
 #QP0CU0UC8|stage5yo|9|16|0|0|0|
@@ -274,11 +274,11 @@ WAR_BLOCKS = [
 #GJ20RJ8RP|arius67'|22|15|0|0|0|
 #QR8LP8LUL|jukes\md|23|15|0|0|0|
 #GJLRURGC2|Cole|24|15|0|0|0|
-#YVCJC0VCQ|Marrow|25|15|1|3|3|25:3:3:15
+#YVCJC0VCQ|Marrow|25|15|2|6|6|25:3:3:15,18:3:3:15
 #P9JPJ80CG|Aye|26|15|0|0|0|
 #8L9J0R2QJ|SWAGMUFFIN90|27|15|0|0|0|
-#GRGGPPQ8J|Pam from HR|28|14|0|0|0|
-#QLYP90RPV|Ste|29|14|0|0|0|
+#GRGGPPQ8J|Pam from HR|28|14|1|2|2|29:2:2:14
+#QLYP90RPV|Ste|29|14|1|3|3|28:3:3:14
 #QUJLUR02G|UNSTOPPABLE ADI|30|14|0|0|0|
 """, True),
 
