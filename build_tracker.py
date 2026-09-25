@@ -282,7 +282,7 @@ WAR_BLOCKS = [
 #GRGGPPQ8J|Pam from HR|28|14|2|6|3|30:3:1:14,28:3:2:15
 #QUJLUR02G|UNSTOPPABLE ADI|29|14|0|0|0|
 #LPUJPCVGV|Aye 2|30|12|2|2|2|30:1:1:14,28:1:1:15
-""", True),
+"""),
 
 ("922190757","9/22/26","اسودالعراق111","30v30","""
 #QY99LUG8Q|Masterp;)|1|18|2|4|2|1:2:2:18,2:2:0:18
@@ -6141,6 +6141,7 @@ WAR_BLOCKS = [
 
 # ── Win/Loss/Draw results keyed by war ID ──
 RESULTS = {
+    "924192801": "D",
     "922183721": "D",
     "922190757": "D",
     "920183413": "D",
