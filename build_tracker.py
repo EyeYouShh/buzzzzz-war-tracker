@@ -251,7 +251,7 @@ PLAYER_TAGS = {
 # War end time (ISO 8601 UTC) — set by update_tracker.py when a war is active.
 # JS uses this to display the smart-capture end time as "Next update" instead of next cron slot.
 # Cleared by update_tracker.py when war ends or no war is active.
-WAR_END_ISO = ""
+WAR_END_ISO = "2026-09-27T20:27:29Z"
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
@@ -261,7 +261,7 @@ WAR_BLOCKS = [
 #QL8CV0P0|gen|3|18|0|0|0|
 #209J8J0RL|Big Steppa|4|17|0|0|0|
 #99P9VPUY|SWAG-YOLO|5|18|0|0|0|
-#G0VGRUCC|SwiftyKinja|6|17|0|0|0|
+#G0VGRUCC|SwiftyKinja|6|17|1|2|2|6:2:2:17
 #GV80Y9L0Y|studkiller|7|17|0|0|0|
 #82G8C2YJ9|Slime|8|17|0|0|0|
 #QP0CU0UC8|stage5yo|9|16|0|0|0|
