@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 9/25/26 — 46 members
-    "#AgentKush007","Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Hunter B","Jac","Kizaru","Marrow","Mason","Masterp;)","MiniPekka","Mr.Joshi","Pam from HR","Robin2hood","SWAG-YOLO","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","Tupac","UNSTOPPABLE ADI","YASH","arius67'","cracker snacker","crimpo","das","gen","jukes\md","kk","leo","perfectguy10104","roham","slogo","stage5yo","stage6yo","studkiller","tiger king"
+    # Auto-updated 9/26/26 — 47 members
+    "#AgentKush007","Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Dubnation","Hunter B","Jac","Kizaru","Marrow","Mason","Masterp;)","MiniPekka","Mr.Joshi","Pam from HR","Robin2hood","SWAG-YOLO","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","Tupac","UNSTOPPABLE ADI","YASH","arius67'","cracker snacker","crimpo","das","gen","jukes\md","kk","leo","perfectguy10104","roham","slogo","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -134,6 +134,7 @@ PLAYER_TH = {
     "leo": 16,
     "〘✨ʍe̸H̸яz̶a̶d:〙": 15,
     "YASH": 16,
+    "Dubnation": 15,
 }
 # In-game order (tiebreaker within same TH — matches the order user sees in-game)
 _CS_ORDER = [
@@ -192,8 +193,10 @@ PLAYER_TAGS = {
     "#GQU082R20": "Pratham",
     "#GRGGPPQ8J": "Pam from HR",
     "#GRRYCUJP8": "crimpo",
+    "#GU9VU9G0U": "leo",
     "#GV088PV02": "roham",
     "#GV80Y9L0Y": "studkiller",
+    "#L82RQV8UP": "YASH",
     "#L8UC9G0U8": "wato",
     "#L9JGLLYQ": "Mason",
     "#LC020U2Q": "drybonez",
@@ -209,6 +212,7 @@ PLAYER_TAGS = {
     "#PQ98J82PR": "F16",
     "#PRCQVCCV2": "Brandon",
     "#PYC8PLU8": "#AgentKush007",
+    "#Q88PLUP2P": "Aye 3",
     "#Q9GU8LQPV": "Lil Slime",
     "#Q9UJG0RJP": "Sumairu",
     "#QCUCLPPJV": "Gr8Conqueror",
@@ -251,6 +255,44 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
+("926202729","9/26/26","KING WAR","35v35","""
+#QY99LUG8Q|Masterp;)|1|18|0|0|0|
+#GQJUGLQRQ|stage6yo|2|18|0|0|0|
+#QL8CV0P0|gen|3|18|0|0|0|
+#209J8J0RL|Big Steppa|4|17|0|0|0|
+#99P9VPUY|SWAG-YOLO|5|18|0|0|0|
+#G0VGRUCC|SwiftyKinja|6|17|0|0|0|
+#GV80Y9L0Y|studkiller|7|17|0|0|0|
+#82G8C2YJ9|Slime|8|17|0|0|0|
+#QP0CU0UC8|stage5yo|9|16|0|0|0|
+#L82RQV8UP|YASH|10|16|0|0|0|
+#GU9VU9G0U|leo|11|16|0|0|0|
+#8J2V8998|DE1|12|16|0|0|0|
+#YLGQ20LP8|Brodie|13|16|0|0|0|
+#QGGUGUQ98|Clasher JD|14|16|0|0|0|
+#GRRYCUJP8|crimpo|15|16|0|0|0|
+#PGLV2YQC|Kizaru|16|16|0|0|0|
+#R00L0CY9C|MiniPekka|17|16|0|0|0|
+#2J9GYQRYC|Jac|18|15|0|0|0|
+#GJ92CG9VL|Mr.Joshi|19|15|0|0|0|
+#PGV8GJULC|Robin2hood|20|15|0|0|0|
+#LV29URQLP|tiger king|21|15|0|0|0|
+#PYC8PLU8|#AgentKush007|22|15|0|0|0|
+#GJLRURGC2|Cole|23|15|0|0|0|
+#9QRRRQQG9|perfectguy10104|24|15|0|0|0|
+#GJ20RJ8RP|arius67'|25|15|0|0|0|
+#QR8LP8LUL|jukes\md|26|15|0|0|0|
+#YVCJC0VCQ|Marrow|27|15|0|0|0|
+#P9JPJ80CG|Aye|28|15|0|0|0|
+#8L9J0R2QJ|SWAGMUFFIN90|29|15|0|0|0|
+#R2GPPJ220|das|30|15|0|0|0|
+#QLYP90RPV|Ste|31|14|0|0|0|
+#GRGGPPQ8J|Pam from HR|32|14|0|0|0|
+#QUJLUR02G|UNSTOPPABLE ADI|33|14|0|0|0|
+#LPUJPCVGV|Aye 2|34|12|0|0|0|
+#Q88PLUP2P|Aye 3|35|11|0|0|0|
+""", True),
+
 ("924192801","9/24/26","Foxhound","30v30","""
 #QY99LUG8Q|Masterp;)|1|18|2|5|3|4:2:2:18,25:3:1:15
 #GQJUGLQRQ|stage6yo|2|18|2|6|4|3:3:3:18,4:3:1:18
