@@ -120,7 +120,7 @@ PLAYER_TH = {
     "BLUEJAYS™": 18,
     "hacker123": 18,
     "SWAG-YOLO": 18,
-    "Robin2hood": 15,
+    "Robin2hood": 16,
     "cracker snacker": 18,
     "Dowletyar. 06": 15,
     "Rocky": 18,
