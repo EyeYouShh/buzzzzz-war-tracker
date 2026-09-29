@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 9/28/26 — 49 members
-    "#AgentKush007","*iaN*","Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Dubnation","Hunter B","Jac","Kizaru","Llord_Iyke","Marrow","Mason","Masterp;)","MiniPekka","Mr.Joshi","Pam from HR","Robin2hood","SWAG-YOLO","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","Tupac","UNSTOPPABLE ADI","arius67'","cracker snacker","crimpo","das","gen","jukes\md","kk","leo","perfectguy10104","roham","slogo","stage5yo","stage6yo","studkiller","tiger king","wana"
+    # Auto-updated 9/29/26 — 50 members
+    "#AgentKush007","*iaN*","Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Dubnation","FIGHTER","Hunter B","Jac","Kizaru","Llord_Iyke","Marrow","Mason","Masterp;)","MiniPekka","Mr.Joshi","Pam from HR","Robin2hood","SWAG-YOLO","SWAGMUFFIN90","Slime","Ste","SurgeGold","SwiftyKinja","Tupac","UNSTOPPABLE ADI","arius67'","cracker snacker","crimpo","das","gen","jukes\md","kk","leo","perfectguy10104","roham","slogo","stage5yo","stage6yo","studkiller","tiger king","wana"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -138,6 +138,7 @@ PLAYER_TH = {
     "Llord_Iyke": 16,
     "*iaN*": 16,
     "wana": 16,
+    "FIGHTER": 16,
 }
 # In-game order (tiebreaker within same TH — matches the order user sees in-game)
 _CS_ORDER = [
@@ -268,18 +269,18 @@ WAR_BLOCKS = [
 #G0VGRUCC|SwiftyKinja|5|17|2|5|5|5:2:2:17,7:3:3:16
 #QP0CU0UC8|stage5yo|6|16|2|6|4|5:3:1:17,8:3:3:16
 #PG8YCC8P9|Llord_Iyke|7|16|0|0|0|
-#YLGQ20LP8|Brodie|8|16|0|0|0|
-#QGGUGUQ98|Clasher JD|9|16|0|0|0|
+#YLGQ20LP8|Brodie|8|16|2|6|6|18:3:3:15,19:3:3:15
+#QGGUGUQ98|Clasher JD|9|16|2|6|6|16:3:3:15,17:3:3:15
 #GRRYCUJP8|crimpo|10|16|0|0|0|
 #QCV9CUVLR|wana|11|16|0|0|0|
 #PGLV2YQC|Kizaru|12|16|2|6|6|12:3:3:15,20:3:3:16
-#GJ92CG9VL|Mr.Joshi|13|15|1|3|3|14:3:3:15
+#GJ92CG9VL|Mr.Joshi|13|15|2|6|6|14:3:3:15,15:3:3:15
 #PGV8GJULC|Robin2hood|14|16|0|0|0|
 #LV29URQLP|tiger king|15|15|0|0|0|
 #PYC8PLU8|#AgentKush007|16|15|0|0|0|
 #GJLRURGC2|Cole|17|15|0|0|0|
 #9QRRRQQG9|perfectguy10104|18|15|2|5|5|10:3:3:15,13:2:2:15
-#GJ20RJ8RP|arius67'|19|15|0|0|0|
+#GJ20RJ8RP|arius67'|19|15|2|6|4|13:3:1:15,9:3:3:16
 #QR8LP8LUL|jukes\md|20|15|2|5|5|6:2:2:17,11:3:3:15
 #YVCJC0VCQ|Marrow|21|15|2|4|3|21:3:3:14,13:1:0:15
 #P9JPJ80CG|Aye|22|15|0|0|0|
