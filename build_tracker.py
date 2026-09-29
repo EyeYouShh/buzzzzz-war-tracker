@@ -257,7 +257,7 @@ PLAYER_TAGS = {
 # War end time (ISO 8601 UTC) — set by update_tracker.py when a war is active.
 # JS uses this to display the smart-capture end time as "Next update" instead of next cron slot.
 # Cleared by update_tracker.py when war ends or no war is active.
-WAR_END_ISO = "2026-09-29T22:01:26Z"
+WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
@@ -283,11 +283,11 @@ WAR_BLOCKS = [
 #GJ20RJ8RP|arius67'|19|15|2|6|4|13:3:1:15,9:3:3:16
 #QR8LP8LUL|jukes\md|20|15|2|5|5|6:2:2:17,11:3:3:15
 #YVCJC0VCQ|Marrow|21|15|2|4|3|21:3:3:14,13:1:0:15
-#P9JPJ80CG|Aye|22|15|0|0|0|
+#P9JPJ80CG|Aye|22|15|2|6|0|13:3:0:15,10:3:0:15
 #8L9J0R2QJ|SWAGMUFFIN90|23|15|0|0|0|
 #GRGGPPQ8J|Pam from HR|24|14|2|6|0|23:3:0:14,22:3:0:14
 #QUJLUR02G|UNSTOPPABLE ADI|25|14|0|0|0|
-""", True),
+"""),
 
 ("926202729","9/26/26","KING WAR","35v35","""
 #QY99LUG8Q|Masterp;)|1|18|0|0|0|
@@ -6217,6 +6217,7 @@ WAR_BLOCKS = [
 
 # ── Win/Loss/Draw results keyed by war ID ──
 RESULTS = {
+    "928220126": "W",
     "926202729": "W",
     "924192801": "D",
     "922183721": "D",
