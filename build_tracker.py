@@ -260,17 +260,17 @@ PLAYER_TAGS = {
 # War end time (ISO 8601 UTC) — set by update_tracker.py when a war is active.
 # JS uses this to display the smart-capture end time as "Next update" instead of next cron slot.
 # Cleared by update_tracker.py when war ends or no war is active.
-WAR_END_ISO = ""
+WAR_END_ISO = "2026-10-02T00:07:58Z"
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
 ("1001000758","10/1/26","Shadow Legion","30v30","""
-#QY99LUG8Q|Masterp;)|1|18|0|0|0|
-#GQJUGLQRQ|stage6yo|2|18|0|0|0|
-#QL8CV0P0|gen|3|18|0|0|0|
+#QY99LUG8Q|Masterp;)|1|18|2|5|3|1:2:2:18,7:3:1:17
+#GQJUGLQRQ|stage6yo|2|18|2|6|5|3:3:3:17,5:3:2:17
+#QL8CV0P0|gen|3|18|2|6|4|2:3:3:18,1:3:1:18
 #209J8J0RL|Big Steppa|4|17|0|0|0|
-#99P9VPUY|SWAG-YOLO|5|18|0|0|0|
-#G0VGRUCC|SwiftyKinja|6|17|0|0|0|
+#99P9VPUY|SWAG-YOLO|5|18|2|4|2|5:1:1:17,9:3:1:16
+#G0VGRUCC|SwiftyKinja|6|17|2|5|5|4:3:3:17,9:2:2:16
 #82G8C2YJ9|Slime|7|17|0|0|0|
 #QP0CU0UC8|stage5yo|8|16|0|0|0|
 #GU9VU9G0U|leo|9|16|0|0|0|
@@ -278,23 +278,23 @@ WAR_BLOCKS = [
 #QGGUGUQ98|Clasher JD|11|16|0|0|0|
 #GRRYCUJP8|crimpo|12|16|0|0|0|
 #QCV9CUVLR|wana|13|16|0|0|0|
-#Q8JRG00PP|Dubnation|14|16|0|0|0|
+#Q8JRG00PP|Dubnation|14|16|1|2|2|14:2:2:16
 #22RQ0QRRL|FIGHTER|15|16|0|0|0|
 #PGV8GJULC|Robin2hood|16|16|0|0|0|
-#R00L0CY9C|MiniPekka|17|16|0|0|0|
+#R00L0CY9C|MiniPekka|17|17|2|6|6|17:3:3:15,6:3:3:17
 #2J9GYQRYC|Jac|18|15|0|0|0|
 #GJ92CG9VL|Mr.Joshi|19|15|0|0|0|
-#LV29URQLP|tiger king|20|15|0|0|0|
-#PYC8PLU8|#AgentKush007|21|15|0|0|0|
+#LV29URQLP|tiger king|20|15|2|5|5|7:2:2:17,8:3:3:17
+#PYC8PLU8|#AgentKush007|21|15|2|4|4|21:2:2:15,20:2:2:15
 #GJLRURGC2|Cole|22|15|0|0|0|
-#9QRRRQQG9|perfectguy10104|23|15|0|0|0|
+#9QRRRQQG9|perfectguy10104|23|15|1|3|3|23:3:3:15
 #GJ20RJ8RP|arius67'|24|15|0|0|0|
-#QR8LP8LUL|jukes\md|25|15|0|0|0|
-#YVCJC0VCQ|Marrow|26|15|0|0|0|
-#QQCV22LY2|slogo|27|15|0|0|0|
+#QR8LP8LUL|jukes\md|25|15|2|6|6|15:3:3:16,11:3:3:16
+#YVCJC0VCQ|Marrow|26|15|2|6|4|26:3:3:15,14:3:1:16
+#QQCV22LY2|slogo|27|15|2|5|5|27:2:2:14,28:3:3:14
 #P9JPJ80CG|Aye|28|15|0|0|0|
 #8L9J0R2QJ|SWAGMUFFIN90|29|15|0|0|0|
-#GRGGPPQ8J|Pam from HR|30|14|0|0|0|
+#GRGGPPQ8J|Pam from HR|30|14|1|2|2|30:2:2:13
 """, True),
 
 ("928220126","9/28/26","Clan AE VN","25v25","""
