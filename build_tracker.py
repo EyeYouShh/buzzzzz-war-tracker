@@ -281,7 +281,6 @@ WAR_BLOCKS = [
 #QPLCGG9CR|kk|15|16|0|0|0|
 #RQCJR8JV|SurgeGold|16|16|0|0|0|
 #GU9VU9G0U|leo|18|16|0|0|0|
-#YLGQ20LP8|Brodie|20|16|0|0|0|
 #QGGUGUQ98|Clasher JD|21|16|0|0|0|
 #GV088PV02|roham|23|16|0|0|0|
 #GRRYCUJP8|crimpo|24|16|0|0|0|
@@ -296,6 +295,7 @@ WAR_BLOCKS = [
 #GJ20RJ8RP|arius67'|35|15|0|0|0|
 #QR8LP8LUL|jukes\md|36|15|0|0|0|
 #YVCJC0VCQ|Marrow|37|15|0|0|0|
+#P9JPJ80CG|Aye|39|15|0|0|0|
 """, True, True),
 
 ("1001000758","10/1/26","Shadow Legion","30v30","""
