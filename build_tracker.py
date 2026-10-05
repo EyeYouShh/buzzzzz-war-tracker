@@ -265,7 +265,7 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
-("502045710","10/5/26","Dimond Bros","30v30","""
+("602055285","10/6/26","HUAWII","30v30","""
 #QY99LUG8Q|Masterp;)|1|18|0|0|0|
 #GQJUGLQRQ|stage6yo|2|18|0|0|0|
 #QL8CV0P0|gen|3|18|0|0|0|
@@ -292,15 +292,48 @@ WAR_BLOCKS = [
 #PYC8PLU8|#AgentKush007|31|15|0|0|0|
 #LV29URQLP|tiger king|32|15|0|0|0|
 #9QRRRQQG9|perfectguy10104|33|15|0|0|0|
-#GJ20RJ8RP|arius67'|35|15|0|0|0|
+#GJ20RJ8RP|arius67'|34|15|0|0|0|
 #QR8LP8LUL|jukes\md|36|15|0|0|0|
 #YVCJC0VCQ|Marrow|37|15|0|0|0|
 #QLYP90RPV|Ste|42|14|0|0|0|
 """, True, True),
 
+("502045710","10/5/26","Dimond Bros","30v30","""
+#QY99LUG8Q|Masterp;)|1|18|1|3|3|3:3:3:18
+#GQJUGLQRQ|stage6yo|2|18|0|0|0|
+#QL8CV0P0|gen|3|18|1|3|3|1:3:3:18
+#QU9J0RYY8|Tupac|5|18|0|0|0|
+#209J8J0RL|Big Steppa|6|17|0|0|0|
+#99P9VPUY|SWAG-YOLO|7|18|0|0|0|
+#G0VGRUCC|SwiftyKinja|8|17|1|3|3|7:3:3:18
+#GV80Y9L0Y|studkiller|9|17|0|0|0|
+#L9JGLLYQ|Mason|10|17|1|3|3|9:3:3:18
+#82G8C2YJ9|Slime|11|17|0|0|0|
+#R00L0CY9C|MiniPekka|12|17|0|0|0|
+#QP0CU0UC8|stage5yo|14|16|0|0|0|
+#QPLCGG9CR|kk|15|16|0|0|0|
+#RQCJR8JV|SurgeGold|16|16|0|0|0|
+#GU9VU9G0U|leo|18|16|0|0|0|
+#YLGQ20LP8|Brodie|20|16|0|0|0|
+#QGGUGUQ98|Clasher JD|21|16|0|0|0|
+#GV088PV02|roham|23|16|0|0|0|
+#GRRYCUJP8|crimpo|24|16|0|0|0|
+#PGLV2YQC|Kizaru|26|16|0|0|0|
+#22RQ0QRRL|FIGHTER|27|16|0|0|0|
+#PGV8GJULC|Robin2hood|28|16|1|3|3|22:3:3:18
+#2J9GYQRYC|Jac|29|15|1|3|3|23:3:3:17
+#PYC8PLU8|#AgentKush007|31|15|0|0|0|
+#LV29URQLP|tiger king|32|15|0|0|0|
+#9QRRRQQG9|perfectguy10104|33|15|0|0|0|
+#GJ20RJ8RP|arius67'|35|15|0|0|0|
+#QR8LP8LUL|jukes\md|36|15|1|3|3|20:3:3:18
+#YVCJC0VCQ|Marrow|37|15|0|0|0|
+#QLYP90RPV|Ste|42|14|1|3|3|30:3:3:11
+""", True, True),
+
 ("402045142","10/4/26","T.T.A","30v30","""
 #QY99LUG8Q|Masterp;)|1|18|1|2|2|1:2:2:18
-#GQJUGLQRQ|stage6yo|2|18|0|0|0|
+#GQJUGLQRQ|stage6yo|2|18|1|3|3|2:3:3:18
 #QL8CV0P0|gen|3|18|1|3|3|3:3:3:18
 #QU9J0RYY8|Tupac|5|18|1|3|3|5:3:3:17
 #209J8J0RL|Big Steppa|6|17|1|3|3|8:3:3:16
@@ -310,7 +343,7 @@ WAR_BLOCKS = [
 #L9JGLLYQ|Mason|10|17|1|3|3|10:3:3:17
 #82G8C2YJ9|Slime|11|17|1|3|3|11:3:3:16
 #R00L0CY9C|MiniPekka|12|17|1|3|3|12:3:3:17
-#QP0CU0UC8|stage5yo|14|16|0|0|0|
+#QP0CU0UC8|stage5yo|14|16|1|3|3|14:3:3:16
 #QPLCGG9CR|kk|15|16|1|3|3|17:3:3:15
 #RQCJR8JV|SurgeGold|16|16|1|3|3|18:3:3:15
 #GU9VU9G0U|leo|18|16|1|3|3|39:3:3:14
@@ -329,7 +362,7 @@ WAR_BLOCKS = [
 #QR8LP8LUL|jukes\md|36|15|1|3|3|27:3:3:16
 #YVCJC0VCQ|Marrow|37|15|1|3|3|41:3:3:14
 #P9JPJ80CG|Aye|39|15|1|3|3|42:3:3:13
-""", True, True),
+""", False, True),
 
 ("301483688","10/3/26","Clan Valladolid","30v30","""
 #QY99LUG8Q|Masterp;)|1|18|1|1|1|3:1:1:18
@@ -6353,6 +6386,7 @@ WAR_BLOCKS = [
 
 # ── Win/Loss/Draw results keyed by war ID ──
 RESULTS = {
+    "402045142": "W",
     "301483688": "W",
     "1001000758": "D",
     "928220126": "W",
