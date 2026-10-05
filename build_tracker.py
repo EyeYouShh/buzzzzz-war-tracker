@@ -328,7 +328,7 @@ WAR_BLOCKS = [
 #GJ20RJ8RP|arius67'|34|15|1|3|3|20:3:3:15
 #QR8LP8LUL|jukes\md|36|15|1|3|3|27:3:3:16
 #YVCJC0VCQ|Marrow|37|15|1|3|3|41:3:3:14
-#P9JPJ80CG|Aye|39|15|0|0|0|
+#P9JPJ80CG|Aye|39|15|1|3|3|42:3:3:13
 """, True, True),
 
 ("301483688","10/3/26","Clan Valladolid","30v30","""
