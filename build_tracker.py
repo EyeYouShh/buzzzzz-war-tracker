@@ -139,7 +139,7 @@ PLAYER_TH = {
     "*iaN*": 16,
     "wana": 16,
     "FIGHTER": 16,
-    "-13lackHawk-": 12,
+    "-13lackHawk-": 13,
 }
 # In-game order (tiebreaker within same TH — matches the order user sees in-game)
 _CS_ORDER = [
@@ -314,7 +314,7 @@ WAR_BLOCKS = [
 #QP0CU0UC8|stage5yo|14|16|1|2|2|15:2:2:18
 #QPLCGG9CR|kk|15|16|0|0|0|
 #RQCJR8JV|SurgeGold|16|16|0|0|0|
-#GU9VU9G0U|leo|18|16|0|0|0|
+#GU9VU9G0U|leo|18|16|1|2|2|18:2:2:18
 #YLGQ20LP8|Brodie|20|16|1|2|2|19:2:2:18
 #QGGUGUQ98|Clasher JD|21|16|1|1|1|20:1:1:18
 #GV088PV02|roham|23|16|1|1|1|21:1:1:18
