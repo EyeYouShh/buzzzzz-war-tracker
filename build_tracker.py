@@ -266,7 +266,7 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
-("702062917","10/7/26","Astig clan","30v30","""
+("802074577","10/8/26","Kappa Sigma WAR","30v30","""
 #QY99LUG8Q|Masterp;)|1|18|0|0|0|
 #GQJUGLQRQ|stage6yo|2|18|0|0|0|
 #QL8CV0P0|gen|3|18|0|0|0|
@@ -282,8 +282,8 @@ WAR_BLOCKS = [
 #QPLCGG9CR|kk|15|16|0|0|0|
 #RQCJR8JV|SurgeGold|16|16|0|0|0|
 #GU9VU9G0U|leo|18|16|0|0|0|
-#QGGUGUQ98|Clasher JD|19|16|0|0|0|
-#YLGQ20LP8|Brodie|21|16|0|0|0|
+#YLGQ20LP8|Brodie|20|16|0|0|0|
+#QGGUGUQ98|Clasher JD|21|16|0|0|0|
 #GV088PV02|roham|23|16|0|0|0|
 #GRRYCUJP8|crimpo|24|16|0|0|0|
 #PGLV2YQC|Kizaru|25|16|0|0|0|
@@ -297,6 +297,39 @@ WAR_BLOCKS = [
 #QR8LP8LUL|jukes\md|36|15|0|0|0|
 #YVCJC0VCQ|Marrow|37|15|0|0|0|
 #QLYP90RPV|Ste|42|14|0|0|0|
+""", True, True),
+
+("702062917","10/7/26","Astig clan","30v30","""
+#QY99LUG8Q|Masterp;)|1|18|1|3|3|3:3:3:18
+#GQJUGLQRQ|stage6yo|2|18|0|0|0|
+#QL8CV0P0|gen|3|18|1|3|3|1:3:3:18
+#QU9J0RYY8|Tupac|5|18|0|0|0|
+#209J8J0RL|Big Steppa|6|17|0|0|0|
+#G0VGRUCC|SwiftyKinja|7|17|1|1|1|6:1:1:18
+#99P9VPUY|SWAG-YOLO|8|18|0|0|0|
+#GV80Y9L0Y|studkiller|9|17|1|3|3|8:3:3:18
+#L9JGLLYQ|Mason|10|17|1|3|3|9:3:3:18
+#82G8C2YJ9|Slime|11|17|0|0|0|
+#R00L0CY9C|MiniPekka|12|17|0|0|0|
+#QP0CU0UC8|stage5yo|14|16|0|0|0|
+#QPLCGG9CR|kk|15|16|0|0|0|
+#RQCJR8JV|SurgeGold|16|16|0|0|0|
+#GU9VU9G0U|leo|18|16|0|0|0|
+#QGGUGUQ98|Clasher JD|19|16|0|0|0|
+#YLGQ20LP8|Brodie|21|16|0|0|0|
+#GV088PV02|roham|23|16|0|0|0|
+#GRRYCUJP8|crimpo|24|16|0|0|0|
+#PGLV2YQC|Kizaru|25|16|1|3|3|23:3:3:16
+#Q8JRG00PP|Dubnation|26|16|0|0|0|
+#22RQ0QRRL|FIGHTER|27|16|0|0|0|
+#PGV8GJULC|Robin2hood|28|16|1|3|3|29:3:3:15
+#2J9GYQRYC|Jac|29|15|0|0|0|
+#PYC8PLU8|#AgentKush007|31|15|1|3|3|31:3:3:15
+#9QRRRQQG9|perfectguy10104|33|15|0|0|0|
+#GJ20RJ8RP|arius67'|34|15|0|0|0|
+#QR8LP8LUL|jukes\md|36|15|1|3|3|35:3:3:17
+#YVCJC0VCQ|Marrow|37|15|1|3|3|36:3:3:16
+#QLYP90RPV|Ste|42|14|1|2|2|37:2:2:15
 """, True, True),
 
 ("602055285","10/6/26","HUAWII","30v30","""
@@ -330,7 +363,7 @@ WAR_BLOCKS = [
 #QR8LP8LUL|jukes\md|36|15|1|3|3|39:3:3:18
 #YVCJC0VCQ|Marrow|37|15|1|2|2|36:2:2:18
 #QLYP90RPV|Ste|42|14|1|1|1|40:1:1:18
-""", True, True),
+""", False, True),
 
 ("502045710","10/5/26","Dimond Bros","30v30","""
 #QY99LUG8Q|Masterp;)|1|18|1|3|3|3:3:3:18
@@ -6420,6 +6453,7 @@ WAR_BLOCKS = [
 
 # ── Win/Loss/Draw results keyed by war ID ──
 RESULTS = {
+    "602055285": "W",
     "502045710": "W",
     "402045142": "W",
     "301483688": "W",
