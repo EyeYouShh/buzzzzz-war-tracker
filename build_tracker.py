@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 10/8/26 — 48 members
-    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Dubnation","FIGHTER","Hunter B","Jac","Kizaru","Marrow","Mason","Masterp;)","MiniPekka","Mr.Joshi","Pam from HR","Robin2hood","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","SwiftyKinja","Tupac","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jukes\md","leo","perfectguy10104","roham","slogo","stage5yo","stage6yo","studkiller"
+    # Auto-updated 10/8/26 — 50 members
+    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Dubnation","FIGHTER","Hunter B","Jac","Kizaru","Marrow","Mason","Masterp;)","MiniPekka","Mr.Joshi","Pam from HR","Robin2hood","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","SwiftyKinja","Tupac","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jukes\md","leo","perfectguy10104","roham","silent killer","slogo","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -142,6 +142,7 @@ PLAYER_TH = {
     "-13lackHawk-": 13,
     "St.Markus": 16,
     "fL4mE": 14,
+    "silent killer": 11,
 }
 # In-game order (tiebreaker within same TH — matches the order user sees in-game)
 _CS_ORDER = [
@@ -307,7 +308,7 @@ WAR_BLOCKS = [
 #QL8CV0P0|gen|3|18|1|3|3|1:3:3:18
 #QU9J0RYY8|Tupac|5|18|1|3|3|4:3:3:18
 #209J8J0RL|Big Steppa|6|17|1|3|3|5:3:3:18
-#G0VGRUCC|SwiftyKinja|7|17|0|0|0|
+#G0VGRUCC|SwiftyKinja|7|17|1|1|1|6:1:1:18
 #99P9VPUY|SWAG-YOLO|8|18|1|3|3|7:3:3:18
 #GV80Y9L0Y|studkiller|9|17|1|3|3|8:3:3:18
 #L9JGLLYQ|Mason|10|17|0|0|0|
@@ -322,7 +323,7 @@ WAR_BLOCKS = [
 #GRRYCUJP8|crimpo|24|16|1|2|2|19:2:2:18
 #PGLV2YQC|Kizaru|25|16|1|3|3|20:3:3:18
 #Q8JRG00PP|Dubnation|26|16|1|1|1|21:1:1:17
-#22RQ0QRRL|FIGHTER|27|16|0|0|0|
+#22RQ0QRRL|FIGHTER|27|16|1|3|3|22:3:3:17
 #PGV8GJULC|Robin2hood|28|16|1|1|1|23:1:1:17
 #2J9GYQRYC|Jac|29|15|0|0|0|
 #GJ92CG9VL|Mr.Joshi|30|15|0|0|0|
