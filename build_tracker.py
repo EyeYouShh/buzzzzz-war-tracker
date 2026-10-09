@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 10/8/26 — 50 members
-    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","Aye 2","Aye 3","Aye 4","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Dubnation","FIGHTER","Hunter B","Jac","Kizaru","Marrow","Mason","Masterp;)","MiniPekka","Mr.Joshi","Pam from HR","Robin2hood","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","SwiftyKinja","Tupac","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jukes\md","leo","perfectguy10104","roham","silent killer","slogo","stage5yo","stage6yo","studkiller","tiger king"
+    # Auto-updated 10/9/26 — 50 members
+    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","Aye 2","Aye 3","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Dubnation","FIGHTER","Hunter B","Jac","Kizaru","Marrow","Mason","Masterp;)","MiniPekka","Mr.Joshi","NightCrawler","Pam from HR","Robin2hood","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","SwiftyKinja","Tupac","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jukes\md","leo","perfectguy10104","roham","silent killer","slogo","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -143,6 +143,7 @@ PLAYER_TH = {
     "St.Markus": 16,
     "fL4mE": 14,
     "silent killer": 11,
+    "NightCrawler": 13,
 }
 # In-game order (tiebreaker within same TH — matches the order user sees in-game)
 _CS_ORDER = [
@@ -303,7 +304,7 @@ WAR_BLOCKS = [
 """, True, True),
 
 ("802074577","10/8/26","Kappa Sigma WAR","30v30","""
-#QY99LUG8Q|Masterp;)|1|18|0|0|0|
+#QY99LUG8Q|Masterp;)|1|18|1|2|2|3:2:2:18
 #GQJUGLQRQ|stage6yo|2|18|1|3|3|2:3:3:18
 #QL8CV0P0|gen|3|18|1|3|3|1:3:3:18
 #QU9J0RYY8|Tupac|5|18|1|3|3|4:3:3:18
@@ -314,7 +315,7 @@ WAR_BLOCKS = [
 #L9JGLLYQ|Mason|10|17|1|3|3|9:3:3:18
 #82G8C2YJ9|Slime|11|17|1|2|2|10:2:2:18
 #R00L0CY9C|MiniPekka|12|17|1|3|3|11:3:3:18
-#QPLCGG9CR|St.Markus|15|16|0|0|0|
+#QPLCGG9CR|St.Markus|15|16|1|2|2|13:2:2:18
 #RQCJR8JV|SurgeGold|16|16|0|0|0|
 #GU9VU9G0U|leo|18|16|0|0|0|
 #YLGQ20LP8|Brodie|20|16|1|1|1|16:1:1:18
