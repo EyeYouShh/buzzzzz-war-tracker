@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 10/9/26 — 50 members
-    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","Aye 2","Aye 3","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Dubnation","FIGHTER","Hunter B","Jac","Kizaru","Marrow","Mason","Masterp;)","MiniPekka","Mr.Joshi","NightCrawler","Pam from HR","Robin2hood","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","SwiftyKinja","Tupac","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jukes\md","leo","perfectguy10104","roham","silent killer","slogo","stage5yo","stage6yo","studkiller","tiger king"
+    # Auto-updated 10/9/26 — 48 members
+    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Dubnation","FIGHTER","Hunter B","Jac","Kizaru","Marrow","Mason","Masterp;)","MiniPekka","Mr.Joshi","NightCrawler","Pam from HR","Robin2hood","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","SwiftyKinja","Tupac","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jukes\md","leo","perfectguy10104","roham","silent killer","slogo","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -284,7 +284,7 @@ WAR_BLOCKS = [
 #R00L0CY9C|MiniPekka|12|17|1|3|3|14:3:3:16
 #QP0CU0UC8|stage5yo|14|16|0|0|0|
 #QPLCGG9CR|St.Markus|15|16|0|0|0|
-#RQCJR8JV|SurgeGold|16|16|0|0|0|
+#RQCJR8JV|SurgeGold|16|16|1|1|1|18:1:1:16
 #GU9VU9G0U|leo|18|16|1|2|2|19:2:2:16
 #YLGQ20LP8|Brodie|20|16|1|2|2|20:2:2:16
 #QGGUGUQ98|Clasher JD|21|16|1|3|3|21:3:3:16
@@ -293,7 +293,7 @@ WAR_BLOCKS = [
 #PGLV2YQC|Kizaru|25|16|1|3|3|27:3:3:16
 #Q8JRG00PP|Dubnation|26|16|1|2|2|28:2:2:16
 #22RQ0QRRL|FIGHTER|27|16|1|3|3|29:3:3:16
-#PGV8GJULC|Robin2hood|28|16|0|0|0|
+#PGV8GJULC|Robin2hood|28|16|1|1|1|31:1:1:16
 #2J9GYQRYC|Jac|29|15|1|2|2|34:2:2:16
 #GJ92CG9VL|Mr.Joshi|30|15|1|2|2|38:2:2:15
 #PYC8PLU8|#AgentKush007|31|15|1|3|3|37:3:3:16
