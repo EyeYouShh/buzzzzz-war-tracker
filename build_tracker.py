@@ -143,7 +143,7 @@ PLAYER_TH = {
     "St.Markus": 16,
     "fL4mE": 14,
     "silent killer": 11,
-    "NightCrawler": 13,
+    "NightCrawler": 14,
 }
 # In-game order (tiebreaker within same TH — matches the order user sees in-game)
 _CS_ORDER = [
@@ -301,7 +301,7 @@ WAR_BLOCKS = [
 #GJ20RJ8RP|arius67'|34|15|1|3|3|11:3:3:16
 #QR8LP8LUL|jukes\md|36|15|1|2|2|41:2:2:15
 #YVCJC0VCQ|Marrow|37|15|1|3|3|45:3:3:15
-""", True, True),
+""", False, True),
 
 ("802074577","10/8/26","Kappa Sigma WAR","30v30","""
 #QY99LUG8Q|Masterp;)|1|18|1|2|2|3:2:2:18
@@ -6490,6 +6490,7 @@ WAR_BLOCKS = [
 
 # ── Win/Loss/Draw results keyed by war ID ──
 RESULTS = {
+    "902075266": "L",
     "802074577": "W",
     "702062917": "W",
     "602055285": "W",
