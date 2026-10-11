@@ -169,6 +169,7 @@ PLAYER_TAGS = {
     "#20PL28LUQ": "Hunter B",
     "#22JUR20L2": "Buck",
     "#22RQ0QRRL": "FIGHTER",
+    "#282LUL20P": "silent killer",
     "#28VU9VCC0": "spawnofwar",
     "#2C9JU8LU": "Woot",
     "#2J9GYQRYC": "Jac",
@@ -190,6 +191,7 @@ PLAYER_TAGS = {
     "#9QRRRQQG9": "perfectguy10104",
     "#9V9QUCLJV": "@INSTAGRAM",
     "#CCRL9YRJ": "choiboi601",
+    "#CUY9L0UP": "NightCrawler",
     "#G0VGRUCC": "SwiftyKinja",
     "#G99V98V2L": "My name is...",
     "#G9RY2R9L0": "hood",
@@ -272,6 +274,34 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
+("1012003716","10/12/26","Ability Star","25v25","""
+#QY99LUG8Q|Masterp;)|1|18|0|0|0|
+#GQJUGLQRQ|stage6yo|2|18|0|0|0|
+#QL8CV0P0|gen|3|18|0|0|0|
+#QU9J0RYY8|Tupac|4|18|0|0|0|
+#209J8J0RL|Big Steppa|5|17|0|0|0|
+#G0VGRUCC|SwiftyKinja|6|17|0|0|0|
+#99P9VPUY|SWAG-YOLO|7|18|0|0|0|
+#R00L0CY9C|MiniPekka|8|17|0|0|0|
+#QP0CU0UC8|stage5yo|9|16|0|0|0|
+#QPLCGG9CR|St.Markus|10|16|0|0|0|
+#YLGQ20LP8|Brodie|11|16|0|0|0|
+#GV088PV02|roham|12|16|0|0|0|
+#GRRYCUJP8|crimpo|13|16|0|0|0|
+#22RQ0QRRL|FIGHTER|14|16|0|0|0|
+#PGV8GJULC|Robin2hood|15|16|0|0|0|
+#2J9GYQRYC|Jac|16|15|0|0|0|
+#GJ92CG9VL|Mr.Joshi|17|15|0|0|0|
+#LV29URQLP|tiger king|18|15|0|0|0|
+#QR8LP8LUL|jukes\md|19|15|0|0|0|
+#GJ20RJ8RP|arius67'|20|15|0|0|0|
+#YVCJC0VCQ|Marrow|21|15|0|0|0|
+#8L9J0R2QJ|SWAGMUFFIN90|22|15|0|0|0|
+#GRGGPPQ8J|Pam from HR|23|14|0|0|0|
+#CUY9L0UP|NightCrawler|24|14|0|0|0|
+#282LUL20P|silent killer|25|11|0|0|0|
+""", True),
+
 ("902075266","10/9/26","Gladiator","30v30","""
 #QY99LUG8Q|Masterp;)|1|18|1|3|3|4:3:3:17
 #GQJUGLQRQ|stage6yo|2|18|1|2|2|2:2:2:18
