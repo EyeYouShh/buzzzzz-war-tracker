@@ -13,7 +13,7 @@ PLAYER_TH = {
     "Slayer": 18,
     "gen": 18, "Gr8Conqueror": 17,
     "stage6yo": 18, "wato": 16, "drybonez": 16,
-    "Americanpatriot": 16, "Big Steppa": 17, "SwiftyKinja": 17, "stage5yo": 16, "DE1": 16,
+    "Americanpatriot": 16, "Big Steppa": 17, "SwiftyKinja": 17, "stage5yo": 17, "DE1": 16,
     "crimpo": 16, "Cole": 15, "studkiller": 17, "rour": 14, "MiniPekka": 17,
     "Kizaru": 16, "Jac": 15, "Halid #1": 15, "SurgeGold": 16, "Loading…": 14,
     "Sumairu": 15, "Pam from HR": 14, "louis": 14, "imnotstraight10": 14,
@@ -279,25 +279,25 @@ WAR_BLOCKS = [
 #GQJUGLQRQ|stage6yo|2|18|2|5|4|2:2:1:18,4:3:3:18
 #QL8CV0P0|gen|3|18|2|4|4|1:3:3:18,2:1:1:18
 #QU9J0RYY8|Tupac|4|18|1|3|1|2:3:1:18
-#209J8J0RL|Big Steppa|5|17|0|0|0|
+#209J8J0RL|Big Steppa|5|17|2|6|6|5:3:3:18,14:3:3:15
 #G0VGRUCC|SwiftyKinja|6|17|1|2|2|6:2:2:17
-#99P9VPUY|SWAG-YOLO|7|18|0|0|0|
-#R00L0CY9C|MiniPekka|8|17|0|0|0|
-#QP0CU0UC8|stage5yo|9|16|0|0|0|
+#99P9VPUY|SWAG-YOLO|7|18|2|6|4|7:3:3:17,6:3:1:17
+#R00L0CY9C|MiniPekka|8|17|1|2|2|10:2:2:16
+#QP0CU0UC8|stage5yo|9|16|2|6|6|8:3:3:17,9:3:3:16
 #QPLCGG9CR|St.Markus|10|16|0|0|0|
 #YLGQ20LP8|Brodie|11|16|0|0|0|
 #GV088PV02|roham|12|16|0|0|0|
-#GRRYCUJP8|crimpo|13|16|0|0|0|
-#22RQ0QRRL|FIGHTER|14|16|0|0|0|
+#GRRYCUJP8|crimpo|13|16|1|3|1|10:3:1:16
+#22RQ0QRRL|FIGHTER|14|16|1|3|3|17:3:3:15
 #PGV8GJULC|Robin2hood|15|16|2|6|6|12:3:3:16,11:3:3:16
 #2J9GYQRYC|Jac|16|15|0|0|0|
 #GJ92CG9VL|Mr.Joshi|17|15|0|0|0|
 #LV29URQLP|tiger king|18|15|0|0|0|
 #QR8LP8LUL|jukes\md|19|15|2|6|6|15:3:3:18,19:3:3:16
-#GJ20RJ8RP|arius67'|20|15|0|0|0|
-#YVCJC0VCQ|Marrow|21|15|0|0|0|
+#GJ20RJ8RP|arius67'|20|15|2|6|6|13:3:3:16,16:3:3:15
+#YVCJC0VCQ|Marrow|21|15|2|6|4|23:3:1:14,20:3:3:15
 #8L9J0R2QJ|SWAGMUFFIN90|22|15|0|0|0|
-#GRGGPPQ8J|Pam from HR|23|14|0|0|0|
+#GRGGPPQ8J|Pam from HR|23|14|2|5|5|23:2:2:14,22:3:3:16
 #CUY9L0UP|NightCrawler|24|14|2|6|6|24:3:3:14,25:3:3:13
 #282LUL20P|silent killer|25|11|0|0|0|
 """, True),
