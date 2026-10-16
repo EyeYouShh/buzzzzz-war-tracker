@@ -264,6 +264,7 @@ PLAYER_TAGS = {
     "#RQCJR8JV": "SurgeGold",
     "#UCP22QCU": "Jaier_Kid",
     "#UYLPYCPR": "THÒR",
+    "#V2CC2RRP": "-13lackHawk-",
     "#XXXXXXXX": "DisplayName",
     "#Y0UUGPRRU": "Americanpatriot",
     "#Y2G8CC09Q": "jash",
@@ -278,6 +279,49 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
+("1017041154","10/17/26","team_4ever:","40v40","""
+#QY99LUG8Q|Masterp;)|1|18|0|0|0|
+#GQJUGLQRQ|stage6yo|2|18|0|0|0|
+#QL8CV0P0|gen|3|18|0|0|0|
+#QU9J0RYY8|Tupac|4|18|0|0|0|
+#UYLPYCPR|THÒR|5|18|0|0|0|
+#Q8JLVLGL2|Ashutosh|6|18|0|0|0|
+#209J8J0RL|Big Steppa|7|17|0|0|0|
+#G0VGRUCC|SwiftyKinja|8|17|0|0|0|
+#99P9VPUY|SWAG-YOLO|9|18|0|0|0|
+#L9JGLLYQ|Mason|10|17|0|0|0|
+#82G8C2YJ9|Slime|11|17|0|0|0|
+#QP0CU0UC8|stage5yo|12|17|0|0|0|
+#RQCJR8JV|SurgeGold|13|16|0|0|0|
+#20PL28LUQ|Hunter B|14|16|0|0|0|
+#8J2V8998|DE1|15|16|0|0|0|
+#QGGUGUQ98|Clasher JD|16|16|0|0|0|
+#YLGQ20LP8|Brodie|17|16|0|0|0|
+#GV088PV02|roham|18|16|0|0|0|
+#GRRYCUJP8|crimpo|19|16|0|0|0|
+#Q8JRG00PP|Dubnation|20|16|0|0|0|
+#PGLV2YQC|Kizaru|21|16|0|0|0|
+#2J9GYQRYC|Jac|22|16|0|0|0|
+#PGV8GJULC|Robin2hood|23|16|0|0|0|
+#22RQ0QRRL|FIGHTER|24|16|0|0|0|
+#GJ92CG9VL|Mr.Joshi|25|15|0|0|0|
+#PYC8PLU8|#AgentKush007|26|15|0|0|0|
+#9QRRRQQG9|perfectguy10104|27|15|0|0|0|
+#LV29URQLP|tiger king|28|15|0|0|0|
+#QR8LP8LUL|jukes\md|29|15|0|0|0|
+#GJ20RJ8RP|arius67'|30|15|0|0|0|
+#GJLRURGC2|Cole|31|15|0|0|0|
+#YVCJC0VCQ|Marrow|32|15|0|0|0|
+#P9JPJ80CG|Aye|33|15|0|0|0|
+#8L9J0R2QJ|SWAGMUFFIN90|34|15|0|0|0|
+#GRGGPPQ8J|Pam from HR|35|15|0|0|0|
+#Y2G8CC09Q|jash|36|15|0|0|0|
+#R2GPPJ220|das|37|15|0|0|0|
+#QLYP90RPV|Ste|38|14|0|0|0|
+#V2CC2RRP|-13lackHawk-|39|13|0|0|0|
+#282LUL20P|silent killer|40|11|0|0|0|
+""", True),
+
 ("1014170912","10/14/26","✌BD FRIEND'S✌","25v25","""
 #QY99LUG8Q|Masterp;)|1|18|2|4|2|3:2:0:18,5:2:2:18
 #GQJUGLQRQ|stage6yo|2|18|2|6|2|7:3:1:17,13:3:1:16
