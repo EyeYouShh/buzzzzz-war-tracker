@@ -279,6 +279,34 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
+("1019040017","10/19/26","万物归尘","25v25","""
+#QY99LUG8Q|Masterp;)|1|18|0|0|0|
+#GQJUGLQRQ|stage6yo|2|18|0|0|0|
+#QL8CV0P0|gen|3|18|0|0|0|
+#QU9J0RYY8|Tupac|4|18|0|0|0|
+#209J8J0RL|Big Steppa|5|17|0|0|0|
+#G0VGRUCC|SwiftyKinja|6|17|0|0|0|
+#99P9VPUY|SWAG-YOLO|7|18|0|0|0|
+#L9JGLLYQ|Mason|8|17|0|0|0|
+#GV80Y9L0Y|studkiller|9|17|0|0|0|
+#82G8C2YJ9|Slime|10|17|0|0|0|
+#8J2V8998|DE1|11|16|0|0|0|
+#YLGQ20LP8|Brodie|12|16|0|0|0|
+#GRRYCUJP8|crimpo|13|16|0|0|0|
+#GV088PV02|roham|14|16|0|0|0|
+#Q8JRG00PP|Dubnation|15|16|0|0|0|
+#PGLV2YQC|Kizaru|16|16|0|0|0|
+#2J9GYQRYC|Jac|17|16|0|0|0|
+#PGV8GJULC|Robin2hood|18|16|0|0|0|
+#22RQ0QRRL|FIGHTER|19|16|0|0|0|
+#PYC8PLU8|#AgentKush007|20|15|0|0|0|
+#LV29URQLP|tiger king|21|15|0|0|0|
+#9QRRRQQG9|perfectguy10104|22|15|0|0|0|
+#QR8LP8LUL|jukes\md|23|15|0|0|0|
+#GJ20RJ8RP|arius67'|24|15|0|0|0|
+#YVCJC0VCQ|Marrow|25|15|0|0|0|
+""", True),
+
 ("1017041154","10/17/26","team_4ever:","40v40","""
 #QY99LUG8Q|Masterp;)|1|18|2|3|2|6:2:2:18,12:1:0:17
 #GQJUGLQRQ|stage6yo|2|18|0|0|0|
