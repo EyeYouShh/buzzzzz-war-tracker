@@ -136,7 +136,7 @@ PLAYER_TH = {
     "YASH": 16,
     "Dubnation": 16,
     "Llord_Iyke": 16,
-    "*iaN*": 16,
+    "*iaN*": 17,
     "wana": 16,
     "FIGHTER": 16,
     "-13lackHawk-": 13,
