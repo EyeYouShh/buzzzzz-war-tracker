@@ -182,6 +182,7 @@ PLAYER_TAGS = {
     "#8J2V8998": "DE1",
     "#8J9R88QC": "skylaaaa",
     "#8L9J0R2QJ": "SWAGMUFFIN90",
+    "#8PR2Q2CJP": "Ryan.",
     "#8UC0RGJL9": "RIPsj",
     "#8YJCVQL9L": "rour",
     "#90QCVGU8U": "Slayer",
@@ -280,6 +281,44 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
+("1023050439","10/23/26","chandler school","35v35","""
+#QY99LUG8Q|Masterp;)|1|18|0|0|0|
+#GQJUGLQRQ|stage6yo|2|18|0|0|0|
+#QL8CV0P0|gen|3|18|0|0|0|
+#QU9J0RYY8|Tupac|4|18|0|0|0|
+#UYLPYCPR|THÒR|5|18|0|0|0|
+#209J8J0RL|Big Steppa|6|17|0|0|0|
+#G0VGRUCC|SwiftyKinja|7|17|0|0|0|
+#99P9VPUY|SWAG-YOLO|8|18|0|0|0|
+#GV80Y9L0Y|studkiller|9|17|0|0|0|
+#L9JGLLYQ|Mason|10|17|0|0|0|
+#R00L0CY9C|MiniPekka|11|17|0|0|0|
+#RQCJR8JV|SurgeGold|12|16|0|0|0|
+#QGGUGUQ98|Clasher JD|13|16|0|0|0|
+#8J2V8998|DE1|14|16|0|0|0|
+#YLGQ20LP8|Brodie|15|16|0|0|0|
+#GRRYCUJP8|crimpo|16|16|0|0|0|
+#GV088PV02|roham|17|16|0|0|0|
+#Q8JRG00PP|Dubnation|18|16|0|0|0|
+#PGLV2YQC|Kizaru|19|16|0|0|0|
+#PGV8GJULC|Robin2hood|20|16|0|0|0|
+#2J9GYQRYC|Jac|21|16|0|0|0|
+#22RQ0QRRL|FIGHTER|22|16|0|0|0|
+#8PR2Q2CJP|Ryan.|23|16|0|0|0|
+#GJ92CG9VL|Mr.Joshi|24|15|0|0|0|
+#9QRRRQQG9|perfectguy10104|25|15|0|0|0|
+#LV29URQLP|tiger king|26|15|0|0|0|
+#QR8LP8LUL|jukes\md|27|15|0|0|0|
+#GJ20RJ8RP|arius67'|28|15|0|0|0|
+#GJLRURGC2|Cole|29|15|0|0|0|
+#YVCJC0VCQ|Marrow|30|15|0|0|0|
+#P9JPJ80CG|Aye|31|15|0|0|0|
+#8L9J0R2QJ|SWAGMUFFIN90|32|15|0|0|0|
+#GRGGPPQ8J|Pam from HR|33|15|0|0|0|
+#QLYP90RPV|Ste|34|15|0|0|0|
+#Y2G8CC09Q|jash|35|15|0|0|0|
+""", True),
+
 ("1021042704","10/21/26","Земля","35v35","""
 #QY99LUG8Q|Masterp;)|1|18|2|5|0|2:3:0:18,1:2:0:18
 #GQJUGLQRQ|stage6yo|2|18|0|0|0|
