@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 10/27/26 — 47 members
-    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Dubnation","FIGHTER","Jac","Kizaru","Marrow","Mason","Masterp;)","MiniPekka","Mr.Joshi","Pam from HR","Robin2hood","Ryan.","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","SwiftyKinja","THÒR","Tupac","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jash","jukes\md","perfectguy10104","silent killer","slogo","stage5yo","stage6yo","studkiller","tiger king"
+    # Auto-updated 10/27/26 — 48 members
+    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Dubnation","FIGHTER","Jac","Kizaru","Marrow","Mason","Masterp;)","MiniPekka","Mr.Joshi","NightCrawler","Pam from HR","Robin2hood","Ryan.","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","SwiftyKinja","THÒR","Tupac","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jash","jukes\md","perfectguy10104","silent killer","slogo","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -291,7 +291,7 @@ WAR_BLOCKS = [
 #99P9VPUY|SWAG-YOLO|7|18|2|6|4|6:3:1:17,8:3:3:17
 #GV80Y9L0Y|studkiller|8|17|0|0|0|
 #L9JGLLYQ|Mason|9|17|1|3|1|3:3:1:18
-#R00L0CY9C|MiniPekka|10|17|1|3|3|9:3:3:16
+#R00L0CY9C|MiniPekka|10|17|2|6|3|9:3:3:16,1:3:0:18
 #8J2V8998|DE1|11|16|0|0|0|
 #QGGUGUQ98|Clasher JD|12|16|2|6|6|10:3:3:16,11:3:3:16
 #YLGQ20LP8|Brodie|13|16|0|0|0|
@@ -310,7 +310,7 @@ WAR_BLOCKS = [
 #QR8LP8LUL|jukes\md|26|15|2|6|6|17:3:3:16,18:3:3:16
 #GJ20RJ8RP|arius67'|27|15|2|6|6|15:3:3:16,16:3:3:16
 #GJLRURGC2|Cole|28|15|2|5|4|28:3:3:15,3:2:1:18
-#YVCJC0VCQ|Marrow|29|15|1|3|3|29:3:3:15
+#YVCJC0VCQ|Marrow|29|15|2|5|3|29:3:3:15,1:2:0:18
 #8L9J0R2QJ|SWAGMUFFIN90|30|15|0|0|0|
 #GRGGPPQ8J|Pam from HR|31|15|1|3|3|31:3:3:15
 #QLYP90RPV|Ste|32|15|0|0|0|
