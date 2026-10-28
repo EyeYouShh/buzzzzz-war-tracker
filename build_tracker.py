@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 10/28/26 — 49 members
-    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Dubnation","FIGHTER","Jac","Kizaru","Marrow","Mason","Masterp;)","MiniPekka","Mr.Joshi","NightCrawler","Pam from HR","Robin2hood","Ryan.","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","SwiftyKinja","THÒR","Tupac","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jash","jukes\md","perfectguy10104","roham","silent killer","slogo","stage5yo","stage6yo","studkiller","tiger king"
+    # Auto-updated 10/28/26 — 47 members
+    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Dubnation","FIGHTER","Jac","Kizaru","Marrow","Mason","Masterp;)","MiniPekka","Pam from HR","Robin2hood","Ryan.","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","SwiftyKinja","THÒR","Tupac","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jash","jukes\md","perfectguy10104","roham","silent killer","slogo","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -196,6 +196,7 @@ PLAYER_TAGS = {
     "#CCRL9YRJ": "choiboi601",
     "#CUY9L0UP": "NightCrawler",
     "#G0VGRUCC": "SwiftyKinja",
+    "#G29JL9UYR": "fL4mE",
     "#G99V98V2L": "My name is...",
     "#G9RY2R9L0": "hood",
     "#GG89UJ8G0": "Kiromiga",
@@ -281,6 +282,39 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
+("1029043913","10/29/26","COSMIC REIGN♾️","30v30","""
+#QY99LUG8Q|Masterp;)|1|18|0|0|0|
+#QL8CV0P0|gen|2|18|0|0|0|
+#QU9J0RYY8|Tupac|3|18|0|0|0|
+#G0VGRUCC|SwiftyKinja|4|17|0|0|0|
+#99P9VPUY|SWAG-YOLO|5|18|0|0|0|
+#GV80Y9L0Y|studkiller|6|17|0|0|0|
+#L9JGLLYQ|Mason|7|17|0|0|0|
+#R00L0CY9C|MiniPekka|8|17|0|0|0|
+#QGGUGUQ98|Clasher JD|9|16|0|0|0|
+#YLGQ20LP8|Brodie|10|16|0|0|0|
+#GRRYCUJP8|crimpo|11|16|0|0|0|
+#PGLV2YQC|Kizaru|12|16|0|0|0|
+#PGV8GJULC|Robin2hood|13|16|0|0|0|
+#22RQ0QRRL|FIGHTER|14|16|0|0|0|
+#8PR2Q2CJP|Ryan.|15|16|0|0|0|
+#RQCJR8JV|SurgeGold|16|16|0|0|0|
+#Q8JRG00PP|Dubnation|17|16|0|0|0|
+#GV088PV02|roham|18|16|0|0|0|
+#9QRRRQQG9|perfectguy10104|19|15|0|0|0|
+#PYC8PLU8|#AgentKush007|20|15|0|0|0|
+#LV29URQLP|tiger king|21|15|0|0|0|
+#QR8LP8LUL|jukes\md|22|15|0|0|0|
+#GJ20RJ8RP|arius67'|23|15|0|0|0|
+#YVCJC0VCQ|Marrow|24|15|0|0|0|
+#GRGGPPQ8J|Pam from HR|25|15|0|0|0|
+#QLYP90RPV|Ste|26|15|0|0|0|
+#Y2G8CC09Q|jash|27|15|0|0|0|
+#V2CC2RRP|-13lackHawk-|28|13|0|0|0|
+#G29JL9UYR|fL4mE|29|14|0|0|0|
+#282LUL20P|silent killer|30|11|0|0|0|
+""", True),
+
 ("1027050500","10/27/26","Gladiators","35v35","""
 #QY99LUG8Q|Masterp;)|1|18|2|6|6|24:3:3:15,25:3:3:15
 #QL8CV0P0|gen|2|18|2|6|6|1:3:3:18,5:3:3:18
