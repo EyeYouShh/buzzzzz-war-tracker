@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 10/29/26 — 50 members
-    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","BODYITTHEN!","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Dubnation","FIGHTER","Jac","Kizaru","Marrow","Mason","Masterp;)","MiniPekka","Pam from HR","Robin2hood","Ryan.","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","SwiftyKinja","THÒR","Tupac","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jash","jukes\md","pera","perfectguy10104","roham","silent killer","slogo","stage5yo","stage6yo","studkiller","tiger king","wpb1224"
+    # Auto-updated 10/29/26 — 49 members
+    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","BODYITTHEN!","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Dubnation","FIGHTER","Jac","Kizaru","Marrow","Mason","Masterp;)","MiniPekka","Pam from HR","Robin2hood","Ryan.","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","SwiftyKinja","THÒR","Tupac","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jash","jukes\md","perfectguy10104","roham","silent killer","slogo","stage5yo","stage6yo","studkiller","tiger king","wpb1224"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -293,14 +293,14 @@ WAR_BLOCKS = [
 #99P9VPUY|SWAG-YOLO|5|18|2|6|4|21:3:1:15,23:3:3:15
 #GV80Y9L0Y|studkiller|6|17|0|0|0|
 #L9JGLLYQ|Mason|7|17|0|0|0|
-#R00L0CY9C|MiniPekka|8|17|0|0|0|
+#R00L0CY9C|MiniPekka|8|17|2|6|2|25:3:1:15,30:3:1:14
 #QGGUGUQ98|Clasher JD|9|16|2|5|4|11:3:3:16,9:2:1:16
 #YLGQ20LP8|Brodie|10|16|2|3|3|8:2:2:16,9:1:1:16
 #GRRYCUJP8|crimpo|11|16|2|6|4|5:3:1:17,3:3:3:18
 #PGLV2YQC|Kizaru|12|16|2|6|6|10:3:3:16,22:3:3:15
 #PGV8GJULC|Robin2hood|13|16|2|6|6|12:3:3:16,7:3:3:16
 #22RQ0QRRL|FIGHTER|14|16|2|6|4|13:3:3:16,8:3:1:16
-#8PR2Q2CJP|Ryan.|15|16|0|0|0|
+#8PR2Q2CJP|Ryan.|15|16|2|6|6|24:3:3:16,28:3:3:15
 #RQCJR8JV|SurgeGold|16|17|0|0|0|
 #Q8JRG00PP|Dubnation|17|16|2|6|6|15:3:3:18,14:3:3:16
 #GV088PV02|roham|18|16|2|6|5|18:3:3:16,6:3:2:17
@@ -314,7 +314,7 @@ WAR_BLOCKS = [
 #QLYP90RPV|Ste|26|15|0|0|0|
 #Y2G8CC09Q|jash|27|15|2|6|6|27:3:3:15,26:3:3:15
 #V2CC2RRP|-13lackHawk-|28|13|2|3|1|30:2:1:14,29:1:0:16
-#G29JL9UYR|fL4mE|29|14|0|0|0|
+#G29JL9UYR|fL4mE|29|14|2|5|1|30:2:0:14,29:3:1:16
 #282LUL20P|silent killer|30|12|2|3|3|29:2:2:16,30:1:1:14
 """, True),
 
