@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 10/28/26 — 47 members
-    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Dubnation","FIGHTER","Jac","Kizaru","Marrow","Mason","Masterp;)","MiniPekka","Pam from HR","Robin2hood","Ryan.","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","SwiftyKinja","THÒR","Tupac","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jash","jukes\md","perfectguy10104","roham","silent killer","slogo","stage5yo","stage6yo","studkiller","tiger king"
+    # Auto-updated 10/29/26 — 49 members
+    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","BODYITTHEN!","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Dubnation","FIGHTER","Jac","Kizaru","Marrow","Mason","Masterp;)","MiniPekka","Pam from HR","Robin2hood","Ryan.","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","SwiftyKinja","THÒR","Tupac","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jash","jukes\md","perfectguy10104","roham","silent killer","slogo","stage5yo","stage6yo","studkiller","tiger king","wpb1224"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -148,6 +148,8 @@ PLAYER_TH = {
     "Ashutosh": 18,
     "jash": 15,
     "Ryan.": 16,
+    "BODYITTHEN!": 18,
+    "wpb1224": 17,
 }
 # In-game order (tiebreaker within same TH — matches the order user sees in-game)
 _CS_ORDER = [
@@ -283,8 +285,8 @@ WAR_END_ISO = "2026-10-30T04:39:13Z"
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
 ("1029043913","10/29/26","COSMIC REIGN♾️","30v30","""
-#QY99LUG8Q|Masterp;)|1|18|0|0|0|
-#QL8CV0P0|gen|2|18|0|0|0|
+#QY99LUG8Q|Masterp;)|1|18|2|4|2|2:2:0:18,21:2:2:15
+#QL8CV0P0|gen|2|18|2|4|3|2:1:0:18,1:3:3:18
 #QU9J0RYY8|Tupac|3|18|1|3|3|4:3:3:18
 #G0VGRUCC|SwiftyKinja|4|17|2|3|3|5:2:2:17,6:1:1:17
 #99P9VPUY|SWAG-YOLO|5|18|0|0|0|
@@ -294,7 +296,7 @@ WAR_BLOCKS = [
 #QGGUGUQ98|Clasher JD|9|16|2|5|4|11:3:3:16,9:2:1:16
 #YLGQ20LP8|Brodie|10|16|2|3|3|8:2:2:16,9:1:1:16
 #GRRYCUJP8|crimpo|11|16|2|6|4|5:3:1:17,3:3:3:18
-#PGLV2YQC|Kizaru|12|16|0|0|0|
+#PGLV2YQC|Kizaru|12|16|2|6|6|10:3:3:16,22:3:3:15
 #PGV8GJULC|Robin2hood|13|16|2|6|6|12:3:3:16,7:3:3:16
 #22RQ0QRRL|FIGHTER|14|16|2|6|4|13:3:3:16,8:3:1:16
 #8PR2Q2CJP|Ryan.|15|16|0|0|0|
