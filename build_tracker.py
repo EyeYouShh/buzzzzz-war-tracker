@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 10/29/26 — 49 members
-    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","BODYITTHEN!","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Dubnation","FIGHTER","Jac","Kizaru","Marrow","Mason","Masterp;)","MiniPekka","Pam from HR","Robin2hood","Ryan.","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","SwiftyKinja","THÒR","Tupac","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jash","jukes\md","perfectguy10104","roham","silent killer","slogo","stage5yo","stage6yo","studkiller","tiger king","wpb1224"
+    # Auto-updated 10/29/26 — 50 members
+    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","BODYITTHEN!","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Dubnation","FIGHTER","Jac","Kizaru","Marrow","Mason","Masterp;)","MiniPekka","Pam from HR","Robin2hood","Ryan.","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","SwiftyKinja","THÒR","Tupac","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jash","jukes\md","pera","perfectguy10104","roham","silent killer","slogo","stage5yo","stage6yo","studkiller","tiger king","wpb1224"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -150,6 +150,7 @@ PLAYER_TH = {
     "Ryan.": 16,
     "BODYITTHEN!": 18,
     "wpb1224": 17,
+    "pera": 16,
 }
 # In-game order (tiebreaker within same TH — matches the order user sees in-game)
 _CS_ORDER = [
@@ -287,9 +288,9 @@ WAR_BLOCKS = [
 ("1029043913","10/29/26","COSMIC REIGN♾️","30v30","""
 #QY99LUG8Q|Masterp;)|1|18|2|4|2|2:2:0:18,21:2:2:15
 #QL8CV0P0|gen|2|18|2|4|3|2:1:0:18,1:3:3:18
-#QU9J0RYY8|Tupac|3|18|1|3|3|4:3:3:18
+#QU9J0RYY8|Tupac|3|18|2|6|4|4:3:3:18,2:3:1:18
 #G0VGRUCC|SwiftyKinja|4|17|2|3|3|5:2:2:17,6:1:1:17
-#99P9VPUY|SWAG-YOLO|5|18|0|0|0|
+#99P9VPUY|SWAG-YOLO|5|18|2|6|4|21:3:1:15,23:3:3:15
 #GV80Y9L0Y|studkiller|6|17|0|0|0|
 #L9JGLLYQ|Mason|7|17|0|0|0|
 #R00L0CY9C|MiniPekka|8|17|0|0|0|
@@ -307,7 +308,7 @@ WAR_BLOCKS = [
 #PYC8PLU8|#AgentKush007|20|15|2|6|6|16:3:3:15,17:3:3:15
 #LV29URQLP|tiger king|21|15|2|4|2|5:2:0:17,2:2:2:18
 #QR8LP8LUL|jukes\md|22|15|2|5|5|20:3:3:15,25:2:2:15
-#GJ20RJ8RP|arius67'|23|15|0|0|0|
+#GJ20RJ8RP|arius67'|23|15|2|4|1|9:3:1:16,2:1:0:18
 #YVCJC0VCQ|Marrow|24|15|0|0|0|
 #GRGGPPQ8J|Pam from HR|25|15|0|0|0|
 #QLYP90RPV|Ste|26|15|0|0|0|
