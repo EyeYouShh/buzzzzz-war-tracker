@@ -69,7 +69,7 @@ PLAYER_TH = {
     "up 2 no good": 16,
     "Let's fight": 16,
     "Anik the great": 17,
-    "tiger king": 15,
+    "tiger king": 16,
     "Jaier_Kid": 16,
     "G.A": 17,
     "fishstick": 17,
@@ -285,15 +285,15 @@ WAR_BLOCKS = [
 ("1029043913","10/29/26","COSMIC REIGN♾️","30v30","""
 #QY99LUG8Q|Masterp;)|1|18|0|0|0|
 #QL8CV0P0|gen|2|18|0|0|0|
-#QU9J0RYY8|Tupac|3|18|0|0|0|
+#QU9J0RYY8|Tupac|3|18|1|3|3|4:3:3:18
 #G0VGRUCC|SwiftyKinja|4|17|2|3|3|5:2:2:17,6:1:1:17
 #99P9VPUY|SWAG-YOLO|5|18|0|0|0|
 #GV80Y9L0Y|studkiller|6|17|0|0|0|
 #L9JGLLYQ|Mason|7|17|0|0|0|
 #R00L0CY9C|MiniPekka|8|17|0|0|0|
-#QGGUGUQ98|Clasher JD|9|16|0|0|0|
-#YLGQ20LP8|Brodie|10|16|0|0|0|
-#GRRYCUJP8|crimpo|11|16|0|0|0|
+#QGGUGUQ98|Clasher JD|9|16|2|5|4|11:3:3:16,9:2:1:16
+#YLGQ20LP8|Brodie|10|16|2|3|3|8:2:2:16,9:1:1:16
+#GRRYCUJP8|crimpo|11|16|2|6|4|5:3:1:17,3:3:3:18
 #PGLV2YQC|Kizaru|12|16|0|0|0|
 #PGV8GJULC|Robin2hood|13|16|2|6|6|12:3:3:16,7:3:3:16
 #22RQ0QRRL|FIGHTER|14|16|0|0|0|
@@ -302,17 +302,17 @@ WAR_BLOCKS = [
 #Q8JRG00PP|Dubnation|17|16|2|6|6|15:3:3:18,14:3:3:16
 #GV088PV02|roham|18|16|2|6|5|18:3:3:16,6:3:2:17
 #9QRRRQQG9|perfectguy10104|19|15|0|0|0|
-#PYC8PLU8|#AgentKush007|20|15|0|0|0|
-#LV29URQLP|tiger king|21|15|1|2|0|5:2:0:17
+#PYC8PLU8|#AgentKush007|20|15|2|6|6|16:3:3:15,17:3:3:15
+#LV29URQLP|tiger king|21|15|2|4|2|5:2:0:17,2:2:2:18
 #QR8LP8LUL|jukes\md|22|15|0|0|0|
 #GJ20RJ8RP|arius67'|23|15|0|0|0|
 #YVCJC0VCQ|Marrow|24|15|0|0|0|
 #GRGGPPQ8J|Pam from HR|25|15|0|0|0|
 #QLYP90RPV|Ste|26|15|0|0|0|
-#Y2G8CC09Q|jash|27|15|0|0|0|
-#V2CC2RRP|-13lackHawk-|28|13|0|0|0|
+#Y2G8CC09Q|jash|27|15|2|6|6|27:3:3:15,26:3:3:15
+#V2CC2RRP|-13lackHawk-|28|13|1|2|1|30:2:1:14
 #G29JL9UYR|fL4mE|29|14|0|0|0|
-#282LUL20P|silent killer|30|12|0|0|0|
+#282LUL20P|silent killer|30|12|2|3|3|29:2:2:16,30:1:1:14
 """, True),
 
 ("1027050500","10/27/26","Gladiators","35v35","""
