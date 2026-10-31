@@ -134,7 +134,7 @@ PLAYER_TH = {
     "leo": 16,
     "〘✨ʍe̸H̸яz̶a̶d:〙": 15,
     "YASH": 16,
-    "Dubnation": 16,
+    "Dubnation": 17,
     "Llord_Iyke": 16,
     "*iaN*": 17,
     "wana": 16,
