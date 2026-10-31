@@ -116,7 +116,7 @@ PLAYER_TH = {
     "Big_Johnson03": 15,
     "choiboi601": 17,
     "Ranger": 15,
-    "jukes\md": 15,
+    "jukes\md": 16,
     "BLUEJAYS™": 18,
     "hacker123": 18,
     "SWAG-YOLO": 18,
