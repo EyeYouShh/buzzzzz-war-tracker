@@ -128,7 +128,7 @@ PLAYER_TH = {
     "crispyscool": 15,
     "Clasher JD": 16,
     "#AgentKush007": 16,
-    "perfectguy10104": 15,
+    "perfectguy10104": 16,
     "Masterp;)": 18,
     "slogo": 15,
     "leo": 16,
