@@ -285,6 +285,24 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
+("217291972","11/2/26","Jr Warwolves 2","15v15","""
+#QY99LUG8Q|Masterp;)|1|18|0|0|0|
+#QL8CV0P0|gen|3|18|0|0|0|
+#QU9J0RYY8|Tupac|6|18|0|0|0|
+#G0VGRUCC|SwiftyKinja|10|17|0|0|0|
+#L9JGLLYQ|Mason|12|17|0|0|0|
+#GV088PV02|roham|19|17|0|0|0|
+#GRRYCUJP8|crimpo|23|16|0|0|0|
+#LV29URQLP|tiger king|31|16|0|0|0|
+#9QRRRQQG9|perfectguy10104|33|16|0|0|0|
+#QR8LP8LUL|jukes\md|36|16|0|0|0|
+#GJ20RJ8RP|arius67'|37|15|0|0|0|
+#GJLRURGC2|Cole|38|15|0|0|0|
+#QQCV22LY2|slogo|39|15|0|0|0|
+#GRGGPPQ8J|Pam from HR|40|15|0|0|0|
+#QLYP90RPV|Ste|43|15|0|0|0|
+""", True, True),
+
 ("1029043913","10/29/26","COSMIC REIGN♾️","30v30","""
 #QY99LUG8Q|Masterp;)|1|18|2|4|2|2:2:0:18,21:2:2:15
 #QL8CV0P0|gen|2|18|2|4|3|2:1:0:18,1:3:3:18
