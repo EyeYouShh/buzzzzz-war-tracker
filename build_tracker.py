@@ -285,7 +285,7 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
-("217291972","11/2/26","Jr Warwolves 2","15v15","""
+("317292779","11/3/26","lord ofthe clan","15v15","""
 #QY99LUG8Q|Masterp;)|1|18|0|0|0|
 #QL8CV0P0|gen|3|18|0|0|0|
 #QU9J0RYY8|Tupac|6|18|0|0|0|
@@ -295,6 +295,24 @@ WAR_BLOCKS = [
 #L9JGLLYQ|Mason|12|17|0|0|0|
 #82G8C2YJ9|Slime|14|17|0|0|0|
 #GV088PV02|roham|19|17|0|0|0|
+#YLGQ20LP8|Brodie|20|17|0|0|0|
+#PGLV2YQC|Kizaru|25|16|0|0|0|
+#9QRRRQQG9|perfectguy10104|34|16|0|0|0|
+#QR8LP8LUL|jukes\md|36|16|0|0|0|
+#GJ20RJ8RP|arius67'|37|15|0|0|0|
+#GJLRURGC2|Cole|38|15|0|0|0|
+""", True, True),
+
+("217291972","11/2/26","Jr Warwolves 2","15v15","""
+#QY99LUG8Q|Masterp;)|1|18|0|0|0|
+#QL8CV0P0|gen|3|18|1|3|3|2:3:3:18
+#QU9J0RYY8|Tupac|6|18|1|3|3|3:3:3:18
+#99P9VPUY|SWAG-YOLO|9|18|0|0|0|
+#G0VGRUCC|SwiftyKinja|10|17|0|0|0|
+#GV80Y9L0Y|studkiller|11|17|0|0|0|
+#L9JGLLYQ|Mason|12|17|0|0|0|
+#82G8C2YJ9|Slime|14|17|0|0|0|
+#GV088PV02|roham|19|17|1|3|3|11:3:3:18
 #PGLV2YQC|Kizaru|24|16|0|0|0|
 #YLGQ20LP8|Brodie|25|17|0|0|0|
 #9QRRRQQG9|perfectguy10104|33|16|0|0|0|
