@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 11/1/26 — 48 members
-    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","BODYITTHEN!","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Dubnation","FIGHTER","Jac","Kizaru","Marrow","Mason","Masterp;)","Pam from HR","Robin2hood","Ryan.","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","SwiftyKinja","THÒR","Tupac","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jash","jukes\md","perfectguy10104","roham","silent killer","slogo","stage5yo","stage6yo","studkiller","tiger king","wpb1224"
+    # Auto-updated 11/2/26 — 47 members
+    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","BODYITTHEN!","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Dubnation","FIGHTER","Jac","Kizaru","Marrow","Mason","Masterp;)","Pam from HR","Robin2hood","Ryan.","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","SwiftyKinja","THÒR","Tupac","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jash","jukes\md","perfectguy10104","roham","silent killer","slogo","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -293,10 +293,10 @@ WAR_BLOCKS = [
 #G0VGRUCC|SwiftyKinja|10|17|0|0|0|
 #GV80Y9L0Y|studkiller|11|17|0|0|0|
 #L9JGLLYQ|Mason|12|17|0|0|0|
-#R00L0CY9C|MiniPekka|13|17|0|0|0|
 #82G8C2YJ9|Slime|14|17|0|0|0|
 #GV088PV02|roham|19|17|0|0|0|
 #PGLV2YQC|Kizaru|24|16|0|0|0|
+#YLGQ20LP8|Brodie|25|17|0|0|0|
 #9QRRRQQG9|perfectguy10104|33|16|0|0|0|
 #QR8LP8LUL|jukes\md|36|16|0|0|0|
 #GJ20RJ8RP|arius67'|37|15|0|0|0|
