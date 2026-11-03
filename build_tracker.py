@@ -285,7 +285,7 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
-("317292779","11/3/26","lord ofthe clan","15v15","""
+("417480266","11/4/26","Home","15v15","""
 #QY99LUG8Q|Masterp;)|1|18|0|0|0|
 #QL8CV0P0|gen|3|18|0|0|0|
 #QU9J0RYY8|Tupac|6|18|0|0|0|
@@ -294,7 +294,25 @@ WAR_BLOCKS = [
 #GV80Y9L0Y|studkiller|11|17|0|0|0|
 #L9JGLLYQ|Mason|12|17|0|0|0|
 #82G8C2YJ9|Slime|14|17|0|0|0|
-#GV088PV02|roham|19|17|0|0|0|
+#YLGQ20LP8|Brodie|20|17|0|0|0|
+#GV088PV02|roham|21|17|0|0|0|
+#PGLV2YQC|Kizaru|25|16|0|0|0|
+#9QRRRQQG9|perfectguy10104|34|16|0|0|0|
+#QR8LP8LUL|jukes\md|36|16|0|0|0|
+#GJ20RJ8RP|arius67'|37|15|0|0|0|
+#GJLRURGC2|Cole|38|15|0|0|0|
+""", True, True),
+
+("317292779","11/3/26","lord ofthe clan","15v15","""
+#QY99LUG8Q|Masterp;)|1|18|0|0|0|
+#QL8CV0P0|gen|3|18|0|0|0|
+#QU9J0RYY8|Tupac|6|18|0|0|0|
+#99P9VPUY|SWAG-YOLO|9|18|0|0|0|
+#G0VGRUCC|SwiftyKinja|10|17|1|2|2|6:2:2:18
+#GV80Y9L0Y|studkiller|11|17|0|0|0|
+#L9JGLLYQ|Mason|12|17|0|0|0|
+#82G8C2YJ9|Slime|14|17|0|0|0|
+#GV088PV02|roham|19|17|1|3|3|10:3:3:18
 #YLGQ20LP8|Brodie|20|17|0|0|0|
 #PGLV2YQC|Kizaru|25|16|0|0|0|
 #9QRRRQQG9|perfectguy10104|34|16|0|0|0|
@@ -319,7 +337,7 @@ WAR_BLOCKS = [
 #QR8LP8LUL|jukes\md|36|16|1|3|3|15:3:3:18
 #GJ20RJ8RP|arius67'|37|15|1|2|2|17:2:2:18
 #GJLRURGC2|Cole|38|15|1|3|3|19:3:3:17
-""", True, True),
+""", False, True),
 
 ("1029043913","10/29/26","COSMIC REIGN♾️","30v30","""
 #QY99LUG8Q|Masterp;)|1|18|2|4|2|2:2:0:18,21:2:2:15
@@ -6891,6 +6909,7 @@ WAR_BLOCKS = [
 
 # ── Win/Loss/Draw results keyed by war ID ──
 RESULTS = {
+    "217291972": "L",
     "1029043913": "D",
     "1027050500": "W",
     "1025051354": "L",
