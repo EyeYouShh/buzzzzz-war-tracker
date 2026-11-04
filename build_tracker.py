@@ -212,6 +212,7 @@ PLAYER_TAGS = {
     "#GPLUYRQ9J": "filet minion",
     "#GQJUGLQRQ": "stage6yo",
     "#GQU082R20": "Pratham",
+    "#GRCQGPVGC": "BODYITTHEN!",
     "#GRGGPPQ8J": "Pam from HR",
     "#GRRYCUJP8": "crimpo",
     "#GU9VU9G0U": "leo",
@@ -285,17 +286,35 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
-("418130566","11/4/26","Home","15v15","""
+("518154421","11/5/26","LOYAL CLASHERS","15v15","""
 #QY99LUG8Q|Masterp;)|1|18|0|0|0|
 #QL8CV0P0|gen|3|18|0|0|0|
+#GRCQGPVGC|BODYITTHEN!|5|18|0|0|0|
 #QU9J0RYY8|Tupac|6|18|0|0|0|
 #99P9VPUY|SWAG-YOLO|9|18|0|0|0|
 #G0VGRUCC|SwiftyKinja|10|17|0|0|0|
-#GV80Y9L0Y|studkiller|11|17|0|0|0|
+#L9JGLLYQ|Mason|12|17|0|0|0|
+#YLGQ20LP8|Brodie|20|17|0|0|0|
+#GV088PV02|roham|21|17|0|0|0|
+#GRRYCUJP8|crimpo|24|16|0|0|0|
+#PGLV2YQC|Kizaru|25|16|0|0|0|
+#Q8JRG00PP|Dubnation|27|17|0|0|0|
+#9QRRRQQG9|perfectguy10104|34|16|0|0|0|
+#QR8LP8LUL|jukes\md|36|16|0|0|0|
+#GJ20RJ8RP|arius67'|37|15|0|0|0|
+""", True, True),
+
+("418130566","11/4/26","Home","15v15","""
+#QY99LUG8Q|Masterp;)|1|18|0|0|0|
+#QL8CV0P0|gen|3|18|1|2|2|2:2:2:18
+#QU9J0RYY8|Tupac|6|18|1|3|3|3:3:3:18
+#99P9VPUY|SWAG-YOLO|9|18|0|0|0|
+#G0VGRUCC|SwiftyKinja|10|17|0|0|0|
+#GV80Y9L0Y|studkiller|11|17|1|2|2|6:2:2:18
 #L9JGLLYQ|Mason|12|17|0|0|0|
 #82G8C2YJ9|Slime|14|17|0|0|0|
 #YLGQ20LP8|Brodie|20|17|0|0|0|
-#GV088PV02|roham|21|17|0|0|0|
+#GV088PV02|roham|21|17|1|3|3|11:3:3:18
 #PGLV2YQC|Kizaru|25|16|0|0|0|
 #Q8JRG00PP|Dubnation|27|17|0|0|0|
 #9QRRRQQG9|perfectguy10104|34|16|0|0|0|
@@ -337,7 +356,7 @@ WAR_BLOCKS = [
 #QR8LP8LUL|jukes\md|36|16|1|3|3|18:3:3:18
 #GJ20RJ8RP|arius67'|37|15|1|3|3|24:3:3:18
 #GJLRURGC2|Cole|38|15|1|3|3|25:3:3:18
-""", True, True),
+""", False, True),
 
 ("217291972","11/2/26","Jr Warwolves 2","15v15","""
 #QY99LUG8Q|Masterp;)|1|18|1|1|1|7:1:1:18
@@ -6927,6 +6946,7 @@ WAR_BLOCKS = [
 
 # ── Win/Loss/Draw results keyed by war ID ──
 RESULTS = {
+    "317292779": "L",
     "217291972": "L",
     "1029043913": "D",
     "1027050500": "W",
