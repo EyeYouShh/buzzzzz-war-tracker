@@ -304,20 +304,20 @@ WAR_BLOCKS = [
 """, True, True),
 
 ("317292779","11/3/26","lord ofthe clan","15v15","""
-#QY99LUG8Q|Masterp;)|1|18|0|0|0|
+#QY99LUG8Q|Masterp;)|1|18|1|2|2|8:2:2:18
 #QL8CV0P0|gen|3|18|0|0|0|
 #QU9J0RYY8|Tupac|6|18|1|3|3|3:3:3:18
 #99P9VPUY|SWAG-YOLO|9|18|0|0|0|
 #G0VGRUCC|SwiftyKinja|10|17|1|2|2|6:2:2:18
 #GV80Y9L0Y|studkiller|11|17|0|0|0|
-#L9JGLLYQ|Mason|12|17|0|0|0|
+#L9JGLLYQ|Mason|12|17|1|3|3|1:3:3:18
 #82G8C2YJ9|Slime|14|17|0|0|0|
 #GV088PV02|roham|19|17|1|3|3|10:3:3:18
 #YLGQ20LP8|Brodie|20|17|0|0|0|
 #PGLV2YQC|Kizaru|25|16|1|3|3|13:3:3:17
 #9QRRRQQG9|perfectguy10104|34|16|0|0|0|
-#QR8LP8LUL|jukes\md|36|16|0|0|0|
-#GJ20RJ8RP|arius67'|37|15|0|0|0|
+#QR8LP8LUL|jukes\md|36|16|1|3|3|18:3:3:18
+#GJ20RJ8RP|arius67'|37|15|1|3|3|24:3:3:18
 #GJLRURGC2|Cole|38|15|1|3|3|25:3:3:18
 """, True, True),
 
