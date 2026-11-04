@@ -285,6 +285,24 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
+("418130566","11/4/26","Home","15v15","""
+#QY99LUG8Q|Masterp;)|1|18|0|0|0|
+#QL8CV0P0|gen|3|18|0|0|0|
+#QU9J0RYY8|Tupac|6|18|0|0|0|
+#99P9VPUY|SWAG-YOLO|9|18|0|0|0|
+#G0VGRUCC|SwiftyKinja|10|17|0|0|0|
+#GV80Y9L0Y|studkiller|11|17|0|0|0|
+#L9JGLLYQ|Mason|12|17|0|0|0|
+#82G8C2YJ9|Slime|14|17|0|0|0|
+#YLGQ20LP8|Brodie|20|17|0|0|0|
+#GV088PV02|roham|21|17|0|0|0|
+#PGLV2YQC|Kizaru|25|16|0|0|0|
+#Q8JRG00PP|Dubnation|27|17|0|0|0|
+#9QRRRQQG9|perfectguy10104|34|16|0|0|0|
+#QR8LP8LUL|jukes\md|36|16|0|0|0|
+#GJ20RJ8RP|arius67'|37|15|0|0|0|
+""", True, True),
+
 ("417480266","11/4/26","Home","15v15","""
 #QY99LUG8Q|Masterp;)|1|18|0|0|0|
 #QL8CV0P0|gen|3|18|0|0|0|
