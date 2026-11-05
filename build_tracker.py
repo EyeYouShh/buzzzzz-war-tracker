@@ -141,7 +141,7 @@ PLAYER_TH = {
     "FIGHTER": 16,
     "-13lackHawk-": 13,
     "St.Markus": 17,
-    "fL4mE": 14,
+    "fL4mE": 15,
     "silent killer": 12,
     "NightCrawler": 14,
     "THÒR": 18,
