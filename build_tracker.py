@@ -13,7 +13,7 @@ PLAYER_TH = {
     "Slayer": 18,
     "gen": 18, "Gr8Conqueror": 17,
     "stage6yo": 18, "wato": 16, "drybonez": 16,
-    "Americanpatriot": 16, "Big Steppa": 17, "SwiftyKinja": 17, "stage5yo": 17, "DE1": 16,
+    "Americanpatriot": 16, "Big Steppa": 18, "SwiftyKinja": 17, "stage5yo": 17, "DE1": 16,
     "crimpo": 16, "Cole": 15, "studkiller": 17, "rour": 14, "MiniPekka": 17,
     "Kizaru": 16, "Jac": 16, "Halid #1": 15, "SurgeGold": 17, "Loading…": 14,
     "Sumairu": 15, "Pam from HR": 15, "louis": 14, "imnotstraight10": 14,
@@ -288,7 +288,6 @@ WAR_END_ISO = ""
 WAR_BLOCKS = [
 ("518154421","11/5/26","LOYAL CLASHERS","15v15","""
 #QY99LUG8Q|Masterp;)|1|18|0|0|0|
-#QL8CV0P0|gen|3|18|0|0|0|
 #GRCQGPVGC|BODYITTHEN!|5|18|0|0|0|
 #QU9J0RYY8|Tupac|6|18|0|0|0|
 #99P9VPUY|SWAG-YOLO|9|18|0|0|0|
@@ -299,19 +298,20 @@ WAR_BLOCKS = [
 #GRRYCUJP8|crimpo|24|16|0|0|0|
 #PGLV2YQC|Kizaru|25|16|0|0|0|
 #Q8JRG00PP|Dubnation|27|17|0|0|0|
+#22RQ0QRRL|FIGHTER|32|16|0|0|0|
 #9QRRRQQG9|perfectguy10104|34|16|0|0|0|
 #QR8LP8LUL|jukes\md|36|16|0|0|0|
 #GJ20RJ8RP|arius67'|37|15|0|0|0|
 """, True, True),
 
 ("418130566","11/4/26","Home","15v15","""
-#QY99LUG8Q|Masterp;)|1|18|0|0|0|
+#QY99LUG8Q|Masterp;)|1|18|1|2|2|7:2:2:18
 #QL8CV0P0|gen|3|18|1|2|2|2:2:2:18
 #QU9J0RYY8|Tupac|6|18|1|3|3|3:3:3:18
 #99P9VPUY|SWAG-YOLO|9|18|0|0|0|
 #G0VGRUCC|SwiftyKinja|10|17|1|2|2|5:2:2:18
 #GV80Y9L0Y|studkiller|11|17|1|2|2|6:2:2:18
-#L9JGLLYQ|Mason|12|17|0|0|0|
+#L9JGLLYQ|Mason|12|17|1|3|3|1:3:3:18
 #82G8C2YJ9|Slime|14|17|1|2|2|8:2:2:18
 #YLGQ20LP8|Brodie|20|17|1|1|1|10:1:1:18
 #GV088PV02|roham|21|17|1|3|3|11:3:3:18
