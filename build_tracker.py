@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 11/5/26 — 47 members
-    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","BODYITTHEN!","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Dubnation","F16","FIGHTER","Jac","Kizaru","Marrow","Mason","Masterp;)","Pam from HR","Ryan.","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","SwiftyKinja","THÒR","Tupac","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jash","jukes\md","perfectguy10104","roham","silent killer","slogo","stage5yo","stage6yo","studkiller","tiger king"
+    # Auto-updated 11/6/26 — 46 members
+    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Dubnation","F16","FIGHTER","Jac","Kizaru","Marrow","Mason","Masterp;)","Pam from HR","Ryan.","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","SwiftyKinja","THÒR","Tupac","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jash","jukes\md","perfectguy10104","roham","silent killer","slogo","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -286,7 +286,7 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
-("618181891","11/6/26","MUPOEN GZ","15v15","""
+("718183364","11/7/26","Chômage Of Clan","15v15","""
 #QY99LUG8Q|Masterp;)|1|18|0|0|0|
 #QU9J0RYY8|Tupac|6|18|0|0|0|
 #99P9VPUY|SWAG-YOLO|9|18|0|0|0|
@@ -295,6 +295,24 @@ WAR_BLOCKS = [
 #L9JGLLYQ|Mason|12|17|0|0|0|
 #RQCJR8JV|SurgeGold|16|17|0|0|0|
 #GV088PV02|roham|20|17|0|0|0|
+#YLGQ20LP8|Brodie|21|17|0|0|0|
+#GRRYCUJP8|crimpo|25|16|0|0|0|
+#22RQ0QRRL|FIGHTER|29|16|0|0|0|
+#LV29URQLP|tiger king|32|16|0|0|0|
+#9QRRRQQG9|perfectguy10104|34|16|0|0|0|
+#QR8LP8LUL|jukes\md|35|16|0|0|0|
+#GJ20RJ8RP|arius67'|38|15|0|0|0|
+""", True, True),
+
+("618181891","11/6/26","MUPOEN GZ","15v15","""
+#QY99LUG8Q|Masterp;)|1|18|0|0|0|
+#QU9J0RYY8|Tupac|6|18|1|2|2|2:2:2:18
+#99P9VPUY|SWAG-YOLO|9|18|0|0|0|
+#GV80Y9L0Y|studkiller|10|17|0|0|0|
+#G0VGRUCC|SwiftyKinja|11|17|1|1|1|5:1:1:18
+#L9JGLLYQ|Mason|12|17|0|0|0|
+#RQCJR8JV|SurgeGold|16|17|0|0|0|
+#GV088PV02|roham|20|17|1|3|3|8:3:3:18
 #YLGQ20LP8|Brodie|21|17|0|0|0|
 #GRRYCUJP8|crimpo|24|16|0|0|0|
 #22RQ0QRRL|FIGHTER|29|16|0|0|0|
@@ -320,7 +338,7 @@ WAR_BLOCKS = [
 #9QRRRQQG9|perfectguy10104|34|16|1|1|1|32:1:1:17
 #QR8LP8LUL|jukes\md|36|16|1|3|3|35:3:3:17
 #GJ20RJ8RP|arius67'|37|15|1|3|3|37:3:3:16
-""", True, True),
+""", False, True),
 
 ("418130566","11/4/26","Home","15v15","""
 #QY99LUG8Q|Masterp;)|1|18|1|2|2|7:2:2:18
@@ -6964,6 +6982,7 @@ WAR_BLOCKS = [
 
 # ── Win/Loss/Draw results keyed by war ID ──
 RESULTS = {
+    "518154421": "L",
     "418130566": "L",
     "317292779": "L",
     "217291972": "L",
