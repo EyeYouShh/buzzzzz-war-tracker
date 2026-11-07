@@ -287,7 +287,6 @@ WAR_END_ISO = ""
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
 ("718183364","11/7/26","Chômage Of Clan","15v15","""
-#QY99LUG8Q|Masterp;)|1|18|0|0|0|
 #QU9J0RYY8|Tupac|6|18|0|0|0|
 #99P9VPUY|SWAG-YOLO|9|18|0|0|0|
 #GV80Y9L0Y|studkiller|10|17|0|0|0|
@@ -301,6 +300,7 @@ WAR_BLOCKS = [
 #LV29URQLP|tiger king|32|16|0|0|0|
 #9QRRRQQG9|perfectguy10104|34|16|0|0|0|
 #QR8LP8LUL|jukes\md|35|16|0|0|0|
+#PYC8PLU8|#AgentKush007|36|16|0|0|0|
 #GJ20RJ8RP|arius67'|38|15|0|0|0|
 """, True, True),
 
@@ -314,8 +314,8 @@ WAR_BLOCKS = [
 #RQCJR8JV|SurgeGold|16|17|0|0|0|
 #GV088PV02|roham|20|17|1|3|3|8:3:3:18
 #YLGQ20LP8|Brodie|21|17|1|2|2|9:2:2:18
-#GRRYCUJP8|crimpo|24|16|0|0|0|
-#22RQ0QRRL|FIGHTER|29|16|0|0|0|
+#GRRYCUJP8|crimpo|24|16|1|3|3|10:3:3:18
+#22RQ0QRRL|FIGHTER|29|16|1|2|2|11:2:2:18
 #LV29URQLP|tiger king|30|16|1|3|3|13:3:3:18
 #9QRRRQQG9|perfectguy10104|34|16|1|2|2|14:2:2:17
 #QR8LP8LUL|jukes\md|36|16|1|2|2|21:2:2:18
