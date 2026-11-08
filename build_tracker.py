@@ -62,7 +62,7 @@ PLAYER_TH = {
     "Commando": 15,
     "wWwww": 15,
     "MAYKY": 15,
-    "Mason": 17,
+    "Mason": 18,
     "kk": 16,
     "ali": 15,
     "Jacob": 15,
@@ -310,10 +310,10 @@ WAR_BLOCKS = [
 #GV80Y9L0Y|studkiller|10|17|1|2|2|3:2:2:18
 #G0VGRUCC|SwiftyKinja|11|17|1|2|2|4:2:2:18
 #L9JGLLYQ|Mason|12|17|1|3|3|5:3:3:18
-#RQCJR8JV|SurgeGold|16|17|0|0|0|
+#RQCJR8JV|SurgeGold|16|17|1|1|1|6:1:1:18
 #GV088PV02|roham|20|17|1|3|3|7:3:3:18
 #QGGUGUQ98|Clasher JD|22|16|1|2|2|8:2:2:18
-#GRRYCUJP8|crimpo|25|16|0|0|0|
+#GRRYCUJP8|crimpo|25|16|1|3|3|9:3:3:18
 #22RQ0QRRL|FIGHTER|29|16|1|2|2|10:2:2:18
 #LV29URQLP|tiger king|32|16|1|3|3|11:3:3:17
 #9QRRRQQG9|perfectguy10104|34|16|1|2|2|12:2:2:17
