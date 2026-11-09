@@ -20,7 +20,7 @@ PLAYER_TH = {
     "the beast": 14, "seth": 14,
     "arius67'": 16, "Marrow": 16, "⚡️LSWreckless⚡️": 14, "Ste": 15, "uhlisuh": 13,
     "SWAGMUFFIN90": 15, "Brandon": 15, "Pharah": 13, "UNSTOPPABLE ADI": 14,
-    "MR. ASURAN YT": 13, "jj": 13, "DandyPickle": 14, "F16": 14,
+    "MR. ASURAN YT": 13, "jj": 13, "DandyPickle": 14, "F16": 15,
     "Stevie Wonder": 12, "das": 15, "rinz": 12,
     "Tretor": 13,
     "•KAILAN•": 18,
@@ -298,7 +298,7 @@ WAR_BLOCKS = [
 #GRRYCUJP8|crimpo|25|16|1|2|2|19:2:2:18
 #22RQ0QRRL|FIGHTER|29|16|1|2|2|21:2:2:18
 #LV29URQLP|tiger king|32|16|1|2|2|25:2:2:18
-#9QRRRQQG9|perfectguy10104|34|16|0|0|0|
+#9QRRRQQG9|perfectguy10104|34|16|1|2|2|26:2:2:18
 #PYC8PLU8|#AgentKush007|35|16|1|2|2|27:2:2:18
 #QR8LP8LUL|jukes\md|36|16|1|2|2|28:2:2:18
 #GJ20RJ8RP|arius67'|38|16|1|3|3|43:3:3:17
