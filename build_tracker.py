@@ -302,7 +302,7 @@ WAR_BLOCKS = [
 #PYC8PLU8|#AgentKush007|35|16|1|2|2|27:2:2:18
 #QR8LP8LUL|jukes\md|36|16|1|2|2|28:2:2:18
 #GJ20RJ8RP|arius67'|38|16|1|3|3|43:3:3:17
-""", True, True),
+""", False, True),
 
 ("718183364","11/7/26","Chômage Of Clan","15v15","""
 #QU9J0RYY8|Tupac|6|18|1|3|3|1:3:3:18
@@ -7000,6 +7000,7 @@ WAR_BLOCKS = [
 
 # ── Win/Loss/Draw results keyed by war ID ──
 RESULTS = {
+    "818204186": "L",
     "718183364": "L",
     "618181891": "L",
     "518154421": "L",
