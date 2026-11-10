@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
     # Auto-updated 11/10/26 — 46 members
-    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Dubnation","F16","FIGHTER","Jac","Kizaru","Marrow","Mason","Masterp;)","Pam from HR","Ryan.","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","SwiftyKinja","THÒR","Tomahawk","Tupac","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jash","jukes\md","perfectguy10104","roham","silent killer","stage5yo","stage6yo","studkiller","tiger king"
+    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Dubnation","F16","FIGHTER","Jac","Kizaru","Marrow","Mason","Masterp;)","Mr.Joshi","Pam from HR","Ryan.","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","SwiftyKinja","THÒR","Tupac","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jash","jukes\md","perfectguy10104","roham","silent killer","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -286,6 +286,29 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
+("1111162031","11/11/26","Cenas Fortes","20v20","""
+#QY99LUG8Q|Masterp;)|1|18|0|0|0|
+#G0VGRUCC|SwiftyKinja|2|18|0|0|0|
+#99P9VPUY|SWAG-YOLO|3|18|0|0|0|
+#GV088PV02|roham|4|17|0|0|0|
+#YLGQ20LP8|Brodie|5|17|0|0|0|
+#GRRYCUJP8|crimpo|6|16|0|0|0|
+#Q8JRG00PP|Dubnation|7|17|0|0|0|
+#YVCJC0VCQ|Marrow|8|16|0|0|0|
+#22RQ0QRRL|FIGHTER|9|16|0|0|0|
+#2J9GYQRYC|Jac|10|16|0|0|0|
+#LV29URQLP|tiger king|11|16|0|0|0|
+#9QRRRQQG9|perfectguy10104|12|16|0|0|0|
+#GJ92CG9VL|Mr.Joshi|13|16|0|0|0|
+#QR8LP8LUL|jukes\md|14|16|0|0|0|
+#GJ20RJ8RP|arius67'|15|16|0|0|0|
+#GJLRURGC2|Cole|16|16|0|0|0|
+#GRGGPPQ8J|Pam from HR|17|15|0|0|0|
+#8L9J0R2QJ|SWAGMUFFIN90|18|15|0|0|0|
+#QLYP90RPV|Ste|19|15|0|0|0|
+#Y2G8CC09Q|jash|20|15|0|0|0|
+""", True),
+
 ("818204186","11/8/26","Amigos Spider","15v15","""
 #QU9J0RYY8|Tupac|6|18|1|2|2|3:2:2:18
 #99P9VPUY|SWAG-YOLO|9|18|1|2|2|4:2:2:18
