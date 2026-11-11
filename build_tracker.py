@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 11/11/26 — 50 members
-    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Dubnation","F16","FIGHTER","JLA","Jac","Kizaru","Marrow","Mason","Masterp;)","Mr.Joshi","Pam from HR","Ryan.","SHADOW WARLORD","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","SwiftyKinja","THÒR","Tupac","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jash","jukes\md","kingZ","perfectguy10104","roham","silent killer","stage5yo","stage6yo","studkiller","tiger king","•KAILAN•"
+    # Auto-updated 11/11/26 — 49 members
+    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","Big Steppa","Brandon","Brodie","Clasher JD","Cole","DE1","Dubnation","F16","FIGHTER","JLA","Jac","Kizaru","Marrow","Mason","Masterp;)","Mr.Joshi","Pam from HR","Ryan.","SHADOW WARLORD","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","SwiftyKinja","THÒR","Tupac","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jash","jukes\md","kingZ","perfectguy10104","roham","silent killer","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -285,13 +285,13 @@ PLAYER_TAGS = {
 # War end time (ISO 8601 UTC) — set by update_tracker.py when a war is active.
 # JS uses this to display the smart-capture end time as "Next update" instead of next cron slot.
 # Cleared by update_tracker.py when war ends or no war is active.
-WAR_END_ISO = ""
+WAR_END_ISO = "2026-11-12T16:20:31Z"
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
 ("1111162031","11/11/26","Cenas Fortes","20v20","""
-#QY99LUG8Q|Masterp;)|1|18|0|0|0|
-#G0VGRUCC|SwiftyKinja|2|18|0|0|0|
+#QY99LUG8Q|Masterp;)|1|18|2|3|3|1:2:2:18,3:1:1:17
+#G0VGRUCC|SwiftyKinja|2|18|2|6|4|2:3:3:18,1:3:1:18
 #99P9VPUY|SWAG-YOLO|3|18|0|0|0|
 #GV088PV02|roham|4|17|0|0|0|
 #YLGQ20LP8|Brodie|5|17|0|0|0|
@@ -305,10 +305,10 @@ WAR_BLOCKS = [
 #GJ92CG9VL|Mr.Joshi|13|16|0|0|0|
 #QR8LP8LUL|jukes\md|14|16|0|0|0|
 #GJ20RJ8RP|arius67'|15|16|0|0|0|
-#GJLRURGC2|Cole|16|16|0|0|0|
+#GJLRURGC2|Cole|16|16|2|5|5|15:2:2:16,16:3:3:15
 #GRGGPPQ8J|Pam from HR|17|15|0|0|0|
 #8L9J0R2QJ|SWAGMUFFIN90|18|15|0|0|0|
-#QLYP90RPV|Ste|19|15|0|0|0|
+#QLYP90RPV|Ste|19|15|1|2|2|20:2:2:15
 #Y2G8CC09Q|jash|20|15|0|0|0|
 """, True),
 
