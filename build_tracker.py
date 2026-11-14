@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 11/14/26 — 46 members
-    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","Big Steppa","Brandon","Clasher JD","Cole","DE1","Dubnation","F16","FIGHTER","Jac","Kizaru","Marrow","Mason","Masterp;)","Mr.Joshi","Pam from HR","Ryan.","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","SwiftyKinja","THÒR","Tupac","Ulisses Sr","aaron88","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jash","jukes\md","perfectguy10104","roham","stage5yo","stage6yo","studkiller","tiger king"
+    # Auto-updated 11/14/26 — 47 members
+    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","Big Steppa","Brandon","Clasher JD","Cole","DE1","Dubnation","F16","FIGHTER","Jac","Kizaru","Marrow","Mason","Masterp;)","Mr.Joshi","Pam from HR","QUANTUM.LORD","Ryan.","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","SwiftyKinja","THÒR","Tupac","Ulisses Sr","aaron88","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jash","jukes\md","perfectguy10104","roham","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -158,6 +158,7 @@ PLAYER_TH = {
     "J2FRIED": 16,
     "aaron88": 18,
     "Ulisses Sr": 18,
+    "QUANTUM.LORD": 16,
 }
 # In-game order (tiebreaker within same TH — matches the order user sees in-game)
 _CS_ORDER = [
