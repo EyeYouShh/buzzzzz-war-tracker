@@ -296,7 +296,7 @@ WAR_END_ISO = "2026-11-15T16:38:47Z"
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
 ("1114163847","11/14/26","Blue sky#","15v15","""
-#QU9J0RYY8|Tupac|1|18|0|0|0|
+#QU9J0RYY8|Tupac|1|18|2|2|0|1:1:0:18,2:1:0:18
 #G0VGRUCC|SwiftyKinja|2|18|2|4|4|8:1:1:16,9:3:3:16
 #99P9VPUY|SWAG-YOLO|3|18|2|5|5|1:2:2:18,2:3:3:18
 #GV80Y9L0Y|studkiller|4|17|2|6|6|4:3:3:17,5:3:3:17
