@@ -11,7 +11,7 @@ ACTIVE = {
 # Order = ClashSpot trophy/league rank within each TH tier — used as default sort
 PLAYER_TH = {
     "Slayer": 18,
-    "gen": 18, "Gr8Conqueror": 17,
+    "gen": 19, "Gr8Conqueror": 17,
     "stage6yo": 18, "wato": 16, "drybonez": 16,
     "Americanpatriot": 16, "Big Steppa": 18, "SwiftyKinja": 18, "stage5yo": 17, "DE1": 16,
     "crimpo": 16, "Cole": 16, "studkiller": 17, "rour": 14, "MiniPekka": 17,
@@ -121,7 +121,7 @@ PLAYER_TH = {
     "hacker123": 18,
     "SWAG-YOLO": 18,
     "Robin2hood": 16,
-    "cracker snacker": 18,
+    "cracker snacker": 19,
     "Dowletyar. 06": 15,
     "Rocky": 18,
     "eldude49": 16,
