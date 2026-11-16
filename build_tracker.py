@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 11/15/26 — 47 members
-    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","Big Steppa","Brandon","Clasher JD","Cole","DE1","Dubnation","F16","FIGHTER","Jac","Kizaru","Marrow","Mason","Masterp;)","Mr.Joshi","Pam from HR","Ryan.","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","Sus Barney","SwiftyKinja","THÒR","Tupac","Ulisses Sr","aaron88","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jash","jukes\md","perfectguy10104","roham","stage5yo","stage6yo","studkiller","tiger king"
+    # Auto-updated 11/16/26 — 48 members
+    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","Big Steppa","Brandon","Clasher JD","Cole","DE1","Dubnation","F16","FIGHTER","Jac","Kizaru","Marrow","Mason","Masterp;)","Mr.Joshi","Pam from HR","Ryan.","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","Sus Barney","SwiftyKinja","THÒR","Tupac","Ulisses Sr","aaron88","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jash","jukes\md","perfectguy10104","quan","roham","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -160,6 +160,7 @@ PLAYER_TH = {
     "Ulisses Sr": 18,
     "QUANTUM.LORD": 16,
     "Sus Barney": 16,
+    "quan": 11,
 }
 # In-game order (tiebreaker within same TH — matches the order user sees in-game)
 _CS_ORDER = [
@@ -210,6 +211,7 @@ PLAYER_TAGS = {
     "#G0VGRUCC": "SwiftyKinja",
     "#G29JL9UYR": "fL4mE",
     "#G99V98V2L": "My name is...",
+    "#G9C89L0CR": "aaron88",
     "#G9RY2R9L0": "hood",
     "#GG89UJ8G0": "Kiromiga",
     "#GGCJP909Q": "Anik the great",
@@ -295,6 +297,29 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
+("1117154138","11/17/26","ابطال العراق","20v20","""
+#QL8CV0P0|gen|1|19|0|0|0|
+#G0VGRUCC|SwiftyKinja|2|18|0|0|0|
+#UYLPYCPR|THÒR|3|18|0|0|0|
+#G9C89L0CR|aaron88|4|18|0|0|0|
+#99P9VPUY|SWAG-YOLO|5|18|0|0|0|
+#RQCJR8JV|SurgeGold|6|17|0|0|0|
+#GV088PV02|roham|7|17|0|0|0|
+#PGLV2YQC|Kizaru|8|17|0|0|0|
+#GRRYCUJP8|crimpo|9|16|0|0|0|
+#QGGUGUQ98|Clasher JD|10|16|0|0|0|
+#LV29URQLP|tiger king|11|16|0|0|0|
+#8PR2Q2CJP|Ryan.|12|16|0|0|0|
+#22RQ0QRRL|FIGHTER|13|16|0|0|0|
+#GJ20RJ8RP|arius67'|14|16|0|0|0|
+#QR8LP8LUL|jukes\md|15|16|0|0|0|
+#GJLRURGC2|Cole|16|16|0|0|0|
+#GRGGPPQ8J|Pam from HR|17|15|0|0|0|
+#QLYP90RPV|Ste|18|15|0|0|0|
+#Y2G8CC09Q|jash|19|15|0|0|0|
+#V2CC2RRP|-13lackHawk-|20|13|0|0|0|
+""", True),
+
 ("1114163847","11/14/26","Blue sky#","15v15","""
 #QU9J0RYY8|Tupac|1|18|2|2|0|1:1:0:18,2:1:0:18
 #G0VGRUCC|SwiftyKinja|2|18|2|4|4|8:1:1:16,9:3:3:16
