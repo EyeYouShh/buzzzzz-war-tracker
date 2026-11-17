@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 11/17/26 — 48 members
-    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","Big Steppa","Brandon","Clasher JD","Cole","DE1","Dubnation","F16","FIGHTER","Jac","Kizaru","Marrow","Mason","Masterp;)","Mr.Joshi","Pam from HR","Ryan.","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","Sus Barney","SwiftyKinja","THÒR","Tupac","Ulisses Sr","aaron88","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jash","jukes\md","mothgilf1","perfectguy10104","roham","stage5yo","stage6yo","studkiller","tiger king"
+    # Auto-updated 11/17/26 — 47 members
+    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","Big Steppa","Brandon","Clasher JD","Cole","DE1","Dubnation","F16","FIGHTER","Jac","Kizaru","Marrow","Mason","Masterp;)","Mr.Joshi","Pam from HR","Ryan.","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","Sus Barney","SwiftyKinja","THÒR","Tupac","Ulisses Sr","arius67'","cracker snacker","crimpo","das","fL4mE","gen","jash","jukes\md","mothgilf1","perfectguy10104","roham","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -294,27 +294,27 @@ PLAYER_TAGS = {
 # War end time (ISO 8601 UTC) — set by update_tracker.py when a war is active.
 # JS uses this to display the smart-capture end time as "Next update" instead of next cron slot.
 # Cleared by update_tracker.py when war ends or no war is active.
-WAR_END_ISO = ""
+WAR_END_ISO = "2026-11-18T15:41:38Z"
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
 ("1117154138","11/17/26","ابطال العراق","20v20","""
-#QL8CV0P0|gen|1|19|0|0|0|
-#G0VGRUCC|SwiftyKinja|2|18|0|0|0|
+#QL8CV0P0|gen|1|19|1|3|3|4:3:3:17
+#G0VGRUCC|SwiftyKinja|2|18|2|6|6|2:3:3:18,1:3:3:19
 #UYLPYCPR|THÒR|3|18|0|0|0|
-#G9C89L0CR|aaron88|4|18|0|0|0|
+#G9C89L0CR|aaron88|4|18|2|5|5|20:2:2:14,19:3:3:16
 #99P9VPUY|SWAG-YOLO|5|18|0|0|0|
 #RQCJR8JV|SurgeGold|6|17|0|0|0|
-#GV088PV02|roham|7|17|0|0|0|
-#PGLV2YQC|Kizaru|8|17|0|0|0|
+#GV088PV02|roham|7|17|2|6|6|7:3:3:17,3:3:3:18
+#PGLV2YQC|Kizaru|8|17|1|1|1|8:1:1:16
 #GRRYCUJP8|crimpo|9|16|0|0|0|
-#QGGUGUQ98|Clasher JD|10|16|0|0|0|
+#QGGUGUQ98|Clasher JD|10|16|2|6|6|9:3:3:16,10:3:3:16
 #LV29URQLP|tiger king|11|16|0|0|0|
-#8PR2Q2CJP|Ryan.|12|16|0|0|0|
+#8PR2Q2CJP|Ryan.|12|16|2|6|6|13:3:3:16,12:3:3:16
 #22RQ0QRRL|FIGHTER|13|16|0|0|0|
 #GJ20RJ8RP|arius67'|14|16|0|0|0|
 #QR8LP8LUL|jukes\md|15|16|0|0|0|
-#GJLRURGC2|Cole|16|16|0|0|0|
+#GJLRURGC2|Cole|16|16|2|6|6|15:3:3:16,16:3:3:15
 #GRGGPPQ8J|Pam from HR|17|15|0|0|0|
 #QLYP90RPV|Ste|18|15|0|0|0|
 #Y2G8CC09Q|jash|19|15|0|0|0|
