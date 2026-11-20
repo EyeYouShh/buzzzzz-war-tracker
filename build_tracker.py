@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 11/18/26 — 43 members
-    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","Big Steppa","Clasher JD","Cole","DE1","Dubnation","F16","FIGHTER","Jac","Kizaru","Marrow","Mason","Masterp;)","Mr.Joshi","Pam from HR","Ryan.","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","Sus Barney","SwiftyKinja","THÒR","Tupac","arius67'","crimpo","das","gen","jash","jukes\md","mothgilf1","perfectguy10104","roham","stage5yo","stage6yo","studkiller","tiger king"
+    # Auto-updated 11/20/26 — 44 members
+    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","Big Steppa","Clasher JD","Cole","DE1","Dubnation","F16","FIGHTER","Jac","Kizaru","Marrow","Mason","Masterp;)","Mr.Joshi","Pam from HR","Ryan.","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","Sus Barney","SwiftyKinja","THÒR","Tupac","Varl","arius67'","crimpo","das","gen","jash","jukes\md","mothgilf1","perfectguy10104","roham","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -162,6 +162,7 @@ PLAYER_TH = {
     "Sus Barney": 16,
     "quan": 11,
     "mothgilf1": 16,
+    "Varl": 16,
 }
 # In-game order (tiebreaker within same TH — matches the order user sees in-game)
 _CS_ORDER = [
@@ -308,18 +309,18 @@ WAR_BLOCKS = [
 #GV088PV02|roham|6|17|2|5|3|6:3:3:18,1:2:0:19
 #PGLV2YQC|Kizaru|7|17|1|3|3|7:3:3:17
 #Q8JRG00PP|Dubnation|8|17|0|0|0|
-#GRRYCUJP8|crimpo|9|16|1|3|3|4:3:3:17
+#GRRYCUJP8|crimpo|9|16|2|4|3|4:3:3:17,1:1:0:19
 #QGGUGUQ98|Clasher JD|10|16|2|5|5|10:3:3:16,5:2:2:17
 #8PR2Q2CJP|Ryan.|11|16|2|6|6|11:3:3:16,9:3:3:16
 #9QRRRQQG9|perfectguy10104|12|16|2|6|4|12:3:3:16,5:3:1:17
-#Q2CRG9RR9|mothgilf1|13|16|0|0|0|
+#Q2CRG9RR9|mothgilf1|13|16|2|6|6|14:3:3:16,18:3:3:15
 #22RQ0QRRL|FIGHTER|14|16|0|0|0|
 #GJ20RJ8RP|arius67'|15|16|1|3|3|8:3:3:16
 #QR8LP8LUL|jukes\md|16|16|2|6|6|16:3:3:18,19:3:3:16
 #GJLRURGC2|Cole|17|16|2|6|6|17:3:3:16,15:3:3:16
-#QLYP90RPV|Ste|18|15|0|0|0|
+#QLYP90RPV|Ste|18|15|1|3|3|20:3:3:13
 #Y2G8CC09Q|jash|19|15|0|0|0|
-#V2CC2RRP|-13lackHawk-|20|13|0|0|0|
+#V2CC2RRP|-13lackHawk-|20|13|2|6|0|20:3:0:13,19:3:0:16
 """, True),
 
 ("1117154138","11/17/26","ابطال العراق","20v20","""
