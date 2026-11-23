@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 11/23/26 — 49 members
-    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","BARSA","Big Steppa","Clasher JD","Cole","DE1","Dubnation","F16","FIGHTER","Jac","Kizaru","MAYKY","Marrow","Mason","Masterp;)","Mr.Joshi","Pam from HR","Ryan.","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","SwiftyKinja","THÒR","Tupac","arius67'","crimpo","das","gen","jash","josh","jukes\md","king ruf ruf","mothgilf1","mr.allan","perfectguy10104","roham","stage5yo","stage6yo","studkiller","tiger king","zoheir1","•KAILAN•"
+    # Auto-updated 11/23/26 — 48 members
+    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","BARSA","Big Steppa","Clasher JD","Cole","DE1","Dubnation","F16","FIGHTER","Jac","Kizaru","MAYKY","Marrow","Mason","Masterp;)","Mr.Joshi","Pam from HR","Ryan.","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","SwiftyKinja","THÒR","Tupac","arius67'","crimpo","das","gen","jash","josh","jukes\md","king ruf ruf","mothgilf1","mr.allan","perfectguy10104","roham","stage5yo","stage6yo","studkiller","tiger king","•KAILAN•"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
