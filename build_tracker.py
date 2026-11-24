@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 # ===== ACTIVE MEMBERS (current roster) =====
 ACTIVE = {
-    # Auto-updated 11/23/26 — 48 members
-    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","BARSA","Big Steppa","Clasher JD","Cole","DE1","Dubnation","F16","FIGHTER","Jac","Kizaru","MAYKY","Marrow","Mason","Masterp;)","Mr.Joshi","Pam from HR","Ryan.","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","SwiftyKinja","THÒR","Tupac","arius67'","crimpo","das","gen","jash","josh","jukes\md","king ruf ruf","mothgilf1","mr.allan","perfectguy10104","roham","stage5yo","stage6yo","studkiller","tiger king","•KAILAN•"
+    # Auto-updated 11/24/26 — 48 members
+    "#AgentKush007","*iaN*","-13lackHawk-","Americanpatriot","Aye","BARSA","Big Steppa","Clasher JD","Cole","DE1","Dubnation","F16","FIGHTER","Jac","Kizaru","MAYKY","Marrow","Mason","Masterp;)","Mr.Joshi","Pam from HR","Ryan.","SWAG-YOLO","SWAGMUFFIN90","Slime","St.Markus","Ste","SurgeGold","Sus Barney","SwiftyKinja","THÒR","Tupac","arius67'","crimpo","das","gen","jash","josh","jukes\md","king ruf ruf","mothgilf1","mr.allan","perfectguy10104","roham","stage5yo","stage6yo","studkiller","tiger king"
 }
 
 # ===== PLAYER TH LEVELS (from ClashSpot, in ClashSpot display order) =====
@@ -304,7 +304,7 @@ PLAYER_TAGS = {
 # War end time (ISO 8601 UTC) — set by update_tracker.py when a war is active.
 # JS uses this to display the smart-capture end time as "Next update" instead of next cron slot.
 # Cleared by update_tracker.py when war ends or no war is active.
-WAR_END_ISO = "2026-11-24T20:14:08Z"
+WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
@@ -320,21 +320,21 @@ WAR_BLOCKS = [
 #PGLV2YQC|Kizaru|9|17|2|6|6|9:3:3:17,17:3:3:16
 #GRRYCUJP8|crimpo|10|16|2|5|0|2:3:0:19,1:2:0:19
 #QGGUGUQ98|Clasher JD|11|16|2|6|6|14:3:3:17,13:3:3:17
-#PYC8PLU8|#AgentKush007|12|16|1|3|3|11:3:3:17
+#PYC8PLU8|#AgentKush007|12|16|2|5|3|11:3:3:17,5:2:0:18
 #2PLCQ0RCL|josh|13|16|2|6|4|16:3:3:16,18:3:1:16
 #LV29URQLP|tiger king|14|16|2|6|6|19:3:3:16,21:3:3:16
 #9QRRRQQG9|perfectguy10104|15|16|1|3|3|15:3:3:16
-#22RQ0QRRL|FIGHTER|16|16|0|0|0|
+#22RQ0QRRL|FIGHTER|16|16|2|3|0|2:2:0:19,7:1:0:17
 #GJ20RJ8RP|arius67'|17|16|2|6|6|6:3:3:17,7:3:3:17
-#QR8LP8LUL|jukes\md|18|16|0|0|0|
+#QR8LP8LUL|jukes\md|18|16|2|3|0|12:1:0:17,11:2:0:17
 #8PR2Q2CJP|Ryan.|19|17|0|0|0|
 #GJLRURGC2|Cole|20|16|2|5|5|20:3:3:16,18:2:2:16
 #8L9J0R2QJ|SWAGMUFFIN90|21|15|0|0|0|
-#QLYP90RPV|Ste|22|15|1|2|2|25:2:2:15
-#GRGGPPQ8J|Pam from HR|23|15|1|3|3|23:3:3:16
+#QLYP90RPV|Ste|22|15|2|4|2|25:2:2:15,15:2:0:16
+#GRGGPPQ8J|Pam from HR|23|15|2|5|3|23:3:3:16,21:2:0:16
 #Y2G8CC09Q|jash|24|15|1|3|1|25:3:1:15
 #V2CC2RRP|-13lackHawk-|25|13|1|2|0|25:2:0:15
-""", True),
+"""),
 
 ("1121173327","11/21/26","Abyssal Guard","20v20","""
 #QL8CV0P0|gen|1|19|2|4|1|1:1:1:19,2:3:0:18
@@ -7160,6 +7160,7 @@ WAR_BLOCKS = [
 
 # ── Win/Loss/Draw results keyed by war ID ──
 RESULTS = {
+    "1123201408": "D",
     "1121173327": "W",
     "1119160822": "W",
     "1117154138": "D",
