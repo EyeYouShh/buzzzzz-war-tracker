@@ -232,10 +232,12 @@ PLAYER_TAGS = {
     "#GPLUYRQ9J": "filet minion",
     "#GQJUGLQRQ": "stage6yo",
     "#GQU082R20": "Pratham",
+    "#GR8R0R2P0": "MAYKY",
     "#GRCQGPVGC": "BODYITTHEN!",
     "#GRGGPPQ8J": "Pam from HR",
     "#GRRYCUJP8": "crimpo",
     "#GU9VU9G0U": "leo",
+    "#GUQLGQL8J": "BARSA",
     "#GV088PV02": "roham",
     "#GV80Y9L0Y": "studkiller",
     "#L82RQV8UP": "YASH",
@@ -260,6 +262,7 @@ PLAYER_TAGS = {
     "#Q8JLVLGL2": "Ashutosh",
     "#Q8JRG00PP": "Dubnation",
     "#Q9GU8LQPV": "Lil Slime",
+    "#Q9JVR908R": "mr.allan",
     "#Q9UJG0RJP": "Sumairu",
     "#QCU9UVCU": "king ruf ruf",
     "#QCUCLPPJV": "Gr8Conqueror",
@@ -308,6 +311,39 @@ WAR_END_ISO = ""
 
 # ===== RAW WAR DATA (newest first) =====
 WAR_BLOCKS = [
+("1125200846","11/25/26","Oblivion","30v30","""
+#QL8CV0P0|gen|1|19|0|0|0|
+#QY99LUG8Q|Masterp;)|2|18|0|0|0|
+#G0VGRUCC|SwiftyKinja|3|18|0|0|0|
+#209J8J0RL|Big Steppa|4|18|0|0|0|
+#UYLPYCPR|THÒR|5|18|0|0|0|
+#99P9VPUY|SWAG-YOLO|6|18|0|0|0|
+#GV80Y9L0Y|studkiller|7|17|0|0|0|
+#RQCJR8JV|SurgeGold|8|17|0|0|0|
+#QPLCGG9CR|St.Markus|9|17|0|0|0|
+#Q8JRG00PP|Dubnation|10|17|0|0|0|
+#PGLV2YQC|Kizaru|11|17|0|0|0|
+#GRRYCUJP8|crimpo|12|16|0|0|0|
+#QGGUGUQ98|Clasher JD|13|16|0|0|0|
+#PYC8PLU8|#AgentKush007|14|16|0|0|0|
+#2PLCQ0RCL|josh|15|16|0|0|0|
+#LV29URQLP|tiger king|16|16|0|0|0|
+#9QRRRQQG9|perfectguy10104|17|16|0|0|0|
+#2J9GYQRYC|Jac|18|16|0|0|0|
+#22RQ0QRRL|FIGHTER|19|16|0|0|0|
+#GR8R0R2P0|MAYKY|20|16|0|0|0|
+#GJ20RJ8RP|arius67'|21|16|0|0|0|
+#GUQLGQL8J|BARSA|22|16|0|0|0|
+#QR8LP8LUL|jukes\md|23|16|0|0|0|
+#Q9JVR908R|mr.allan|24|16|0|0|0|
+#8PR2Q2CJP|Ryan.|25|17|0|0|0|
+#GJLRURGC2|Cole|26|16|0|0|0|
+#GRGGPPQ8J|Pam from HR|27|15|0|0|0|
+#QLYP90RPV|Ste|28|15|0|0|0|
+#Y2G8CC09Q|jash|29|15|0|0|0|
+#V2CC2RRP|-13lackHawk-|30|13|0|0|0|
+""", True),
+
 ("1123201408","11/23/26","TITANES","25v25","""
 #9RQURV0UQ|•KAILAN•|1|19|2|5|5|1:2:2:19,2:3:3:19
 #QL8CV0P0|gen|2|19|2|6|4|3:3:3:18,1:3:1:19
