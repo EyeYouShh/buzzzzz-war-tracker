@@ -126,7 +126,7 @@ PLAYER_TH = {
     "Rocky": 18,
     "eldude49": 16,
     "crispyscool": 15,
-    "Clasher JD": 16,
+    "Clasher JD": 17,
     "#AgentKush007": 16,
     "perfectguy10104": 16,
     "Masterp;)": 18,
